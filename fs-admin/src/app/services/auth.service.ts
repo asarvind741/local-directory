@@ -5,7 +5,7 @@ import { CustomRegistrationModule } from '../theme/auth/registration/custom-regi
 
 
 @Injectable({
-    providedIn: CustomRegistrationModule,
+    providedIn: 'root',
 })
 
 
@@ -17,10 +17,7 @@ export class AuthService {
     }
 
     signupUser(userData){
-        const httpHeaders = new HttpHeaders({
-            'Content-Type': 'application/json'
-        })
-        return this.httpClient.post(`${environment.API_URL}/user/sign-up`, userData,  {headers: httpHeaders})
+        return this.httpClient.post(`${environment.API_URL}/user/sign-up`, userData)
     }
 
 }

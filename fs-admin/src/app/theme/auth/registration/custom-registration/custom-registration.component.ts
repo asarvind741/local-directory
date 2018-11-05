@@ -11,6 +11,8 @@ import { HttpResponse } from '@angular/common/http';
 export class CustomRegistrationComponent implements OnInit {
 
   signupForm: FormGroup;
+  regitered:Boolean = false;
+  message:String = '';
 
 constructor(private authService: AuthService){
 
@@ -34,7 +36,14 @@ createSignupForm(){
 onSubmit(){
   // console.log("this form value", this.signupForm.value)
   this.authService.signupUser(this.signupForm.value).subscribe((response: HttpResponse<any>) => {
-    console.log("response is", response)
+    if(response.status === 200){
+      this.regitered = true;
+      this.message = "Thank you for registering. Please check your email to verify your account"
+
+    }
+    else {
+      this.regitered = false;
+    }
   })
 }
 

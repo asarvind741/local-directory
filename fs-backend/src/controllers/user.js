@@ -38,7 +38,6 @@ async function loginUser(req, res) {
         }
 
     } catch (e) {
-        console.log(e)
         sendResponse(res, 500, 'Unexpected error', e);
 
     }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+
 @Component({
     selector: 'app-message',
     templateUrl: './message.component.html',
@@ -7,10 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class MessageComponent implements OnInit {
-    @Input('recipeItem') recipe: String;
+    @Input('message') message: String;
 
     ngOnInit(){
-        console.log('message', this.recipe)
+        
     }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../../../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-basic-reg',
@@ -14,7 +15,8 @@ export class CustomRegistrationComponent implements OnInit {
   regitered:Boolean = false;
   message:String = '';
 
-constructor(private authService: AuthService){
+constructor(
+  private authService: AuthService){
 
 }
 
@@ -38,8 +40,8 @@ onSubmit(){
   this.authService.signupUser(this.signupForm.value).subscribe((response: HttpResponse<any>) => {
     if(response.status === 200){
       this.regitered = true;
-      this.message = "Thank you for registering. Please check your email to verify your account"
-
+      this.message = "Thank you for registering. Please check your email to verify your account";
+      
     }
     else {
       this.regitered = false;

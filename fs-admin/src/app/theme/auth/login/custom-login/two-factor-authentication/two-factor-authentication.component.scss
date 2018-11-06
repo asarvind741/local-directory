@@ -1,4 +1,4 @@
-.signup-success {
+.one-time-password {
     color: black;
     width: 400px;
     text-align: center;
@@ -12,8 +12,13 @@
     box-shadow: 0 0 21px rgba(0, 0, 0, 0.2);
 }
 
-.signup-success h4 {
+.one-time-password h4 {
     font-size: 17px;
-    font-weight: 100;
-    margin: 0;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.otp-input {
+    // border: 1px solid black;
+    width: 70%;
 }

@@ -1,0 +1,14 @@
+Property 'on' in type 'MockDrake' is not assignable to the same property in base type 'DrakeWithModels
+
+--> @types/dragula@2.1.33
+
+
+httpClient-
+https://ryanchenkie.com/angular-authentication-using-the-http-client-and-http-interceptors
+
+
+relativeTo in Angular Router
+https://stackoverflow.com/questions/39124906/navigate-relative-with-angular-2-router-version-3/39125830
+
+bootstrap icons for social media login
+https://lipis.github.io/bootstrap-social/

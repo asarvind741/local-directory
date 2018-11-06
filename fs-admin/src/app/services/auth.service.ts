@@ -20,4 +20,21 @@ export class AuthService {
         return this.httpClient.post(`${environment.API_URL}/user/sign-up`, userData)
     }
 
+    activateUser(token) {
+        const sendToken = { 'token': token}
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-type': 'application/json' })
+        }
+        return this.httpClient.post(`${environment.API_URL}/user/verify`, sendToken)
+    }
+
+    loginUser(user){
+        return this.httpClient.post(`${environment.API_URL}/user/send-otp`, user)
+    }
+
+    authenticateUser(oneTimePassword, user){
+        const otpVerify = { 'email': user.email, 'password': user.password, 'otp': oneTimePassword}
+        return this.httpClient.post(`${environment.API_URL}/user/sign-in`, otpVerify)
+    }
+
 }

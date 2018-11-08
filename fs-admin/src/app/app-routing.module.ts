@@ -6,6 +6,10 @@ import {AuthComponent} from './layout/auth/auth.component';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: './theme/auth/login/custom-login/custom-login.module#CustomLoginModule'
+  },
+  {
+    path: 'dashboard',
     component: AdminComponent,
     children: [
       {

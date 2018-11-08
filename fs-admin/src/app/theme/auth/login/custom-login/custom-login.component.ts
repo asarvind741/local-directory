@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AuthService } from '../../../../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-custom-login',
@@ -12,6 +13,7 @@ import { HttpResponse } from '@angular/common/http';
 export class CustomLoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  token:Subscription
 
   constructor(
     private router: Router,
@@ -20,7 +22,10 @@ export class CustomLoginComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-
+   
+    this.token = this.authService.getToken().subscribe((token) => {
+      console.log("token", token)
+    })
     this.createLoginForm();
   }
 

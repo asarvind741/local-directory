@@ -21,15 +21,15 @@ export class TwoFactorAuthenticationComponent implements OnInit {
     this.activatedRoute.queryParams
     .subscribe((params: Params) => {
       this.user = params;
-      console.log("user iusssss", this.user)
     })
   }
 
   verifyUser(){
     this.authService.authenticateUser(this.otp, this.user)
     .subscribe((response: HttpResponse<any>) => {
-      console.log("response isssssssssssssss", response)
       if(response.status === 206){
+        // localStorage.setItem('token', response.body.data.token);
+        // localStorage.setItem('currentUser', response.body.data.user);
         this.router.navigate(['/']);
       }
       else if(response.status === 200){

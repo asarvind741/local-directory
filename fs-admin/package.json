@@ -56,6 +56,7 @@
     "ngx-chips": "^1.5.10",
     "ngx-color-picker": "^7.0.1",
     "ngx-perfect-scrollbar": "^7.0.0",
+    "ngx-toastr": "^9.1.1",
     "nouislider": "^12.1.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.1",

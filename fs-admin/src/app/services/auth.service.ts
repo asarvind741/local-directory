@@ -4,6 +4,7 @@ import {environment } from '../../environments/environment';
 import { CustomRegistrationModule } from '../theme/auth/registration/custom-registration/custom-registration.module';
 import { Subject } from "rxjs/Subject";
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -14,7 +15,8 @@ import { Observable } from 'rxjs/Observable';
 
 export class AuthService {
 
-    private tokenSubject = new Subject<any>()
+    // private tokenSubject = new Subject<any>();
+     public currentLoggingUserSubject = new BehaviorSubject<any>([]);
 
     constructor(private httpClient: HttpClient){
 
@@ -37,21 +39,41 @@ export class AuthService {
     }
 
     authenticateUser(oneTimePassword, user){
+        
         const otpVerify = { 'email': user.email, 'password': user.password, 'otp': oneTimePassword}
         return this.httpClient.post(`${environment.API_URL}/user/sign-in`, otpVerify)
     }
 
-    getToken():Observable<any>{
-        let token = localStorage.setItem('token', '1234')
-       this.tokenSubject.next(token);
-       console.log("sds", this.tokenSubject);
-       return this.tokenSubject.asObservable();
+    // getToken():Observable<any>{
+       
+    //     let token = localStorage.setItem('token', '1234')
+    //    this.tokenSubject.next(token);
+    //    return this.tokenSubject.asObservable();
 
+    // }
+
+    getToken(){
+        return localStorage.getItem('token');
     }
 
-    logout(){
+    saveUser(user){
+        localStorage.setItem('token', user.token);
+        localStorage.setItem('currentUser', JSON.stringify(user))
+    }
+
+    clearToken(){
         localStorage.clear();
-        this.tokenSubject.next();
+    }
+
+    logoutUser(){
+        localStorage.clear();
+    }
+
+    get isLoggedIn(){
+        if(localStorage.getItem('token'))
+        return true
+        else
+        return false
     }
 
 }

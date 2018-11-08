@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class CustomLoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  token:Subscription
+  token:any;
 
   constructor(
     private router: Router,
@@ -23,9 +23,7 @@ export class CustomLoginComponent implements OnInit {
 
   ngOnInit() {
    
-    this.token = this.authService.getToken().subscribe((token) => {
-      console.log("token", token)
-    })
+    this.token = this.authService.getToken()
     this.createLoginForm();
   }
 
@@ -38,10 +36,12 @@ export class CustomLoginComponent implements OnInit {
 
   onSubmit(){
     const user = { email: this.loginForm.value.email, password: this.loginForm.value.password };
+    this.authService.currentLoggingUserSubject.next(user);
     this.authService.loginUser(user)
     .subscribe((response:HttpResponse<any>) => {
+      console.log("response", response)
       if(response.status === 200){
-        this.router.navigate(['../one-time-password'], { relativeTo: this.activatedRoute, queryParams: user});
+        this.router.navigate(['../one-time-password']);
       }
     })
    

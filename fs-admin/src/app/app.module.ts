@@ -13,6 +13,7 @@ import {MenuItems} from './shared/menu-items/menu-items';
 import {BreadcrumbsComponent} from './layout/admin/breadcrumbs/breadcrumbs.component';
 import { CommonHeadersInterceptor } from './shared/interceptors/http.interceptors';
 import { TokenIterceptor } from './shared/interceptors/token.interceptor';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { TokenIterceptor } from './shared/interceptors/token.interceptor';
   ],
   providers: [
     MenuItems,
+    AuthGuardService,
     { provide: HTTP_INTERCEPTORS, useClass: CommonHeadersInterceptor, multi: true},
     { provide: HTTP_INTERCEPTORS, useClass:TokenIterceptor, multi: true}
   ],

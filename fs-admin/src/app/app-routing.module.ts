@@ -127,7 +127,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'setup-profile', loadChildren: './wizard/wizard.component#WizardModule'}
+  { path: 'setup-profile', loadChildren: './wizard/wizard.module#WizardModule'}
 ];
 
 @NgModule({

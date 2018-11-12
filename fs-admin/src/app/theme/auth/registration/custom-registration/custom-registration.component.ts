@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../../../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-basic-reg',
@@ -16,7 +16,8 @@ export class CustomRegistrationComponent implements OnInit {
   message:String = '';
 
 constructor(
-  private authService: AuthService){
+  private authService: AuthService,
+  private toastrService: ToastrService){
 
 }
 
@@ -52,6 +53,10 @@ onSubmit(){
     else {
       this.regitered = false;
     }
+  }, (error) => {
+    console.log("errrrrrrrrrr", error.error.message);
+    const err = error.error.message;
+   this.toastrService.error(err, 'Error');
   })
 }
 

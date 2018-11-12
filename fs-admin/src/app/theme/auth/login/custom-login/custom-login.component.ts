@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AuthService } from '../../../../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-custom-login',
@@ -14,17 +15,23 @@ export class CustomLoginComponent implements OnInit {
 
   loginForm: FormGroup;
   token:any;
+  isLoggedIn: boolean;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastrService: ToastrService
     ) { }
 
   ngOnInit() {
    
-    this.token = this.authService.getToken()
+    this.token = this.authService.getToken();
+    if(this.token){
+      this.router.navigate(['/dashboard/dashboard/default'])
+    }
     this.createLoginForm();
+   
   }
 
   createLoginForm(){
@@ -43,8 +50,16 @@ export class CustomLoginComponent implements OnInit {
       if(response.status === 200){
         this.router.navigate(['../one-time-password']);
       }
+    }, (error) => {
+      const err = error.error.message;
+      this.toastrService.error(err, 'Error');
     })
    
+  }
+
+  signInWithLinkedIn(){
+    console.log("sssss")
+    window.open("http://40.71.47.14:5000/auth/linkedin");
   }
 
 }

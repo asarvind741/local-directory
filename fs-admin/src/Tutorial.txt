@@ -30,3 +30,6 @@ Connecting to local server_
 5) You can just time "YES" and continue.
 6) It will ask you to enter password. Please do that.
 7) run the command "ls" and see list of directory.
+
+
+##Toastr module

@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 
 
 
-export class AuthService {
+export class AuthenticationService {
 
     // private tokenSubject = new Subject<any>();
      public currentLoggingUserSubject = new BehaviorSubject<any>([]);

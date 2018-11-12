@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import { AuthService } from '../../../../services/auth.service';
+import { 
+  AuthService, 
+  SocialUser, 
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  LinkedinLoginProvider
+ } from 'ng4-social-login';
+import { AuthenticationService } from '../../../../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
@@ -20,8 +27,9 @@ export class CustomLoginComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService,
-    private toastrService: ToastrService
+    private authService: AuthenticationService,
+    private toastrService: ToastrService,
+    private socialAuthService: AuthService
     ) { }
 
   ngOnInit() {
@@ -58,8 +66,10 @@ export class CustomLoginComponent implements OnInit {
   }
 
   signInWithLinkedIn(){
-    console.log("sssss")
-    window.open("http://40.71.47.14:5000/auth/linkedin");
+    this.socialAuthService.signIn(LinkedinLoginProvider.PROVIDER_ID)
+    .then(userData => {
+      console.log("userrrrrrrrrr linkedin", userData)
+    })
   }
 
 }

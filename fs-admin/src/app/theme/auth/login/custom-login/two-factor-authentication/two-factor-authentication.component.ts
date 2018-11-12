@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from '../../../../../services/auth.service';
+import { AuthenticationService } from '../../../../../services/auth.service';
 import { HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -16,7 +16,7 @@ export class TwoFactorAuthenticationComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit() {

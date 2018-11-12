@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
 import {MenuItems} from '../../shared/menu-items/menu-items';
-import { AuthService } from '../../services/auth.service';
+import { AuthenticationService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -123,7 +123,7 @@ export class AdminComponent implements OnInit {
 
   constructor(
     public menuItems: MenuItems,
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private router: Router
     ) {
     this.navType = 'st2';

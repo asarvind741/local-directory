@@ -21,16 +21,29 @@ export class WizardCustomComponent implements OnInit {
     }
 
     createForm() {
+      let firstName  = null;
+      let lastName = null;
+      let email = null;
+      let mobile = null;
+      let address = null;
         this.userService.getUser(this.userId)
         .subscribe(response => {
-          console.log(response)
+          let userData = response['data'];
+          console.log("user data", userData.email)
+          firstName = userData.firstName || null;
+          lastName = userData.lastName || null;
+          mobile = userData.mobile || null;
+          email = userData.email || null;
+          address = userData.address || null;
+          
         })
+        console.log("email", email)
         this.userProfileForm = new FormGroup({
-            firstName: new FormControl(null),
-            lastName: new FormControl(null),
-            mobile: new FormControl(null),
-            email: new FormControl(null),
-            address: new FormControl(null),
+            firstName: new FormControl(firstName),
+            lastName: new FormControl(lastName),
+            mobile: new FormControl(mobile),
+            email: new FormControl(email),
+            address: new FormControl(address),
             confirmUserProfileDetails: new FormControl(null)
         })
     }

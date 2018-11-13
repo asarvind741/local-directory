@@ -21,20 +21,31 @@ export class WizardCustomComponent implements OnInit {
     }
 
     createForm() {
-      let firstName  = null;
-      let lastName = null;
-      let email = null;
-      let mobile = null;
-      let address = null;
+      let firstName  = '';
+      let lastName = '';
+      let email = '';
+      let mobile = '';
+      let addresses = new FormArray([]);
         this.userService.getUser(this.userId)
         .subscribe(response => {
           let userData = response['data'];
           console.log("user data", userData.email)
-          firstName = userData.firstName || null;
-          lastName = userData.lastName || null;
-          mobile = userData.mobile || null;
-          email = userData.email || null;
-          address = userData.address || null;
+          firstName = userData.firstName ? userData.firstName: '';
+          lastName = userData.lastName ? userData.lastName: '';
+          mobile = userData.mobile ? userData.mobile: '';
+          email = userData.email ? userData.email: '';
+          if(userData.address){
+              const addressObj = userData.address;
+              addresses.push(
+                  new FormGroup({
+                      'line1': new FormControl(addressObj.line1),
+                      'line2': new FormControl(addressObj.line2),
+                      'city': new FormControl(addressObj.city),
+                      'postalCode': new FormControl(addressObj.postalCode),
+                      'country': new FormControl(addressObj.country)
+                  })
+              )
+          }
           
         })
         console.log("email", email)
@@ -43,7 +54,7 @@ export class WizardCustomComponent implements OnInit {
             lastName: new FormControl(lastName),
             mobile: new FormControl(mobile),
             email: new FormControl(email),
-            address: new FormControl(address),
+            addresses: addresses,
             confirmUserProfileDetails: new FormControl(null)
         })
     }

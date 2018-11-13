@@ -35,7 +35,8 @@ const User = new Schema({
     ref: 'company',
     // required: true,
   },
-  name: String,
+  firstName: String,
+  lastName: String,
   role: {
     type: String,
     enum: ['Buyer', 'Seller', 'Admin', 'SubAdmin'],
@@ -86,11 +87,11 @@ const User = new Schema({
   otp: {
     type: String
   },
-  provider: {
+  social_login_provider_id: {
     type: String
   },
-  linkedin: {
-    type: Schema.Types.Mixed
+  social_login_provider: {
+    type: String
   },
   TwoFactorEnabled: {
     type: Boolean,

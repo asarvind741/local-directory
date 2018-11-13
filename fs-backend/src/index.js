@@ -73,7 +73,9 @@ passport.deserializeUser(function (id, cb) {
 app.options('*', cors());
 require('./routes/index')(app);
 require('./routes/user')(app);
-
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public') + '/index.html');
+});
 app.use(function (req, res, next) {
   const err = new Error('Not Found');
   err.status = 404;

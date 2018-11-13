@@ -5,12 +5,11 @@
   "main": "dist/index.js",
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
-    "start": "babel-node dist/index.js",
     "watch": "babel -w src/ -d dist/ --source-maps inline --copy-files",
     "build": "babel src/ -d dist/",
     "serve": "npm run pretest && babel -w src/ -d dist/ --source-maps inline --copy-files | NODE_ENV=dev nodemon --watch dist ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=dev babel-node --presets es2015 src/index.js"
+    "start": "NODE_ENV=dev babel-node --presets es2015 src/index.js"
   },
   "keywords": [],
   "author": "",

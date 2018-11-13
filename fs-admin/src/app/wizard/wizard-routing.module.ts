@@ -1,39 +1,22 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PersonalDetailsComponent } from './personal-details/personal-details.component';
-import { AddressDetailsComponent } from './address-details/address-details.component';
-import { BusinessDetailsComponent } from './business-details/business-details.component';
-import { WizardComponent } from './wizard.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {FormWizardsComponent} from './wizard.component';
 
 const routes: Routes = [
-    { 
-        path: '', data: 
-        {
-        title: 'wizard-operation'
-        },
-        component: WizardComponent,
-        children: [
-            {
-                path: 'personal-details', component: PersonalDetailsComponent
-            },
-            {
-                path: 'address-details', component: AddressDetailsComponent
-            },
-            {
-                path: 'business-details', component: BusinessDetailsComponent
-            }
-        ]
+  {
+    path: '',
+    component: FormWizardsComponent,
+    data: {
+      title: 'Forms Wizard',
+      icon: 'icon-layers',
+      caption: 'lorem ipsum dolor sit amet, consectetur adipisicing elit - form wizard',
+      status: true
     }
-]
+  }
+];
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(routes)
-    ],
-    exports: [
-        RouterModule
-    ]
-
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-
-export class WizardRoutingModule {}
+export class FormWizardsRoutingModule { }

@@ -44,6 +44,18 @@ export class AuthenticationService {
         return this.httpClient.post(`${environment.API_URL}/user/sign-in`, otpVerify)
     }
 
+    socialLogin(social_login_provider_id, social_login_provider, email, name){
+
+        const socialData = { 
+            social_login_provider_id: social_login_provider_id, 
+            social_login_provider:social_login_provider,
+            email: email,
+            name: name
+        }
+        console.log("social data", socialData);
+        return this.httpClient.post(`${environment.API_URL}/user/social-login`, socialData)
+    }
+
     // getToken():Observable<any>{
        
     //     let token = localStorage.setItem('token', '1234')
@@ -67,6 +79,7 @@ export class AuthenticationService {
 
     logoutUser(){
         localStorage.clear();
+        
     }
 
     get isLoggedIn(){

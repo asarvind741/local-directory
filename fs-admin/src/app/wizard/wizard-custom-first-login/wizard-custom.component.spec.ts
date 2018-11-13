@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormWizardsComponent } from './wizard.component';
+import { WizardCustomComponent } from './wizard-custom.component';
 
-describe('FormWizardsComponent', () => {
-  let component: FormWizardsComponent;
-  let fixture: ComponentFixture<FormWizardsComponent>;
+describe('WizardCustomComponent', () => {
+  let component: WizardCustomComponent;
+  let fixture: ComponentFixture<WizardCustomComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormWizardsComponent ]
+      declarations: [ WizardCustomComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormWizardsComponent);
+    fixture = TestBed.createComponent(WizardCustomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

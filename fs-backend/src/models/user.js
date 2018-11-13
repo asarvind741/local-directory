@@ -4,6 +4,16 @@ const Schema = mongoose.Schema;
 
 const statusTypes = ['Active', 'Inactive'];
 
+const Address = new Schema({
+  line1: String,
+  line2: String,
+  city: String,
+  state: String,
+  postalCode: String,
+  country: String
+});
+
+
 const permissionSchema = new Schema({
   isAdmin: {
     type: Boolean,
@@ -49,6 +59,10 @@ const User = new Schema({
     type: String,
     unique: true,
     required: true,
+  },
+  address: {
+    type: Address,
+    default: Address
   },
   mobile: {
     type: String,

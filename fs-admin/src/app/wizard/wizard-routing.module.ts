@@ -7,9 +7,9 @@ const routes: Routes = [
     path: '',
     component: FormWizardsComponent,
     data: {
-      title: 'Forms Wizard',
+      title: 'Setup your profile',
       icon: 'icon-layers',
-      caption: 'lorem ipsum dolor sit amet, consectetur adipisicing elit - form wizard',
+      caption: 'Please help us to know more about you. Enter the details',
       status: true
     }
   }

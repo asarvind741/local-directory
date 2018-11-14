@@ -20,6 +20,10 @@ const routes: Routes = [
       {
         path: 'analytics',
         loadChildren: './analytics/analytics.module#AnalyticsModule'
+      },
+      {
+        path: 'user-management',
+        loadChildren: './user-management/user-management.module#UserManagementModule'
       }
     ]
   }

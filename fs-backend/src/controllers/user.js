@@ -276,6 +276,7 @@ async function getAllUsers(req, res) {
 }
 
 async function editUser(req, res) {
+    console.log(req.body);
     try {
         let id = req.body.id;
         delete req.body.id;
@@ -323,6 +324,30 @@ async function deleteUser(req, res) {
         sendResponse(res, 500, 'Unexpected error', e);
     }
 }
+
+
+async function addUserFromAdmin(req, res) {
+    try {
+        let user = await User.findOne({
+            email: req.body.email
+        });
+        if (user)
+            sendResponse(res, 400, 'User with this email id already exists');
+        else {
+            req.body.status = 'Active';
+            let newUser = await new User(req.body).save();
+            console.log(newUser);
+            sendResponse(res, 200,
+                'Added Successfully.');
+        }
+
+    } catch (e) {
+        console.log(e);
+        sendResponse(res, 500, 'Unexpected error', e);
+    }
+}
+
+
 module.exports = {
     addUser,
     verifyUser,
@@ -332,5 +357,6 @@ module.exports = {
     getAllUsers,
     editUser,
     getUser,
-    deleteUser
+    deleteUser,
+    addUserFromAdmin
 };

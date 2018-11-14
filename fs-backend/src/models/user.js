@@ -60,10 +60,10 @@ const User = new Schema({
     unique: true,
     required: true,
   },
-  address: {
+  address: [{
     type: Address,
     default: Address
-  },
+  }],
   mobile: {
     type: String,
     unique: true,

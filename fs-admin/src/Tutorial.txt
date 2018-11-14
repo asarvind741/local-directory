@@ -33,3 +33,11 @@ Connecting to local server_
 
 
 ##Toastr module
+
+
+
+##elastic search urls:
+https://grokonez.com/frontend/angular/angular-4-elasticsearch-example-simple-full-text-search
+https://grokonez.com/frontend/angular/angular-4-elasticsearch-example-how-to-create-an-index
+https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/quick-start.html
+https://www.compose.com/articles/getting-started-with-elasticsearch-and-node/

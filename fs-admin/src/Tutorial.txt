@@ -41,3 +41,10 @@ https://grokonez.com/frontend/angular/angular-4-elasticsearch-example-simple-ful
 https://grokonez.com/frontend/angular/angular-4-elasticsearch-example-how-to-create-an-index
 https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/quick-start.html
 https://www.compose.com/articles/getting-started-with-elasticsearch-and-node/
+
+
+##paypal braintree 
+https://developers.braintreepayments.com/start/hello-client/javascript/v3
+https://developer.paypal.com/docs/checkout/how-to/braintree-integration/#1-set-up-your-client
+https://developers.braintreepayments.com/guides/paypal/testing-go-live/node
+https://developers.braintreepayments.com/guides/paypal/server-side/node

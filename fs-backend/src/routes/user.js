@@ -25,4 +25,5 @@ module.exports = app => {
     app.post(`${user}update`, UserController.editUser);
     app.get(`${user}:id`, UserController.getUser);
     app.post(`${user}delete`, UserController.deleteUser);
+    app.post(`${user}add`, UserController.addUserFromAdmin);
 };

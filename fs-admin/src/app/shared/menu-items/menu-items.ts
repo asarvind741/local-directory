@@ -58,7 +58,11 @@ const MENUITEMS = [
                 value: 'NEW'
               }
             ]
-          }
+          },
+          {
+            state: 'user-management',
+            name: 'User Management'
+          },
         ]
       },
       {

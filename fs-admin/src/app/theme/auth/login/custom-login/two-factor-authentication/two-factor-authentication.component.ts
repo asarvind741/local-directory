@@ -31,11 +31,11 @@ export class TwoFactorAuthenticationComponent implements OnInit {
       console.log(this.activatedRoute.parent)
       if(response.status === 206){
         this.authService.saveUser(response['data']);
-        this.router.navigate(['../dashboard/dashboard/default'], {relativeTo: this.activatedRoute});
+        this.router.navigate(['../dashboard/default'], {relativeTo: this.activatedRoute});
       }
       else if(response.status === 200){
         this.authService.saveUser(response['data']);
-        this.router.navigate(['../dashboard/dashboard/default'], { relativeTo: this.activatedRoute})
+        this.router.navigate(['../dashboard/default'], { relativeTo: this.activatedRoute})
       }
     })
   }

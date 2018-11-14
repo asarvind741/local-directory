@@ -1,4 +1,4 @@
-<app-card [title]="'Custom Wizard'">
+<app-card [title]="'Update Details'">
   <wizard #wizard class="arc-wizard arc-custom" navBarLayout="large-filled-symbols">
     <wizard-step stepTitle="Profile" navigationSymbol="&#xf0b1;" navigationSymbolFontFamily="FontAwesome">
       <div class="centered-content">
@@ -30,17 +30,17 @@
     <wizard-step stepTitle="Address" navigationSymbol="&#xf085;" navigationSymbolFontFamily="FontAwesome">
       <div class="centered-content">
         <form [formGroup] = "userProfileForm">
-          <div formArrayName = "addresses">
-            <div *ngFor="let address of recipeForm.get('addresses')['controls']; let i = index" [formGroupName]="i">
-              <label for="address" >Line 1:</label>
+          <div formArrayName = "address">
+            <div *ngFor="let addr of userProfileForm.get('address')['controls']; let i = index" [formGroupName]="i">
+              <label for="line1" >Line 1:</label>
               <input type="text" formControlName = "line1">
-              <label for="address" >Line 2:</label>
+              <label for="line2" >Line 2:</label>
               <input type="text" formControlName = "line2">
-              <label for="address" >City:</label>
+              <label for="city" >City:</label>
               <input type="text" formControlName = "city">
-              <label for="address" >Postal Code:</label>
+              <label for="postalCode" >Postal Code:</label>
               <input type="text" formControlName = "postalCode">
-              <label for="address" >Country:</label>
+              <label for="country" >Country:</label>
               <input type="text" formControlName = "country">
             </div>
           </div>

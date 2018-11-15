@@ -21,7 +21,7 @@ export class ElasticSearchService implements OnInit{
     private _connect() {
         this.client = new Client({
             hosts: [ 
-                '40.71.47.14:9200',
+                'http://localhost:9200',
             ],
             requestTimeout: Infinity, // Tested
             keepAlive: true, // Tested

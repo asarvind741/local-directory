@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
 import {MenuItems} from '../../shared/menu-items/menu-items';
 import { AuthenticationService } from '../../services/auth.service';
+import { ElasticSearchService } from '../../services/elastic-search.service';
 
 @Component({
   selector: 'app-admin',
@@ -67,6 +68,8 @@ import { AuthenticationService } from '../../services/auth.service';
   ]
 })
 export class AdminComponent implements OnInit {
+  searchItem: String;
+  categories: Array<String> = ['first', 'second', 'third', 'fourth']
   public navType: string;
   public themeLayout: string;
   public verticalPlacement: string;
@@ -124,7 +127,8 @@ export class AdminComponent implements OnInit {
   constructor(
     public menuItems: MenuItems,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private elasticSearchService: ElasticSearchService
     ) {
     this.navType = 'st2';
     this.themeLayout = 'vertical';
@@ -193,6 +197,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.setBackgroundPattern('pattern1');
+    this.elasticSearchService.isAvailable();
     /*document.querySelector('body').classList.remove('dark');*/
   }
 

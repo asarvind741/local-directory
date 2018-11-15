@@ -41,6 +41,15 @@ https://grokonez.com/frontend/angular/angular-4-elasticsearch-example-simple-ful
 https://grokonez.com/frontend/angular/angular-4-elasticsearch-example-how-to-create-an-index
 https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/quick-start.html
 https://www.compose.com/articles/getting-started-with-elasticsearch-and-node/
+https://blog.patricktriest.com/text-search-docker-elasticsearch/
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04
+https://github.com/elastic/elasticsearch-js/issues/663
+https://stackoverflow.com/questions/34449342/installed-elastic-search-on-server-but-cannot-connect-to-it-if-from-another-mach
+https://stackoverflow.com/questions/25316393/keep-getting-no-access-control-allow-origin-error-with-xmlhttprequest
+https://discuss.elastic.co/t/elasticsearch-network-bind-for-public-private/83644/5
+https://www.moxio.com/blog/12/how-to-make-a-cross-domain-request-in-javascript-using-cors
+https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/errors.html
+https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/configuration.html
 
 
 ##paypal braintree 
@@ -48,3 +57,11 @@ https://developers.braintreepayments.com/start/hello-client/javascript/v3
 https://developer.paypal.com/docs/checkout/how-to/braintree-integration/#1-set-up-your-client
 https://developers.braintreepayments.com/guides/paypal/testing-go-live/node
 https://developers.braintreepayments.com/guides/paypal/server-side/node
+
+
+##Angular multiselect search dropdown-
+https://www.npmjs.com/package/angular2-multiselect-dropdown
+https://cuppalabs.github.io/angular2-multiselect-dropdown/#/searchfilter
+
+#NgxMatSelect
+https://www.npmjs.com/package/ngx-mat-select-search

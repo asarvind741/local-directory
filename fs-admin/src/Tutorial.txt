@@ -50,6 +50,12 @@ https://discuss.elastic.co/t/elasticsearch-network-bind-for-public-private/83644
 https://www.moxio.com/blog/12/how-to-make-a-cross-domain-request-in-javascript-using-cors
 https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/errors.html
 https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/configuration.html
+https://stackoverflow.com/questions/51123365/angular-6-error-referenceerror-process-is-not-defined-with-elasticsearch-js
+https://stackoverflow.com/questions/34449342/installed-elastic-search-on-server-but-cannot-connect-to-it-if-from-another-mach
+https://grokonez.com/frontend/angular/angular-4-elasticsearch-example-simple-full-text-search
+https://github.com/elastic/elasticsearch-hadoop/issues/705
+https://stackoverflow.com/questions/39268182/failed-to-restart-elasticsearch
+https://dzone.com/articles/23-useful-elasticsearch-example-queries
 
 
 ##paypal braintree 
@@ -65,3 +71,7 @@ https://cuppalabs.github.io/angular2-multiselect-dropdown/#/searchfilter
 
 #NgxMatSelect
 https://www.npmjs.com/package/ngx-mat-select-search
+
+##ngbDatePicker 
+https://ng-bootstrap.github.io/#/components/datepicker/examples
+https://stackblitz.com/edit/angular-46axva?file=src%2Fapp%2Fapp.component.ts

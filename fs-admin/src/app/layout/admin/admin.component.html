@@ -37,7 +37,7 @@
               <div id="main-search" class="main-search morphsearch-search">
                 <div class="input-group">
                   <span class="input-group-prepend search-close" (click)="searchOff()"><i class="ti-close input-group-text"></i></span>
-                  <input class="form-control" [style.width]="searchWidthString" [(ngModel)] = "searchItem">
+                  <input class="form-control" [style.width]="searchWidthString" [(ngModel)] = "searchItem" (keyup) = "searchItems()">
                   <span class="input-group-append search-btn" (click)="searchOn()"><i class="ti-search input-group-text"></i></span>
                 </div>
                 <div class="search-result" [ngClass] = "searchItem ? 'show-dropdown': ''">

@@ -24,6 +24,10 @@ const routes: Routes = [
       {
         path: 'user-management',
         loadChildren: './user-management/user-management.module#UserManagementModule'
+      },
+      {
+        path: 'coupon-management',
+        loadChildren: './coupon-management/coupon-management.module#CouponManagementModule'
       }
     ]
   }

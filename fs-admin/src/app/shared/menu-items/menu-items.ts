@@ -63,6 +63,10 @@ const MENUITEMS = [
             state: 'user-management',
             name: 'User Management'
           },
+          {
+            state: 'coupon-management',
+            name: 'Coupon Management'
+          },
         ]
       },
       {

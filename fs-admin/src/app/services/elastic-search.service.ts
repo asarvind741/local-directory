@@ -21,7 +21,7 @@ export class ElasticSearchService implements OnInit{
     private _connect() {
         this.client = new Client({
             hosts: [ 
-                'http://localhost:9200',
+                'http://40.71.47.14:9200',
             ],
             requestTimeout: Infinity, // Tested
             keepAlive: true, // Tested
@@ -43,6 +43,22 @@ export class ElasticSearchService implements OnInit{
                 console.log("data", )
             }
         });
+    }
+
+    textSearch(_index, _type, _field, _queryText): any {
+        return this.client.search({
+            index:_index,
+            type:_type,
+            filterPath: ['hits.hits._source', 'hits.total', '_scroll_id'],
+            body: {
+                'query': {
+                  'match': {
+                    [_field]: _queryText,
+                  }
+                }
+              },
+            '_source': ['categoryName']
+        })
     }
 
 }

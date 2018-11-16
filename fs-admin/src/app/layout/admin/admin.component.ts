@@ -230,6 +230,11 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  searchItems(){
+    console.log("search sssssssss", this.searchItem);
+   
+  }
+
   setMenuAttributes(windowWidth) {
     if (windowWidth >= 768 && windowWidth <= 1024) {
       this.pcodedDeviceType = 'tablet';

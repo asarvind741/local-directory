@@ -1,34 +1,33 @@
 <div class="card">
   <div class="card-header">
-    <h5>Create new Coupon Code:</h5>
+    <h5>Create new Plan:</h5>
   </div>
   <div class="card-block">
-    <form [formGroup]="newCouponForm" (ngSubmit)="addNewCoupon()">
+    <form [formGroup]="newPlanForm" (ngSubmit)="addNewPlan()">
       <div class="row">
         <label class="col-sm-4 col-lg-4 col-form-label">Name</label>
         <div class="col-sm-8 col-lg-8">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+            <input type="text" class="form-control" placeholder="Enter plan name" formControlName="name">
           </div>
         </div>
       </div>
       <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Module:</label>
+        <label class="col-sm-4 col-lg-4 col-form-label">Type:</label>
         <div class="col-sm-8 col-lg-8">
-          <select class="input-group" name="module" formControlName="module">
+          <select class="input-group" name="module" formControlName="type">
             <option [ngValue]="null" disabled>Select One</option>
-            <option *ngFor="let module of modules" [ngValue]="module">
-              {{ module }}
+            <option *ngFor="let type of types" [ngValue]="type">
+              {{ type }}
             </option>
           </select>
         </div>
       </div>
       <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Discount</label>
+        <label class="col-sm-4 col-lg-4 col-form-label">Cost</label>
         <div class="col-sm-8 col-lg-8">
           <div class="input-group">
-            <input type="number" class="form-control" placeholder="Enter discount(%)" formControlName="discount" min="1"
-              max="100">
+            <input type="number" class="form-control" placeholder="Enter cost" formControlName="cost" min="0">
           </div>
         </div>
       </div>
@@ -43,16 +42,6 @@
                 {{ stat }}
               </option>
             </select>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Valid Up to:</label>
-        <div class="col-sm-8 col-lg-8">
-          <div class="input-group">
-            <input type="email" class="form-control" placeholder="Enter expiry date" formControlName="expiresOn"
-              ngbDatepicker #d="ngbDatepicker">
-            <button type="button" (click)="d.toggle()"><i class="fa fa-calendar"></i></button>
           </div>
         </div>
       </div>

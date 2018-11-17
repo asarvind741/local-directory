@@ -67,6 +67,10 @@ const MENUITEMS = [
             state: 'coupon-management',
             name: 'Coupon Management'
           },
+          {
+            state: 'subscription-management',
+            name: 'Subscription Management'
+          },
         ]
       },
       {

@@ -13,6 +13,7 @@ import { CouponService } from '../../../../services/coupon.service';
 export class EditCouponComponent implements OnInit {
   editCouponForm: FormGroup;
   showMessage: any;
+  modules: Array<String> = ['First Module', 'Second Module', 'Third Module']
   @Input() currentCoupon;
   constructor(
     public activeModal: NgbActiveModal,
@@ -25,8 +26,9 @@ export class EditCouponComponent implements OnInit {
   }
 
   createForm(){
+    console.log("module", this.currentCoupon.module)
     let name = this.currentCoupon.name ? this.currentCoupon.name : '';
-    let module = this.currentCoupon.module ? this.currentCoupon.module : '';
+    let module = this.currentCoupon.module ? this.currentCoupon.module : 'Select One';
     let discount = this.currentCoupon.discount ? this.currentCoupon.discount : '';
     let expiresOn = this.currentCoupon.expiresOn ? this.currentCoupon.expiresOn : null;
     let status = this.currentCoupon.status ? this.currentCoupon.status : null;

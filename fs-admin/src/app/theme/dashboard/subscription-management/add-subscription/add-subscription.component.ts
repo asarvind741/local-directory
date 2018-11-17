@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import swal from 'sweetalert2';
-import { FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
-import { CouponService } from '../../../../services/coupon.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PlanService } from '../../../../services/plan.service';
 import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-coupon',
-  templateUrl: './add-coupon.component.html',
-  styleUrls: ['./add-coupon.component.scss']
+  templateUrl: './add-subscription.component.html',
+  styleUrls: ['./add-subscription.component.scss']
 })
-export class AddCouponComponent implements OnInit {
-  newCouponForm: FormGroup;
-  modules: Array<String> = ['First Module', 'Second Module', 'Third Module'];
+export class AddSubscriptionComponent implements OnInit {
+  newPlanForm: FormGroup;
   statuss: Array<String> = ['Active', 'Inactive'];
+  types: Array<String> = ['Yearly', 'Half Yearly', 'Quarterly']
   showMessage: any;
   constructor(
     public activeModal: NgbActiveModal,
-    private couponService: CouponService
+    private planService: PlanService
   ) { }
 
   ngOnInit() {
@@ -26,18 +26,17 @@ export class AddCouponComponent implements OnInit {
   }
 
   createForm() {
-    this.newCouponForm = new FormGroup({
+    this.newPlanForm = new FormGroup({
       'name': new FormControl(null),
-      'module': new FormControl(null),
-      'discount': new FormControl(null),
-      'expiresOn': new FormControl(null),
+      'type': new FormControl(null),
+      'cost': new FormControl(null),
       'status': new FormControl(null)
     })
   }
 
-  addNewCoupon() {
-    console.log(this.newCouponForm.value)
-    this.couponService.addCoupon(this.newCouponForm.value).subscribe((response: HttpResponse<any>) => {
+  addNewPlan() {
+    console.log(this.newPlanForm.value)
+    this.planService.addPlan(this.newPlanForm.value).subscribe((response: HttpResponse<any>) => {
         console.log("responseaaaaa", response);
         if (response.status === 200) {
           this.closeModal();
@@ -58,7 +57,7 @@ export class AddCouponComponent implements OnInit {
   }
 
   onSelectValue(event) {
-    console.log("value", this.newCouponForm.value)
+    console.log("value", this.newPlanForm.value)
   }
 
 
@@ -83,12 +82,12 @@ export class AddCouponComponent implements OnInit {
   }
 
   cancelNewUserAddition() {
-    this.newCouponForm.reset();
+    this.newPlanForm.reset();
     this.closeModal();
   }
 
   clearModal() {
-    this.newCouponForm.reset();
+    this.newPlanForm.reset();
   }
 
 }

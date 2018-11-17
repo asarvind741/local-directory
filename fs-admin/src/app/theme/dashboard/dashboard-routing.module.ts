@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: 'coupon-management',
         loadChildren: './coupon-management/coupon-management.module#CouponManagementModule'
+      },
+      {
+        path: 'subscription-management',
+        loadChildren: './subscription-management/subscription-management.module#SubscriptionManagementModule'
       }
     ]
   }

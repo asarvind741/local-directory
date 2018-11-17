@@ -63,6 +63,9 @@ https://developers.braintreepayments.com/start/hello-client/javascript/v3
 https://developer.paypal.com/docs/checkout/how-to/braintree-integration/#1-set-up-your-client
 https://developers.braintreepayments.com/guides/paypal/testing-go-live/node
 https://developers.braintreepayments.com/guides/paypal/server-side/node
+http://andevelopers-angular2.blogspot.com/2016/10/braintree-angular2.html
+https://github.com/srikanthonl/ngx-braintree/issues
+https://srikanth.onl/integrating-braintree-with-angular-applications/
 
 
 ##Angular multiselect search dropdown-

@@ -14,17 +14,15 @@
       </div>
       <div class="row">
         <label class="col-sm-4 col-lg-4 col-form-label">Module:</label>
-        <ul class="col-sm-8 col-lg-8">
-          <li ngbDropdown class="nav-item dropdown" #dropdown="ngbDropdown">
-            <input type="text" class="form-control dropdown-input" data-toggle="dropdown" [value]="editCouponForm.controls['module']?.value"
-              ngbDropdownToggle placeholder="Select one..." readonly>
-            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li *ngFor="let item of modules" (click)="editCouponForm.controls['module'].setValue(item)" class="dropdown-item">{{item}}
-          </li>
+        <div class="col-sm-8 col-lg-8">
+          <select class="input-group" name="module" formControlName="module">
+            <option [ngValue]="null" disabled>Select One</option>
+            <option *ngFor="let module of modules" [ngValue]="module">
+              {{ module }}
+            </option>
+          </select>
+        </div>
       </div>
-      </li>
-      </ul>
-  </div>
   <div class="row">
     <label class="col-sm-4 col-lg-4 col-form-label">Discount</label>
     <div class="col-sm-8 col-lg-8">

@@ -1,34 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CouponService } from '../../../services/coupon.service';
 import { HttpResponse } from '@angular/common/http';
-import { AddCouponComponent } from './add-coupon/add-coupon.component';
-import { EditCouponComponent } from './edit-coupon/edit-coupon.component';
+import { AddSubscriptionComponent } from './add-subscription/add-subscription.component';
+import { EditSubscriptionComponent } from './edit-subscription/edit-subscription.component';
+import { PlanService } from '../../../services/plan.service';
 
 @Component({
-  selector: '<app-coupon-management></app-coupon-management>',
-  templateUrl: './coupon-management.component.html',
+  selector: '<app-subscription-management></app-subscription-management>',
+  templateUrl: './subscription-management.component.html',
   styleUrls: [
-    './coupon-management.component.scss',
+    './subscription-management.component.scss',
     '../../../../assets/icon/icofont/css/icofont.scss'
   ]
 })
-export class CouponManagementComponent implements OnInit {
+export class SubscriptionManagementComponent implements OnInit {
   deleting: Boolean;
   showMessage: any;
-  columns = [
-    { prop: 'Name' },
-    { name: 'Module' },
-    { name: 'Discount(%)' },
-    { name: 'Expiry Date' },
-    { name: 'Status' },
-  ]
+
   constructor(
-    private couponService: CouponService,
+    private planService: PlanService,
     private modalService: NgbModal
   ) {
-    this.getCoupons();
+    this.getPlans();
   }
   search_input: string = null;
   editing = {};
@@ -38,43 +32,40 @@ export class CouponManagementComponent implements OnInit {
 
   }
 
-  getCoupons() {
-    let couponsArray = [];
-    this.couponService.getCoupons()
-      .subscribe(coupons => {  
-        console.log("aaaaaaaaaaaaaa", coupons);
-
-        coupons['data'].forEach(element => {
-          var element1 = Object.assign({}, {name: undefined, module: undefined, discount: undefined, expiresOn: undefined, status: undefined, id: undefined})
+  getPlans() {
+    let plansArray = [];
+    this.planService.getPlans()
+      .subscribe(plans => {
+        plans['data'].forEach(element => {
+          var element1 = Object.assign({}, {name: undefined, duration: undefined, price: undefined, createdOn: undefined, createdBy: undefined, status: undefined})
           element1.name = element.name;
-          element1.module = element.module;
-          element1.discount = element.discount;
-          element1.expiresOn = element.expiresOn;
-          element1.status = element.status;
-          element1.id = element._id
-          couponsArray.push(element1);
+          element1.duration = element.duration;
+          element1.price = element.price;
+          element.status = element.status;
+          element1.createdOn = element.createdOn;
+          element1.createdBy = element.createdBy;
+         
+          plansArray.push(element1);
         });
-        console.log("element1.expiresOn = element.expiresOn;", couponsArray)
-        this.rows = couponsArray;
-        this.temp_rows = couponsArray;
-        console.log("elemeadd sss", this.rows)
+        console.log("element1.expiresOn = element.expiresOn;", plansArray)
+        this.rows = plansArray;
+        this.temp_rows = plansArray;
       })
   }
 
   updateValue(event, cell, row) {
-    console.log( row. cell)
     this.editing[row + '-' + cell] = false;
     this.temp_rows[row][cell] = event.target.value;
     this.rows = this.temp_rows;
-   this.couponService.updateCoupon(this.rows[row]._id,this.rows[row])
+   this.planService.updatePlan(this.rows[row]._id,this.rows[row])
    .subscribe((response: HttpResponse<any>) => {
      if(response.status === 200){
-       this.getCoupons();
+       this.getPlans();
        this.openSuccessSwal();
      }
    }, (error) => {
      this.showMessage = error.error['message'];
-     this.getCoupons();
+     this.getPlans();
      this.openUnscuccessSwal()
    })
   }
@@ -83,13 +74,14 @@ export class CouponManagementComponent implements OnInit {
     if (val) {
       val = val.toLowerCase();
       let data = this.rows;
-      data = data.filter(coupon => {
+      data = data.filter(plan => {
         if (
-          coupon.name ? coupon.name.toLowerCase().indexOf(val) >= 0 : null ||
-          coupon.module ? coupon.module.toLowerCase().indexOf(val) >= 0 : null ||
-          coupon.discount ? coupon.discount.indexOf(val) >= 0 : null ||
-          coupon.status ? coupon.status.toLowerCase().indexOf(val) >= 0 : null ||
-          coupon.expiresOn ? coupon.expiresOn.indexOf(val) >=0 : null
+          plan.name ? plan.name.toLowerCase().indexOf(val) >= 0 : null ||
+          plan.price ? plan.price.indexOf(val) >= 0 : null ||
+          plan.status ? plan.status.toLowerCase().indexOf(val) >= 0 : null ||
+          plan.duration ? plan.duration.toLowerCase().indexOf(val) >= 0 : null ||
+          plan.createdBy ? plan.createdBy.toLowerCase().indexOf(val) >=0 : null ||
+          plan.createdOn ? plan.createdOn.indexOf(val) >=0 : null
         )
           return true;
       });
@@ -114,7 +106,6 @@ export class CouponManagementComponent implements OnInit {
   }
 
   activateCouppon(name){
-    console.log("id to activate", name['id']);
     swal({
       title: 'Are you sure?',
       text: 'You not be able to revert this!',
@@ -128,10 +119,10 @@ export class CouponManagementComponent implements OnInit {
       cancelButtonClass: 'btn btn-danger mr-sm'
     }).then((result) => {
       if (result.value) {
-        this.couponService.modifyStatus(name.id).subscribe((response: HttpResponse<any>) => {
+        this.planService.modifyStatus(name._id).subscribe((response: HttpResponse<any>) => {
           console.log(response)
           if (response.status === 200) {
-            this.getCoupons();
+            this.getPlans();
             swal(
               'Deleted!',
               'Your have activated coupon successfully.',
@@ -165,10 +156,10 @@ export class CouponManagementComponent implements OnInit {
       cancelButtonClass: 'btn btn-danger mr-sm'
     }).then((result) => {
       if (result.value) {
-        this.couponService.modifyStatus(name.id).subscribe((response: HttpResponse<any>) => {
+        this.planService.modifyStatus(name._id).subscribe((response: HttpResponse<any>) => {
           console.log(response)
           if (response.status === 200) {
-            this.getCoupons();
+            this.getPlans();
             swal(
               'Deleted!',
               'Your have deactivated coupon successfully.',
@@ -190,22 +181,22 @@ export class CouponManagementComponent implements OnInit {
   }
 
   openFormModal() {
-    const modalRef = this.modalService.open(AddCouponComponent);
+    const modalRef = this.modalService.open(AddSubscriptionComponent);
     modalRef.result.then((result) => {
-      this.getCoupons();
+      this.getPlans();
     }).catch((error) => {
-      this.getCoupons();
+      this.getPlans();
     });
   }
 
-  openEditFormModal(coupon){
-    const modalRef = this.modalService.open(EditCouponComponent);
-    modalRef.componentInstance.currentCoupon = coupon;
+  openEditFormModal(plan){
+    const modalRef = this.modalService.open(EditSubscriptionComponent);
+    modalRef.componentInstance.currentPlan = plan;
     modalRef.result.then((result) => {
-      this.getCoupons();
+      this.getPlans();
     })
     .catch((error) => {
-      this.getCoupons();
+      this.getPlans();
     });
   }
 }

@@ -20,6 +20,7 @@ export class CouponService {
     }
 
     addCoupon(coupon){
+        console.log("coupon value", coupon, this.httpClient.post(`${environment.API_URL}/coupon/create`, coupon));
         return this.httpClient.post(`${environment.API_URL}/coupon/create`, coupon);
     }
 
@@ -29,8 +30,9 @@ export class CouponService {
         return this.httpClient.post(`${environment.API_URL}/coupon/edit`, data)
     }
 
-    deleteCoupon(id){
-        return this.httpClient.post(`${environment.API_URL}/coupon/delete`, {id: id})
+    modifyStatus(id){
+        return this.httpClient.post(`${environment.API_URL}/coupon/status-modify`, {id: id})
     }
+
 
 }

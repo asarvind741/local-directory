@@ -78,3 +78,12 @@ https://www.npmjs.com/package/ngx-mat-select-search
 ##ngbDatePicker 
 https://ng-bootstrap.github.io/#/components/datepicker/examples
 https://stackblitz.com/edit/angular-46axva?file=src%2Fapp%2Fapp.component.ts
+
+
+#ngx datatable
+https://github.com/swimlane/ngx-datatable/tree/master/demo
+http://swimlane.github.io/ngx-datatable/
+
+
+#how to use dropdown list in reactive form angular
+https://stackoverflow.com/questions/47011521/angular-4-select-default-value-in-dropdown-reactive-forms

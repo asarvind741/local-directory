@@ -8,12 +8,15 @@
             [(ngModel)]="search_input">
         </div>
         <div class="col-sm-4">
-            <button class="btn btn-primary btn-round" (click) = "openFormModal()"><i class="fa fa-plus"></i>Add</button>
-          </div>
+          <button class="btn btn-primary btn-round" (click)="openFormModal()"><i class="fa fa-plus"></i>Add</button>
+        </div>
       </div>
       <ngx-datatable #mydatatable class="material data-table" [headerHeight]="50" [limit]="10" [columnMode]="'force'"
         [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
         <ngx-datatable-column name="firstName">
+          <ng-template ngx-datatable-header-template>
+            <span>First Name</span>
+          </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
               {{value}}
@@ -23,46 +26,54 @@
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="lastName">
-            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
-              <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-lastName']">
-                {{value}}
-              </span>
-              <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
-                [value]="value" class="form-control" />
-            </ng-template>
-          </ngx-datatable-column>
+          <ng-template ngx-datatable-header-template>
+            <span>Last Name</span>
+          </ng-template>
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+            <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-lastName']">
+              {{value}}
+            </span>
+            <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
+              [value]="value" class="form-control" />
+          </ng-template>
+        </ngx-datatable-column>
         <ngx-datatable-column name="email">
-            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
-              <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
-                {{value}}
-              </span>
-              <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
-                [value]="value" class="form-control" />
-            </ng-template>
-          </ngx-datatable-column>
+          <ng-template ngx-datatable-header-template>
+            <span>Email</span>
+          </ng-template>
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+            <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
+              {{value}}
+            </span>
+            <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
+              [value]="value" class="form-control" />
+          </ng-template>
+        </ngx-datatable-column>
         <ngx-datatable-column name="password">
+          <ng-template ngx-datatable-header-template>
+            <span>password</span>
+          </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
               {{value}}
             </span>
             <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
-                [value]="value" class="form-control" />
+              [value]="value" class="form-control" />
           </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column name="Action" prop="id" [sortable]="false">
-            <ng-template let-rowIndex="rowIndex" let-id="value" let-row = "row" ngx-datatable-cell-template>
-              <button class="btn btn-sm btn-info" (click)="openEditFormModal(row)">
-                <i class="fa fa-edit"></i> Edit
-              </button>
-              <button class="btn btn-sm btn-danger" (click)="openSuccessCancelSwal(row)">
-                <i class="fa fa-trash"></i> Delete
-              </button>
-            </ng-template>
-          </ngx-datatable-column>
+          <ng-template let-rowIndex="rowIndex" let-id="value" let-row="row" ngx-datatable-cell-template>
+            <button class="btn btn-sm btn-info" (click)="openEditFormModal(row)">
+              <i class="fa fa-edit"></i> Edit
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="openSuccessCancelSwal(row)">
+              <i class="fa fa-trash"></i> Delete
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
 
       </ngx-datatable>
     </app-card>
   </div>
 </div>
-

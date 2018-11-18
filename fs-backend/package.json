@@ -10,7 +10,13 @@
     "serve": "npm run pretest && babel -w src/ -d dist/ --source-maps inline --copy-files | NODE_ENV=dev nodemon --watch dist ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel-node --presets es2015 src/index.js",
-    "elastic": "babel-node --presets es2015 src/functions/elastic-info.js"
+    "elastic": "babel-node --presets es2015 src/functions/elastic-info.js",
+    "create-index": "babel-node --presets es2015 src/functions/create-index.js",
+    "delete-index": "babel-node --presets es2015 src/functions/delete-index.js",
+    "add-document": "babel-node --presets es2015 src/functions/document_add.js",
+    "delete-document": "babel-node --presets es2015 src/functions/document_delete.js",
+    "count-document": "babel-node --presets es2015 src/functions/document_count.js",
+    "search-document": "babel-node --presets es2015 src/functions/document_search.js"
   },
   "keywords": [],
   "author": "",

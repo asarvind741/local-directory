@@ -7,8 +7,11 @@ import { environment } from '../../environments/environment';
 })
 
 export class PlanService {
+    userId: any;
+    
 
     constructor(private httpClient: HttpClient) {
+        this.userId = JSON.parse(localStorage.getItem('currentUser'))._id;
     }
 
     getPlans(){
@@ -20,6 +23,7 @@ export class PlanService {
     }
 
     addPlan(plan){
+        plan.createdBy = this.userId;
         console.log("plan value", plan, this.httpClient.post(`${environment.API_URL}/plan/create`, plan));
         return this.httpClient.post(`${environment.API_URL}/plan/create`, plan);
     }

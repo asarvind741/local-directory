@@ -37,12 +37,13 @@ export class SubscriptionManagementComponent implements OnInit {
     this.planService.getPlans()
       .subscribe(plans => {
         plans['data'].forEach(element => {
-          var element1 = Object.assign({}, {name: undefined, duration: undefined, price: undefined, createdOn: undefined, createdBy: undefined, status: undefined})
+          console.log("element----------->", element);
+          var element1 = Object.assign({}, {name: undefined, duration: undefined, price: undefined, createdAt: undefined, createdBy: undefined, status: undefined})
           element1.name = element.name;
           element1.duration = element.duration;
           element1.price = element.price;
-          element.status = element.status;
-          element1.createdOn = element.createdOn;
+          element1.status = element.status;
+          element1.createdAt = element.createdAt;
           element1.createdBy = element.createdBy;
          
           plansArray.push(element1);
@@ -92,7 +93,7 @@ export class SubscriptionManagementComponent implements OnInit {
   openSuccessSwal() {
     swal({
       title: 'Successful!',
-      text: 'Coupon updated successfully!',
+      text: 'Plan updated successfully!',
       type: 'success'
     }).catch(swal.noop);
   }
@@ -124,8 +125,8 @@ export class SubscriptionManagementComponent implements OnInit {
           if (response.status === 200) {
             this.getPlans();
             swal(
-              'Deleted!',
-              'Your have activated coupon successfully.',
+              'Activated!',
+              'Your have activated plan successfully.',
               'success'
             );
           }
@@ -161,7 +162,7 @@ export class SubscriptionManagementComponent implements OnInit {
           if (response.status === 200) {
             this.getPlans();
             swal(
-              'Deleted!',
+              'Activated!',
               'Your have deactivated coupon successfully.',
               'success'
             );

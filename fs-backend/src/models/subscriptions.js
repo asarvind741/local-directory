@@ -16,7 +16,7 @@ const Subscription = new Schema(
       type: String,
       enum: statusTypes,
       default: 'Active',
-      select: false,
+      // select: false,
     },
     price: {
       type: Number,

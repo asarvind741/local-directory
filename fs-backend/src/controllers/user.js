@@ -6,6 +6,7 @@ import {
     SendMail
 } from './functions';
 import Constants from './constant';
+import sendSMS  from '../functions/nexmo';
 async function addUser(req, res) {
     try {
         let user = await User.findOne({
@@ -78,6 +79,7 @@ async function verifyUser(req, res) {
 
 
 async function sendOTPLogin(req, res) {
+    console.log("request body", req.body)
     try {
         let user = await User.findOne(req.body);
         if (user) {
@@ -87,7 +89,7 @@ async function sendOTPLogin(req, res) {
                     secret: user.speakeasy_secret.base32,
                     encoding: 'base32'
                 });
-                console.log(otp);
+                console.log("otp", otp);
 
                 let storeOTP =
                     await User.findByIdAndUpdate(user._id, {
@@ -95,10 +97,12 @@ async function sendOTPLogin(req, res) {
                             otp: otp
                         }
                     });
+                console.log('mobile', user.mobile);
+                sendSMS(otp, user.mobile);
                 sendResponse(res, 200, '6 digit Code has been sent to your registered email', otp);
-                SendMail(Constants.MAIL_FROM, req.body.email,
-                    Constants.SEND_OTP_SUBJECT,
-                    `${Constants.SEND_OTP_TEXT}: ${otp}`);
+                // SendMail(Constants.MAIL_FROM, req.body.email,
+                //     Constants.SEND_OTP_SUBJECT,
+                //     `${Constants.SEND_OTP_TEXT}: ${otp}`);
             } else {
                 sendResponse(res, 400, 'Please first verify your email');
             }
@@ -207,7 +211,6 @@ async function loginUser(req, res) {
 // }
 
 async function sociaLoginUser(req, res) {
-    console.log(req.body);
     let user = {};
     try {
         if (req.body.social_login_provider_id) {
@@ -247,6 +250,7 @@ async function sociaLoginUser(req, res) {
                 }
             });
         if (user.loginCount > 0) {
+            console.log("aaaaaaaaaaaaaaaaaaaa")
             sendResponse(res, 200, 'Login Successful', data);
 
         } else {

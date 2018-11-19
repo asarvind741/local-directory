@@ -1,23 +1,30 @@
 import client from './elastic-search-connection';
 
-client.search({  
-  index: 'arvind',
-  type: 'categories',
-  body: {
-    query: {
-      match: { "CategoryName": "English" }
+let searchCategories = (text) => {
+
+  client.search({
+    index: 'categories',
+    type: 'Material',
+    body: {
+      query: {
+        match_phrase_prefix: {
+          CategoryName: text
+        }
+      },
     },
-  }
-},function (error, response,status) {
-    if (error){
-      console.log("search error: "+error)
-    }
-    else {
-      console.log("--- Response ---");
+    _source: ['CategoryName', 'CategoryId']
+  }, function (error, response, status) {
+    if (error) {
+      console.log('search error: ' + error);
+    } else {
+      console.log('--- Response ---');
       console.log(response);
-      console.log("--- Hits ---");
-      response.hits.hits.forEach(function(hit){
-        console.log(hit);
-      })
+      return response.hits.hits;
     }
-});
+  });
+
+};
+
+module.exports = {
+  searchCategories
+};

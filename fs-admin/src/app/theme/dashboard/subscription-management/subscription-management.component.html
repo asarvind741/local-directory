@@ -4,7 +4,7 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Search</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" (ngModelChange)="onSearchInputChange($event)" placeholder="Enter Coupon Code"
+          <input type="text" class="form-control" (ngModelChange)="onSearchInputChange($event)" placeholder="Search here..."
             [(ngModel)]="search_input">
         </div>
         <div class="col-sm-4">
@@ -14,8 +14,10 @@
       <ngx-datatable #mydatatable class="material data-table" [headerHeight]="50" [limit]="10" [columnMode]="'force'"
         [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
         <ngx-datatable-column name="name">
-          <ng-template ngx-datatable-header-template>
-            <span>Name</span>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Name
+            </span>
           </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-lastName']">
@@ -26,9 +28,11 @@
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="duration">
-            <ng-template ngx-datatable-header-template>
-                <span>Duration</span>
-              </ng-template>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Type
+            </span>
+          </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
               {{value}}
@@ -38,9 +42,11 @@
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="price">
-            <ng-template ngx-datatable-header-template>
-                <span>Price</span>
-              </ng-template>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Price
+            </span>
+          </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
               {{value }}
@@ -49,9 +55,11 @@
         </ngx-datatable-column>
 
         <ngx-datatable-column name="status">
-            <ng-template ngx-datatable-header-template>
-                <span>Status</span>
-              </ng-template>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Status
+            </span>
+          </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
               {{ value }}
@@ -62,9 +70,11 @@
         </ngx-datatable-column>
 
         <ngx-datatable-column name="createdAt">
-            <ng-template ngx-datatable-header-template>
-                <span>Created On</span>
-              </ng-template>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Created On
+            </span>
+          </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
               {{ value | date }}
@@ -75,8 +85,10 @@
         </ngx-datatable-column>
 
         <ngx-datatable-column name="createdBy">
-            <ng-template ngx-datatable-header-template>
-                <span>Created By</span>
+            <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+                <span (click)="sort($event, sortDir, sortFn)">
+                 Created By
+                </span>
               </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">

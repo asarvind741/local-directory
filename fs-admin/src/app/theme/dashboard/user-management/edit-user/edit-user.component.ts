@@ -13,6 +13,7 @@ import { HttpResponse } from '@angular/common/http';
 export class EditUserComponent implements OnInit {
   updateUserForm: FormGroup;
   showMessage: any;
+  statuss: Array<String> = ['Active', 'Inactive'];
   @Input() currentUser;
   constructor(
     public activeModal: NgbActiveModal,
@@ -25,16 +26,19 @@ export class EditUserComponent implements OnInit {
   }
 
   createForm(){
+    console.log("current user", this.currentUser);
     let firstName = this.currentUser.firstName ? this.currentUser.firstName : '';
     let lastName = this.currentUser.lastName ? this.currentUser.lastName : '';
     let email = this.currentUser.email ? this.currentUser.email : '';
     let password = this.currentUser.password ? this.currentUser.password : '';
+    let status = this.currentUser.status ? this.currentUser.status: '';
     let mobile = this.currentUser.mobile ? this.currentUser.mobile : null;
     this.updateUserForm = new FormGroup({
       'firstName': new FormControl(firstName),
       'lastName': new FormControl(lastName),
       'email': new FormControl(email),
       'password': new FormControl(password),
+      'status': new FormControl(status),
       'mobile': new FormControl(mobile)
     })
   }

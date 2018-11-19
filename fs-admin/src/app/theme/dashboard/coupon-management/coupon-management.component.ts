@@ -5,6 +5,7 @@ import { CouponService } from '../../../services/coupon.service';
 import { HttpResponse } from '@angular/common/http';
 import { AddCouponComponent } from './add-coupon/add-coupon.component';
 import { EditCouponComponent } from './edit-coupon/edit-coupon.component';
+import * as moment from 'moment';
 
 @Component({
   selector: '<app-coupon-management></app-coupon-management>',
@@ -89,7 +90,7 @@ export class CouponManagementComponent implements OnInit {
           coupon.module ? coupon.module.toLowerCase().indexOf(val) >= 0 : null ||
           coupon.discount ? coupon.discount.indexOf(val) >= 0 : null ||
           coupon.status ? coupon.status.toLowerCase().indexOf(val) >= 0 : null ||
-          coupon.expiresOn ? coupon.expiresOn.indexOf(val) >=0 : null
+          coupon.expiresOn ? moment(coupon.expiresOn).format("MMM DD, YYYY").toLowerCase().indexOf(val) >=0 : null
         )
           return true;
       });

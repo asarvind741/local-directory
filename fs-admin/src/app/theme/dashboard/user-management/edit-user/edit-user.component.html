@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Password:</label>
+        <label class="col-sm-4 col-lg-4 col-form-label">Password</label>
         <div class="col-sm-8 col-lg-8">
           <div class="input-group">
             <input type="password" class="form-control" placeholder="password" formControlName="password">
@@ -37,7 +37,18 @@
         </div>
       </div>
       <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Mobile:</label>
+          <label class="col-sm-4 col-lg-4 col-form-label">Status</label>
+          <div class="col-sm-8 col-lg-8">
+            <select name="status" class="input-group" formControlName="status">
+                <option [ngValue]="null" disabled>Select One</option>
+                <option *ngFor = "let status of statuss" [ngValue] = "status">
+                  {{ status }}
+                </option>
+            </select>
+          </div>
+        </div>
+      <div class="row">
+        <label class="col-sm-4 col-lg-4 col-form-label">Mobile</label>
         <div class="col-sm-8 col-lg-8">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="mobile number" formControlName="mobile">

@@ -45,19 +45,18 @@ export class ElasticSearchService implements OnInit{
         });
     }
 
-    textSearch(_index, _type, _field, _queryText): any {
+    serchCategories(_queryText): any {
         return this.client.search({
-            index:_index,
-            type:_type,
-            filterPath: ['hits.hits._source', 'hits.total', '_scroll_id'],
+            index:'categories',
+            type:'Material',
             body: {
                 'query': {
-                  'match': {
-                    [_field]: _queryText,
+                  'match_phrase_prefix': {
+                    CategoryName: _queryText,
                   }
                 }
               },
-            '_source': ['categoryName']
+            _source: ['CategoryName']
         })
     }
 

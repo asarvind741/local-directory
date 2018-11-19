@@ -13,6 +13,7 @@ import { HttpResponse } from '@angular/common/http';
 export class AddUserComponent implements OnInit {
   newUserForm: FormGroup;
   showMessage: any;
+  statuss: Array<String> = ['Active', 'Inactive'];
   constructor(
     public activeModal: NgbActiveModal,
     private userService: UserService
@@ -29,11 +30,13 @@ export class AddUserComponent implements OnInit {
       'lastName': new FormControl(null),
       'email': new FormControl(null),
       'password': new FormControl(null),
-      'mobile': new FormControl(null)
+      'mobile': new FormControl(null),
+      'status': new FormControl(null)
     })
   }
 
   addNewUser(){
+    console.log("this form", this.newUserForm.value);
     this.userService.addUser(this.newUserForm.value)
     .subscribe((response: HttpResponse<any>) => {
       if(response.status === 200){

@@ -5,6 +5,7 @@ import { HttpResponse } from '@angular/common/http';
 import { AddSubscriptionComponent } from './add-subscription/add-subscription.component';
 import { EditSubscriptionComponent } from './edit-subscription/edit-subscription.component';
 import { PlanService } from '../../../services/plan.service';
+import * as moment from 'moment';
 
 @Component({
   selector: '<app-subscription-management></app-subscription-management>',
@@ -36,21 +37,9 @@ export class SubscriptionManagementComponent implements OnInit {
     let plansArray = [];
     this.planService.getPlans()
       .subscribe(plans => {
-        plans['data'].forEach(element => {
-          console.log("element----------->", element);
-          var element1 = Object.assign({}, {name: undefined, duration: undefined, price: undefined, createdAt: undefined, createdBy: undefined, status: undefined})
-          element1.name = element.name;
-          element1.duration = element.duration;
-          element1.price = element.price;
-          element1.status = element.status;
-          element1.createdAt = element.createdAt;
-          element1.createdBy = element.createdBy;
-         
-          plansArray.push(element1);
-        });
-        console.log("element1.expiresOn = element.expiresOn;", plansArray)
-        this.rows = plansArray;
-        this.temp_rows = plansArray;
+        console.log("planssssssssssss", plans);
+        this.rows = plans['data'];
+        this.temp_rows = plans['data'];
       })
   }
 
@@ -78,11 +67,9 @@ export class SubscriptionManagementComponent implements OnInit {
       data = data.filter(plan => {
         if (
           plan.name ? plan.name.toLowerCase().indexOf(val) >= 0 : null ||
-          plan.price ? plan.price.indexOf(val) >= 0 : null ||
-          plan.status ? plan.status.toLowerCase().indexOf(val) >= 0 : null ||
           plan.duration ? plan.duration.toLowerCase().indexOf(val) >= 0 : null ||
-          plan.createdBy ? plan.createdBy.toLowerCase().indexOf(val) >=0 : null ||
-          plan.createdOn ? plan.createdOn.indexOf(val) >=0 : null
+          plan.status ? plan.status.toLowerCase().indexOf(val) >= 0 : null ||
+          plan.createdAt ? moment(plan.createdAt).format("MMM DD, YYYY").toLowerCase().indexOf(val) >= 0 : null
         )
           return true;
       });
@@ -121,7 +108,6 @@ export class SubscriptionManagementComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.planService.modifyStatus(name._id).subscribe((response: HttpResponse<any>) => {
-          console.log(response)
           if (response.status === 200) {
             this.getPlans();
             swal(
@@ -135,7 +121,7 @@ export class SubscriptionManagementComponent implements OnInit {
       } else if (result.dismiss) {
         swal(
           'Cancelled',
-          'You have cancelled activation request.)',
+          'Activation request cancelled.)',
           'error'
         );
       }
@@ -162,7 +148,7 @@ export class SubscriptionManagementComponent implements OnInit {
           if (response.status === 200) {
             this.getPlans();
             swal(
-              'Activated!',
+              'Deactivated!',
               'Your have deactivated coupon successfully.',
               'success'
             );
@@ -172,7 +158,7 @@ export class SubscriptionManagementComponent implements OnInit {
       } else if (result.dismiss) {
         swal(
           'Cancelled',
-          'You have cancelled deactivation request.)',
+          'Deactivation request cancelled.)',
           'error'
         );
       }

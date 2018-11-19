@@ -13,7 +13,7 @@ import { HttpResponse } from '@angular/common/http';
 export class AddSubscriptionComponent implements OnInit {
   newPlanForm: FormGroup;
   statuss: Array<String> = ['Active', 'Inactive'];
-  types: Array<String> = ['Yearly', 'Half Yearly', 'Quarterly', 'Monthly']
+  duration: Array<String> = ['Yearly', 'Half Yearly', 'Quarterly', 'Monthly']
   showMessage: any;
   constructor(
     public activeModal: NgbActiveModal,
@@ -28,7 +28,7 @@ export class AddSubscriptionComponent implements OnInit {
   createForm() {
     this.newPlanForm = new FormGroup({
       'name': new FormControl(null),
-      'type': new FormControl(null),
+      'duration': new FormControl(null),
       'price': new FormControl(null),
       'status': new FormControl(null),
       'description': new FormControl(null)

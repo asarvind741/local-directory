@@ -14,7 +14,7 @@ export class EditSubscriptionComponent implements OnInit {
   editPlanForm: FormGroup;
   showMessage: any;
   statuss: Array<String> = ['Active', 'Inactive'];
-  types: Array<String> = ['Yearly', 'Half Yearly', 'Quarterly']
+  duration: Array<String> = ['Yearly', 'Half Yearly', 'Quarterly', 'Monthly']
   @Input() currentPlan;
   constructor(
     public activeModal: NgbActiveModal,
@@ -27,13 +27,15 @@ export class EditSubscriptionComponent implements OnInit {
 
   createForm(){
     let name = this.currentPlan.name ? this.currentPlan.name : '';
-    let type = this.currentPlan.type ? this.currentPlan.type : 'Select One';
-    let cost = this.currentPlan.cost ? this.currentPlan.cost : '';
+    let duration = this.currentPlan.duration ? this.currentPlan.duration : 'Select One';
+    let price = this.currentPlan.price ? this.currentPlan.price : '';
+    let description = this.currentPlan.description ? this.currentPlan.description: '';
     let status = this.currentPlan.status ? this.currentPlan.status : null;
     this.editPlanForm = new FormGroup({
       'name': new FormControl(name),
-      'type': new FormControl(type),
-      'cost': new FormControl(cost),
+      'duration': new FormControl(duration),
+      'price': new FormControl(price),
+      'description': new FormControl(description),
       'status': new FormControl(status)
     })
   }

@@ -28,7 +28,6 @@ export class TwoFactorAuthenticationComponent implements OnInit {
   verifyUser(){
     this.authService.authenticateUser(this.otp, this.user)
     .subscribe((response: HttpResponse<any>) => {
-      console.log(this.activatedRoute.parent)
       if(response.status === 206){
         this.authService.saveUser(response['data']);
         this.router.navigate(['../dashboard/default'], {relativeTo: this.activatedRoute});

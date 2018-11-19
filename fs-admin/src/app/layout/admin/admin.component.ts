@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
-import {MenuItems} from '../../shared/menu-items/menu-items';
+import { animate, AUTO_STYLE, state, style, transition, trigger } from '@angular/animations';
+import { MenuItems } from '../../shared/menu-items/menu-items';
 import { AuthenticationService } from '../../services/auth.service';
 import { ElasticSearchService } from '../../services/elastic-search.service';
 
@@ -57,18 +57,20 @@ import { ElasticSearchService } from '../../services/elastic-search.service';
     ]),
     trigger('fadeInOutTranslate', [
       transition(':enter', [
-        style({opacity: 0}),
-        animate('400ms ease-in-out', style({opacity: 1}))
+        style({ opacity: 0 }),
+        animate('400ms ease-in-out', style({ opacity: 1 }))
       ]),
       transition(':leave', [
-        style({transform: 'translate(0)'}),
-        animate('400ms ease-in-out', style({opacity: 0}))
+        style({ transform: 'translate(0)' }),
+        animate('400ms ease-in-out', style({ opacity: 0 }))
       ])
     ])
   ]
 })
 export class AdminComponent implements OnInit {
   searchItem: String;
+  itemsSearched: Array<any> = [];
+  lastKeypress = 0;
   categories: Array<String> = ['first', 'second', 'third', 'fourth']
   public navType: string;
   public themeLayout: string;
@@ -129,7 +131,7 @@ export class AdminComponent implements OnInit {
     private authService: AuthenticationService,
     private router: Router,
     private elasticSearchService: ElasticSearchService
-    ) {
+  ) {
     this.navType = 'st2';
     this.themeLayout = 'vertical';
     this.verticalPlacement = 'left';
@@ -225,14 +227,23 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  logoutUser(){
+  logoutUser() {
     this.authService.logoutUser();
     this.router.navigate(['/']);
   }
 
-  searchItems(){
-    console.log("search sssssssss", this.searchItem);
-   
+  searchItems($event) {
+    this.itemsSearched = [];
+    if ($event.timeStamp - this.lastKeypress > 300) {
+      this.elasticSearchService.serchCategories(this.searchItem).then((response) => {
+        response.hits.hits.forEach((hit) => {
+          if (this.itemsSearched.indexOf(hit._source['CategoryName']) < 0)
+            this.itemsSearched.push(hit._source['CategoryName']);
+        })
+      })
+    }
+    this.lastKeypress = $event.timeStamp;
+
   }
 
   setMenuAttributes(windowWidth) {

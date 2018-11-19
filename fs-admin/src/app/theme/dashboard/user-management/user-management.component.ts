@@ -34,6 +34,7 @@ export class UserManagementComponent implements OnInit {
   getUsers() {
     this.userService.getUsers()
       .subscribe(users => {
+        console.log("usersssssssss", users);
         this.rows = users['data'];
         this.temp_rows = users['data'];
       })

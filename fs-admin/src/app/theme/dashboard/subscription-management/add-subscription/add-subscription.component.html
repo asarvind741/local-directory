@@ -15,16 +15,16 @@
       <div class="row">
         <label class="col-sm-4 col-lg-4 col-form-label">Type:</label>
         <div class="col-sm-8 col-lg-8">
-          <select class="input-group" name="module" formControlName="type">
+          <select class="input-group" name="module" formControlName="duration">
             <option [ngValue]="null" disabled>Select One</option>
-            <option *ngFor="let type of types" [ngValue]="type">
-              {{ type }}
+            <option *ngFor="let durtn of duration" [ngValue]="durtn">
+              {{ durtn }}
             </option>
           </select>
         </div>
       </div>
       <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Cost</label>
+        <label class="col-sm-4 col-lg-4 col-form-label">Price</label>
         <div class="col-sm-8 col-lg-8">
           <div class="input-group">
             <input type="number" class="form-control" placeholder="Enter price" formControlName="price" min="0">

@@ -81,7 +81,7 @@ async function sendOTPLogin(req, res) {
     try {
         let user = await User.findOne(req.body);
         if (user) {
-            console.log(user);
+            console.log("user", user);
             if (user.status === 'Active') {
                 let otp = speakeasy.totp({
                     secret: user.speakeasy_secret.base32,
@@ -327,6 +327,7 @@ async function deleteUser(req, res) {
 
 
 async function addUserFromAdmin(req, res) {
+    console.log('req body', req.body);
     try {
         let user = await User.findOne({
             email: req.body.email
@@ -334,7 +335,9 @@ async function addUserFromAdmin(req, res) {
         if (user)
             sendResponse(res, 400, 'User with this email id already exists');
         else {
-            req.body.status = 'Active';
+            req.body.speakeasy_secret = speakeasy.generateSecret({
+                length: 20
+            });
             let newUser = await new User(req.body).save();
             console.log(newUser);
             sendResponse(res, 200,

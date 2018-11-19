@@ -14,8 +14,10 @@
       <ngx-datatable #mydatatable class="material data-table" [headerHeight]="50" [limit]="10" [columnMode]="'force'"
         [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows" [columns]="columns">
         <ngx-datatable-column name="name">
-          <ng-template ngx-datatable-header-template>
-            <span>Coupon Name</span>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Name
+            </span>
           </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
@@ -26,32 +28,34 @@
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="module">
-          <ng-template ngx-datatable-header-template>
-            <span>Module Name</span>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Module Name
+            </span>
           </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
-            <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-lastName']">
+            <span>
               {{value}}
             </span>
-            <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
-              [value]="value" class="form-control" />
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="discount">
-          <ng-template ngx-datatable-header-template>
-            <span>Discount</span>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Discount(%)
+            </span>
           </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
-            <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
-              {{value}}
-            </span>
-            <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
-              [value]="value" class="form-control" />
+          <span>
+            {{value}}
+          </span>
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="expiresOn">
-          <ng-template ngx-datatable-header-template>
-            <span>Expiry Date</span>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Expiry Date
+            </span>
           </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
@@ -61,9 +65,11 @@
         </ngx-datatable-column>
 
         <ngx-datatable-column name="status">
-            <ng-template ngx-datatable-header-template>
-                <span>Status</span>
-              </ng-template>
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              Status
+            </span>
+          </ng-template>
           <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
             <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
               {{ value }}

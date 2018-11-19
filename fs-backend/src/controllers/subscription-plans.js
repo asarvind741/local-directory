@@ -37,6 +37,7 @@ async function editPlan(req, res) {
 }
 
 async function updatePlanStatus(req, res) {
+    console.log('req status', req.body);
     try {
         let id = req.body.id;
         delete req.body.id;

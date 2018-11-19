@@ -54,6 +54,8 @@ https://dzone.com/articles/23-useful-elasticsearch-example-queries
 https://www.airpair.com/elasticsearch/posts/elasticsearch-robust-search-functionality
 https://logz.io/blog/10-elasticsearch-concepts/
 https://www.sitepoint.com/search-engine-node-elasticsearch/
+https://www.elastic.co/guide/en/elasticsearch/guide/current/_query_time_search_as_you_type.html
+https://qbox.io/blog/integrating-elasticsearch-into-node-js-application
 
 
 ##paypal braintree 
@@ -67,4 +69,5 @@ https://srikanth.onl/integrating-braintree-with-angular-applications/
 
 
 
-
+ngx-sorting with header
+https://github.com/swimlane/ngx-datatable/issues/808

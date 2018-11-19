@@ -1,19 +1,19 @@
 import client from './elastic-search-connection';
 
 client.index({
-    index: 'arvind',
-    id: '1',
-    type: 'categories',
+    index: 'categories',
+    id: '5',
+    type: 'Material',
     body: {
-        "CategoryName": "English",
-        "CategoryId": "E01",
-        "CategoryType": "Language",
-        "Profit": 40,
-        "Loss": 30,
+        CategoryName: 'Cow Leather',
+        CategoryId: 'M05',
+        CategoryType: 'Material',
+        Profit: 40,
+        Loss: 30,
     }
 }, (err, res, status) => {
     if (err)
-        console.log("Error------>", err);
+        console.log('Error------>', err);
     else if (res)
-        console.log("Response---->", res);
-})
+        console.log('Response---->', res);
+});

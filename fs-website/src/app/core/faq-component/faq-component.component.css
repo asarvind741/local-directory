@@ -1,0 +1,56 @@
+/*FAQ start*/
+.faq_sec{background-color:#f9f9f9; padding:80px 0; margin-bottom:135px}
+.card-header{border:0; background:#fff; padding:2px 4px}
+.faq_wrap .card{margin-bottom:10px; border-bottom:1px solid rgba(0,0,0,.125)!important}
+.faq_wrap .btn-link{display:block; width:100%; text-align:left; color:#000}
+.faq_wrap .btn-link{position:relative; text-decoration:none; padding-right:45px}
+.faq_wrap .btn-link.collapsed::before {
+    background: #000 none repeat scroll 0 0;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    transition: all 0.2s ease-in 0s;
+    width: 12px;
+}
+.faq_wrap .btn-link.collapsed::after{
+background: #000 none repeat scroll 0 0;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    transform: rotate(90deg);
+    transition: all 0.2s ease-in 0s;
+    width: 12px;
+}
+.faq_wrap .btn-link::before {
+    background: #000 none repeat scroll 0 0;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    transition: all 0.2s ease-in 0s;
+    width: 12px;
+}
+.faq_wrap .btn-link::after{
+background: #000 none repeat scroll 0 0;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    transform: rotate(90deg);
+    transition: all 0.2s ease-in 0s;
+    width: 12px;
+}
+.faq_wrap .btn-link::after {
+    transform: rotate(180deg);
+    background: #000;
+}
+.faq_wrap .btn{white-space:inherit}
+.faq_wrap p{font-size:16px; color:#6c6c6c; line-height:25px; margin-bottom:20px}
+
+/*FAQ End*/

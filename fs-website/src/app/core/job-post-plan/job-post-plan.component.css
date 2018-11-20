@@ -1,0 +1,106 @@
+.table_plan_cntr table tbody tr td {
+    background: #f1f1f1 none repeat scroll 0 0;
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #ffffff;
+    color: #000000;
+    font-family: "ProximaNova";
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    padding: 12px 15px;
+    text-align: center;
+}
+.table_plan_cntr table tbody tr td input.sign_upBtn {
+    background: #5c356c none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: "ProximaNova";
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 16px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+.table_plan_cntr table tbody tr:last-child td {
+    border-bottom: 0 none;
+    padding: 0;
+}
+
+.table_plan_cntr table tbody tr:last-child td {
+    border-right: 0 none;
+}
+
+.job_post_tabl{margin: 0 0 95px;}
+.job_post_tabl .buyr_txt h2{font-size: 40px;font-weight: 600;line-height: 33px;text-transform: inherit;}
+.job_post_tabl .table_plan_cntr{display: block;margin: 45px auto 0;max-width: 100%;width: 100%; overflow:auto}
+.job_post_tabl table tbody tr td:nth-child(2){background: #e7e6e6 none repeat scroll 0 0;}
+.job_post_tabl table tbody tr td:nth-child(3){background: #d8f1f9 none repeat scroll 0 0;}
+.job_post_tabl table tbody tr td:nth-child(4){background: #e2c893 none repeat scroll 0 0;}
+.job_post_tabl table tbody tr td:nth-child(5){background: #ecb2d4  none repeat scroll 0 0;}
+.job_post_tabl table tbody tr td input.sign_upBtn{padding: 22px 10px;}
+.job_post_tabl .table_plan_cntr table td.num_t_lft.clor_f{background: #ffffff none repeat scroll 0 0;}
+.job_post_tabl .table_plan_cntr table tbody tr td > span.numbr {font-size: 14px;font-weight: 400;letter-spacing: 1px;line-height: 14px;}
+.job_post_tabl .text_tbl{max-width: 100%;margin: 0;}
+.job_post_tabl .table_plan_cntr table tbody tr:last-child,.job_post_tabl .table_plan_cntr table tbody tr td{border-bottom: 0;}
+.job_post_tabl .table_plan_cntr table tbody tr td{border-top: 1px solid #dbdbdb;}
+.job_post_tabl .table_plan_cntr table tbody tr:first-child td,.job_post_tabl .table_plan_cntr table tbody tr:last-child td{border-top:0; vertical-align:bottom}
+.job_post_tabl table tbody tr td:last-child{border-right: 0; border-top:1px solid #d3c09b}
+
+.job_post_tabl table tbody tr:first-child td:nth-child(2){background-color:#eee}
+.job_post_tabl table tbody tr:first-child td:nth-child(3){background-color:#c7e5ee}
+.job_post_tabl table tbody tr:first-child td:nth-child(4){background-color:#e5ca95}
+.job_post_tabl table tbody tr:first-child td:nth-child(5){background-color:#ecb2d4}
+.job_post_tabl table tbody tr:first-child td{font-size: 18px;font-weight: 400;line-height: 22px;color: #010101;}
+.job_post_tabl table tbody tr:first-child td.clor_wit{border-right: 0;background: #fff;}
+.job_post_tabl table tbody tr:first-child td.clor_blue{background: #d8f1f9 none repeat scroll 0 0;}
+.job_post_tabl table tbody tr:first-child td.clor_yelo{background: #fff4dc none repeat scroll 0 0;}
+.job_post_tabl table tbody tr:first-child td.clor_gra{background: #f6f6f6 none repeat scroll 0 0;}
+.job_post_tabl table tbody tr td span.pric_dolr,.job_post_tabl table tbody tr td h2{font-size: 18px;color: #010101;font-weight: 600;text-align: center;}
+.job_post_tabl table tbody tr td{padding: 10px 25px;font-size: 15px;font-weight: 400;color: #000;}
+.job_post_tabl table tbody tr td h2{font-size: 15px;font-weight: 400;text-align: left; margin:0}
+
+.job_post_tabl .table_plan_cntr table th.schol_clr::after {
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -4;
+}
+.job_post_tabl .table_plan_cntr table th.schol_clr::after {
+    background: rgba(0, 0, 0, 0) url("../../../assets//images/tableBg-img.png") no-repeat scroll 0 0;
+}
+.job_post_tabl .table_plan_cntr table th.schol_clr.s_1::after {
+    background: rgba(0, 0, 0, 0) url("../../../assets/images/post2_img.png") no-repeat scroll 0 0;
+}
+.job_post_tabl .table_plan_cntr table th.schol_clr.s_4::after {
+    background: rgba(0, 0, 0, 0) url("../../../assets/images/tableBg-img1.png") no-repeat scroll 0 0;
+}
+.job_post_tabl .table_plan_cntr table th.schol_clr.s_5::after {
+    background: #ecb2d4 url("../../../assets/images/tableBg-unlimited.png") no-repeat scroll 0 0;
+}
+.job_post_tabl th{position:relative; padding:26px 10px 50px; text-align:center; border-right:1px solid #fff}
+.job_post_tabl th.schol_clr {
+    width: 14%; background-color:#eee; z-index:5
+}
+.job_post_tabl .table_plan_cntr table th.schol_clr.s_1{background-color:#c7e5ee}
+.job_post_tabl .table_plan_cntr table th.schol_clr.s_4{background-color:#e5ca95}
+.job_post_tabl th:first-child{width:27%}
+.job_post_tabl th span{display:block}
+.job_post_tabl th.schol_clr.s_1{color:#fff}
+
+.job_post_tabl .text_tbl{position:relative; top:-45px; display:inline-block}
+
+
+
+@media only screen and (max-width:767px){
+    .table_plan_cntr th::after{background-size:100%!important}
+    .job_post_tabl th{padding:10px 10px 50px}
+    .job_post_tabl .text_tbl{position:relative; top:20px; display:block}
+}

@@ -1,0 +1,15 @@
+/* help_yrself_sec css start **/
+.help_yrself_sec{width: 100%;display: block;padding: 135px 0;}
+.help_yrself_sec .cntr_alTxt{margin-bottom: 95px;}
+.card_sec .card{border-radius:6px}
+.card_sec .card-body{padding:0}
+
+/* help_yrself_sec css start **/
+
+
+
+
+
+@media only screen and (max-width:767px){
+    .carousel-item > img{width:100%}
+}

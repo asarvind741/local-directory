@@ -71,3 +71,7 @@ https://srikanth.onl/integrating-braintree-with-angular-applications/
 
 ngx-sorting with header
 https://github.com/swimlane/ngx-datatable/issues/808
+
+
+Angular 7
+https://www.angularminds.com/blog/article/top-10-features-of-angular-7.html

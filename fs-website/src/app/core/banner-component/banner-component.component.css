@@ -1,0 +1,33 @@
+/** banner_sec start css **/
+.banner_sec{width: 100%;display: block;position: relative;background: url("../../../assets/images/baner.png") no-repeat;background-position: top center;background-size: cover;min-height: 765px;}
+
+.baner_cTxt{width: 100%;display: block;max-width: 265px;margin: 135px auto 0;text-align: center}
+.baner_cTxt h1{font-size: 24px;color: #fff;text-transform: uppercase;line-height: 28px;}
+.baner_cTxt a.met_btn{width: 100%;display: block;max-width: 175px;border: 2px solid #d62886;border-radius: 50px;text-align: center;font-size: 15px;color: #fff;margin: 64px auto 48px;line-height: 16px;padding: 9px 6px;letter-spacing: 0.3px;}
+
+.baner_cTxt .mouse-icon{display: inline-block;}
+.baner_cTxt .mouse-icon img{display: block;animation-duration: 0.5s;animation-fill-mode: both;animation-iteration-count: infinite;animation-timing-function: linear;}
+.baner_cTxt .mouse-icon img {animation-delay: 2s;animation-iteration-count: infinite;}
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-5px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.bounce{-webkit-animation-name: bounce; animation-name: bounce;}
+.banner_sec .m_img_lft{display: block;margin: 145px 0 0;max-width: 290px;width: 100%;}
+.banner_sec .m_img_lft > div{float: left;}
+.banner_sec .lt_sml{margin: 7px 0px 0px;}
+/* .banner_sec .botm_flor{display: block;max-width: 290px;width: 100%;float: right;bottom: -115px;right: 0;position: absolute;}
+.banner_sec .botm_flor img{display: block;margin: 0 0 0 70px;} */
+/** banner_sec start css * */

@@ -1,0 +1,30 @@
+/** header css start **/
+header{display: block;left: 0;position: fixed;right: 0;top: 0;width: 100%;padding: 50px 15px;}
+.logo{width: 100%;display: block;}
+.logo a{display: inline-block;}
+.menu_sec{width: 100%;display: block;}
+.Menu_br ul{float: right;margin: 7px 0 0 0;}
+.Menu_br ul li{float: left;margin: 0 22px 0 0;}
+.Menu_br ul li:last-child{margin-right: 0;}
+.Menu_br ul li a{font-size: 16px;color: #fff;display: block;line-height: 17px;position: relative;padding: 0 0 8px;}
+.Menu_br ul li a::after{position: absolute;left: 0;bottom: 0;background: #cb297b;width: 0;height: 2px;display: block;content: "";transition: all 0.5s ease; -webkit-transition: all 0.5s ease;}
+.Menu_br ul li.active a::after,.Menu_br ul li a:hover::after{width: 100%;transition: all 0.5s ease; -webkit-transition: all 0.5s ease;}
+.navbar{padding:0}
+
+.navbar-dark {background-color: transparent;}
+/** header css start **/
+
+.add-new-class {
+    background: #fff;
+    box-shadow:2px 2px 15px 2px #0000001f;
+    z-index:99
+}
+.add-new-class .Menu_br li a{color:#000}
+.logo .logo_scroll{display:none;}
+.add-new-class .logo_scroll{display:block}
+.add-new-class .logo_img{display:none}
+
+
+@media only screen and (max-width:767px){
+    header{display:none}
+}

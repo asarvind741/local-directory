@@ -75,3 +75,10 @@ https://github.com/swimlane/ngx-datatable/issues/808
 
 Angular 7
 https://www.angularminds.com/blog/article/top-10-features-of-angular-7.html
+
+
+scroll-
+https://stackoverflow.com/questions/32693061/how-can-i-select-an-element-in-a-component-template/35209681#35209681
+https://stackoverflow.com/questions/45921819/angular-nativeelement-is-undefined-on-viewchild
+https://stackoverflow.com/questions/47616843/how-to-call-scrollintoview-on-an-element-in-angular-2
+https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView

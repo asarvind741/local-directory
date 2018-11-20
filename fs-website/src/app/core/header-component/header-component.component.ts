@@ -11,11 +11,9 @@ export class HeaderComponentComponent implements OnInit {
   constructor() { }
 
   addClass: Boolean = false;
-  @Input('features') features;;
-  @ViewChild('buyer-feature') buyerFeature: ElementRef;
-  public moveToStructure(): void {
-    this.buyerFeature.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
-  }
+  @Input('features') features;
+
+  
   ngOnInit() {
   }
 
@@ -30,9 +28,10 @@ export class HeaderComponentComponent implements OnInit {
 
   }
 
-  scrollThis() {
+  scrollThis(event) {
+    console.log(event);
     this.features.nativeElement.scrollIntoView({
-      behavior: "smooth", block: "end", inline: "nearest"
+      behavior: "smooth", block: "end", inline: "center", alignToTop: true
     })
   }
 

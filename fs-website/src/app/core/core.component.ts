@@ -6,17 +6,17 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./core.component.css']
 })
 export class CoreComponent {
-  @ViewChild('feat',  { read: ElementRef }) feat: ElementRef;
+  @ViewChild('rfqFeature',  { read: ElementRef }) rfqFeature: ElementRef;
   featr: ElementRef;
   constructor(){
-    this.featr = this.feat;
+    
   }
 
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
-    console.log('initissssssssss', this.feat.nativeElement)
-    this.featr = this.feat;
-    console.log("featr", this.feat)
+    console.log('initissssssssss', this.rfqFeature.nativeElement)
+    this.featr = this.rfqFeature;
+    console.log("featr", this.rfqFeature)
   }
 }

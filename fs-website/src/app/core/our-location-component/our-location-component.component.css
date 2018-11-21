@@ -39,4 +39,7 @@
     .location_tab ul li:last-child a::after{display:none}
 
    .map_wrap{padding-top:50px}
-   .map_wrap .fade:not(.show) { opacity: 1;}
+   .map_wrap .fade:not(.show) { 
+       opacity: 1;
+       
+    }

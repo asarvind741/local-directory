@@ -72,12 +72,18 @@ p.red{color:#cb297b}
 
 
 @media only screen and (min-width:320px) and (max-width:767px){
-	.digital-listing ul{position:static}
+    .digital-listing ul{position:static}
 	.digital-listing ul::before{width:8px; height:100%; left:44px}
 	.digital-listing li{width:100%; display:block}
 	.digital-listing li .circleBox{width:100%; float:left}
 	.digital-listing li .crcl{margin:0 0 20px; position:relative; float:left}
-    .digital-listing li .circleBox .cntnt{width:calc(100% - 70px); position:static}
+    .digital-listing li .circleBox .cntnt{width:calc(100% - 70px); position:static; float:left; text-align:left; padding-left:10px}
+    .digital-listing li:nth-child(2) .cntnt{padding:0}
+    .digital-listing li .crcl:before{border-top: 10px solid transparent; border-bottom: 10px solid transparent;  border-left: 10px solid #000;
+    right:-17px; left:auto; top:22px}
+    .digital-listing li:nth-child(even) .crcl:before{border-top: 10px solid transparent; border-bottom: 10px solid transparent;  border-left: 10px solid #000;
+        right:-17px; left:auto; top:22px}
+        
     .img_block{margin-bottom:30px}
 
 }

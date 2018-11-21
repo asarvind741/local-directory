@@ -11,9 +11,10 @@ export class HeaderComponentComponent implements OnInit {
   constructor() { }
 
   addClass: Boolean = false;
-  @Input('features') features;
+  @Input('aboutDigital') aboutDigital;
+  @Input('contact') contact;
+  @Input('jobPostPlanning') jobPostPlanning;
 
-  
   ngOnInit() {
   }
 
@@ -29,10 +30,25 @@ export class HeaderComponentComponent implements OnInit {
   }
 
   scrollThis(event) {
-    console.log(event);
-    this.features.nativeElement.scrollIntoView({
-      behavior: "smooth", block: "end", inline: "center", alignToTop: true
-    })
+    console.log(event.target.text);
+    if (event.target.text === "Features") {
+
+      this.aboutDigital.nativeElement.scrollIntoView({
+        behavior: "smooth", block: "center", inline: "center", alignToTop: true
+      })
+    }
+    else if (event.target.text == "Pricing") {
+
+      this.jobPostPlanning.nativeElement.scrollIntoView({
+        behavior: "smooth", block: "start", inline: "start", alignToTop: true
+      })
+    }
+    else if (event.target.text == "Contact") {
+
+      this.contact.nativeElement.scrollIntoView({
+        behavior: "smooth", block: "center", inline: "center", alignToTop: true
+      })
+    }
   }
 
 

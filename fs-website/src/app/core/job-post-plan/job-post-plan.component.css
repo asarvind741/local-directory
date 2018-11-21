@@ -97,7 +97,7 @@
 
 .job_post_tabl .text_tbl{position:relative; top:-45px; display:inline-block}
 
-
+.job_post_tabl .table_plan_cntr table th.schol_clr::after{background-size:100%!important}
 
 @media only screen and (max-width:767px){
     .table_plan_cntr th::after{background-size:100%!important}

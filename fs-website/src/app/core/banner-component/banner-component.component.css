@@ -30,4 +30,15 @@
 .banner_sec .lt_sml{margin: 7px 0px 0px;}
 /* .banner_sec .botm_flor{display: block;max-width: 290px;width: 100%;float: right;bottom: -115px;right: 0;position: absolute;}
 .banner_sec .botm_flor img{display: block;margin: 0 0 0 70px;} */
+.botm_flor{float:right}
 /** banner_sec start css * */
+
+
+svg {
+  max-width: 100%;
+  width: 300px;
+}
+  
+  svg.continents {
+    fill: #1E8449 ;
+  }

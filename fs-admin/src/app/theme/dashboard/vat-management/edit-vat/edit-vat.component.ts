@@ -6,9 +6,9 @@ import { HttpResponse } from '@angular/common/http';
 import {PlanService } from '../../../../services/plan.service';
 
 @Component({
-  selector: 'app-subscription-plan',
-  templateUrl: './edit-subscription.component.html',
-  styleUrls: ['./edit-subscription.component.scss']
+  selector: 'app-vat',
+  templateUrl: './edit-vat.component.html',
+  styleUrls: ['./edit-vat.component.scss']
 })
 export class EditVatComponent implements OnInit {
   editPlanForm: FormGroup;

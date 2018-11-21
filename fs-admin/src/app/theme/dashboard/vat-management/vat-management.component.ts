@@ -8,10 +8,10 @@ import { PlanService } from '../../../services/plan.service';
 import * as moment from 'moment';
 
 @Component({
-  selector: '<app-subscription-management></app-subscription-management>',
-  templateUrl: './subscription-management.component.html',
+  selector: 'app-vat-management',
+  templateUrl: './vat-management.component.html',
   styleUrls: [
-    './subscription-management.component.scss',
+    './vat-management.component.scss',
     '../../../../assets/icon/icofont/css/icofont.scss'
   ]
 })

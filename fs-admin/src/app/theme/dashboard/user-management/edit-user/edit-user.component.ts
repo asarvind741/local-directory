@@ -21,7 +21,6 @@ export class EditUserComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log("user", this.currentUser)
     this.createForm();
   }
 

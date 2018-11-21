@@ -36,6 +36,10 @@ const routes: Routes = [
       {
         path: 'vat-management',
         loadChildren: './vat-management/vat-management.module#VatManagementModule'
+      },
+      {
+        path: 'profile',
+        loadChildren: './profile/profile.module#ProfileModule'
       }
     ]
   }

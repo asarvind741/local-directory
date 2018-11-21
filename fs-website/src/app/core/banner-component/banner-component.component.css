@@ -60,12 +60,6 @@
     animation: spin 3.5s infinite linear;
   }
   
-  .logo {
-    margin-top: 15px;
-    color: #51609B;
-    font-weight: bold;
-  }
-  
   @keyframes spin {
     0% {
       background-position-x: 0;

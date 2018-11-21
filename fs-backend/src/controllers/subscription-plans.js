@@ -74,7 +74,7 @@ async function getPlans(req, res) {
     try {
         let plans = await Plan.find({
             // status: 'Active'
-        });
+        }).populate('createdBy');
         console.log(plans);
 
         sendResponse(res, 200, 'Successful.', plans);
@@ -83,6 +83,7 @@ async function getPlans(req, res) {
         sendResponse(res, 500, 'Unexpected error', e);
     }
 }
+
 
 module.exports = {
     createPlan,

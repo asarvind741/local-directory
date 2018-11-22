@@ -12,7 +12,7 @@
     border-radius: 50px;
     display: block;
     margin: 0 auto;
-    max-width: 455px;
+    max-width: 465px;
     width: 100%;
     border: 1px solid #d62886;
 }
@@ -45,10 +45,10 @@
     height: 35%;
     display: block;
     position: absolute;
-    right: 0;
+    right: -4px;
     content: "";
     width: 1px;
-    top: 17px;
+    top: 15px;
 }
 .tab_wrapper .year_tabs {
     display: block;
@@ -104,7 +104,7 @@
     width: 1px;
     top: 13px;
 }
-.tabTabl_sec .m_login_tabbing ul li:last-child{width:45%}
+.tabTabl_sec .m_login_tabbing ul li:last-child{width:50%}
 .tab_wrapper .year_tabs ul li:last-child a:after{display:none}
 .tabTabl_sec .m_login_tabbing ul li:last-child a::after{display:none}
 
@@ -152,7 +152,6 @@
 }
 .table_plan_cntr table th h1.titl_t, .table_plan_cntr table th, .table_plan_cntr.notHed_tbl table td.clr_f1, .table_plan_cntr.notHed_tbl table td h1.titl_t, .table_plan_cntr.notHed_tbl table td.schol_clr {
     color: #000000;
-    font-family: "ProximaNova";
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px;
@@ -327,15 +326,12 @@
 .yearTbs .table_plan_cntr table th.schol_clr.clr_nwit {
     color: #fff;
 }
-.tab_wrapper span.hd_txt{background-color:#13537f; font-size:14px; padding:12px 25px; letter-spacing:1px; text-align:center; text-transform: capitalize;}
+.tab_wrapper span.hd_txt{background-color:#13537f; color:#fff; font-size:14px; padding:12px 25px; letter-spacing:1px; text-align:center; text-transform: capitalize;}
 
 .table_plan_cntr.notHed_tbl tbody tr td:first-child {text-align: left;}
 .table_plan_cntr.notHed_tbl tbody tr:first-child td {background: #fff; border-bottom: 0; padding: 0;}
-<<<<<<< HEAD
-.table_plan_cntr.notHed_tbl table td.clr_f1 {adding: 0 0 50px; border-right: 0; border-bottom: 0;}
-=======
 .table_plan_cntr.notHed_tbl table td.clr_f1 {padding: 0 0 50px; border-right: 0; border-bottom: 0;}
->>>>>>> 09857955d0c53d6cb049ff37b4105166af995786
+.table_plan_cntr.notHed_tbl table td.clr_f1 {padding: 0 0 50px; border-right: 0; border-bottom: 0;}
 .tab_wrapper span.hd_txt{color: #fff; font-size: 14px; font-weight: 400; letter-spacing: 1px;    line-height: 20px; text-align: center; background: #13537f; text-transform: capitalize;
 padding: 12px 25px; display: block;}
 .table_plan_cntr table th.schol_clr::after{background-size:100%!important}
@@ -343,18 +339,18 @@ padding: 12px 25px; display: block;}
 .table_plan_cntr.notHed_tbl table tbody tr:first-child td{padding:0}
 .table_plan_cntr.agentTabs table th.clr_f1 {width: 50%;}
 .table_plan_cntr.agentTabs table th.schol_clr {width: 17%;}
-<<<<<<< HEAD
 
 
 
-=======
 .supplier_sec .agentTabs th span{font-size:15px!important}
 .fade:not(.show) {display:none!important;} 
 
 #stockist .fade:not(.show) {
     opacity: 1;
 }
->>>>>>> 09857955d0c53d6cb049ff37b4105166af995786
+.nav-tabs{border:0}
+
+
 @media only screen and (max-width:767px){
  .tabTabl_sec .m_login_tabbing ul li > a::after{right:-25px}
  .table_plan_cntr table th::after{background-size:100%!important}
@@ -362,4 +358,8 @@ padding: 12px 25px; display: block;}
  .table_plan_cntr table th{vertical-align:top; padding-top:7px!important; font-size:12px; line-height:12px}
  .table_plan_cntr table th span{display:inline-block; font-size:12px!important}
  
+}
+
+@media only screen and (min-width:480px) and (max-width:767px){
+    .tabTabl_sec .m_login_tabbing ul li > a::after{right:0}
 }

@@ -21,23 +21,24 @@ export class EditCouponComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log("current coupon", this.currentCoupon)
+    
     this.createForm();
   }
 
   createForm(){
-    console.log("module", this.currentCoupon.module)
     let name = this.currentCoupon.name ? this.currentCoupon.name : '';
     let module = this.currentCoupon.module ? this.currentCoupon.module : 'Select One';
     let discount = this.currentCoupon.discount ? this.currentCoupon.discount : '';
     let expiresOn = this.currentCoupon.expiresOn ? this.currentCoupon.expiresOn : null;
     let status = this.currentCoupon.status ? this.currentCoupon.status : null;
+    let noOfUsersAllowed = this.currentCoupon.noOfUsersAllowed ? this.currentCoupon.noOfUsersAllowed: null;
     this.editCouponForm = new FormGroup({
       'name': new FormControl(name),
       'module': new FormControl(module),
       'discount': new FormControl(discount),
       'expiresOn': new FormControl(expiresOn),
-      'status': new FormControl(status)
+      'status': new FormControl(status),
+      'noOfUsersAllowed': new FormControl(noOfUsersAllowed)
     })
   }
 

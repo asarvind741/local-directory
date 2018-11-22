@@ -12,6 +12,7 @@ const Coupon = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'ServiceModule',
   },
+
   discount: {
     type: Number,
     required: true,
@@ -21,6 +22,10 @@ const Coupon = new Schema({
     ref: 'User'
   }],
   couponUrl: String,
+  noOfUsersAllowed: {
+    type: Number,
+    default: 1
+  },
   expiresOn: Date,
   status: {
     type: String,

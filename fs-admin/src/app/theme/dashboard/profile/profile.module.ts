@@ -5,6 +5,8 @@ import { ProfileComponent } from './profile.component';
 import {ProfileRoutingModule} from './profile-routing.module';
 import {SharedModule} from '../../../shared/shared.module';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
+import { BuyerProfileComponent } from './buyer-profile-form/buyer-profile.component';
+import { SupplierProfileComponent } from './supplier-profile-form/supplier-profile.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,10 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
     SharedModule,
     NgxDatatableModule
   ],
-  declarations: [ProfileComponent]
+  declarations: [
+    ProfileComponent,
+    BuyerProfileComponent,
+    SupplierProfileComponent
+  ]
 })
 export class ProfileModule { }

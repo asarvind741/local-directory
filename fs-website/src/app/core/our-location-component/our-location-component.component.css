@@ -1,4 +1,4 @@
-.location-sec{}
+.location-sec{width:100%; display:block}
 .location_block{text-align:center; border-top:1px solid #e1e1e1; display:block; padding-top:60px}
 .location_block h2{margin-bottom:20px}
 .location_tab ul {
@@ -38,8 +38,13 @@
     top: 5px;}
     .location_tab ul li:last-child a::after{display:none}
 
-   .map_wrap{padding-top:50px}
+   .map_wrap{padding-top:50px; width:100%}
    .map_wrap .fade:not(.show) { 
        opacity: 1;
        
     }
+      .map_wrap svg{width:100%!important}
+
+@media only screen and (max-width:767px){
+    .map_wrap svg{width:100%!important}
+}

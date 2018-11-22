@@ -1,7 +1,16 @@
 /** banner_sec start css **/
-.banner_sec{width: 100%;display: block;position: relative;background: url("../../../assets/images/baner.png") no-repeat;background-position: top center;background-size: cover;min-height: 765px;}
+.banner_sec{width: 100%;display: block;position: relative; background-position: top center;background-size: cover;min-height: 765px; overflow:hidden}
 
-.baner_cTxt{width: 100%;display: block;max-width: 265px;margin: 135px auto 0;text-align: center}
+.banner_sec2{
+  width: 100%;
+  display: block;
+  position: relative; 
+  background-position: top center;
+  background-size: cover;
+  min-height: 765px; overflow:hidden;
+}
+
+.baner_cTxt{width: 100%;display: block;max-width: 265px;margin: 50px auto 0;text-align: center}
 .baner_cTxt h1{font-size: 24px;color: #fff;text-transform: uppercase;line-height: 28px;}
 .baner_cTxt a.met_btn{width: 100%;display: block;max-width: 175px;border: 2px solid #d62886;border-radius: 50px;text-align: center;font-size: 15px;color: #fff;margin: 64px auto 48px;line-height: 16px;padding: 9px 6px;letter-spacing: 0.3px;}
 
@@ -30,7 +39,7 @@
 .banner_sec .lt_sml{margin: 7px 0px 0px;}
 /* .banner_sec .botm_flor{display: block;max-width: 290px;width: 100%;float: right;bottom: -115px;right: 0;position: absolute;}
 .banner_sec .botm_flor img{display: block;margin: 0 0 0 70px;} */
-.botm_flor{float:right}
+.botm_flor{float:right; position:relative; right:50px; top:-80px}
 /** banner_sec start css * */
 
 
@@ -54,10 +63,11 @@
   .dunya {
     width: 150px;
     height: 150px;
-    background: url(https://1.bp.blogspot.com/-UUXaK5GCj-k/UcsKJRMgkVI/AAAAAAAACfM/sePP_H08JTQ/s1600/1.jpg);
+    background: url('../../../assets/images/globe.jpg') ;
     border-radius: 100%;
     background-size: 380px;
-    animation: spin 3.5s infinite linear;
+    animation: spin 7s infinite linear;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   }
   
   @keyframes spin {
@@ -68,3 +78,11 @@
       background-position-x: 380px;
     }
   }
+
+
+  #canvas-basic {
+    position: absolute;
+    display: block;
+    height: 100vh;
+    width: 100%;
+}

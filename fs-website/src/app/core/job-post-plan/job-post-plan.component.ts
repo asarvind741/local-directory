@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs';
+import { SubjectService } from '../../services/subjects.service';
 
 @Component({
   selector: 'app-job-post-plan',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./job-post-plan.component.css']
 })
 export class JobPostPlanComponent implements OnInit {
-
-  constructor() { }
+@ViewChild('postPlan') postPlan;
+postSubject = new Subject<any>();
+  constructor(private subjectService: SubjectService) { }
 
   ngOnInit() {
+    
+  }
+
+  ngAfterViewInit(): void {
+    this.subjectService.updateSubject(this.postPlan);
   }
 
 }

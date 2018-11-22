@@ -31,7 +31,8 @@ export class AddCouponComponent implements OnInit {
       'module': new FormControl(null),
       'discount': new FormControl(null),
       'expiresOn': new FormControl(null),
-      'status': new FormControl(null)
+      'status': new FormControl(null),
+      'noOfUsersAllowed': new FormControl(null)
     })
   }
 

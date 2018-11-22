@@ -23,6 +23,14 @@ const permissionSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  isBuyer: {
+    type: Boolean,
+    default: false,
+  },
+  isSupplier: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 const WishList = new Schema({
@@ -74,6 +82,11 @@ const User = new Schema({
     enum: ['Male', 'Female'],
     // required: true,
   },
+  meritalStatus: {
+    type: String,
+    enum: ['Married', 'Single'],
+    default: 'Single'
+  },
   password: {
     type: String,
     select: false,
@@ -92,6 +105,7 @@ const User = new Schema({
     enum: statusTypes,
     default: 'Inactive'
   },
+  dateOfBirth: Date,
   token: {
     type: String
   },

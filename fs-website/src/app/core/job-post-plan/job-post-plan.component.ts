@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import * as AOS from 'aos';
 import { Subject } from 'rxjs';
 import { SubjectService } from '../../services/subjects.service';
 
@@ -13,7 +14,7 @@ postSubject = new Subject<any>();
   constructor(private subjectService: SubjectService) { }
 
   ngOnInit() {
-    
+    AOS.init();
   }
 
   ngAfterViewInit(): void {

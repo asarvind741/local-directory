@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import * as AOS from 'aos';
 declare var google: any;
 
 @Component({
@@ -16,6 +17,7 @@ export class OurLocationComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    AOS.init();
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 

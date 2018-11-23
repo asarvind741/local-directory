@@ -1,0 +1,27 @@
+
+.job_sec{display:block; }
+.job_topTxt ul li{margin-bottom:10px; display:block; padding:0 10px}
+.job_topTxt ul li span{padding-left:30px; font-size:16px; position:relative; font-size:20px; color:#cb297b}
+.job_topTxt ul li span::before{position:absolute; content:''; left:0;  background:url('../../../assets/images/list_icn.png') no-repeat; width:20px; height:18px; top:2px }
+.job_sec h2{margin-bottom:20px}
+.posting_list{margin-bottom:80px}
+.posting_list li{position:relative; padding-left:30px; font-size:18px}
+.posting_list li::before{position:absolute; content:''; background:url('../../../assets/images/arr_icn.png') no-repeat; width:15px; height:11px; left:0; top:7px }
+.company_box{position:relative;}
+.job_postTxt{position:absolute; top:40px; left:30px; color:#fff}
+.job_postTxt p{font-size:18px}
+.post_img img{width:100%}
+
+
+
+
+
+@media only screen and (max-width:767px){
+    .job_topTxt ul li{margin-bottom:20px}
+    .posting_list li{margin-bottom:20px}
+
+    .post_img{height:315px; margin-bottom:30px}
+    .post_img img{height:100%}
+    .job_postTxt p{font-size:16px}
+    .job_postTxt{left:15px}
+}

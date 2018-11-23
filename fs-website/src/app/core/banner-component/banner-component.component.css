@@ -1,0 +1,84 @@
+/** banner_sec start css **/
+.banner_sec{width: 100%;display: block;position: relative; background-position: top center;background-size: cover; overflow:hidden}
+.banner_sec .container{position:relative}
+
+
+
+.baner_cTxt{width: 100%;display: block;max-width: 265px;margin: 50px auto 0;text-align: center}
+.baner_cTxt h1{font-size: 24px;color: #fff;text-transform: uppercase;line-height: 28px;}
+.baner_cTxt a.met_btn{width: 100%;display: block;max-width: 175px;border: 2px solid #d62886;border-radius: 50px;text-align: center;font-size: 15px;color: #fff;margin: 64px auto 48px;line-height: 16px;padding: 9px 6px;letter-spacing: 0.3px;}
+.bannertrTxt_wrap{position:absolute; top:50%; transform:translate(0,-50%); margin:0 auto; left:0; right:0}
+.globa_row{position:absolute; right:0; bottom:0}
+
+.baner_cTxt .mouse-icon{display: inline-block;}
+.baner_cTxt .mouse-icon img{display: block;animation-duration: 0.5s;animation-fill-mode: both;animation-iteration-count: infinite;animation-timing-function: linear;}
+.baner_cTxt .mouse-icon img {animation-delay: 2s;animation-iteration-count: infinite;}
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-5px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.bounce{-webkit-animation-name: bounce; animation-name: bounce;}
+.banner_sec .m_img_lft{display: block;margin: 145px 0 0;max-width: 290px;width: 100%;}
+.banner_sec .m_img_lft > div{float: left;}
+.banner_sec .lt_sml{margin: 7px 0px 0px;}
+/* .banner_sec .botm_flor{display: block;max-width: 290px;width: 100%;float: right;bottom: -115px;right: 0;position: absolute;}
+.banner_sec .botm_flor img{display: block;margin: 0 0 0 70px;} */
+.botm_flor{float:right; position:relative; right:50px; top:-80px}
+/** banner_sec start css * */
+
+
+/* svg {
+  max-width: 100%;
+  width: 300px;
+}
+  
+  svg.continents {
+    fill: #1E8449 ;
+  } */
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .dunya {
+    width: 150px;
+    height: 150px;
+    background: url('../../../assets/images/globe.jpg') ;
+    border-radius: 100%;
+    background-size: 380px;
+    animation: spin 7s infinite linear;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  @keyframes spin {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: 380px;
+    }
+  }
+
+
+  #canvas-basic {
+    position: absolute;
+    display: block;
+    height: 100vh;
+    width: 100%;
+}

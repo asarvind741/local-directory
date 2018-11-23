@@ -1,0 +1,50 @@
+.location-sec{width:100%; display:block}
+.location_block{text-align:center; border-top:1px solid #e1e1e1; display:block; padding-top:60px}
+.location_block h2{margin-bottom:20px}
+.location_tab ul {
+    background: transparent;
+    border-radius: 50px;
+    display: block;
+    margin: 0 auto;
+    max-width: 170px;
+    width: 100%;
+    overflow:hidden;
+    border:1px solid #d62886
+}
+.location_tab ul li {
+    float: left;
+    width: 50%;
+    position:relative;
+}
+
+.location_tab ul li:last-child{border:0}
+.location_tab ul li.active a{color:#000;}
+.location_tab ul li a {
+    color: #959595;
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 11px 17px;
+    text-align: center;
+    text-transform: uppercase;
+    position:relative
+}
+.location_tab ul li a::after{position: absolute;
+    content: '';
+    width: 2px;
+    height: 70%;
+    background-color: #cfcfcf;
+    right: 0;
+    top: 5px;}
+    .location_tab ul li:last-child a::after{display:none}
+
+   .map_wrap{padding-top:50px; width:100%}
+   .map_wrap .fade:not(.show) { 
+       opacity: 1;
+       
+    }
+      .map_wrap svg{width:100%!important}
+
+@media only screen and (max-width:767px){
+    .map_wrap svg{width:100%!important}
+}

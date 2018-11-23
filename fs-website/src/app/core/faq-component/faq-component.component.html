@@ -1,768 +1,712 @@
-<<<<<<< HEAD
 <section class="accordion faq_sec" id="faqExample" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="50">
-      <div class="container">
-            <div class="cntr_alTxt">
-                  <h2>FAQ</h2>
-                  <div class="tab_wrapper">
-                        <ul class="nav nav-tabs">
-                              <li [ngClass]=" active1? 'active' : ''">
-                                    <a data-toggle="tab"  href="#faq1" (click)="active1=true;">Buyer</a>
-                              </li>
-                              <li [ngClass]="active1 ?  '':'active'">
-                                    <a data-toggle="tab" href="#faq2"  (click)="active1=false">Supplier</a>
-                              </li>
-                        </ul>
-                  </div>
-            </div>
-            <div class="tab-content">
-                  <div id="faq1" class="fade in active show">
-                        <div class="row">
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="faq_wrap">
-                                          <div class="card">
-                                                <div class="card-header" id="heading1">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link" type="button" data-toggle="collapse"
-                                                                  data-target="#collapse1" aria-expanded="true"
-                                                                  aria-controls="collapse1">
-                                                                  I have my suppliers
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse1" class="collapse show" aria-labelledby="heading1"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            <p>Fashion constantly needs new sources, new trends, as
-                                                                  well as
-                                                                  "niche"
-                                                                  suppliers for specific projects. You will have access
-                                                                  to a
-                                                                  large
-                                                                  array of suppliers worldwide with different and
-                                                                  complementary
-                                                                  expertises. You may choose new suppliers in
-                                                                  cost-effective
-                                                                  countries, or suppliers in close locations so as to
-                                                                  limit
-                                                                  carbon
-                                                                  footprint. With the rise of fast fashion, there will
-                                                                  be a
-                                                                  need to
-                                                                  produce more collections than before. You need to
-                                                                  secure
-                                                                  your
-                                                                  purchasing processes so you can find additional
-                                                                  suppliers
-                                                                  who can
-                                                                  react quickly to your needs. And with our Gallery,
-                                                                  you have
-                                                                  the
-                                                                  opportunity to find new products which fit your
-                                                                  collection
-                                                                  requirements.
-                                                            </p>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading2">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse2"
-                                                                  aria-expanded="false" aria-controls="collapse2">
-                                                                  How can I trust the supplier
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse2" class="collapse " aria-labelledby="heading2"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            <p>The supplier is offered a paid on-site Audit at a
-                                                                  competitive
-                                                                  price.
-                                                                  He gets a report from the audit firm and he conducts
-                                                                  necessary
-                                                                  actions to ensure quality compliance of his unit.
-                                                                  Checking
-                                                                  the
-                                                                  supplier's company profile, you have access to his
-                                                                  certifications
-                                                                  and financials. You can also find videos and pictures
-                                                                  of
-                                                                  the
-                                                                  factory, which you wouldn't have in a tradeshow.
-                                                            </p>
-                                                            <p>For large firms, we implement a blacklist feature so
-                                                                  they can
-                                                                  identify factories with whom not to work. We get
-                                                                  notifications
-                                                                  from buyers in case a supplier does not give
-                                                                  satisfactory
-                                                                  service
-                                                                  : we open a claim and ensure a follow-up. The
-                                                                  supplier gets
-                                                                  a
-                                                                  notification and after 3 bad recommendations, we
-                                                                  close his
-                                                                  account.
-                                                            </p>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading3">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse3"
-                                                                  aria-expanded="false" aria-controls="collapse3">
-                                                                  I prefer to visit tradeshows
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse3" class="collapse" aria-labelledby="heading3"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            Tradeshows are available a few days per year and can
-                                                            represent a
-                                                            high
-                                                            cost depending on the number of staff attending. It is
-                                                            difficult
-                                                            in a
-                                                            few days to identify and acquire many new suppliers. This
-                                                            solution
-                                                            allows you to conclude new deals all year round.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading4">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse4"
-                                                                  aria-expanded="false" aria-controls="collapse4">
-                                                                  What are the advantages?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse4" class="collapse" aria-labelledby="heading4"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            You join a single platform. You can re-shore part or all of
-                                                            your
-                                                            sourcing. You can find new or scarce resources to respond
-                                                            to new
-                                                            needs.
-                                                            You can choose to centralise production sites.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading5">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse5"
-                                                                  aria-expanded="false" aria-controls="collapse5">
-                                                                  What's the difference between all platforms?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse5" class="collapse" aria-labelledby="heading5"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            We think of the fashion industry as an entire chain of
-                                                            value so
-                                                            we
-                                                            incorporate all segments which our competitors don't. With
-                                                            our
-                                                            solution, brands can find manufacturers, materials,
-                                                            expertise,
-                                                            finished
-                                                            products, trends, etc. Our competition is either limited to
-                                                            specific
-                                                            fabrics, production, or limited geographical coverage.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading6">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse6"
-                                                                  aria-expanded="false" aria-controls="collapse6">
-                                                                  Can I pay in 3/4 times
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse6" class="collapse" aria-labelledby="heading6"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            No, it's a one-time payment
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading7">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse7"
-                                                                  aria-expanded="false" aria-controls="collapse7">
-                                                                  We have not budgeted for this solution
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse7" class="collapse" aria-labelledby="heading7"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            You could acquire a "starter" plan to test the value of our
-                                                            solution.
-                                                            It represents the equivalent of a plane ticket to visit a
-                                                            tradeshow. We
-                                                            can upgrade you to other plans if you decide to benefit
-                                                            from
-                                                            additional
-                                                            features.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="faq_wrap">
-                                          <div class="card">
-                                                <div class="card-header" id="heading8">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse8"
-                                                                  aria-expanded="false" aria-controls="collapse8">
-                                                                  We have our own e-sourcing software to launch RFQs.
-                                                                  Why do
-                                                                  I need
-                                                                  your solution?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse8" class="collapse" aria-labelledby="heading8"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            It is convenient to work on a single platform to search for
-                                                            suppliers
-                                                            and source directly. The RFQ feature allows you to spread
-                                                            the
-                                                            research
-                                                            among qualified suppliers who comply to your requirements.
-                                                            The
-                                                            e-auction feature will ensure you get best prices possible
-                                                            at
-                                                            equivalent quality levels. You can start using the RFQ
-                                                            feature on
-                                                            small
-                                                            requests to test ease of use and successful completion.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading9">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse9"
-                                                                  aria-expanded="false" aria-controls="collapse9">
-                                                                  Why should I choose your job post plan as opposed to
-                                                                  choosing a
-                                                                  company specialised in recruitment?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse9" class="collapse" aria-labelledby="heading9"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            Through our solution, we decided to represent the entire
-                                                            value
-                                                            chain of
-                                                            the Fashion Industry. Our offer would not be complete if it
-                                                            didn't
-                                                            cover talent acquisition. We allow you to post job openings
-                                                            which
-                                                            will
-                                                            be accessible by all of our community; suppliers, experts,
-                                                            students...
-                                                            thereby increasing chances of finding the right profiles to
-                                                            join
-                                                            your
-                                                            team. The pricing is competitive because we do not
-                                                            participate in
-                                                            the
-                                                            recruitment steps as such, and you have complete control
-                                                            over the
-                                                            content of your Post.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading10">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse10"
-                                                                  aria-expanded="false" aria-controls="collapse10">
-                                                                  Do I have knowledge of the suppliers that have been
-                                                                  blacklisted
-                                                                  by other users?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse10" class="collapse" aria-labelledby="heading10"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            You have access to the suppliers that have been blacklisted
-                                                            in
-                                                            your own
-                                                            organisation. We follow up on the total list of blacklisted
-                                                            suppliers.
-                                                            After 3 negative reports, we remove the supplier from our
-                                                            platform.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading11">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse11"
-                                                                  aria-expanded="false" aria-controls="collapse11">
-                                                                  I'm not confident to pay online
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse11" class="collapse" aria-labelledby="heading11"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            We are using a well known, reliable and secure payment
-                                                            gateway,
-                                                            as do
-                                                            other large players of the internet.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading12">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse12"
-                                                                  aria-expanded="false" aria-controls="collapse12">
-                                                                  Can I make a swift?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse12" class="collapse" aria-labelledby="heading12"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            Swifts are accepted. You will pay all bank fees. Your
-                                                            account
-                                                            will be
-                                                            opened after receiving the full payment. It may take 5
-                                                            business
-                                                            days.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div id="faq2" class="fade">
-                        <div class="row">
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="faq_wrap">
-                                          <div class="card">
-                                                <div class="card-header" id="heading13">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse13"
-                                                                  aria-expanded="false" aria-controls="collapse13">
-                                                                  I already have my Customers
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse13" class="collapse show" aria-labelledby="heading13"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            With this solution, you can win new customers and can
-                                                            mitigate risk. More brands worldwide can get to know your
-                                                            products and know-how
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading14">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse14"
-                                                                  aria-expanded="false" aria-controls="collapse14">
-                                                                  I already have a sales team looking for new customers
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse14" class="collapse" aria-labelledby="heading14"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            You can increase your sales team productivity and
-                                                            efficiency. Since you will have many opportunities to be
-                                                            contacted through the portal, your team can then focus on
-                                                            developping business with existing and new customers.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading15">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse15"
-                                                                  aria-expanded="false" aria-controls="collapse15">
-                                                                  I already do tradeshows
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse15" class="collapse" aria-labelledby="heading15"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            Tradeshows are expensive to attend and are available a few
-                                                            days per year. It is difficult in a few days to capture
-                                                            many new customers. This solution allows you to strike new
-                                                            deals all year round.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading16">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse16"
-                                                                  aria-expanded="false" aria-controls="collapse16">
-                                                                  I don't have a computer
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse16" class="collapse" aria-labelledby="heading16"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            No problem, a tablet or a phone can work too. Although you
-                                                            might find it more comfortable to exchange with customers
-                                                            on a computer.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading17">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse17"
-                                                                  aria-expanded="false" aria-controls="collapse17">
-                                                                  Can you assure me to have new customers?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse17" class="collapse" aria-labelledby="heading17"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            The platform cannot guarantee that you will have new
-                                                            customers. However, you will have more chances of
-                                                            attracting brand attention if you supply quality product
-                                                            descriptions and images, as well as any data concerning
-                                                            your production approach so as to reassure the potntial
-                                                            customer.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading18">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse18"
-                                                                  aria-expanded="false" aria-controls="collapse18">
-                                                                  What is the effort necessary for me to describe my
-                                                                  activity?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse18" class="collapse" aria-labelledby="heading18"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            You will have to fill out a form which is quite detailed.
-                                                            The more details you include, the more you will appear in
-                                                            the search keywords. The necessary time depends on the
-                                                            extent of your product line. This upfront effort is
-                                                            important to promote your unit on the platform.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading19">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse19"
-                                                                  aria-expanded="false" aria-controls="collapse19">
-                                                                  How long does it take to enter my profile?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse19" class="collapse" aria-labelledby="heading19"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            It only takes a few minutes to suscribe and get your
-                                                            password. You can take the time necessary to fill in all
-                                                            information. Since you have the control of your section,
-                                                            you can always update/change data as you require.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading20">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse20"
-                                                                  aria-expanded="false" aria-controls="collapse20">
-                                                                  What are the advantages?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse20" class="collapse" aria-labelledby="heading20"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            You gain woldwide visibility to attract new customers. You
-                                                            connect to potential new markets through RFQs. You can post
-                                                            your overstock and manage your inventory better. You have
-                                                            access to your entire industry and can generate business
-                                                            with counterparts who can contribute to your own projects.
-                                                            And many more advantages in terms of cost savings...
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading21">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse21"
-                                                                  aria-expanded="false" aria-controls="collapse21">
-                                                                  How can I reach your helpdesk?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse21" class="collapse" aria-labelledby="heading21"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            Depending on your package, the helpdesk is accessible
-                                                            through mail or phone.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading22">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse22"
-                                                                  aria-expanded="false" aria-controls="collapse22">
-                                                                  What are the disadvantages?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse22" class="collapse" aria-labelledby="heading22"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            None
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="faq_wrap">
-                                          <div class="card">
-                                                <div class="card-header" id="heading23">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse23"
-                                                                  aria-expanded="false" aria-controls="collapse23">
-                                                                  I've been approached by your competitors . Why should
-                                                                  I go with your solution?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse23" class="collapse" aria-labelledby="heading23"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            We think of the fashion industry as an entire chain of
-                                                            value so we incorporate all segments which our competitors
-                                                            don't. With our solution, brands can find manufacturers,
-                                                            materials, expertise, finished products, trends, etc. Our
-                                                            competition is either limited to specific fabrics,
-                                                            production, or limited geographical coverage.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading24">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse24"
-                                                                  aria-expanded="false" aria-controls="collapse24">
-                                                                  Why is the plan less expensive for external
-                                                                  resources?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse24" class="collapse" aria-labelledby="heading24"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            We want to make sure every contributor to the Fashion value
-                                                            chain gets a chance to be referenced. In the case of
-                                                            external resources, they can only benefit from being
-                                                            referenced and therefore "findable" by the buyer or
-                                                            supplier users. They benefit from none of the other
-                                                            features.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading25">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse25"
-                                                                  aria-expanded="false" aria-controls="collapse25">
-                                                                  Do I need to be audited if I want to be referenced on
-                                                                  the platform?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse25" class="collapse" aria-labelledby="heading25"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            No you don't but your customers are looking more and more
-                                                            for suppliers who have passed an audit for environmental,
-                                                            social or production conformity. This is part of their own
-                                                            sustainability programs. So having had an on site audit can
-                                                            only be beneficial to you.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading13">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse26"
-                                                                  aria-expanded="false" aria-controls="collapse26">
-                                                                  I'm already audited and need a license for 8 users.
-                                                                  What plan do I choose?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse26" class="collapse" aria-labelledby="heading26"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            We will offer to put you on the "Select" plan for 1500€ up
-                                                            to 9 users, and you will benefit from the same advantages
-                                                            as for the "Business Certified" plan.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading27">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse27"
-                                                                  aria-expanded="false" aria-controls="collapse27">
-                                                                  What if I am audited and don't get a pass ?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse27" class="collapse" aria-labelledby="heading27"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            One of the audit benefits is for you to either prove that
-                                                            your processes are compliant to what clients are expecting,
-                                                            or to focus on points needing your attention. This may be a
-                                                            way to pinpoint areas of improvement and more generally be
-                                                            a better business partner.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading28">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse28"
-                                                                  aria-expanded="false" aria-controls="collapse28">
-                                                                  What if I want to stop the subscription in the middle
-                                                                  of the year?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse28" class="collapse" aria-labelledby="heading28"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            It's an open platform like Internet or a tradeshow. Anyone
-                                                            with a user-id and password can see your profile, just like
-                                                            you can see your competitors'.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading29">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse29"
-                                                                  aria-expanded="false" aria-controls="collapse29">
-                                                                  I'm not confident to pay online
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse29" class="collapse" aria-labelledby="heading29"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            We are using a well known, reliable and secure payment
-                                                            gateway, as do other large players of the internet.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="card">
-                                                <div class="card-header" id="heading13">
-                                                      <h5 class="mb-0">
-                                                            <button class="btn btn-link collapsed" type="button"
-                                                                  data-toggle="collapse" data-target="#collapse13"
-                                                                  aria-expanded="false" aria-controls="collapse13">
-                                                                  Can I make a swift?
-                                                            </button>
-                                                      </h5>
-                                                </div>
-                                                <div id="collapse13" class="collapse" aria-labelledby="heading13"
-                                                      data-parent="#faqExample">
-                                                      <div class="card-body">
-                                                            Swifts are accepted. You will pay all bank fees. Your
-                                                            account will be opened after receiving the full payment. It
-                                                            may take 5 business days.
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-            </div>
-=======
-<section class="accordion faq_sec" id="faqExample" data-aos="fade-up" data-aos-delay="100">
   <div class="container">
     <div class="cntr_alTxt">
-	  <h2>FAQ</h2>
-	</div>
-    <div class="row">
-	  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-	     <div class="faq_wrap">
-
-   <div class="card">
-      <div class="card-header" id="heading1">
-         <h5 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-               I have my suppliers
-            </button>
-         </h5>
->>>>>>> fc4659e2cb20c526fe47a264494d62ef3ac0309d
+      <h2>FAQ</h2>
+      <div class="tab_wrapper">
+        <ul class="nav nav-tabs">
+          <li [ngClass]=" active1? 'active' : ''">
+            <a data-toggle="tab" href="#faq1" (click)="active1=true;">Buyer</a>
+          </li>
+          <li [ngClass]="active1 ?  '':'active'">
+            <a data-toggle="tab" href="#faq2" (click)="active1=false">Supplier</a>
+          </li>
+        </ul>
       </div>
+    </div>
+    <div class="tab-content">
+      <div id="faq1" class="fade in active show">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="faq_wrap">
+              <div class="card">
+                <div class="card-header" id="heading1">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1"
+                      aria-expanded="true" aria-controls="collapse1">
+                      I have my suppliers
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#faqExample">
+                  <div class="card-body">
+                    <p>Fashion constantly needs new sources, new trends, as
+                      well as
+                      "niche"
+                      suppliers for specific projects. You will have access
+                      to a
+                      large
+                      array of suppliers worldwide with different and
+                      complementary
+                      expertises. You may choose new suppliers in
+                      cost-effective
+                      countries, or suppliers in close locations so as to
+                      limit
+                      carbon
+                      footprint. With the rise of fast fashion, there will
+                      be a
+                      need to
+                      produce more collections than before. You need to
+                      secure
+                      your
+                      purchasing processes so you can find additional
+                      suppliers
+                      who can
+                      react quickly to your needs. And with our Gallery,
+                      you have
+                      the
+                      opportunity to find new products which fit your
+                      collection
+                      requirements.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading2">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2"
+                      aria-expanded="false" aria-controls="collapse2">
+                      How can I trust the supplier
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse2" class="collapse " aria-labelledby="heading2" data-parent="#faqExample">
+                  <div class="card-body">
+                    <p>The supplier is offered a paid on-site Audit at a
+                      competitive
+                      price.
+                      He gets a report from the audit firm and he conducts
+                      necessary
+                      actions to ensure quality compliance of his unit.
+                      Checking
+                      the
+                      supplier's company profile, you have access to his
+                      certifications
+                      and financials. You can also find videos and pictures
+                      of
+                      the
+                      factory, which you wouldn't have in a tradeshow.
+                    </p>
+                    <p>For large firms, we implement a blacklist feature so
+                      they can
+                      identify factories with whom not to work. We get
+                      notifications
+                      from buyers in case a supplier does not give
+                      satisfactory
+                      service
+                      : we open a claim and ensure a follow-up. The
+                      supplier gets
+                      a
+                      notification and after 3 bad recommendations, we
+                      close his
+                      account.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading3">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3"
+                      aria-expanded="false" aria-controls="collapse3">
+                      I prefer to visit tradeshows
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#faqExample">
+                  <div class="card-body">
+                    Tradeshows are available a few days per year and can
+                    represent a
+                    high
+                    cost depending on the number of staff attending. It is
+                    difficult
+                    in a
+                    few days to identify and acquire many new suppliers. This
+                    solution
+                    allows you to conclude new deals all year round.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading4">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4"
+                      aria-expanded="false" aria-controls="collapse4">
+                      What are the advantages?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#faqExample">
+                  <div class="card-body">
+                    You join a single platform. You can re-shore part or all of
+                    your
+                    sourcing. You can find new or scarce resources to respond
+                    to new
+                    needs.
+                    You can choose to centralise production sites.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading5">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5"
+                      aria-expanded="false" aria-controls="collapse5">
+                      What's the difference between all platforms?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#faqExample">
+                  <div class="card-body">
+                    We think of the fashion industry as an entire chain of
+                    value so
+                    we
+                    incorporate all segments which our competitors don't. With
+                    our
+                    solution, brands can find manufacturers, materials,
+                    expertise,
+                    finished
+                    products, trends, etc. Our competition is either limited to
+                    specific
+                    fabrics, production, or limited geographical coverage.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading6">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6"
+                      aria-expanded="false" aria-controls="collapse6">
+                      Can I pay in 3/4 times
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#faqExample">
+                  <div class="card-body">
+                    No, it's a one-time payment
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading7">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse7"
+                      aria-expanded="false" aria-controls="collapse7">
+                      We have not budgeted for this solution
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#faqExample">
+                  <div class="card-body">
+                    You could acquire a "starter" plan to test the value of our
+                    solution.
+                    It represents the equivalent of a plane ticket to visit a
+                    tradeshow. We
+                    can upgrade you to other plans if you decide to benefit
+                    from
+                    additional
+                    features.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="faq_wrap">
+              <div class="card">
+                <div class="card-header" id="heading8">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse8"
+                      aria-expanded="false" aria-controls="collapse8">
+                      We have our own e-sourcing software to launch RFQs.
+                      Why do
+                      I need
+                      your solution?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#faqExample">
+                  <div class="card-body">
+                    It is convenient to work on a single platform to search for
+                    suppliers
+                    and source directly. The RFQ feature allows you to spread
+                    the
+                    research
+                    among qualified suppliers who comply to your requirements.
+                    The
+                    e-auction feature will ensure you get best prices possible
+                    at
+                    equivalent quality levels. You can start using the RFQ
+                    feature on
+                    small
+                    requests to test ease of use and successful completion.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading9">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse9"
+                      aria-expanded="false" aria-controls="collapse9">
+                      Why should I choose your job post plan as opposed to
+                      choosing a
+                      company specialised in recruitment?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#faqExample">
+                  <div class="card-body">
+                    Through our solution, we decided to represent the entire
+                    value
+                    chain of
+                    the Fashion Industry. Our offer would not be complete if it
+                    didn't
+                    cover talent acquisition. We allow you to post job openings
+                    which
+                    will
+                    be accessible by all of our community; suppliers, experts,
+                    students...
+                    thereby increasing chances of finding the right profiles to
+                    join
+                    your
+                    team. The pricing is competitive because we do not
+                    participate in
+                    the
+                    recruitment steps as such, and you have complete control
+                    over the
+                    content of your Post.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading10">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse10"
+                      aria-expanded="false" aria-controls="collapse10">
+                      Do I have knowledge of the suppliers that have been
+                      blacklisted
+                      by other users?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#faqExample">
+                  <div class="card-body">
+                    You have access to the suppliers that have been blacklisted
+                    in
+                    your own
+                    organisation. We follow up on the total list of blacklisted
+                    suppliers.
+                    After 3 negative reports, we remove the supplier from our
+                    platform.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading11">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse11"
+                      aria-expanded="false" aria-controls="collapse11">
+                      I'm not confident to pay online
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#faqExample">
+                  <div class="card-body">
+                    We are using a well known, reliable and secure payment
+                    gateway,
+                    as do
+                    other large players of the internet.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading12">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse12"
+                      aria-expanded="false" aria-controls="collapse12">
+                      Can I make a swift?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#faqExample">
+                  <div class="card-body">
+                    Swifts are accepted. You will pay all bank fees. Your
+                    account
+                    will be
+                    opened after receiving the full payment. It may take 5
+                    business
+                    days.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="faq2" class="fade">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="faq_wrap">
+              <div class="card">
+                <div class="card-header" id="heading13">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse13"
+                      aria-expanded="false" aria-controls="collapse13">
+                      I already have my Customers
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse13" class="collapse show" aria-labelledby="heading13" data-parent="#faqExample">
+                  <div class="card-body">
+                    With this solution, you can win new customers and can
+                    mitigate risk. More brands worldwide can get to know your
+                    products and know-how
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading14">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse14"
+                      aria-expanded="false" aria-controls="collapse14">
+                      I already have a sales team looking for new customers
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse14" class="collapse" aria-labelledby="heading14" data-parent="#faqExample">
+                  <div class="card-body">
+                    You can increase your sales team productivity and
+                    efficiency. Since you will have many opportunities to be
+                    contacted through the portal, your team can then focus on
+                    developping business with existing and new customers.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading15">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse15"
+                      aria-expanded="false" aria-controls="collapse15">
+                      I already do tradeshows
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse15" class="collapse" aria-labelledby="heading15" data-parent="#faqExample">
+                  <div class="card-body">
+                    Tradeshows are expensive to attend and are available a few
+                    days per year. It is difficult in a few days to capture
+                    many new customers. This solution allows you to strike new
+                    deals all year round.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading16">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse16"
+                      aria-expanded="false" aria-controls="collapse16">
+                      I don't have a computer
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse16" class="collapse" aria-labelledby="heading16" data-parent="#faqExample">
+                  <div class="card-body">
+                    No problem, a tablet or a phone can work too. Although you
+                    might find it more comfortable to exchange with customers
+                    on a computer.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading17">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse17"
+                      aria-expanded="false" aria-controls="collapse17">
+                      Can you assure me to have new customers?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse17" class="collapse" aria-labelledby="heading17" data-parent="#faqExample">
+                  <div class="card-body">
+                    The platform cannot guarantee that you will have new
+                    customers. However, you will have more chances of
+                    attracting brand attention if you supply quality product
+                    descriptions and images, as well as any data concerning
+                    your production approach so as to reassure the potntial
+                    customer.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading18">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse18"
+                      aria-expanded="false" aria-controls="collapse18">
+                      What is the effort necessary for me to describe my
+                      activity?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse18" class="collapse" aria-labelledby="heading18" data-parent="#faqExample">
+                  <div class="card-body">
+                    You will have to fill out a form which is quite detailed.
+                    The more details you include, the more you will appear in
+                    the search keywords. The necessary time depends on the
+                    extent of your product line. This upfront effort is
+                    important to promote your unit on the platform.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading19">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse19"
+                      aria-expanded="false" aria-controls="collapse19">
+                      How long does it take to enter my profile?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse19" class="collapse" aria-labelledby="heading19" data-parent="#faqExample">
+                  <div class="card-body">
+                    It only takes a few minutes to suscribe and get your
+                    password. You can take the time necessary to fill in all
+                    information. Since you have the control of your section,
+                    you can always update/change data as you require.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading20">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse20"
+                      aria-expanded="false" aria-controls="collapse20">
+                      What are the advantages?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse20" class="collapse" aria-labelledby="heading20" data-parent="#faqExample">
+                  <div class="card-body">
+                    You gain woldwide visibility to attract new customers. You
+                    connect to potential new markets through RFQs. You can post
+                    your overstock and manage your inventory better. You have
+                    access to your entire industry and can generate business
+                    with counterparts who can contribute to your own projects.
+                    And many more advantages in terms of cost savings...
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading21">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse21"
+                      aria-expanded="false" aria-controls="collapse21">
+                      How can I reach your helpdesk?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse21" class="collapse" aria-labelledby="heading21" data-parent="#faqExample">
+                  <div class="card-body">
+                    Depending on your package, the helpdesk is accessible
+                    through mail or phone.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading22">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse22"
+                      aria-expanded="false" aria-controls="collapse22">
+                      What are the disadvantages?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse22" class="collapse" aria-labelledby="heading22" data-parent="#faqExample">
+                  <div class="card-body">
+                    None
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="faq_wrap">
+              <div class="card">
+                <div class="card-header" id="heading23">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse23"
+                      aria-expanded="false" aria-controls="collapse23">
+                      I've been approached by your competitors . Why should
+                      I go with your solution?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse23" class="collapse" aria-labelledby="heading23" data-parent="#faqExample">
+                  <div class="card-body">
+                    We think of the fashion industry as an entire chain of
+                    value so we incorporate all segments which our competitors
+                    don't. With our solution, brands can find manufacturers,
+                    materials, expertise, finished products, trends, etc. Our
+                    competition is either limited to specific fabrics,
+                    production, or limited geographical coverage.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading24">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse24"
+                      aria-expanded="false" aria-controls="collapse24">
+                      Why is the plan less expensive for external
+                      resources?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse24" class="collapse" aria-labelledby="heading24" data-parent="#faqExample">
+                  <div class="card-body">
+                    We want to make sure every contributor to the Fashion value
+                    chain gets a chance to be referenced. In the case of
+                    external resources, they can only benefit from being
+                    referenced and therefore "findable" by the buyer or
+                    supplier users. They benefit from none of the other
+                    features.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading25">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse25"
+                      aria-expanded="false" aria-controls="collapse25">
+                      Do I need to be audited if I want to be referenced on
+                      the platform?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse25" class="collapse" aria-labelledby="heading25" data-parent="#faqExample">
+                  <div class="card-body">
+                    No you don't but your customers are looking more and more
+                    for suppliers who have passed an audit for environmental,
+                    social or production conformity. This is part of their own
+                    sustainability programs. So having had an on site audit can
+                    only be beneficial to you.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading13">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse26"
+                      aria-expanded="false" aria-controls="collapse26">
+                      I'm already audited and need a license for 8 users.
+                      What plan do I choose?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse26" class="collapse" aria-labelledby="heading26" data-parent="#faqExample">
+                  <div class="card-body">
+                    We will offer to put you on the "Select" plan for 1500€ up
+                    to 9 users, and you will benefit from the same advantages
+                    as for the "Business Certified" plan.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading27">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse27"
+                      aria-expanded="false" aria-controls="collapse27">
+                      What if I am audited and don't get a pass ?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse27" class="collapse" aria-labelledby="heading27" data-parent="#faqExample">
+                  <div class="card-body">
+                    One of the audit benefits is for you to either prove that
+                    your processes are compliant to what clients are expecting,
+                    or to focus on points needing your attention. This may be a
+                    way to pinpoint areas of improvement and more generally be
+                    a better business partner.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading28">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse28"
+                      aria-expanded="false" aria-controls="collapse28">
+                      What if I want to stop the subscription in the middle
+                      of the year?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse28" class="collapse" aria-labelledby="heading28" data-parent="#faqExample">
+                  <div class="card-body">
+                    It's an open platform like Internet or a tradeshow. Anyone
+                    with a user-id and password can see your profile, just like
+                    you can see your competitors'.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading29">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse29"
+                      aria-expanded="false" aria-controls="collapse29">
+                      I'm not confident to pay online
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse29" class="collapse" aria-labelledby="heading29" data-parent="#faqExample">
+                  <div class="card-body">
+                    We are using a well known, reliable and secure payment
+                    gateway, as do other large players of the internet.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="heading13">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse13"
+                      aria-expanded="false" aria-controls="collapse13">
+                      Can I make a swift?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse13" class="collapse" aria-labelledby="heading13" data-parent="#faqExample">
+                  <div class="card-body">
+                    Swifts are accepted. You will pay all bank fees. Your
+                    account will be opened after receiving the full payment. It
+                    may take 5 business days.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="accordion faq_sec" id="faqExample" data-aos="fade-up" data-aos-delay="100">
+      <div class="container">
+        <div class="cntr_alTxt">
+          <h2>FAQ</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="faq_wrap">
+              <div class="card">
+                <div class="card-header" id="heading1">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1"
+                      aria-expanded="true" aria-controls="collapse1">
+                      I have my suppliers
+                    </button>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </section>

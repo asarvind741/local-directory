@@ -1,8 +1,4 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-<<<<<<< HEAD
-
-=======
->>>>>>> fc4659e2cb20c526fe47a264494d62ef3ac0309d
 import * as AOS from 'aos';
 declare var google: any;
 

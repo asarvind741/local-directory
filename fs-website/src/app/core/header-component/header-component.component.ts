@@ -15,6 +15,7 @@ export class HeaderComponentComponent implements OnInit {
   @Input('aboutDigital') aboutDigital;
   @Input('contact') contact;
   @Input('jobPostPlanning') jobPostPlanning;
+  @ViewChild('header') header: ElementRef;
 
   ngOnInit() {
   }
@@ -32,22 +33,23 @@ export class HeaderComponentComponent implements OnInit {
 
   scrollThis(event) {
     if (event.target.text === "Features") {
-      this.aboutDigital.nativeElement.scrollIntoView({
-        behavior: "smooth", block: "center", inline: "center", alignToTop: true
-      })
+      var topOfTheElement = this.aboutDigital.nativeElement.offsetTop- this.header.nativeElement.offsetHeight;
+      window.scroll({ top: topOfTheElement, behavior: 'smooth'})
     }
     else if (event.target.text == "Pricing") {
-     
-      this.jobPostPlanning.nativeElement.scrollIntoView({
-        behavior: "smooth", block: "center", inline: "start", alignToTop: true
-      })
+      var scrolledY = window.scrollY;
+      var topOfTheElement = this.jobPostPlanning.nativeElement.offsetTop- this.header.nativeElement.offsetHeight - 10;
+      window.scroll({ top: topOfTheElement, behavior: 'smooth'})
+      
 
     }
     else if (event.target.text == "Contact") {
 
-      this.contact.nativeElement.scrollIntoView({
-        behavior: "smooth", block: "center", inline: "center", alignToTop: true
-      })
+      // this.contact.nativeElement.scrollIntoView({
+      //   behavior: "smooth", block: "center", inline: "center", alignToTop: true
+      // })
+      var topOfTheElement = this.contact.nativeElement.offsetTop- this.header.nativeElement.offsetHeight + 10;
+      window.scroll({ top: topOfTheElement, behavior: 'smooth'})
     }
     else if (event.target.text == "Home") {
       window.scrollTo({

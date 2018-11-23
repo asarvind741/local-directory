@@ -94,3 +94,4 @@ https://code.likeagirl.io/5-different-ways-to-synchronize-data-from-mongodb-to-e
 https://blog.cloudboost.io/sync-mongo-with-elastic-and-save-months-of-development-time-and-cost-d281e0ca8fe4
 https://www.digitalocean.com/community/tutorials/how-to-interact-with-data-in-elasticsearch-using-crud-operations
 https://medium.com/@ashish_fagna/getting-started-with-elasticsearch-creating-indices-inserting-values-and-retrieving-data-e3122e9b12c6
+https://www.compose.com/articles/getting-started-with-elasticsearch-and-node/

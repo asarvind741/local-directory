@@ -19,15 +19,15 @@ export class BannerComponentComponent implements OnInit {
 
     $(document).ready(function () {
       var winHei = $(window).height();
-      $('.banner_sec').height(winHei);
+      $('.banner_sec, .banner_sec .container').height(winHei);
       $('#canvas-basic').height(winHei);
     })
 
     $(window).resize(function () {
       //if($(window).width() > 767){
-      $('.banner_sec').removeAttr('style');
+      $('.banner_sec, .banner_sec .container').removeAttr('style');
       var winHei = $(window).height();
-      $('.banner_sec').height(winHei);
+      $('.banner_sec, .banner_sec .container').height(winHei);
       // }
     })
   }

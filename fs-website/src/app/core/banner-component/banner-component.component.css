@@ -1,18 +1,14 @@
 /** banner_sec start css **/
-.banner_sec{width: 100%;display: block;position: relative; background-position: top center;background-size: cover;min-height: 765px; overflow:hidden}
+.banner_sec{width: 100%;display: block;position: relative; background-position: top center;background-size: cover; overflow:hidden}
+.banner_sec .container{position:relative}
 
-.banner_sec2{
-  width: 100%;
-  display: block;
-  position: relative; 
-  background-position: top center;
-  background-size: cover;
-  min-height: 765px; overflow:hidden;
-}
+
 
 .baner_cTxt{width: 100%;display: block;max-width: 265px;margin: 50px auto 0;text-align: center}
 .baner_cTxt h1{font-size: 24px;color: #fff;text-transform: uppercase;line-height: 28px;}
 .baner_cTxt a.met_btn{width: 100%;display: block;max-width: 175px;border: 2px solid #d62886;border-radius: 50px;text-align: center;font-size: 15px;color: #fff;margin: 64px auto 48px;line-height: 16px;padding: 9px 6px;letter-spacing: 0.3px;}
+.bannertrTxt_wrap{position:absolute; top:50%; transform:translate(0,-50%); margin:0 auto; left:0; right:0}
+.globa_row{position:absolute; right:0; bottom:0}
 
 .baner_cTxt .mouse-icon{display: inline-block;}
 .baner_cTxt .mouse-icon img{display: block;animation-duration: 0.5s;animation-fill-mode: both;animation-iteration-count: infinite;animation-timing-function: linear;}

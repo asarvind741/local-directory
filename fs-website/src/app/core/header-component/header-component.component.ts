@@ -39,13 +39,14 @@ export class HeaderComponentComponent implements OnInit {
     else if (event.target.text == "Pricing") {
      
       this.jobPostPlanning.nativeElement.scrollIntoView({
-        behavior: "smooth", block: "start", inline: "start", alignToTop: false
+        behavior: "smooth", block: "center", inline: "start", alignToTop: true
       })
+
     }
     else if (event.target.text == "Contact") {
 
       this.contact.nativeElement.scrollIntoView({
-        behavior: "smooth", block: "center", inline: "center", alignToTop: false
+        behavior: "smooth", block: "center", inline: "center", alignToTop: true
       })
     }
     else if (event.target.text == "Home") {

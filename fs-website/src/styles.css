@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files **/
- @font-face {
+@import '~animate.css/animate.min.css'; 
+@import "~aos/dist/aos.css";
+@font-face {
 	font-family: 'Conv COPPERPLATE GOTHIC BOLD REGULAR';
 	src: url('./assets/fonts/COPPERPLATE_GOTHIC_BOLD_REGULAR.eot');
 	src: local('☺'), url('./assets/fonts/COPPERPLATE_GOTHIC_BOLD_REGULAR.woff') format('woff'), url('./assets/fonts/COPPERPLATE_GOTHIC_BOLD_REGULAR.ttf') format('truetype'), url('./assets/fonts/COPPERPLATE_GOTHIC_BOLD_REGULAR.svg') format('svg');
@@ -21,7 +23,7 @@ h1,h2,h3,h4,h5,h6,p{margin: 0;font-family: 'ProximaNova';}
 *{margin:0; padding:0;}
 ul{list-style:none;margin:0; padding:0;}
 a:hover, a:focus {text-decoration: none; outline:none;}
-a{text-decoration:none; transition: all 0.5s ease; -webkit-transition: all 0.5s ease;}
+a{text-decoration:none; transition: all 0.5s ease; -webkit-transition: all 0.5s ease; cursor:pointer}
 a:hover{text-decoration:none;}
 img{max-width: 100%;}
 .clearfix::after, .clearfix::before{width: 100%;display: block;position: relative;clear: both;content: "";}

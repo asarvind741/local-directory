@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-supplier-component',
@@ -10,6 +11,7 @@ export class SupplierComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    AOS.init()
   }
 
 }

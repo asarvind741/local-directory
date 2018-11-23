@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+
+import * as AOS from 'aos';
 declare var google: any;
 
 @Component({
@@ -11,6 +13,8 @@ export class OurLocationComponentComponent implements OnInit {
   data: any;
   options: any = { title: '' };
   selected: String = 'Buyer';
+  active1 = true;
+  active2 = false;
   @ViewChild('showMap') showMap: ElementRef;
 
   constructor() { }
@@ -37,6 +41,7 @@ export class OurLocationComponentComponent implements OnInit {
       var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
       chart.draw(data, options);
     }
+    AOS.init()
   }
 
 
@@ -44,14 +49,18 @@ export class OurLocationComponentComponent implements OnInit {
   showChart(event) {
 
     if (event.target.text == "Supplier") {
+      this.active2 = true;
+      this.active1 = false;
       google.charts.load('current', { 'packages': ['corechart'] });
       google.charts.setOnLoadCallback(this.drawChart2());
 
-      
+
 
     }
 
     else if (event.target.text == "Buyer") {
+      this.active2 = false;
+      this.active1 = true;
       google.charts.load('current', { 'packages': ['corechart'] });
       google.charts.setOnLoadCallback(this.drawChart1());
       var self = this;

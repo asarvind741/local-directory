@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-help-yrself-component',
@@ -10,6 +11,7 @@ export class HelpYrselfComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    AOS.init()
   }
 
 }

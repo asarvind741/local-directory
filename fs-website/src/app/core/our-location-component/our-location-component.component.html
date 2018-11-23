@@ -1,4 +1,4 @@
-<section class="location-sec">
+<section class="location-sec" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="50">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
@@ -22,8 +22,8 @@
 
         <div class="location_tab">
           <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" (click)="showChart($event)">Buyer</a></li>
-            <li class="active"><a data-toggle="tab" (click)="showChart($event)">Supplier</a></li>
+            <li [ngClass] = "active1 ? 'active': ''"><a data-toggle="tab" (click)="showChart($event)">Buyer</a></li>
+            <li [ngClass] = "active2 ? 'active': ''"><a data-toggle="tab" (click)="showChart($event)">Supplier</a></li>
           </ul>
         </div>
         <div class="map_wrap tab-content">

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { SubjectService } from '../../services/subjects.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-job-post-plan',
@@ -8,12 +9,12 @@ import { SubjectService } from '../../services/subjects.service';
   styleUrls: ['./job-post-plan.component.css']
 })
 export class JobPostPlanComponent implements OnInit {
-@ViewChild('postPlan') postPlan;
-postSubject = new Subject<any>();
+  @ViewChild('postPlan') postPlan;
+  postSubject = new Subject<any>();
   constructor(private subjectService: SubjectService) { }
 
   ngOnInit() {
-    
+    AOS.init()
   }
 
   ngAfterViewInit(): void {

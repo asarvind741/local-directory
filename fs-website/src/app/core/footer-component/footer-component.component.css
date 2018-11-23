@@ -27,9 +27,11 @@
 .footer_nav ul li a{font-size: 10px;font-weight: 300;line-height: 13px;padding: 1px 0;letter-spacing: 0.6px;}
 .footer_nav ul li a span{text-transform: lowercase;}
 .social_box{padding: 0 35px 0 0;width: auto;float: right;text-align: right;}
-.social_box .help_btn{height: 23px;letter-spacing: 1px;line-height: 25px;margin: 0 0 20px;width: 146px;word-spacing: 2px;display: inline-block;float: none;}
+.social_box .help_btn{height: 23px;letter-spacing: 1px;line-height: 25px;margin: 0 0 20px;
+    width: 155px; display: inline-block;float: none;
+}
 .social_box p{font-size: 8px;font-weight: 300;}
-.social_box ul {float: right;max-width: 150px;width: 100%;display: inline-block;}
+.social_box ul { max-width: 150px;width: 100%;display: inline-block;}
 .social_box ul li a{height: 24px;width: 24px;}
 .social_box ul li{margin: 0 7px 0 0;}
 .social_box ul li:last-child{margin-right: 0;}

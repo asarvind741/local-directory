@@ -72,6 +72,7 @@ passport.deserializeUser(function (id, cb) {
 
 app.options('*', cors());
 require('./routes/user')(app);
+require('./routes/category')(app);
 require('./routes/coupon')(app);
 require('./routes/module')(app);
 require('./routes/subscription-plans')(app);

@@ -28,7 +28,11 @@
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
+<<<<<<< HEAD
               "./node_modules/aos/dist/aos.js"
+=======
+              "./node_modules/aos/dist/aos.js"  
+>>>>>>> fc4659e2cb20c526fe47a264494d62ef3ac0309d
             ]
           },
           "configurations": {

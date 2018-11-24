@@ -55,6 +55,7 @@ const User = new Schema({
   },
   firstName: String,
   lastName: String,
+  name: String,
   role: {
     type: String,
     enum: ['Buyer', 'Seller', 'Admin', 'SubAdmin'],
@@ -121,10 +122,13 @@ const User = new Schema({
   social_login_provider: {
     type: String
   },
+  skypeId: String,
   TwoFactorEnabled: {
     type: Boolean,
     default: false
-  }
+  },
+  description: String,
+  websiteAddress: String
 }, {
   timestamps: true,
 });

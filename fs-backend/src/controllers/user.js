@@ -6,7 +6,7 @@ import {
     SendMail
 } from './functions';
 import Constants from './constant';
-import sendSMS  from '../functions/nexmo';
+import sendSMS from '../functions/nexmo';
 async function addUser(req, res) {
     try {
         let user = await User.findOne({
@@ -18,7 +18,7 @@ async function addUser(req, res) {
             req.body.speakeasy_secret = speakeasy.generateSecret({
                 length: 20
             });
-
+            req.body.name = req.body.firstName + req.body.lastName;
             let newUser = await new User(req.body).save();
             console.log(newUser);
             let token = jwt.sign({
@@ -230,6 +230,9 @@ async function sociaLoginUser(req, res) {
         console.log(user);
         if (!user) {
             req.body.status = 'Active';
+            if (req.body.firstName && req.body.lastName)
+                req.body.name = req.body.firstName + req.body.lastName;
+
             user = await new User(req.body).save();
 
         }
@@ -284,6 +287,9 @@ async function editUser(req, res) {
     try {
         let id = req.body.id;
         delete req.body.id;
+        if (req.body.firstName && req.body.lastName)
+            req.body.name = req.body.firstName + req.body.lastName;
+
         let updateUser = await User.findByIdAndUpdate(id, {
             $set: req.body
         }, {

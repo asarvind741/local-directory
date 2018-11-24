@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment } from '../../environments/environment';
-import { CustomRegistrationModule } from '../theme/auth/registration/custom-registration/custom-registration.module';
-import { Subject } from "rxjs/Subject";
-import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs';
 
 
@@ -28,9 +25,6 @@ export class AuthenticationService {
 
     activateUser(token) {
         const sendToken = { 'token': token}
-        const httpOptions = {
-            headers: new HttpHeaders({ 'Content-type': 'application/json' })
-        }
         return this.httpClient.post(`${environment.API_URL}/user/verify`, sendToken)
     }
 

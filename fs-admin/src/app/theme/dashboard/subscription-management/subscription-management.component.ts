@@ -34,11 +34,13 @@ export class SubscriptionManagementComponent implements OnInit {
   }
 
   getPlans() {
-    let plansArray = [];
     this.planService.getPlans()
       .subscribe(plans => {
-        console.log("planssssssssssss", plans);
+        plans['data'].forEach(plan => {
+          plan.createdBy = plan.createdBy.email;
+        })
         this.rows = plans['data'];
+        
         this.temp_rows = plans['data'];
       })
   }

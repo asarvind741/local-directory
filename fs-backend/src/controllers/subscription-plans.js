@@ -74,7 +74,7 @@ async function getPlans(req, res) {
     try {
         let plans = await Plan.find({
             // status: 'Active'
-        }).populate('createdBy');
+        }).populate('createdBy', { _id: 0, email: 1});
         console.log(plans);
 
         sendResponse(res, 200, 'Successful.', plans);

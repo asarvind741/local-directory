@@ -10,8 +10,12 @@
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
           </div>
+          <div *ngIf="newCouponForm.get('name').invalid && newCouponForm.get('name').touched" class="text-danger">
+            <span *ngIf="newCouponForm.get('name').errors.required">Coupon name is required!</span>
+          </div>
         </div>
       </div>
+
       <div class="row">
         <label class="col-sm-4 col-lg-4 col-form-label">Module:</label>
         <div class="col-sm-8 col-lg-8">
@@ -21,6 +25,9 @@
               {{ module }}
             </option>
           </select>
+          <div *ngIf="newCouponForm.get('module').invalid && newCouponForm.get('module').touched" class="text-danger">
+            <span *ngIf="newCouponForm.get('module').errors.required">Module name is required!</span>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -28,6 +35,10 @@
         <div class="col-sm-8 col-lg-8">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Enter Name" formControlName="noOfUsersAllowed">
+            <div *ngIf="newCouponForm.get('noOfUsersAllowed').invalid && newCouponForm.get('noOfUsersAllowed').touched"
+              class="text-danger">
+              <span *ngIf="newCouponForm.get('noOfUsersAllowed').errors.min">Minimum users(1) required!</span>
+            </div>
           </div>
         </div>
       </div>
@@ -37,6 +48,11 @@
           <div class="input-group">
             <input type="number" class="form-control" placeholder="Enter discount(%)" formControlName="discount" min="1"
               max="100">
+            <div *ngIf="newCouponForm.get('discount').invalid && newCouponForm.get('discount').touched" class="text-danger">
+              <span *ngIf="newCouponForm.get('discount').errors.required">Discount is required!</span>
+              <span *ngIf="newCouponForm.get('discount').errors.min">Minimum discount(1%) required!</span>
+              <span *ngIf="newCouponForm.get('discount').errors.max">Maximum discount(100%) required!</span>
+            </div>
           </div>
         </div>
       </div>
@@ -61,6 +77,9 @@
             <input type="email" class="form-control" placeholder="Enter expiry date" formControlName="expiresOn"
               ngbDatepicker #d="ngbDatepicker">
             <button type="button" (click)="d.toggle()"><i class="fa fa-calendar"></i></button>
+            <div *ngIf="newCouponForm.get('expiresOn').invalid && newCouponForm.get('expiresOn').touched" class="text-danger">
+              <span *ngIf="newCouponForm.get('expiresOn').errors.required">Expiry date is required!</span>
+            </div>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@
         <div>
           <div [@fadeInOutTranslate] class="m-t-15">
             <!-- personal card start -->
-            <form [formGroup] = "myProfileForm" (ngSubmit) = "onSubmit()">
+            <form [formGroup]="myProfileForm" (ngSubmit)="onSubmit()">
               <div class="card">
                 <div class="card-header">
                   <h5 class="card-header-text">About Me</h5>
@@ -101,7 +101,8 @@
                                       <td>
                                         <div class="input-group">
                                           <span class="input-group-prepend"><label class="input-group-text"> <i class="icofont icofont-user"></i></label></span>
-                                          <input type="text" class="form-control" placeholder="Full Name" formControlName = "fullName">
+                                          <input type="text" class="form-control" placeholder="Full Name"
+                                            formControlName="fullName">
                                         </div>
                                       </td>
                                     </tr>
@@ -111,12 +112,14 @@
                                           <div class="group-add-on">
                                             <div class="radio radiofill radio-inline">
                                               <label>
-                                                <input type="radio" name="radio"><i class="helper" formControlName = "gender"></i> Male
+                                                <input type="radio" name="radio"><i class="helper" formControlName="gender"></i>
+                                                Male
                                               </label>
                                             </div>
                                             <div class="radio radiofill radio-inline">
                                               <label>
-                                                <input type="radio" name="radio" checked><i class="helper" formControlName = "gender"></i> Female
+                                                <input type="radio" name="radio" checked><i class="helper"
+                                                  formControlName="gender"></i> Female
                                               </label>
                                             </div>
                                           </div>
@@ -125,15 +128,16 @@
                                     </tr>
                                     <tr>
                                       <td>
-                                        <input id="dropper-default" class="form-control" type="text" formControlName = "dateOfBirth"
-                                          placeholder="Select Your Birth Date" />
+                                        <input id="dropper-default" class="form-control" type="text" formControlName="dateOfBirth"
+                                          placeholder="Select Your Birth Date" ngbDatepicker #d="ngbDatepicker" />
+                                          <button type="button" (click)="d.toggle()"><i class="fa fa-calendar"></i></button>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td>
-                                        <select id="hello-single" class="form-control" formControlName = "meritalStatus">
+                                        <select id="hello-single" class="form-control" formControlName="meritalStatus">
                                           <option [ngValue]="null" disabled>---- Marital Status ----</option>
-                                          <option *ngFor = "let status of statuss" [ngValue] = "status">
+                                          <option *ngFor="let status of statuss" [ngValue]="status">
                                             {{ status }}
                                           </option>
                                         </select>
@@ -143,7 +147,7 @@
                                       <td>
                                         <div class="input-group">
                                           <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-location-pin"></i></label></span>
-                                          <input type="text" class="form-control" placeholder="Address" formControlName = "currentLocation">
+                                          <input type="text" class="form-control" placeholder="Address" formControlName="currentLocation">
                                         </div>
                                       </td>
                                     </tr>
@@ -160,7 +164,7 @@
                                       <td>
                                         <div class="input-group">
                                           <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-mobile-phone"></i></label></span>
-                                          <input type="text" class="form-control" formControlName = "moble" placeholder="Mobile Number">
+                                          <input type="text" class="form-control" formControlName="moble" placeholder="Mobile Number">
                                         </div>
                                       </td>
                                     </tr>
@@ -168,7 +172,8 @@
                                       <td>
                                         <div class="input-group">
                                           <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-social-linkedin"></i></label></span>
-                                          <input type="text" class="form-control" formControlName = "linkedInID" placeholder="Linkedin Id">
+                                          <input type="text" class="form-control" formControlName="linkedInID"
+                                            placeholder="Linkedin Id">
                                         </div>
                                       </td>
                                     </tr>
@@ -176,7 +181,8 @@
                                       <td>
                                         <div class="input-group">
                                           <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-ui-password"></i></label></span>
-                                          <input type="password" class="form-control" formControlName = "password" placeholder="Password">
+                                          <input type="password" class="form-control" formControlName="password"
+                                            placeholder="Password">
                                         </div>
                                       </td>
                                     </tr>
@@ -184,7 +190,8 @@
                                       <td>
                                         <div class="input-group">
                                           <span class="input-group-prepend"><label class="input-group-text"><i class="icofont icofont-earth"></i></label></span>
-                                          <input type="text" class="form-control" formControlName = "websiteAddress" placeholder="website">
+                                          <input type="text" class="form-control" formControlName="websiteAddress"
+                                            placeholder="website">
                                         </div>
                                       </td>
                                     </tr>

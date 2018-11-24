@@ -18,13 +18,6 @@ import * as moment from 'moment';
 export class CouponManagementComponent implements OnInit {
   deleting: Boolean;
   showMessage: any;
-  columns = [
-    { prop: 'Name' },
-    { name: 'Module' },
-    { name: 'Discount(%)' },
-    { name: 'Expiry Date' },
-    { name: 'Status' },
-  ]
   constructor(
     private couponService: CouponService,
     private modalService: NgbModal
@@ -36,48 +29,14 @@ export class CouponManagementComponent implements OnInit {
   rows = [];
   temp_rows = [];
   ngOnInit() {
-
   }
 
   getCoupons() {
-    let couponsArray = [];
     this.couponService.getCoupons()
-      .subscribe(coupons => {  
-        console.log("aaaaaaaaaaaaaa", coupons);
-
-        coupons['data'].forEach(element => {
-          var element1 = Object.assign({}, {name: undefined, module: undefined, discount: undefined, expiresOn: undefined, status: undefined, id: undefined})
-          element1.name = element.name;
-          element1.module = element.module;
-          element1.discount = element.discount;
-          element1.expiresOn = element.expiresOn;
-          element1.status = element.status;
-          element1.id = element._id
-          couponsArray.push(element1);
-        });
-        console.log("element1.expiresOn = element.expiresOn;", couponsArray)
-        this.rows = couponsArray;
-        this.temp_rows = couponsArray;
-        console.log("elemeadd sss", this.rows)
+      .subscribe(coupons => {
+        this.rows = coupons['data'];
+        this.temp_rows = coupons['data'];
       })
-  }
-
-  updateValue(event, cell, row) {
-    console.log( row. cell)
-    this.editing[row + '-' + cell] = false;
-    this.temp_rows[row][cell] = event.target.value;
-    this.rows = this.temp_rows;
-   this.couponService.updateCoupon(this.rows[row]._id,this.rows[row])
-   .subscribe((response: HttpResponse<any>) => {
-     if(response.status === 200){
-       this.getCoupons();
-       this.openSuccessSwal();
-     }
-   }, (error) => {
-     this.showMessage = error.error['message'];
-     this.getCoupons();
-     this.openUnscuccessSwal()
-   })
   }
 
   onSearchInputChange(val) {
@@ -87,10 +46,10 @@ export class CouponManagementComponent implements OnInit {
       data = data.filter(coupon => {
         if (
           coupon.name ? coupon.name.toLowerCase().indexOf(val) >= 0 : null ||
-          coupon.module ? coupon.module.toLowerCase().indexOf(val) >= 0 : null ||
-          coupon.discount ? coupon.discount.indexOf(val) >= 0 : null ||
-          coupon.status ? coupon.status.toLowerCase().indexOf(val) >= 0 : null ||
-          coupon.expiresOn ? moment(coupon.expiresOn).format("MMM DD, YYYY").toLowerCase().indexOf(val) >=0 : null
+            coupon.module ? coupon.module.toLowerCase().indexOf(val) >= 0 : null ||
+              coupon.discount ? coupon.discount.indexOf(val) >= 0 : null ||
+                coupon.status ? coupon.status.toLowerCase().indexOf(val) >= 0 : null ||
+                  coupon.expiresOn ? moment(coupon.expiresOn).format("MMM DD, YYYY").toLowerCase().indexOf(val) >= 0 : null
         )
           return true;
       });
@@ -114,7 +73,7 @@ export class CouponManagementComponent implements OnInit {
     }).catch(swal.noop);
   }
 
-  activateCouppon(name){
+  activateCouppon(name) {
     console.log("id to activate", name['id']);
     swal({
       title: 'Are you sure?',
@@ -199,14 +158,15 @@ export class CouponManagementComponent implements OnInit {
     });
   }
 
-  openEditFormModal(coupon){
+  openEditFormModal(coupon) {
+    console.log("coupon", coupon);
     const modalRef = this.modalService.open(EditCouponComponent);
     modalRef.componentInstance.currentCoupon = coupon;
     modalRef.result.then((result) => {
       this.getCoupons();
     })
-    .catch((error) => {
-      this.getCoupons();
-    });
+      .catch((error) => {
+        this.getCoupons();
+      });
   }
 }

@@ -1,5 +1,4 @@
 import Category from '../models/category';
-
 import fs from 'fs';
 
 import {
@@ -18,25 +17,6 @@ async function createCategory(req, res) {
     }
 }
 
-async function getCategories(req, res) {
-    try {
-        Category.search({
-            query: req.body.searchTerm
-        }, function (err, results) {
-            if (err) {
-                console.log('err', err);
-            } else {
-                console.log('results------->', results);
-                sendResponse(res, 200, 'Category created Successfully.', results);
-            }
-        });
-    } catch (e) {
-        console.log(e);
-        sendResponse(res, 500, 'Unexpected error', e);
-    }
-}
-
 module.exports = {
-    createCategory,
-    getCategories
+    createCategory
 };

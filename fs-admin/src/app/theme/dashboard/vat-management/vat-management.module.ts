@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import {ArchwizardModule} from 'ng2-archwizard/dist';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { VatManagementRoutingModule } from './vat-management-routing.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AddVatComponent } from './add-vat/add-vat.component';
-import { EditVatComponent } from './edit-vat/edit-vat.component';
 import { VatManagementComponent } from './vat-management.component';
+import { SelectedCountryWizardComponent } from './selected-country-wizard/selected-country-wizard.component'
 
 @NgModule({
   imports: [
@@ -15,18 +15,16 @@ import { VatManagementComponent } from './vat-management.component';
     VatManagementRoutingModule,
     NgbModule.forRoot(),
     SharedModule,
+    ArchwizardModule,
     NgxDatatableModule,
     ReactiveFormsModule,
     FormsModule
   ],
   declarations: [
-    VatManagementComponent, 
-    AddVatComponent, 
-    EditVatComponent
+    VatManagementComponent,
+    SelectedCountryWizardComponent
   ],
   entryComponents: [
-    AddVatComponent,
-    EditVatComponent
   ]
 })
 export class VatManagementModule {

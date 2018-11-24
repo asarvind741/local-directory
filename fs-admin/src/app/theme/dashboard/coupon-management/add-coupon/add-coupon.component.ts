@@ -27,19 +27,19 @@ export class AddCouponComponent implements OnInit {
 
   createForm() {
     this.newCouponForm = new FormGroup({
-      'name': new FormControl(null),
-      'module': new FormControl(null),
-      'discount': new FormControl(null),
-      'expiresOn': new FormControl(null),
+      'name': new FormControl(null, [Validators.required]),
+      'module': new FormControl(null, [ Validators.required ]),
+      'discount': new FormControl(null, [Validators.required, Validators.min(1), Validators.max(100)]),
+      'expiresOn': new FormControl(null, [ Validators.required]),
       'status': new FormControl(null),
-      'noOfUsersAllowed': new FormControl(null)
+      'noOfUsersAllowed': new FormControl(null, [ Validators.min(1)]),
+      'description': new FormControl(null)
     })
   }
 
   addNewCoupon() {
     console.log(this.newCouponForm.value)
     this.couponService.addCoupon(this.newCouponForm.value).subscribe((response: HttpResponse<any>) => {
-        console.log("responseaaaaa", response);
         if (response.status === 200) {
           this.closeModal();
           this.openSuccessSwal();

@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpResponse } from '@angular/common/http';
-import { AddVatComponent } from './add-vat/add-vat.component';
-import { EditVatComponent } from './edit-vat/edit-vat.component';
-import { PlanService } from '../../../services/plan.service';
-import * as moment from 'moment';
+import { VatManagementService } from '../../../services/vat-management.service';
 
 @Component({
   selector: 'app-vat-management',
@@ -16,66 +13,35 @@ import * as moment from 'moment';
   ]
 })
 export class VatManagementComponent implements OnInit {
-  deleting: Boolean;
-  showMessage: any;
-
+  countries: Array<Object> = [];
+  selectedCountry: Object;
   constructor(
-    private planService: PlanService,
-    private modalService: NgbModal
+    private vatManagementService: VatManagementService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
-    this.getPlans();
+    this.getCountries();
   }
-  search_input: string = null;
-  editing = {};
-  rows = [];
-  temp_rows = [];
   ngOnInit() {
 
   }
 
-  getPlans() {
-    let plansArray = [];
-    this.planService.getPlans()
-      .subscribe(plans => {
-        console.log("planssssssssssss", plans);
-        this.rows = plans['data'];
-        this.temp_rows = plans['data'];
-      })
-  }
-
-  updateValue(event, cell, row) {
-    this.editing[row + '-' + cell] = false;
-    this.temp_rows[row][cell] = event.target.value;
-    this.rows = this.temp_rows;
-   this.planService.updatePlan(this.rows[row]._id,this.rows[row])
-   .subscribe((response: HttpResponse<any>) => {
+  getCountries() {
+    this.vatManagementService.getCountryList()
+    .subscribe((response: HttpResponse<any>) => {
      if(response.status === 200){
-       this.getPlans();
-       this.openSuccessSwal();
+       this.countries = response['data'];
      }
-   }, (error) => {
-     this.showMessage = error.error['message'];
-     this.getPlans();
-     this.openUnscuccessSwal()
-   })
+    })
   }
 
-  onSearchInputChange(val) {
-    if (val) {
-      val = val.toLowerCase();
-      let data = this.rows;
-      data = data.filter(plan => {
-        if (
-          plan.name ? plan.name.toLowerCase().indexOf(val) >= 0 : null ||
-          plan.duration ? plan.duration.toLowerCase().indexOf(val) >= 0 : null ||
-          plan.status ? plan.status.toLowerCase().indexOf(val) >= 0 : null ||
-          plan.createdAt ? moment(plan.createdAt).format("MMM DD, YYYY").toLowerCase().indexOf(val) >= 0 : null
-        )
-          return true;
-      });
-      this.rows = data;
-    } else this.rows = this.temp_rows;
+  selectCountry(country) {
+    this.router.navigate([`../${country.id}`], { relativeTo: this.activatedRoute})
   }
+
+  
+
+  
 
   openSuccessSwal() {
     swal({
@@ -88,102 +54,49 @@ export class VatManagementComponent implements OnInit {
   openUnscuccessSwal() {
     swal({
       title: 'Cancelled!',
-      text: this.showMessage,
+      text: 'Please try again',
       type: 'error'
     }).catch(swal.noop);
   }
 
-  activateCouppon(name){
-    swal({
-      title: 'Are you sure?',
-      text: 'You not be able to revert this!',
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, activate it!',
-      cancelButtonText: 'Not now!',
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger mr-sm'
-    }).then((result) => {
-      if (result.value) {
-        this.planService.modifyStatus(name._id).subscribe((response: HttpResponse<any>) => {
-          if (response.status === 200) {
-            this.getPlans();
-            swal(
-              'Activated!',
-              'Your have activated plan successfully.',
-              'success'
-            );
-          }
-        });
+ 
 
-      } else if (result.dismiss) {
-        swal(
-          'Cancelled',
-          'Activation request cancelled.)',
-          'error'
-        );
-      }
-    });
-  }
+  // openSuccessCancelSwal(name) {
+  //   this.deleting = true;
+  //   swal({
+  //     title: 'Are you sure?',
+  //     text: 'You not be able to revert this!',
+  //     type: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Yes, deactivate it!',
+  //     cancelButtonText: 'Not now!',
+  //     confirmButtonClass: 'btn btn-success',
+  //     cancelButtonClass: 'btn btn-danger mr-sm'
+  //   }).then((result) => {
+  //     if (result.value) {
+  //       this.planService.modifyStatus(name._id).subscribe((response: HttpResponse<any>) => {
+  //         console.log(response)
+  //         if (response.status === 200) {
+  //           this.getPlans();
+  //           swal(
+  //             'Deactivated!',
+  //             'Your have deactivated coupon successfully.',
+  //             'success'
+  //           );
+  //         }
+  //       });
 
-  openSuccessCancelSwal(name) {
-    this.deleting = true;
-    swal({
-      title: 'Are you sure?',
-      text: 'You not be able to revert this!',
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, deactivate it!',
-      cancelButtonText: 'Not now!',
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger mr-sm'
-    }).then((result) => {
-      if (result.value) {
-        this.planService.modifyStatus(name._id).subscribe((response: HttpResponse<any>) => {
-          console.log(response)
-          if (response.status === 200) {
-            this.getPlans();
-            swal(
-              'Deactivated!',
-              'Your have deactivated coupon successfully.',
-              'success'
-            );
-          }
-        });
+  //     } else if (result.dismiss) {
+  //       swal(
+  //         'Cancelled',
+  //         'Deactivation request cancelled.)',
+  //         'error'
+  //       );
+  //     }
+  //   });
+  //   this.deleting = false;
 
-      } else if (result.dismiss) {
-        swal(
-          'Cancelled',
-          'Deactivation request cancelled.)',
-          'error'
-        );
-      }
-    });
-    this.deleting = false;
-
-  }
-
-  openFormModal() {
-    const modalRef = this.modalService.open(AddVatComponent);
-    modalRef.result.then((result) => {
-      this.getPlans();
-    }).catch((error) => {
-      this.getPlans();
-    });
-  }
-
-  openEditFormModal(plan){
-    const modalRef = this.modalService.open(EditVatComponent);
-    modalRef.componentInstance.currentPlan = plan;
-    modalRef.result.then((result) => {
-      this.getPlans();
-    })
-    .catch((error) => {
-      this.getPlans();
-    });
-  }
+  // }
 }

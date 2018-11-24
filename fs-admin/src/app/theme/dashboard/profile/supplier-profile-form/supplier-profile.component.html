@@ -125,8 +125,9 @@
                                       </tr>
                                       <tr>
                                         <td>
-                                          <input id="dropper-default" class="form-control" type="text" formControlName = "dateOfBirth"
-                                            placeholder="Select Your Birth Date" />
+                                          <input id="dropper-default" class="form-control" type="text" formControlName="dateOfBirth"
+                                          placeholder="Select Your Birth Date" ngbDatepicker #d="ngbDatepicker" />
+                                          <button type="button" (click)="d.toggle()"><i class="fa fa-calendar"></i></button>
                                         </td>
                                       </tr>
                                       <tr>

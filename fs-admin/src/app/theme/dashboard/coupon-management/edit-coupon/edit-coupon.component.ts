@@ -32,13 +32,16 @@ export class EditCouponComponent implements OnInit {
     let expiresOn = this.currentCoupon.expiresOn ? this.currentCoupon.expiresOn : null;
     let status = this.currentCoupon.status ? this.currentCoupon.status : null;
     let noOfUsersAllowed = this.currentCoupon.noOfUsersAllowed ? this.currentCoupon.noOfUsersAllowed: null;
+    let description = this.currentCoupon.description ? this.currentCoupon.description: '';
+
     this.editCouponForm = new FormGroup({
-      'name': new FormControl(name),
-      'module': new FormControl(module),
-      'discount': new FormControl(discount),
-      'expiresOn': new FormControl(expiresOn),
+      'name': new FormControl(name, [Validators.required]),
+      'module': new FormControl(module, [ Validators.required ]),
+      'discount': new FormControl(discount, [Validators.required, Validators.min(1), Validators.max(100)]),
+      'expiresOn': new FormControl(expiresOn, [ Validators.required]),
       'status': new FormControl(status),
-      'noOfUsersAllowed': new FormControl(noOfUsersAllowed)
+      'noOfUsersAllowed': new FormControl(noOfUsersAllowed, [ Validators.min(1)]),
+      'description': new FormControl(description)
     })
   }
 

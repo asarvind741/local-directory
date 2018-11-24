@@ -1,5 +1,5 @@
 <!-- Table-sec start -->
-<section class="table_sec supplier_sec" data-aos="fade-up">
+<section class="table_sec supplier_sec" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="50">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -10,23 +10,31 @@
         <div class="tabTabl_sec clearfix">
           <div class="m_login_tabbing clearfix">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#supplier" data-toggle="tab" data-toggle="tooltip" title="Suoolier">supplier</a></li>
-              <li><a href="#stockist" data-toggle="tab" data-toggle="tooltip" title="Stockist!">stockist</a></li>
-              <li><a href="#reseller" data-toggle="tab" data-toggle="tooltip" title="External Reaources">External resources</a></li>
+              <li [ngClass]="applyClass == 1 ? 'active': ''"><a href="#supplier" data-toggle="tab" title="Supplier"
+                  (click)="classToApply($event)">supplier</a></li>
+              <li [ngClass]="applyClass == 2 ? 'active': ''"><a href="#stockist" data-toggle="tab" title="Stockist!"
+                  (click)="classToApply($event)">stockist</a></li>
+              <li [ngClass]="applyClass == 3 ? 'active': ''"><a href="#reseller" data-toggle="tab" title="External Reaources"
+                  (click)="classToApply($event)">External
+                  resources</a></li>
             </ul>
           </div>
         </div>
 
         <div class="tab-content">
-          <div id="supplier" class="tab_wrapper fade in active show" >
+          <div id="supplier" class="tab_wrapper fade in active show">
 
             <div class="year_tabs clearfix">
               <ul class="clearfix nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#supplier1">1 year</a></li>
-                <li><a href="#supplier2" data-toggle="tab">2 years</a></li>
+                <li [ngClass]="active1 ?  'active':''">
+                  <a data-toggle="tab" href="#supplier1" (click)="active1=true" title="1 year">1
+                    year</a></li>
+                <li [ngClass]="active1 ?  '':'active'">
+                  <a href="#supplier2" data-toggle="tab" (click)="active1=false" title="2 year">2
+                    years</a></li>
               </ul>
             </div>
-            <div  id="supplier1" class="yearTbs active" data-aos="fade-left">
+            <div id="supplier1" class="yearTbs active" data-aos="flip-left">
               <div class="table_plan_cntr">
                 <table width="100%">
 
@@ -41,9 +49,7 @@
                       <th class="schol_clr s_4">business certified<span class="pric">2,300 €</span></th>
                     </tr>
                   </thead>
-
                   <tbody>
-
                     <tr>
                       <td class="clr_gra">Number of users</td>
                       <td>Single</td>
@@ -155,7 +161,7 @@
               </div>
             </div>
 
-            <div #supplier2 id="supplier2" class="yearTbs" data-aos="flip-right" (click) = "showAnimation()">
+            <div id="supplier2" class="yearTbs" data-aos="flip-right">
               <div class="table_plan_cntr notHed_tbl">
                 <table width="100%">
 
@@ -290,16 +296,20 @@
 
           </div>
 
-          <div id="stockist" class="tab_wrapper fade" >
+          <div id="stockist" class="tab_wrapper fade">
 
             <div class="year_tabs clearfix">
               <ul class="clearfix nav nav-tabs">
-                <li class="active"><a href="#stockist1" data-toggle="tab">1 year</a></li>
-                <li><a href="#stockist2" data-toggle="tab">2 years</a></li>
+                <li [ngClass]="active1 ?  'active':''">
+                  <a href="#stockist1" data-toggle="tab" (click)="active1 = true" title="1 year">1
+                    year</a></li>
+                <li [ngClass]="active1 ?  '':'active'">
+                  <a href="#stockist2" data-toggle="tab" (click)="active1 = false" title="2 year">2
+                    years</a></li>
               </ul>
             </div>
 
-            <div id="stockist1" class="yearTbs active">
+            <div id="stockist1" class="yearTbs active" data-aos="flip-left">
               <div class="table_plan_cntr agentTabs">
                 <table width="100%">
 
@@ -406,7 +416,7 @@
               </div>
             </div>
 
-            <div id="stockist2" class="yearTbs">
+            <div id="stockist2" class="yearTbs" data-aos="flip-right">
               <div class="table_plan_cntr notHed_tbl agentTabs stockTabs">
                 <table width="100%">
 
@@ -517,16 +527,20 @@
 
           </div>
 
-          <div id="reseller" class="tab_wrapper fade" >
+          <div id="reseller" class="tab_wrapper fade">
 
             <div class="year_tabs clearfix nav nav-tabs">
               <ul class="clearfix nav nav-tabs">
-                <li class="active"><a href="#reseller1" data-toggle="tab">1 year</a></li>
-                <li><a href="#reseller2" data-toggle="tab">2 years</a></li>
+                <li [ngClass]="active1 ?  'active':''">
+                  <a href="#reseller1" data-toggle="tab" (click)="active1 = true" title="1 year">1
+                    year</a></li>
+                <li [ngClass]="active1 ?  '':'active'">
+                  <a href="#reseller2" data-toggle="tab" (click)="active1 = false" title="2 year">2
+                    years</a></li>
               </ul>
             </div>
 
-            <div id="reseller1" class="yearTbs active">
+            <div id="reseller1" class="yearTbs active" data-aos="flip-left">
               <div class="table_plan_cntr agentTabs">
                 <table width="100%">
 
@@ -627,7 +641,7 @@
               </div>
             </div>
 
-            <div id="reseller2" class="yearTbs">
+            <div id="reseller2" class="yearTbs" data-aos="flip-right">
               <div class="table_plan_cntr notHed_tbl">
                 <table width="100%">
 

@@ -36,7 +36,8 @@ export class VatManagementComponent implements OnInit {
   }
 
   selectCountry(country) {
-    this.router.navigate([`../${country.id}`], { relativeTo: this.activatedRoute})
+    // if(!this.activatedRoute.params['id'])
+    this.router.navigate([country.id], { relativeTo: this.activatedRoute});
   }
 
   

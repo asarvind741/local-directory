@@ -10,7 +10,9 @@ export class BuiltPlatformComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
     AOS.init();
+
   }
 
 }

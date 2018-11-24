@@ -12,10 +12,10 @@
 .built_sec .p0{padding:0}
 .built_sec h2{font-size:24px; margin-bottom:20px}
 .built_sec p{font-size:16px; margin-bottom:12px}
-.built_sec .built_Txt{ position:relative; height:100%; padding:30px 30px 20px}
-/*.built_txt_inner{position:absolute; padding:70px; left:0; right:0; margin:0 auto; top:50%; transform:translate(0,-50%); -webkit-transform:translate(0,-50%); }*/
+.built_sec .built_Txt{ position:relative; height:320px; padding:30px 30px 20px}
+.built_txt_inner{position:absolute;  left:0; right:0; margin:0 auto; top:50%; transform:translate(0,-50%); -webkit-transform:translate(0,-50%); padding:20px 20px 10px }
 span.circle_play{width:110px; height:110px; border-radius:50%; border:2px solid #fff; position:absolute; left:110px; right:0; margin:0 auto; transform:translate(-50%, 0); top:100px}
-.circle_play img{ position: absolute;  top: 34px;  left: 0;  right: 0;  margin: 0 auto;}
+.circle_play img{ position: absolute;  top: 34px;  left: 0;  right: 0;  margin: 0 auto; height:35px}
 
 @media only screen and (min-width:1024px) and (max-width:1199px){
     .built_sec h2{font-size:20px; margin-bottom:7px}
@@ -35,7 +35,8 @@ span.circle_play{width:110px; height:110px; border-radius:50%; border:2px solid 
 @media only screen and (max-width:767px){
     span.circle_play{width:90px; height:90px; top:115px}
     .circle_play img{top:25px}
-    .built_sec .built_Txt{padding:25px 15px}
+     .built_sec{height:100%}
+    .built_sec .built_Txt{padding:25px 15px; height:100%}
     .built_txt_inner{position:static; top:inherit; transform:inherit; padding:20px 20px 0}
 	.built_sec{height:auto}
 	.vedio_img .videoImg{height:320px}

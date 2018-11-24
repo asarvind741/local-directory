@@ -3,11 +3,15 @@
 .about_sec container{max-width: 1070px;}
 .abut_blok{display: block;max-width: 345px;width: 100%;margin: 0 0 35px;}
 .abut_blok a{font-size: 20px;padding: 0 0 0 44px;color: #cb297b;display: inline-block;line-break: 35px;font-weight: bold;background: url("../../../assets/images/abut_img1.png") no-repeat scroll left center;line-height: 35px;}
-.abut_blok a.ma_img1{background: url("../../../assets/images/abut_img2.png") no-repeat scroll left center;}
-.abut_blok a.ma_img2{background: url("../../../assets/images/abut_img3.png") no-repeat scroll left center;}
-.abut_blok a.ma_img3{background: url("../../../assets/images/abut_img4.png") no-repeat scroll left center;}
-.abut_blok a.ma_img4{background: url("../../../assets/images/abut_img5.png") no-repeat scroll left center;}
-.abut_blok a.ma_img5{background: url("../../../assets/images/abut_img6.png") no-repeat scroll left center;}
+.abut_blok a.ma_img1{background: url("../../../assets/images/abut_img2.svg") no-repeat scroll left center; background-size: 32px}
+.abut_blok a.ma_img2{background: url("../../../assets/images/abut_img3.svg") no-repeat scroll left center;
+background-size: 32px}
+.abut_blok a.ma_img3{background: url("../../../assets/images/abut_img4.svg") no-repeat scroll left center;
+background-size: 30px}
+.abut_blok a.ma_img4{background: url("../../../assets/images/abut_img5.svg") no-repeat scroll left center;
+background-size: 31px}
+.abut_blok a.ma_img5{background: url("../../../assets/images/abut_img6.svg") no-repeat scroll left center;
+background-size: 36px}
 .abut_blok a:hover{color: #ca0066;padding: 0 0 0 50px;}
 .about_sec .abut_blok p{padding: 15px 5px 0 0;line-height: 30px;font-size: 19px;}
 /** about_sec start css **/

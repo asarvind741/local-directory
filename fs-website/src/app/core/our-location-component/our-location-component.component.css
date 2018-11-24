@@ -1,4 +1,4 @@
-.location-sec{width:100%; display:block}
+.location-sec{width:100%; display:block;position:relative}
 .location_block{text-align:center; border-top:1px solid #e1e1e1; display:block; padding-top:60px}
 .location_block h2{margin-bottom:20px}
 .location_tab ul {
@@ -43,7 +43,11 @@
        opacity: 1;
        
     }
+    .map_wrap{width:100%; position:relative; display:block; overflow:hidden}
       .map_wrap svg{width:100%!important}
+      svg{width:100%}
+      #piechart{width:100%!important}
+      #piechart div{width:100%!important}
 
 @media only screen and (max-width:767px){
     .map_wrap svg{width:100%!important}

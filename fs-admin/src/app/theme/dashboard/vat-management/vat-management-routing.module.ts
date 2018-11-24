@@ -5,7 +5,7 @@ import { SelectedCountryWizardComponent } from './selected-country-wizard/select
 
 const routes: Routes = [
   { path: '', component: VatManagementComponent, children: [
-    { path: '/:id', component: SelectedCountryWizardComponent}
+    { path: ':id', component: SelectedCountryWizardComponent}
   ] }];
 
 @NgModule({

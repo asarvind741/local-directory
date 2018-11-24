@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files **/
+@import '~animate.css/animate.min.css'; 
 @import "~aos/dist/aos.css";
- @font-face {
+@font-face {
 	font-family: 'Conv COPPERPLATE GOTHIC BOLD REGULAR';
 	src: url('./assets/fonts/COPPERPLATE_GOTHIC_BOLD_REGULAR.eot');
 	src: local('☺'), url('./assets/fonts/COPPERPLATE_GOTHIC_BOLD_REGULAR.woff') format('woff'), url('./assets/fonts/COPPERPLATE_GOTHIC_BOLD_REGULAR.ttf') format('truetype'), url('./assets/fonts/COPPERPLATE_GOTHIC_BOLD_REGULAR.svg') format('svg');

@@ -82,3 +82,9 @@
     height: 100vh;
     width: 100%;
 }
+
+@media only screen and (max-width:767px){
+  .globa_row{display:none}
+  .banner_sec .m_img_lft{display:none}
+  .baner_cTxt a.met_btn{margin:30px auto}
+}

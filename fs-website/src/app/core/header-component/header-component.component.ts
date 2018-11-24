@@ -12,6 +12,7 @@ export class HeaderComponentComponent implements OnInit {
   constructor(private subjectService: SubjectService) { }
 
   addClass: Boolean = false;
+  currentEvent: String = 'Home';
   @Input('aboutDigital') aboutDigital;
   @Input('contact') contact;
   @Input('jobPostPlanning') jobPostPlanning;
@@ -32,24 +33,29 @@ export class HeaderComponentComponent implements OnInit {
   }
 
   scrollThis(event) {
+    this.currentEvent = event.target.text;
     if (event.target.text === "Features") {
-      var topOfTheElement = this.aboutDigital.nativeElement.offsetTop- this.header.nativeElement.offsetHeight;
-      window.scroll({ top: topOfTheElement, behavior: 'smooth'})
+      this.aboutDigital.nativeElement.scrollIntoView({
+        behavior: "smooth", block: "center", inline: "center", alignToTop: true
+      })
     }
     else if (event.target.text == "Pricing") {
-      var scrolledY = window.scrollY;
-      var topOfTheElement = this.jobPostPlanning.nativeElement.offsetTop- this.header.nativeElement.offsetHeight - 10;
-      window.scroll({ top: topOfTheElement, behavior: 'smooth'})
-      
+      var topOfTheElement = this.jobPostPlanning.nativeElement.offsetTop - this.header.nativeElement.offsetHeight;
+      window.scroll({
+        top: topOfTheElement,
+        behavior: 'smooth'
+      })
 
     }
     else if (event.target.text == "Contact") {
-
+      var topOfTheElement = this.contact.nativeElement.offsetTop - this.header.nativeElement.offsetHeight;
+      window.scroll({
+        top: topOfTheElement,
+        behavior: 'smooth'
+      })
       // this.contact.nativeElement.scrollIntoView({
       //   behavior: "smooth", block: "center", inline: "center", alignToTop: true
       // })
-      var topOfTheElement = this.contact.nativeElement.offsetTop- this.header.nativeElement.offsetHeight + 10;
-      window.scroll({ top: topOfTheElement, behavior: 'smooth'})
     }
     else if (event.target.text == "Home") {
       window.scrollTo({

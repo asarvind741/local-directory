@@ -11,7 +11,7 @@ export class RfqFeaturesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    AOS.init();
+    AOS.init()
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import * as AOS from 'aos';
+
+
 @Component({
   selector: 'app-about-component',
   templateUrl: './about-component.component.html',

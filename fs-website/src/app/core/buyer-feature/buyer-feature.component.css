@@ -1,6 +1,6 @@
-.buyer_sec{width:100%; display:block; background:url('../../../assets/images/rfq_bg.png') no-repeat; background-position: top center; background-size: cover; min-height:412px; padding:50px 0 40px; margin-bottom:135px}
+.buyer_sec{width:100%; display:block; background:url('../../../assets/images/rfq_bg.png') no-repeat; background-position: top center; background-size: cover; min-height:412px; padding:50px 0 40px; margin-bottom:135px; background-size:20px}
 .buyer_sec h2{font-size:20px; margin-bottom:22px; font-weight:700; color:#000}
-.buyer_sec ul li{margin-bottom:22px; font-size:16px; background:url('../../../assets/images/list_icn.png') no-repeat; background-position:left 3px; padding-left:35px}
+.buyer_sec ul li{margin-bottom:22px; font-size:16px; background:url('../../../assets/images/list_icn.svg') no-repeat; background-position:left 3px; padding-left:35px; background-size:20px}
 
 
 

@@ -11,7 +11,7 @@ export class SegmentsComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    AOS.init();
+    AOS.init()
   }
    
 

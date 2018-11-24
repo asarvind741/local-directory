@@ -25,13 +25,20 @@ export class OurLocationComponentComponent implements OnInit {
 
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ['Country', 'Popularity'],
-        ['Germany', 200],
-        ['United States', 300],
-        ['Brazil', 400],
-        ['Canada', 500],
-        ['France', 600],
-        ['RU', 700]
+        ['City', 'Country'],
+        ['Montreal', 'Canada'],
+        ['Los Angeles', 'USA'],
+        ['New York city', 'USA'],
+        ['London', 'UK'],
+        ['Paris', 'France'],
+        ['Milano', 'Italy'],
+        ['Dusseldorf', 'Germany'],
+        ['Amsterdam', 'Netherlands'],
+        ['Istanbul', 'Turkey'],
+        ['Moscow', 'Russia'],
+        ['Dubai', 'UAE'],
+        ['Hong Kong', 'China'],
+        ['Shanghai', 'China']
       ]);
 
       var options = {
@@ -71,13 +78,8 @@ export class OurLocationComponentComponent implements OnInit {
 
   drawChart2() {
     var data = google.visualization.arrayToDataTable([
-      ['Country', 'Popularity'],
-      ['Germany', 200],
-      ['United States', 300],
-      ['Brazil', 200],
-      ['Canada', 100],
-      ['France', 500],
-      ['RU', 400]
+      ['USA'], ['Mexico'], ['Brazil'], ['Argentina'], ['UK'], ['France'], ['Italy'], ['Spain'], ['germany'], ['hungary'], ['romania'], ['Bulgaria'], ['greece'], ['turkey'], ['egypt'], ['tunisia'], ['morocco'],
+['pakistan'], ['India'], ['Nepal'], ['Bangladesh'], ['Myanmar'], ['thailand'], ['vietnam'], ['laos'], ['china'], ['philipines'], ['south korean'], ['Japan'], ['cambodia'], ['malaysia'], ['Indonesia'], ['South Africa'],['Mauritius'], ['Ethiopy'], ['Somalia'], ['Sudan']
     ]);
 
     var options = {

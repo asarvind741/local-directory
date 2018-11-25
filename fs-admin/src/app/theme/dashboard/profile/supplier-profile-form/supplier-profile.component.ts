@@ -1,7 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import swal from 'sweetalert2';
 import {animate, style, transition, trigger} from '@angular/animations';
 import { UserService } from '../../../../services/user.servivce';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-supplier-profile',
@@ -47,7 +49,9 @@ export class SupplierProfileComponent implements OnInit {
   statuss: Array<String> = ['Married', 'Single'];
   @Input('user') currentUser: any;
 
-  constructor(private useService: UserService) {
+  constructor(
+    private userService: UserService
+  ) {
   }
 
   ngOnInit() {
@@ -55,7 +59,8 @@ export class SupplierProfileComponent implements OnInit {
   }
 
   createForm(){
-    let fullName = this.currentUser.fullName ? this.currentUser.fullName: ''
+    console.log("current user", this.currentUser)
+    let name = this.currentUser.name ? this.currentUser.name: ''
     let firstName = this.currentUser.firstName ? this.currentUser.firstName : '';
     let lastName = this.currentUser.lastName ? this.currentUser.lastName : '';
     let email = this.currentUser.email ? this.currentUser.email : '';
@@ -64,26 +69,24 @@ export class SupplierProfileComponent implements OnInit {
     let meritalStatus = this.currentUser.meritalStatus ? this.currentUser.meritalStatus :'';
     let status = this.currentUser.status ? this.currentUser.status: '';
     let mobile = this.currentUser.mobile ? this.currentUser.mobile : '';
-    let currentLocation = this.currentUser.currentLocation ? this.currentUser.currentLocation : '';
-    let twitterId = this.currentUser.twitterId ? this.currentUser.twitterId : '';
+    let address = this.currentUser.address ? this.currentUser.address : '';
+    let dateOfBirth = this.currentUser.dateOfBirth ? this.currentUser.dateOfBirth: '';
     let linkedInId = this.currentUser.linkedInId ? this.currentUser.linkedInId : '';
-    let skypeId = this.currentUser.skypeId ? this.currentUser.skypeId: '';
-    let websiteAddress = this.currentUser.websiteAddress ? this.currentUser.skypeId: '';
+    let websiteAddress = this.currentUser.websiteAddress ? this.currentUser.websiteAddress: '';
     this.myProfileForm = new FormGroup({
       'firstName': new FormControl(firstName),
       'lastName': new FormControl(lastName),
+      'name': new FormControl(name),
       'email': new FormControl(email),
       'password': new FormControl(password),
       'status': new FormControl(status),
       'mobile': new FormControl(mobile),
-      'fullName': new FormControl(fullName),
       'gender': new FormControl(gender),
-      'currentLocation': new FormControl(currentLocation),
-      'twitterId': new FormControl(twitterId),
+      'address': new FormControl(address),
       'linkedInId': new FormControl(linkedInId),
       'websiteAddress': new FormControl(websiteAddress),
       'meritalStatus': new FormControl(meritalStatus),
-      'skypeId': new FormControl(skypeId)
+      'dateOfBirth': new FormControl(dateOfBirth)
     })
   }
 
@@ -100,7 +103,39 @@ export class SupplierProfileComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("this form values", this.myProfileForm.value)
+    console.log("this form values", this.myProfileForm.value);
+    this.userService.updateUser(this.currentUser._id, this.myProfileForm.value)
+    .subscribe((response: HttpResponse<any>) => {
+      if(response.status === 200){
+        this.userService.getUser(this.currentUser._id)
+        .subscribe((response: HttpResponse<any>) => {
+          if(response.status === 200){
+            this.currentUser = response['data']
+          }
+        })
+        this.openSuccessSwal()
+      }
+    }, (err: HttpResponse<any>) => {
+      this.openUnscuccessSwal();
+    })
+    
+
+  }
+
+  openSuccessSwal() {
+    swal({
+      title: 'Successful!',
+      text: 'Coupon updated successfully!',
+      type: 'success'
+    }).catch(swal.noop);
+  }
+
+  openUnscuccessSwal() {
+    swal({
+      title: 'Cancelled!',
+      text: "Error Occured",
+      type: 'error'
+    }).catch(swal.noop);
   }
 
 }

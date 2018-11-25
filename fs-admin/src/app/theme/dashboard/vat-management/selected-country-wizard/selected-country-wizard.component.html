@@ -1,22 +1,82 @@
 <app-card [title]="'Right Nav Wizard'">
   <wizard #wizard class="arc-wizard" navBarLayout="large-empty-symbols" navBarLocation="left">
-    <wizard-step stepTitle="Profile" navigationSymbol="1">
+    <wizard-step stepTitle="Select State" navigationSymbol="1">
       <div class="centered-content">
-        <div>
-          <h3>Content: Profile</h3>
-          <p>right nav</p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div>
-
+        <form [formGroup]="vatForm">
+          <div>
+            <h3>Select State</h3>
+            <!-- <select class="input-group" name="module" formControlName="states">
+              <option [ngValue]="null" disabled>Select One</option>
+              <option *ngFor="let state of states" [ngValue]="module">
+                {{ state.name }}
+              </option>
+            </select> -->
+            <angular2-multiselect 
+            [data]="anothrStates" 
+            [(ngModel)]="selectedStates" 
+            [settings]="settings" 
+            (onSelect)="onItemSelect($event)"
+            (onDeSelect)="OnItemDeSelect($event)" 
+            formControlName = "states">
+            </angular2-multiselect>
+          </div>
+        </form>
         <div class="btn-group mt-10">
+          <button type="button" class="btn btn-primary btn-sm" nextStep (click) = "showForm()">Continue</button>
+        </div>
+      </div>
+    </wizard-step>
+    <wizard-step  stepTitle="Select City" navigationSymbol="2">
+      <div class="centered-content">
+        <form [formGroup]="vatForm">
+          <div>
+            <h3>Select City</h3>
+            <angular2-multiselect 
+            [data]="cities" 
+            [(ngModel)]="selectedCities" 
+            [settings]="settings1" 
+            (onSelect)="onItemSelect($event)"
+            (onDeSelect)="OnItemDeSelect($event)" 
+            (onSelectAll)="onSelectAll($event)" 
+            (onDeSelectAll)="onDeSelectAll($event)" 
+            formControlName = "cities">
+            </angular2-multiselect>
+          </div>
+        </form>
+        <div class="btn-group mt-10">
+          <button type="button" class="btn btn-secondary btn-sm" previousStep>Back</button>
           <button type="button" class="btn btn-primary btn-sm" nextStep>Continue</button>
         </div>
       </div>
     </wizard-step>
-    <wizard-step stepTitle="Address" navigationSymbol="2">
+    <wizard-step stepTitle="Select Payment Mode" navigationSymbol="3">
+      <div class="centered-content">
+        <form [formGroup]="vatForm">
+          <div>
+            <h3>Select Payment Mode</h3>
+            <angular2-multiselect 
+            [data]="paymentMode" 
+            [(ngModel)]="selectedCities" 
+            [settings]="settings3" 
+            (onSelect)="onItemSelect($event)"
+            (onDeSelect)="OnItemDeSelect($event)" 
+            (onSelectAll)="onSelectAll($event)" 
+            (onDeSelectAll)="onDeSelectAll($event)" 
+            formControlName = "paymentMode">
+            </angular2-multiselect>
+          </div>
+        </form>
+
+        <div class="btn-group mt-10">
+          <button type="button" class="btn btn-secondary btn-sm" previousStep>Back</button>
+          <button type="button" class="btn btn-primary btn-sm" nextStep>Continue</button>
+        </div>
+      </div>
+    </wizard-step>
+    <wizard-step stepTitle="P" navigationSymbol="4">
       <div class="centered-content">
         <div>
-          <h3>Content: Address</h3>
+          <h3>Content: Payment</h3>
           <p>right nav</p>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         </div>
@@ -27,7 +87,7 @@
         </div>
       </div>
     </wizard-step>
-    <wizard-step stepTitle="Finished" navigationSymbol="3">
+    <wizard-step stepTitle="Finished" navigationSymbol="5">
       <div class="centered-content">
         <div>
           <h3>Content: Thank's</h3>

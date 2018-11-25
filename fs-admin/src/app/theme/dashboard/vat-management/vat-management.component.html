@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
     <h4>Select Country</h4>
-    <div *ngFor = "let country of countries" (click) = "selectCountry(country)">
-      {{ country.name }}
+    <div class="country">
+      <li *ngFor="let country of countries" [routerLink]=[country.id] routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        {{ country.name }}
+      </li>
     </div>
   </div>
   <div class="col-lg-8 col-sm-8 col-md-8 col-xs-8">

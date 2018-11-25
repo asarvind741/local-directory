@@ -289,6 +289,12 @@ async function editUser(req, res) {
         delete req.body.id;
         if (req.body.firstName && req.body.lastName)
             req.body.name = req.body.firstName + req.body.lastName;
+        if (req.body.dateOfBirth)
+            req.body.dateOfBirth = new Date(
+                req.body.dateOfBirth.year,
+                req.body.dateOfBirth.month,
+                req.body.dateOfBirth.day
+            );
 
         let updateUser = await User.findByIdAndUpdate(id, {
             $set: req.body

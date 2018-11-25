@@ -25,10 +25,10 @@ export class OurLocationComponentComponent implements OnInit {
 
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ['City', 'Country'],
+        ['State', 'Country'],
         ['Montreal', 'Canada'],
-        ['Los Angeles', 'USA'],
-        ['New York city', 'USA'],
+        ['Los Angeles', 'US'],
+        ['New York city', 'US'],
         ['London', 'UK'],
         ['Paris', 'France'],
         ['Milano', 'Italy'],
@@ -42,7 +42,10 @@ export class OurLocationComponentComponent implements OnInit {
       ]);
 
       var options = {
-        title: 'Buyer'
+        title: 'Buyer',
+        region: 'IN',
+        displayMode: 'regions',
+        resolution: 'provinces',
       };
 
       var chart = new google.visualization.GeoChart(document.getElementById('piechart'));

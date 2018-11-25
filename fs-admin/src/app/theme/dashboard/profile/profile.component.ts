@@ -18,21 +18,28 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('currentUser'))
-    this.permissions = this.user.permissions;
-    this.currentUserId = this.user._id;
-    if (this.permissions) {
-      this.role = 'admin'
-    }
-    else if (this.permissions) {
-      this.role = 'subadmin'
-    }
-    else if (this.permissions) {
-      this.role = 'supplier'
-    }
-    else {
-      this.role = 'buyer'
-    }
+    this.currentUserId = JSON.parse(localStorage.getItem('currentUser'))._id
+    this.userService.getUser(this.currentUserId)
+    .subscribe((response: HttpResponse<any>) => {
+      if(response.status === 200){
+        this.user = response['data'];
+        console.log("user", this.currentUserId)
+        this.permissions = this.user.permissions;
+        if (this.permissions.isAdmin) {
+          this.role = 'admin'
+        }
+        else if (this.permissions.isSubAdmin) {
+          this.role = 'subadmin'
+        }
+        else if (this.permissions.isSupplier) {
+          this.role = 'supplier'
+        }
+        else {
+          this.role = 'buyer'
+        }
+      }
+    })
+    
   }
 
 }

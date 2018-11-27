@@ -4,67 +4,49 @@
       <div class="centered-content">
         <form [formGroup]="vatForm">
           <div>
-            <h3>Select State</h3>
-            <!-- <select class="input-group" name="module" formControlName="states">
-              <option [ngValue]="null" disabled>Select One</option>
-              <option *ngFor="let state of states" [ngValue]="module">
-                {{ state.name }}
-              </option>
-            </select> -->
-            <angular2-multiselect 
-            [data]="anothrStates" 
-            [(ngModel)]="selectedStates" 
-            [settings]="settings" 
-            (onSelect)="onItemSelect($event)"
-            (onDeSelect)="OnItemDeSelect($event)" 
-            formControlName = "states">
+            <h4>Select State</h4>
+            <angular2-multiselect [data]="states" [(ngModel)]="selectedStates" [settings]="settings" (onSelect)="onItemSelect($event)"
+              (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"
+              formControlName="states">
             </angular2-multiselect>
           </div>
         </form>
         <div class="btn-group mt-10">
-          <button type="button" class="btn btn-primary btn-sm" nextStep (click) = "showForm()">Continue</button>
+          <button type="button" class="btn btn-secondary btn-sm" previousStep>Back</button>
+          <button type="button" class="btn btn-primary btn-sm" nextStep>Continue</button>
         </div>
       </div>
     </wizard-step>
-    <wizard-step  stepTitle="Select City" navigationSymbol="2">
+    <wizard-step stepTitle="Payment Mode" navigationSymbol="2">
       <div class="centered-content">
         <form [formGroup]="vatForm">
           <div>
-            <h3>Select City</h3>
-            <angular2-multiselect 
-            [data]="cities" 
-            [(ngModel)]="selectedCities" 
-            [settings]="settings1" 
-            (onSelect)="onItemSelect($event)"
-            (onDeSelect)="OnItemDeSelect($event)" 
-            (onSelectAll)="onSelectAll($event)" 
-            (onDeSelectAll)="onDeSelectAll($event)" 
-            formControlName = "cities">
+            <h4>Select Payment Mode</h4>
+            <angular2-multiselect [data]="paymentMode" [(ngModel)]="selectedPaymentMode" [settings]="settings2" (onSelect)="onItemSelect($event)"
+              (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"
+              formControlName="paymentMode">
             </angular2-multiselect>
           </div>
         </form>
+
         <div class="btn-group mt-10">
           <button type="button" class="btn btn-secondary btn-sm" previousStep>Back</button>
           <button type="button" class="btn btn-primary btn-sm" nextStep>Continue</button>
         </div>
       </div>
     </wizard-step>
-    <wizard-step stepTitle="Select Payment Mode" navigationSymbol="3">
+    <wizard-step stepTitle="Tax" navigationSymbol="3">
       <div class="centered-content">
         <form [formGroup]="vatForm">
-          <div>
-            <h3>Select Payment Mode</h3>
-            <angular2-multiselect 
-            [data]="paymentMode" 
-            [(ngModel)]="selectedCities" 
-            [settings]="settings3" 
-            (onSelect)="onItemSelect($event)"
-            (onDeSelect)="OnItemDeSelect($event)" 
-            (onSelectAll)="onSelectAll($event)" 
-            (onDeSelectAll)="onDeSelectAll($event)" 
-            formControlName = "paymentMode">
-            </angular2-multiselect>
+          <div formArrayName="taxes">
+            <div *ngFor="let tax of vatForm.get('taxes')['controls']; let i = index" [formGroupName]="i">
+              <label for="name">Name:</label>
+              <input type="text" formControlName="name">
+              <label for="value">Percentage(%):</label>
+              <input type="number" formControlName="value">
+            </div>
           </div>
+          <button class="btn btn-primary" (click)="addNewTax()"><i class="fa fa-plus"></i>Add Tax</button>
         </form>
 
         <div class="btn-group mt-10">
@@ -73,31 +55,16 @@
         </div>
       </div>
     </wizard-step>
-    <wizard-step stepTitle="P" navigationSymbol="4">
+    <wizard-step stepTitle="Finished" navigationSymbol="4">
       <div class="centered-content">
+       <form [formGroup] = "vatForm"></form>
         <div>
-          <h3>Content: Payment</h3>
-          <p>right nav</p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <p>You are about to submit the Taxes.</p>
         </div>
-
-        <div class="btn-group mt-10">
-          <button type="button" class="btn btn-secondary btn-sm" previousStep>Back</button>
-          <button type="button" class="btn btn-primary btn-sm" nextStep>Continue</button>
-        </div>
-      </div>
-    </wizard-step>
-    <wizard-step stepTitle="Finished" navigationSymbol="5">
-      <div class="centered-content">
-        <div>
-          <h3>Content: Thank's</h3>
-          <p>right nav</p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div>
-
         <div class="btn-group mt-10">
           <button type="button" class="btn btn-secondary btn-sm" previousStep>Back</button>
           <button type="button" class="btn btn-danger btn-sm" resetWizard>Reset</button>
+          <button type="button" class="btn btn-primary btn-sm" (click) = "onSubmit()">Submit</button>
         </div>
       </div>
     </wizard-step>

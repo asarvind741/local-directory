@@ -75,6 +75,7 @@
     width: 100%;
     z-index: -4;
 }
+.text_tbl p{font-size:11px}
 .job_post_tabl .table_plan_cntr table th.schol_clr::after {
     background: rgba(0, 0, 0, 0) url("../../../assets//images/tableBg-img.png") no-repeat scroll 0 0;
 }
@@ -93,7 +94,8 @@
 }
 .job_post_tabl .table_plan_cntr table th.schol_clr.s_1{background-color:#c7e5ee}
 .job_post_tabl .table_plan_cntr table th.schol_clr.s_4{background-color:#e5ca95}
-.job_post_tabl th:first-child{width:27%}
+.job_post_tabl th:first-child{width:27%; background-color:#f1f1f1; padding:44px 25px 40px}
+.job_post_tabl th:first-child h2{text-transform:uppercase; font-size:14px}
 .job_post_tabl th span{display:block}
 .job_post_tabl th.schol_clr.s_1{color:#fff}
 
@@ -102,6 +104,7 @@
 .job_post_tabl .table_plan_cntr table th.schol_clr::after{background-size:100%!important}
 
 @media only screen and (max-width:767px){
+    .job_post_plan{padding-top:80px}
     .table_plan_cntr th::after{background-size:100%!important}
     .job_post_tabl th{padding:10px 10px 50px}
     .job_post_tabl .text_tbl{position:relative; top:20px; display:block}

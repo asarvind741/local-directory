@@ -7,12 +7,13 @@ import Constants from './constant';
 
 async function getCountries(req, res) {
     let countries = ReigonApi.getAllCountries();
+    console.log(countries);
     sendResponse(res, 200, 'Successfully.', countries);
 
 }
 
 async function getCountriesByState(req, res) {
-    console.log("================>", req);
+    console.log(req);
     let country = req.query.id;
     let states = ReigonApi.getStatesOfCountry(country);
     console.log(states);
@@ -21,6 +22,7 @@ async function getCountriesByState(req, res) {
 }
 
 async function getCitiesOfState(req, res) {
+    console.log(req);
     let state = req.query.id;
     let cities = ReigonApi.getCitiesOfState(state);
     console.log(cities);

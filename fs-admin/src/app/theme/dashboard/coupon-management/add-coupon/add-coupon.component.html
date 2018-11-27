@@ -84,6 +84,22 @@
         </div>
       </div>
 
+      <div class="row">
+        <label class="col-sm-4 col-lg-4 col-form-label">Description</label>
+        <div class="col-sm-8 col-lg-8">
+          <div class="input-group">
+            <textarea type="text" 
+            class="form-control" 
+            placeholder="Enter description about coupon" 
+            formControlName="description">
+            </textarea>
+            <div *ngIf="newCouponForm.get('description').invalid && newCouponForm.get('description').touched"
+              class="text-danger">
+              <span *ngIf="newCouponForm.get('description').errors.required">Description required!</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 

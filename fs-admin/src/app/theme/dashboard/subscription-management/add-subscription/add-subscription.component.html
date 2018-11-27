@@ -35,8 +35,34 @@
         <label class="col-sm-4 col-lg-4 col-form-label">Description</label>
         <div class="col-sm-8 col-lg-8">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter description" formControlName="description">
+            <textarea type="text" class="form-control" placeholder="Enter description" formControlName="description"></textarea>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-sm-4 col-lg-4 col-form-label">Maximum Users</label>
+        <div class="col-sm-8 col-lg-8">
+          <div class="input-group">
+            <input type="number" class="form-control" placeholder="Maximum number of users per subscription" formControlName="maxNumberOfMembers">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-sm-4 col-lg-4 col-form-label">Roles</label>
+        <div class="col-sm-8 col-lg-8">
+          <angular2-multiselect [data]="role" [(ngModel)]="selectedRoles" [settings]="settings" (onSelect)="onItemSelect($event)"
+            (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"
+            formControlName="rolesAllowed">
+          </angular2-multiselect>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-sm-4 col-lg-4 col-form-label">Select Modules</label>
+        <div class="col-sm-8 col-lg-8">
+          <angular2-multiselect [data]="modulesToInclude" [(ngModel)]="selectedModules" [settings]="settings1" (onSelect)="onItemSelect($event)"
+            (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"
+            formControlName="moduleIncluded">
+          </angular2-multiselect>
         </div>
       </div>
       <div class="row">

@@ -11,5 +11,7 @@
 
 
 @media only screen and (max-width:767px){
+
+    .help_yrself_sec{padding:100px 0}
     .carousel-item > img{width:100%}
 }

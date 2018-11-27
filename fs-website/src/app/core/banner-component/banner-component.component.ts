@@ -1,6 +1,5 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { TimelineMax } from "gsap/TweenMax";
-import { easeLinear } from 'd3';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { TimelineMax, Linear } from "gsap/TweenMax";
 import * as $ from 'jquery';
 declare let Granim: any;
 
@@ -11,6 +10,7 @@ declare let Granim: any;
 })
 export class BannerComponentComponent implements OnInit {
   @ViewChild('banner') banner: ElementRef;
+  @Input('aboutDigital') aboutDigital: ElementRef;
   constructor() { }
 
   ngOnInit() {
@@ -19,17 +19,50 @@ export class BannerComponentComponent implements OnInit {
 
     $(document).ready(function () {
       var winHei = $(window).height();
-      $('.banner_sec, .banner_sec .container, #canvas - basic').height(winHei);
+      $('.banner_sec, .banner_sec .container, #canvas-basic').height(winHei);
 
     })
 
     $(window).resize(function () {
       //if($(window).width() > 767){
-      $('.banner_sec, .banner_sec .container, #canvas - basic').removeAttr('style');
+      $('.banner_sec, .banner_sec .container, #canvas-basic').removeAttr('style');
       var winHei = $(window).height();
-      $('.banner_sec, .banner_sec .container, #canvas - basic').height(winHei);
+      $('.banner_sec, .banner_sec .container, #canvas-basic').height(winHei);
       // }
     })
+
+    function spinGlobe() {
+      var tmax_tl = new TimelineMax({
+            delay: 0.1675,
+            repeat: -1 
+          });
+    
+      var globe_continents = [
+            $('#globe #middle g path'),
+            $('#globe #left g path')
+          ];
+    
+      var globe_speed = 10;
+    
+      var map_from = {
+        x: 0
+      };
+    
+      var map_to = {
+        x: 150,
+        ease: Linear.easeOut
+      };
+    
+      tmax_tl.fromTo(globe_continents, globe_speed, map_from, map_to, 0);
+      
+      return tmax_tl;
+    }
+    
+    spinGlobe();
+  }
+
+  scrollToBanner(){
+    this.aboutDigital.nativeElement.scrollIntoView(true);
   }
 
   ngAfterViewInit() {

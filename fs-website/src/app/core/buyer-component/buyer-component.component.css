@@ -8,16 +8,18 @@ p.red{color:#cb297b}
     width: 100%;
     height: auto;
     transition: transform 0.2s ease-in-out 0s;
-    -ms-transform: transform 0.2s ease-in-out 0s;
-    -webkit-transform: transform 0.2s ease-in-out 0s;
-    -o-transform: transform 0.2s ease-in-out 0s;
+
 }
 .img_block:hover img {
     transform: scale(1.05);
     -ms-transform: scale(1.05);
     -webkit-transform: scale(1.05);
+    -ms-transform: transform 0.2s ease-in-out 0s;
+    -webkit-transform: transform 0.2s ease-in-out 0s;
+    -o-transform: transform 0.2s ease-in-out 0s;
 }
 .text_tbl{margin-top:20px}
+.text_tbl p{font-size:11px}
 
 
 .digital-listing {text-align: center;  margin: 84px auto; width: 100%;}
@@ -136,5 +138,9 @@ p.red{color:#cb297b}
         .table_plan_cntr table th:nth-child(2) span{display:none}
         .text_tbl{margin-top:20px}
         .img_block{margin-bottom:30px}
-  
+        .list_box{padding:30px 30px 5px; margin-top:20px; border:1px solid #efefef}
+
+        .buyer_new_sec .cntr_alTxt{margin:0 auto}
+        .buyer_new_sec .row{margin-bottom:30px}
+        
 }

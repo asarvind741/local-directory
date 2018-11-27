@@ -48,5 +48,17 @@
 .add_p span{display:block}
 .add_p{background:url('../../../assets/images/add_map.svg') no-repeat; background-size:17px; background-position:left 5px}
 .mail_p{background:url('../../../assets/images/mail_icon.svg') no-repeat; background-size:18px;background-position:left 5px}
-.add_col{max-width:280px; width:100%; text-align:center}
+.add_col{max-width:280px; width:100%; text-align:center; margin:0 auto}
 .add_col p{margin-bottom:20px}
+.form_row{position:relative;}
+.address_block{position:absolute; top:50%; transform:translate(0,-50%); 
+    -webkit-transform:translate(0,-50%);
+     left:0; right:0; margin:0 auto}
+
+.submit_btn{text-align:left}
+.submit_btn a{color:#000}
+
+@media only screen and (max-width:768px){
+    .address_block{position:static; top:inherit; transform:inherit; margin-bottom:30px} 
+    .submit_btn{text-align:center}
+}

@@ -44,34 +44,43 @@ export class UserManagementComponent implements OnInit {
     this.editing[row + '-' + cell] = false;
     this.temp_rows[row][cell] = event.target.value;
     this.rows = this.temp_rows;
-   this.userService.updateUser(this.rows[row]._id,this.rows[row])
-   .subscribe((response: HttpResponse<any>) => {
-     if(response.status === 200){
-       this.getUsers();
-       this.openSuccessSwal();
-     }
-   }, (error) => {
-     this.showMessage = error.error['message'];
-     this.getUsers();
-     this.openUnscuccessSwal()
-   })
+    this.userService.updateUser(this.rows[row]._id, this.rows[row])
+      .subscribe((response: HttpResponse<any>) => {
+        if (response.status === 200) {
+          this.getUsers();
+          this.openSuccessSwal();
+        }
+      }, (error) => {
+        this.showMessage = error.error['message'];
+        this.getUsers();
+        this.openUnscuccessSwal()
+      })
   }
 
   onSearchInputChange(val) {
     if (val) {
       val = val.toLowerCase();
-      let data = this.rows;
+      let data = this.temp_rows;
       data = data.filter(user => {
+        // if (
+        //   user.firstName ? user.firstName.toLowerCase().indexOf(val) >= 0 : false ||
+        //   user.lastName ? user.lastName.toLowerCase().indexOf(val) >= 0 : false ||
+        //   user.email ? user.email.toLowerCase().indexOf(val) >= 0 : false ||
+        //   user.mobile ? user.mobile.indexOf(val) >= 0 : false ||
+        //   user.status ? user.status.toLowerCase().indexOf(val) >= 0 : false
+        // )
         if (
-          user.firstName ? user.firstName.toLowerCase().indexOf(val) >= 0 : null ||
-          user.lastName ? user.lastName.toLowerCase().indexOf(val) >= 0 : null ||
-          user.email ? user.email.toLowerCase().indexOf(val) >= 0 : null ||
-          user.mobile ? user.mobile.toLowerCase().indexOf(val) >= 0 : null
+          user.firstName && user.firstName.toLowerCase().indexOf(val) >= 0 ? true : false ||
+          user.lastName && user.lastName.toLowerCase().indexOf(val) >= 0 ? true : false ||
+          user.email && user.email.toLowerCase().indexOf(val) >= 0 ? true : false ||
+          user.status && user.status.toLowerCase().indexOf(val) >= 0 ? true : false
         )
           return true;
       });
       this.rows = data;
-    } else this.rows = this.temp_rows;
+    } else {
+      this.rows = this.temp_rows;
+    }
   }
 
   openSuccessSwal() {
@@ -105,8 +114,7 @@ export class UserManagementComponent implements OnInit {
       cancelButtonClass: 'btn btn-danger mr-sm'
     }).then((result) => {
       if (result.value) {
-        this.userService.deleteUser(name._id).subscribe((response: HttpResponse<any>) => {
-          console.log(response)
+        this.userService.modifyStatus(name._id).subscribe((response: HttpResponse<any>) => {
           if (response.status === 200) {
             this.getUsers();
             swal(
@@ -137,14 +145,51 @@ export class UserManagementComponent implements OnInit {
     });
   }
 
-  openEditFormModal(user){
+  openEditFormModal(user) {
     const modalRef = this.modalService.open(EditUserComponent);
     modalRef.componentInstance.currentUser = user;
     modalRef.result.then((result) => {
       this.getUsers();
     })
-    .catch((error) => {
-      this.getUsers();
+      .catch((error) => {
+        this.getUsers();
+      });
+  }
+
+  activateUser(name) {
+    console.log("name", name)
+    swal({
+      title: 'Are you sure?',
+      text: 'You not be able to revert this!',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, activate it!',
+      cancelButtonText: 'Not now!',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger mr-sm'
+    }).then((result) => {
+      if (result.value) {
+        this.userService.modifyStatus(name._id).subscribe((response: HttpResponse<any>) => {
+          console.log(response)
+          if (response.status === 200) {
+            this.getUsers();
+            swal(
+              'Success!',
+              'Your have activated user successfully.',
+              'success'
+            );
+          }
+        });
+
+      } else if (result.dismiss) {
+        swal(
+          'Cancelled',
+          'You have cancelled activation request.)',
+          'error'
+        );
+      }
     });
   }
 }

@@ -13,7 +13,21 @@ import { HttpResponse } from '@angular/common/http';
 export class AddSubscriptionComponent implements OnInit {
   newPlanForm: FormGroup;
   statuss: Array<String> = ['Active', 'Inactive'];
-  duration: Array<String> = ['Yearly', 'Half Yearly', 'Quarterly', 'Monthly']
+  duration: Array<String> = ['Yearly', 'Half Yearly', 'Quaterly', 'Monthly'];
+  role: Array<Object> = [
+    {'id': 1, 'itemName': 'Buyer' }, 
+    {'id': 2, 'itemName': 'Supplier' }, 
+    {'id': 3, 'itemName': 'Agent' }, 
+    {'id': 4, 'itemName': 'Reseller' }];
+    modulesToInclude: Array<Object> = [
+      {'id': 1, 'itemName': 'First Module' }, 
+      {'id': 2, 'itemName': 'Second Module' }, 
+      {'id': 3, 'itemName': 'Third Module' }, 
+      {'id': 4, 'itemName': 'Fourth Module' }];
+  selectedModules: any;
+  selectedRoles: any;
+  settings:any;
+  settings1: any;
   showMessage: any;
   constructor(
     public activeModal: NgbActiveModal,
@@ -21,6 +35,24 @@ export class AddSubscriptionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.settings = {
+      singleSelection: false,
+      text: "Select Roles",
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableSearchFilter: true,
+      badgeShowLimit: 3
+    };
+
+    this.settings1 = {
+      singleSelection: false,
+      text: "Select Modules",
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      enableSearchFilter: true,
+      badgeShowLimit: 3
+    };
+
 
     this.createForm();
   }
@@ -31,7 +63,10 @@ export class AddSubscriptionComponent implements OnInit {
       'duration': new FormControl(null),
       'price': new FormControl(null),
       'status': new FormControl(null),
-      'description': new FormControl(null)
+      'description': new FormControl(null),
+      'maxNumberOfMembers': new FormControl(null),
+      'rolesAllowed': new FormControl([]),
+      'moduleIncluded': new FormControl([])
     })
   }
 
@@ -91,4 +126,12 @@ export class AddSubscriptionComponent implements OnInit {
     this.newPlanForm.reset();
   }
 
+  onItemSelect(item: any) {
+  }
+  OnItemDeSelect(item: any) {
+  }
+  onSelectAll(items: any) {
+  }
+  onDeSelectAll(items: any) {
+  }
 }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AboutComponentComponent } from './about-component/about-component.component';
 import { BannerComponentComponent } from './banner-component/banner-component.component';
 import { BuiltPlatformComponent } from './built-platform/built-platform.component';
@@ -46,6 +47,7 @@ import { FormComponentComponent } from './form-component/form-component.componen
     ],
     imports:[
         CommonModule,
+        NgbModule,
         CoreRoutingModule
     ],
     exports: [

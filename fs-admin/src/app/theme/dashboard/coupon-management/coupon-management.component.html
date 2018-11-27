@@ -49,6 +49,18 @@
             </span>
           </ng-template>
         </ngx-datatable-column>
+        <ngx-datatable-column name="couponUrl">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+            <span (click)="sort($event, sortDir, sortFn)">
+              URL
+            </span>
+          </ng-template>
+          <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+            <span>
+              {{value}}
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
         <ngx-datatable-column name="description">
           <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
             <span (click)="sort($event, sortDir, sortFn)">

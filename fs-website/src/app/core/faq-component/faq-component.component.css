@@ -71,11 +71,11 @@ background: #000 none repeat scroll 0 0;
 
 .faq_sec ul li a{color: #696969;
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     padding: 11px 17px;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalise;
     position: relative;}
     .faq_sec ul li a::after{
         background: #cfcfcf;
@@ -87,4 +87,5 @@ background: #000 none repeat scroll 0 0;
     width: 1px;
     top: 13px;    
     }
+    .faq_sec ul li:last-child a::after{display:none}
 /*FAQ End*/

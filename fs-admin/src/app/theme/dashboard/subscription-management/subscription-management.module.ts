@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SubscriptionManagementRoutingModule } from './subscription-management-routing.module';
 import { CommonModule } from '@angular/common';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SubscriptionManagementComponent } from './subscription-management.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -15,6 +16,7 @@ import { EditSubscriptionComponent } from './edit-subscription/edit-subscription
     SubscriptionManagementRoutingModule,
     NgbModule.forRoot(),
     SharedModule,
+    AngularMultiSelectModule,
     NgxDatatableModule,
     ReactiveFormsModule,
     FormsModule

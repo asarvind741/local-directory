@@ -20,12 +20,10 @@ async function addUser(req, res) {
             });
             req.body.name = req.body.firstName + req.body.lastName;
             let newUser = await new User(req.body).save();
-            console.log(newUser);
             let token = jwt.sign({
                 data: newUser._id
             }, Constants.JWT_SECRET);
             let link = `http://localhost:4200/auth/registration/activate/${token}`;
-            console.log(link);
             let storeToken =
                 await User.findByIdAndUpdate(newUser._id, {
                     $set: {
@@ -40,7 +38,6 @@ async function addUser(req, res) {
         }
 
     } catch (e) {
-        console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
     }
 }
@@ -50,7 +47,6 @@ async function verifyUser(req, res) {
         let decoded = jwt.verify(req.body.token,
             Constants.JWT_SECRET);
         if (decoded.data) {
-            console.log(decoded.data);
             let user = await User.findById(decoded.data);
 
             if (user.status === 'Active') {
@@ -69,7 +65,6 @@ async function verifyUser(req, res) {
             sendResponse(res, 400, 'No user found.');
         }
     } catch (e) {
-        console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
 
     }
@@ -79,17 +74,14 @@ async function verifyUser(req, res) {
 
 
 async function sendOTPLogin(req, res) {
-    console.log("request body", req.body)
     try {
         let user = await User.findOne(req.body);
         if (user) {
-            console.log("user", user);
             if (user.status === 'Active') {
                 let otp = speakeasy.totp({
                     secret: user.speakeasy_secret.base32,
                     encoding: 'base32'
                 });
-                console.log("otp", otp);
 
                 let storeOTP =
                     await User.findByIdAndUpdate(user._id, {
@@ -97,12 +89,11 @@ async function sendOTPLogin(req, res) {
                             otp: otp
                         }
                     });
-                console.log('mobile', user.mobile);
                 sendSMS(otp, user.mobile);
-                sendResponse(res, 200, '6 digit Code has been sent to your registered email', otp);
-                // SendMail(Constants.MAIL_FROM, req.body.email,
-                //     Constants.SEND_OTP_SUBJECT,
-                //     `${Constants.SEND_OTP_TEXT}: ${otp}`);
+                // sendResponse(res, 200, '6 digit Code has been sent to your registered email', otp);
+                SendMail(Constants.MAIL_FROM, req.body.email,
+                    Constants.SEND_OTP_SUBJECT,
+                    `${Constants.SEND_OTP_TEXT}: ${otp}`);
             } else {
                 sendResponse(res, 400, 'Please first verify your email');
             }
@@ -112,27 +103,23 @@ async function sendOTPLogin(req, res) {
         }
 
     } catch (e) {
-        console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
 
     }
 }
 
 async function loginUser(req, res) {
-    console.log(req.user);
     try {
         let user = await User.findOne({
             email: req.body.email
         });
         if (user) {
-            console.log(user);
             if (user.status === 'Active') {
                 let otpValidate = speakeasy.totp.verify({
                     secret: user.speakeasy_secret.base32,
                     encoding: 'base32',
                     token: req.body.otp,
                 });
-                console.log(otpValidate);
                 if (otpValidate || user.otp !== req.body.otp) {
                     sendResponse(res, 400, 'Invalid OTP or OTP Expired');
 
@@ -171,7 +158,6 @@ async function loginUser(req, res) {
 
         }
     } catch (e) {
-        console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
     }
 }
@@ -219,24 +205,24 @@ async function sociaLoginUser(req, res) {
                     social_login_provider_id: req.body.social_login_provider_id
                 }, {
                     email: req.body.email
-                }]
+                }, ]
             });
         } else {
             sendResponse(res, 400, 'Please provide provider id');
             return;
         }
 
-
-        console.log(user);
         if (!user) {
             req.body.status = 'Active';
             if (req.body.firstName && req.body.lastName)
                 req.body.name = req.body.firstName + req.body.lastName;
-
             user = await new User(req.body).save();
 
         }
-        console.log(user);
+        if (user.status === 'Inactive'){
+            sendResponse(res, 401, 'You account is deactivated. Please contact admin', user);
+            return;
+        }
         let token = jwt.sign({
             exp: Math.floor(Date.now() / 1000) + (60 * 60),
             data: user._id
@@ -253,7 +239,6 @@ async function sociaLoginUser(req, res) {
                 }
             });
         if (user.loginCount > 0) {
-            console.log("aaaaaaaaaaaaaaaaaaaa")
             sendResponse(res, 200, 'Login Successful', data);
 
         } else {
@@ -270,12 +255,11 @@ async function sociaLoginUser(req, res) {
 async function getAllUsers(req, res) {
     try {
         let users = await User.find({
-            status: 'Active'
+            // status: 'Active'
         });
         sendResponse(res, 200, 'Successful.', users);
 
     } catch (e) {
-        console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
 
     }
@@ -283,18 +267,11 @@ async function getAllUsers(req, res) {
 }
 
 async function editUser(req, res) {
-    console.log(req.body);
     try {
         let id = req.body.id;
         delete req.body.id;
         if (req.body.firstName && req.body.lastName)
             req.body.name = req.body.firstName + req.body.lastName;
-        if (req.body.dateOfBirth)
-            req.body.dateOfBirth = new Date(
-                req.body.dateOfBirth.year,
-                req.body.dateOfBirth.month,
-                req.body.dateOfBirth.day
-            );
 
         let updateUser = await User.findByIdAndUpdate(id, {
             $set: req.body
@@ -304,7 +281,6 @@ async function editUser(req, res) {
         sendResponse(res, 200, 'Updated Successfully.', updateUser);
 
     } catch (e) {
-        console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
     }
 }
@@ -315,26 +291,39 @@ async function getUser(req, res) {
         sendResponse(res, 200, 'Successful.', user);
 
     } catch (e) {
-        console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
 
     }
 }
 
-
-async function deleteUser(req, res) {
+async function updateUserStates(req, res) {
     try {
         let id = req.body.id;
+        console.log('user id------------', id);
         delete req.body.id;
-        let updateUser = await User.findByIdAndUpdate(id, {
-            $set: {
-                status: 'Inactive'
-            }
-        }, {
-            new: true
-        });
-        sendResponse(res, 200, 'Updated Successfully.', updateUser);
+        let status;
+        let user = await User.findById(id);
+        if (user) {
+            if (user.status === 'Active')
+                status = 'Inactive';
+            else
+                status = 'Active';
 
+
+            let updatedUser = await User.findByIdAndUpdate(
+                id, {
+                    $set: {
+                        status: status
+                    }
+                }, {
+                    new: true
+                }
+            );
+            sendResponse(res, 200, 'User status updated Successfully.', updatedUser);
+        } else {
+            sendResponse(res, 400, 'User not found.');
+
+        }
     } catch (e) {
         console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
@@ -343,7 +332,6 @@ async function deleteUser(req, res) {
 
 
 async function addUserFromAdmin(req, res) {
-    console.log('req body', req.body);
     try {
         let user = await User.findOne({
             email: req.body.email
@@ -355,13 +343,11 @@ async function addUserFromAdmin(req, res) {
                 length: 20
             });
             let newUser = await new User(req.body).save();
-            console.log(newUser);
             sendResponse(res, 200,
                 'Added Successfully.');
         }
 
     } catch (e) {
-        console.log(e);
         sendResponse(res, 500, 'Unexpected error', e);
     }
 }
@@ -376,6 +362,6 @@ module.exports = {
     getAllUsers,
     editUser,
     getUser,
-    deleteUser,
+    updateUserStates,
     addUserFromAdmin
 };

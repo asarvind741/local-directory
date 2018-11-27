@@ -2,7 +2,8 @@
 .about_sec{width: 100%;display: block;padding: 115px 0 80px;}
 .about_sec container{max-width: 1070px;}
 .abut_blok{display: block;max-width: 345px;width: 100%;margin: 0 0 35px;}
-.abut_blok a{font-size: 20px;padding: 0 0 0 44px;color: #cb297b;display: inline-block;line-break: 35px;font-weight: bold;background: url("../../../assets/images/abut_img1.png") no-repeat scroll left center;line-height: 35px;}
+.abut_blok a{font-size: 20px;padding: 0 0 0 44px;color: #cb297b;display: inline-block;line-break: 35px;font-weight: bold;
+    background: url("../../../assets/images/abut_img1.svg") no-repeat scroll left center;line-height: 35px; background-size:37px}
 .abut_blok a.ma_img1{background: url("../../../assets/images/abut_img2.svg") no-repeat scroll left center; background-size: 32px}
 .abut_blok a.ma_img2{background: url("../../../assets/images/abut_img3.svg") no-repeat scroll left center;
 background-size: 32px}
@@ -21,5 +22,8 @@ background-size: 36px}
 
 
 @media only screen and (max-width:767px){
+    .about_sec{padding:100px 0 50px}
     .abut_blok{max-width:100%}
+    .about_sec .abut_blok p{font-size:18px}
+    span.eauc{display:inline-block}
 }

@@ -33,14 +33,15 @@ span.circle_play{width:110px; height:110px; border-radius:50%; border:2px solid 
 }
 
 @media only screen and (max-width:767px){
+    .built_sec{margin-bottom:100px}
     span.circle_play{width:90px; height:90px; top:115px}
     .circle_play img{top:25px}
-     .built_sec{height:100%}
+     .built_sec{height:100%!important}
     .built_sec .built_Txt{padding:25px 15px; height:100%}
     .built_txt_inner{position:static; top:inherit; transform:inherit; padding:20px 20px 0}
 	.built_sec{height:auto}
 	.vedio_img .videoImg{height:320px}
 	.vedio_img{height:320px}
-
+    span.eng{display:inline-block}
 }
 /*Built plateform end*/

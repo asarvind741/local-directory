@@ -14,6 +14,7 @@ import { VatManagementService } from '../../../services/vat-management.service';
 })
 export class VatManagementComponent implements OnInit {
   countries: Array<Object> = [];
+  addClass: Boolean = false;
   selectedCountry: Object;
   constructor(
     private vatManagementService: VatManagementService,
@@ -36,8 +37,9 @@ export class VatManagementComponent implements OnInit {
   }
 
   selectCountry(country) {
-    // if(!this.activatedRoute.params['id'])
-    this.router.navigate([country.id], { relativeTo: this.activatedRoute});
+    this.addClass = true;
+    this.vatManagementService.selectedCountrySubject.next(country);
+    // this.router.navigate([country.id], { relativeTo: this.activatedRoute});
   }
 
   

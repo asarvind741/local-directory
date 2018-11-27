@@ -12,15 +12,15 @@
     border-radius: 50px;
     display: block;
     margin: 0 auto;
-    max-width: 465px;
+    max-width: 372px;
     width: 100%;
     border: 1px solid #d62886;
 }
 .tabTabl_sec .m_login_tabbing ul li {
-    float: left;
-    width: 25%;
+    display:inline-block
 }
-.tab_wrapper .year_tabs ul li.active:first-child a, .tabTabl_sec .m_login_tabbing ul li:first-child a {
+.tab_wrapper .year_tabs ul li.active:first-child a,
+ .tabTabl_sec .m_login_tabbing ul li:first-child a {
     border-radius: 50px 0 0 50px;
 }
 .tabTabl_sec .m_login_tabbing ul li.active a {
@@ -30,25 +30,27 @@
 .tabTabl_sec .m_login_tabbing ul li > a {
     color: #696969;
     display: block;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 600;
-    padding: 16px 32px;
+    padding: 20px 26px;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
     position: relative;
+    line-height:20px
 }
-.tabTabl_sec .m_login_tabbing ul li.active a::after {
-    background: #084e7e;
-}
+.tabTabl_sec .m_login_tabbing ul li:last-child a{padding:10px 26px}
+
+.tabTabl_sec .m_login_tabbing ul li span{display:block}
+
 .tabTabl_sec .m_login_tabbing ul li > a::after {
     background: #cfcfcf;
     height: 35%;
     display: block;
     position: absolute;
-    right: -4px;
+    right: 0px;
     content: "";
     width: 1px;
-    top: 15px;
+    top: 18px;
 }
 .tab_wrapper .year_tabs {
     display: block;
@@ -104,7 +106,7 @@
     width: 1px;
     top: 13px;
 }
-.tabTabl_sec .m_login_tabbing ul li:last-child{width:50%}
+
 .tab_wrapper .year_tabs ul li:last-child a:after{display:none}
 .tabTabl_sec .m_login_tabbing ul li:last-child a::after{display:none}
 
@@ -302,6 +304,7 @@
 .table_plan_cntr table tbody tr:last-child td {
     border-bottom: 0 none;
     padding: 0;
+    border:0!important;
 }
 .supplier_sec .tab_wrapper .yearTbs .text_tbl {
     max-width: 960px;
@@ -318,6 +321,7 @@
     line-height: 16px;
     opacity: 0.8;
     text-align: left;
+    padding-bottom:10px
 }
 .table_sec .yearTbs .text_tbl p span {
     display: block;
@@ -352,14 +356,20 @@ padding: 12px 25px; display: block;}
 
 
 @media only screen and (max-width:767px){
- .tabTabl_sec .m_login_tabbing ul li > a::after{right:-25px}
+
  .table_plan_cntr table th::after{background-size:100%!important}
  .table_plan_cntr th.schol_clr.clr_nwit cite{display:none!important}
  .table_plan_cntr table th{vertical-align:top; padding-top:7px!important; font-size:12px; line-height:12px}
  .table_plan_cntr table th span{display:inline-block; font-size:12px!important}
+ /*.tabTabl_sec .m_login_tabbing ul li > a::after{right:0}
+ .tabTabl_sec .m_login_tabbing ul li > a{line-height:16px}*/
+    .tabTabl_sec .m_login_tabbing ul li > a{font-size:16px; padding:16px 30px}
+    .tabTabl_sec .m_login_tabbing ul li:last-child > a{padding:10px 30px}
  
 }
 
-@media only screen and (min-width:480px) and (max-width:767px){
-    .tabTabl_sec .m_login_tabbing ul li > a::after{right:0}
+@media only screen and (max-width:479px){
+    .tabTabl_sec .m_login_tabbing{max-width:288px}
+    .tabTabl_sec .m_login_tabbing ul li > a{font-size:16px; padding:16px 16px}
+    .tabTabl_sec .m_login_tabbing ul li:last-child > a{padding:10px 16px}  
 }

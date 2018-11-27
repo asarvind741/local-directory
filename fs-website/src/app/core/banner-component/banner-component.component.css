@@ -1,3 +1,46 @@
+.baner_cTxt h1, .baner_cTxt a, .mouse-icon{
+  margin-top: 25px;
+  font-size: 21px;
+  text-align: center;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+
 /** banner_sec start css **/
 .banner_sec{width: 100%;display: block;position: relative; background-position: top center;background-size: cover; overflow:hidden}
 .banner_sec .container{position:relative}
@@ -6,7 +49,7 @@
 
 .baner_cTxt{width: 100%;display: block;max-width: 265px;margin: 50px auto 0;text-align: center}
 .baner_cTxt h1{font-size: 24px;color: #fff;text-transform: uppercase;line-height: 28px;}
-.baner_cTxt a.met_btn{width: 100%;display: block;max-width: 175px;border: 2px solid #d62886;border-radius: 50px;text-align: center;font-size: 15px;color: #fff;margin: 64px auto 48px;line-height: 16px;padding: 9px 6px;letter-spacing: 0.3px;}
+.baner_cTxt span.met_btn{width: 100%;display: block;max-width: 175px;border: 2px solid #d62886;border-radius: 50px;text-align: center;font-size: 15px;color: #fff;margin: 64px auto 48px;line-height: 16px;padding: 9px 6px;letter-spacing: 0.3px;}
 .bannertrTxt_wrap{position:absolute; top:50%; transform:translate(0,-50%); margin:0 auto; left:0; right:0}
 .globa_row{position:absolute; right:0; bottom:0}
 
@@ -35,18 +78,18 @@
 .banner_sec .lt_sml{margin: 7px 0px 0px;}
 /* .banner_sec .botm_flor{display: block;max-width: 290px;width: 100%;float: right;bottom: -115px;right: 0;position: absolute;}
 .banner_sec .botm_flor img{display: block;margin: 0 0 0 70px;} */
-.botm_flor{float:right; position:relative; right:50px; top:-80px}
+.botm_flor{float:right; position:relative; right:0px; bottom:30px; max-width:270px; width:100%}
 /** banner_sec start css * */
 
 
-/* svg {
+svg {
   max-width: 100%;
   width: 300px;
 }
   
-  svg.continents {
+  svg .continents {
     fill: #1E8449 ;
-  } */
+  } 
 
   body {
     display: flex;
@@ -86,5 +129,5 @@
 @media only screen and (max-width:767px){
   .globa_row{display:none}
   .banner_sec .m_img_lft{display:none}
-  .baner_cTxt a.met_btn{margin:30px auto}
+  .baner_cTxt span.met_btn{margin:30px auto}
 }

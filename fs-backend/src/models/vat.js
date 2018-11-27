@@ -10,16 +10,11 @@ const Vat = new Schema({
         id: Number,
         name: String
     }],
-    city: [{
-        id: Number,
+    taxes: [{
+        value: Number,
         name: String
     }],
-    rate: Number,
-    additionalTaxes: [{
-        rate: Number,
-        name: String
-    }],
-    paymentMethod: [{
+    paymentMode: [{
         name: String,
         id: Number
     }]

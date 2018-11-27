@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, ChangeDetectorRef  } from '@angular/core';
 
 @Component({
   selector: 'app-core',
@@ -13,11 +13,13 @@ export class CoreComponent {
   aboutDigitalSourcing: ElementRef;
   contact: ElementRef;
   jobPostPlanning: ElementRef;
-  constructor(){
+  constructor(private cdr: ChangeDetectorRef){
     
   }
 
   ngAfterViewInit(): void {
+    this.cdr.detectChanges();
+    if(this.aboutDigital !== undefined)
     this.aboutDigitalSourcing = this.aboutDigital;
     this.contact = this.contactUs;
     this.jobPostPlanning = this.jobPostPlan;

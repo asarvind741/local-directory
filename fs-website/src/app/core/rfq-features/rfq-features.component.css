@@ -3,3 +3,10 @@
 .rfqTxt p span{display:block}
 .rfqTxt p{line-height:30px}
 .rfqTxt p.red{color:#cb297b}
+
+
+
+@media only screen and (max-width:767px){
+    .rfq_sec{margin-bottom:100px}
+    .rfqTxt p span{display:inline-block}
+}

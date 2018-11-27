@@ -26,7 +26,7 @@ const Category = new Schema(
       type: String,
       enum: statusTypes,
       select: false,
-      default: 'Active',
+      default: 'Active'
     },
   },
   { timestamps: true }
@@ -37,3 +37,4 @@ Category.plugin(mongoosastic, {
 });
 
 export default mongoose.model('Category', Category);
+

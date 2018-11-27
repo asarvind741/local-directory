@@ -11,7 +11,10 @@ declare var google: any;
 export class OurLocationComponentComponent implements OnInit {
   chart: any;
   data: any;
-  options: any = { title: '' };
+  options: any = { 
+    title: '',
+    colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
+   };
   selected: String = 'Buyer';
   active1 = true;
   active2 = false;
@@ -20,15 +23,18 @@ export class OurLocationComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.load('current', { 
+      'packages': ['corechart'],
+      'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+    });
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ['State', 'Country'],
+        ['City', 'Country'],
         ['Montreal', 'Canada'],
-        ['Los Angeles', 'US'],
-        ['New York city', 'US'],
+        ['Los Angeles', 'USA'],
+        ['New York city', 'USA'],
         ['London', 'UK'],
         ['Paris', 'France'],
         ['Milano', 'Italy'],
@@ -43,9 +49,7 @@ export class OurLocationComponentComponent implements OnInit {
 
       var options = {
         title: 'Buyer',
-        region: 'IN',
-        displayMode: 'regions',
-        resolution: 'provinces',
+        colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
       };
 
       var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
@@ -86,7 +90,8 @@ export class OurLocationComponentComponent implements OnInit {
     ]);
 
     var options = {
-      title: 'Buyer'
+      title: 'Supplier',
+      colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
@@ -95,17 +100,25 @@ export class OurLocationComponentComponent implements OnInit {
 
   drawChart1() {
     var data = google.visualization.arrayToDataTable([
-      ['Country', 'Popularity'],
-      ['Germany', 200],
-      ['United States', 300],
-      ['Brazil', 400],
-      ['Canada', 500],
-      ['France', 600],
-      ['RU', 700]
+      ['City', 'Country'],
+        ['Montreal', 'Canada'],
+        ['Los Angeles', 'USA'],
+        ['New York city', 'USA'],
+        ['London', 'UK'],
+        ['Paris', 'France'],
+        ['Milano', 'Italy'],
+        ['Dusseldorf', 'Germany'],
+        ['Amsterdam', 'Netherlands'],
+        ['Istanbul', 'Turkey'],
+        ['Moscow', 'Russia'],
+        ['Dubai', 'UAE'],
+        ['Hong Kong', 'China'],
+        ['Shanghai', 'China']
     ]);
 
     var options = {
-      title: 'Buyer'
+      title: 'Buyer',
+      colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('piechart'));

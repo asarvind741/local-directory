@@ -8,11 +8,13 @@ const Coupon = new Schema({
     type: String,
     required: true,
   },
+  // module: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'ServiceModule',
+  // },
   module: {
-    type: Schema.Types.ObjectId,
-    ref: 'ServiceModule',
+    type: String
   },
-
   discount: {
     type: Number,
     required: true,
@@ -26,6 +28,9 @@ const Coupon = new Schema({
     type: Number,
     default: 1
   },
+  description: {
+    type: String
+  },
   expiresOn: Date,
   status: {
     type: String,
@@ -35,6 +40,16 @@ const Coupon = new Schema({
   },
 }, {
   timestamps: true
+});
+
+Coupon.pre('save', function(next) {
+  const coupon = this;
+  console.log('pre save');
+  let url = 'http://40.71.47.14:5000/coupon';
+  let couponUrl = `${url}/${coupon.name}`;
+  coupon.couponUrl = couponUrl;
+  console.log('coupon url generated', coupon.couponUrl);
+  next();
 });
 
 export default mongoose.model('Coupon', Coupon);

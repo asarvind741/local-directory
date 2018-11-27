@@ -10,13 +10,12 @@
         <div class="tabTabl_sec clearfix">
           <div class="m_login_tabbing clearfix">
             <ul class="nav nav-tabs">
-              <li [ngClass]="applyClass == 1 ? 'active': ''"><a href="#supplier" data-toggle="tab" title="Supplier"
-                  (click)="classToApply($event)">supplier</a></li>
-              <li [ngClass]="applyClass == 2 ? 'active': ''"><a href="#stockist" data-toggle="tab" title="Stockist!"
-                  (click)="classToApply($event)">stockist</a></li>
-              <li [ngClass]="applyClass == 3 ? 'active': ''"><a href="#reseller" data-toggle="tab" title="External Reaources"
-                  (click)="classToApply($event)">External
-                  resources</a></li>
+              <li [ngClass]="applyClass == 1 ? 'active': ''"><a href="#supplier" data-toggle="tab" ngbTooltip="Supplier"
+                  (click)="classToApply($event)" placement="top">supplier</a></li>
+              <li [ngClass]="applyClass == 2 ? 'active': ''"><a href="#stockist" data-toggle="tab" ngbTooltip="Stockist"
+                  (click)="classToApply($event)" placement="top">stockist</a></li>
+              <li [ngClass]="applyClass == 3 ? 'active': ''"><a href="#reseller" data-toggle="tab" ngbTooltip="External Resources"
+                  (click)="classToApply($event)" placement="top">External<span>resources</span></a></li>
             </ul>
           </div>
         </div>
@@ -27,10 +26,10 @@
             <div class="year_tabs clearfix">
               <ul class="clearfix nav nav-tabs">
                 <li [ngClass]="active1 ?  'active':''">
-                  <a data-toggle="tab" href="#supplier1" (click)="active1=true" title="1 year">1
+                  <a data-toggle="tab" href="#supplier1" (click)="active1=true">1
                     year</a></li>
                 <li [ngClass]="active1 ?  '':'active'">
-                  <a href="#supplier2" data-toggle="tab" (click)="active1=false" title="2 year">2
+                  <a href="#supplier2" data-toggle="tab" (click)="active1=false">2
                     years</a></li>
               </ul>
             </div>
@@ -46,7 +45,7 @@
                       <th class="schol_clr">standard <span>700 €</span></th>
                       <th class="schol_clr s_1 clr_nwit"><cite class="top_t">most popular</cite> enterprise<span class="pric">850
                           €</span></th>
-                      <th class="schol_clr s_4">business certified<span class="pric">2,300 €</span></th>
+                      <th class="schol_clr s_4">business certified<span class="pric">2,925 €</span></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -178,7 +177,7 @@
                       </td>
                       <td class="schol_clr">standard <span class="pric">1,050 €</span></td>
                       <td class="schol_clr s_1 clr_nwit">enterprise<span class="pric">1,275 €</span></td>
-                      <td class="schol_clr s_4"> business certified<span class="pric">4,175 €</span></td>
+                      <td class="schol_clr s_4"> business certified<span class="pric">1,950 €</span></td>
                     </tr>
 
                     <tr>
@@ -213,7 +212,7 @@
                       <td class="num_t_lft">Videos </td>
                       <td><span>1</span></td>
                       <td><span>3</span></td>
-                      <td><span>6</span></td>
+                      <td><span>5</span></td>
                     </tr>
 
                     <tr>

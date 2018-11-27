@@ -30,8 +30,10 @@ export class UserService {
         return this.httpClient.post(`${environment.API_URL}/user/update`, data)
     }
 
-    deleteUser(id){
-        return this.httpClient.post(`${environment.API_URL}/user/delete`, {id: id})
+    
+
+    modifyStatus(id){
+        return this.httpClient.post(`${environment.API_URL}/user/modify-status`, {id: id})
     }
 
 }

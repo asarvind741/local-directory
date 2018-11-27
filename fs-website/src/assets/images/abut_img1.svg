@@ -1,3 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.95 30.43">
-  <rect id="Shape_84" data-name="Shape 84" width="36.95" height="30.43" rx="7.69"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.95 31.43">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: rgba(0,0,0,0);
+      }
+    </style>
+  </defs>
+  <path id="Exclusion_1" data-name="Exclusion 1" class="cls-1" d="M29.26,30.43H7.69A7.7,7.7,0,0,1,0,22.74V7.69A7.7,7.7,0,0,1,7.69,0H29.26A7.7,7.7,0,0,1,36.95,7.69V22.74A7.7,7.7,0,0,1,29.26,30.43ZM18.83,8.79a5.38,5.38,0,1,0,5.38,5.379A5.386,5.386,0,0,0,18.83,8.79Z" transform="translate(0.5 0.5)"/>
 </svg>

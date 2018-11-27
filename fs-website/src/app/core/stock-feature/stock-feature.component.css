@@ -14,6 +14,10 @@
     
 
     @media only screen and (max-width:767px){
+        .stock_sec{margin-bottom:100px}
+        .stock_full_img{margin-top:80px}
         .stock_box{margin-bottom:20px}
         .stock_sec .row{margin-bottom:0}
+        .stock_full_img{background-attachment:inherit}
+        .stockTxt p span{display:inline-block}
     }

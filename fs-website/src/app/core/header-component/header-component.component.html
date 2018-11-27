@@ -1,4 +1,4 @@
-<!-- header section start -->
+
 <header #header [ngClass]="addClass ? 'add-new-class': ''">
   <div class="container">
     <div class="row">
@@ -32,14 +32,19 @@
                   <li class="nav-item" [ngClass]="currentEvent == 'Mission' ? 'active': ''">
                     <a class="nav-link" (click)="scrollThis($event)">Mission</a>
                   </li>
-                  <li class="nav-item" [ngClass]="currentEvent == 'Contact' ? 'active': ''">
+                  <li class="nav-item contact" [ngClass]="currentEvent == 'Contact' ? 'active': ''">
                     <a class="nav-link" (click)="scrollThis($event)" (click)="scrollThis($event)">Contact</a>
                   </li>
-                  <li class="nav-item" [ngClass]="currentEvent == 'Login' ? 'active': ''">
+                  <li class="nav-item login" [ngClass]="currentEvent == 'Login' ? 'active': ''">
                     <a class="nav-link" href="#" (click)="scrollThis($event)">Login</a>
                   </li>
-                  <li class="nav-item" [ngClass]="currentEvent == 'Fr' ? 'active': ''">
-                    <a class="nav-link" href="#" (click)="scrollThis($event)">Fr</a>
+                  <li class="nav-item language dropdown" [ngClass]="currentEvent == 'Fr' ? 'active': ''">
+                    <a class="nav-link" href="#" (click)="scrollThis($event)" class="dropdown-toggle" data-toggle="dropdown">Fr</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">English</a></li>
+                      <li><a class="dropdown-item" href="#">Italiano</a></li>
+                      <li><a class="dropdown-item" href="#">Français</a></li>
+                    </ul>             
                   </li>
                 </ul>
               </div>
@@ -51,4 +56,3 @@
     </div>
   </div>
 </header>
-<!-- header section end -->

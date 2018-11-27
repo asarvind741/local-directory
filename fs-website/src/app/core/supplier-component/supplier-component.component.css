@@ -1,6 +1,6 @@
 .supplier_sec{display:block; width:100%}
 p.red{color:#cb297b}
-.list_box{border:1px solid #efefef; padding:30px}
+.list_box{border:1px solid #efefef; padding:30px; height:100%}
 .list_box ul li{margin-bottom:22px; font-size:16px; background:url('../../../assets/images/list_icn.svg') no-repeat; background-position:left 3px; padding-left:35px; background-size:20px}
 .supplier_sec .row{margin-bottom:50px}
 .img_block{display:block; overflow:hidden}
@@ -8,14 +8,14 @@ p.red{color:#cb297b}
     width: 100%;
     height: auto;
     transition: transform 0.2s ease-in-out 0s;
-    -ms-transform: transform 0.2s ease-in-out 0s;
-    -webkit-transform: transform 0.2s ease-in-out 0s;
-    -o-transform: transform 0.2s ease-in-out 0s;
 }
 .img_block:hover img {
     transform: scale(1.05);
     -ms-transform: scale(1.05);
     -webkit-transform: scale(1.05);
+    -ms-transform: transform 0.2s ease-in-out 0s;
+    -webkit-transform: transform 0.2s ease-in-out 0s;
+    -o-transform: transform 0.2s ease-in-out 0s;
 }
 
 
@@ -85,5 +85,9 @@ p.red{color:#cb297b}
         right:-17px; left:auto; top:22px}
         
     .img_block{margin-bottom:30px}
+
+    .supplier_sec .cntr_alTxt{margin:0 auto}
+    .supplier_sec .row{margin-bottom:30px}
+    .list_box{padding:30px 30px 5px; margin-top:20px; }
 
 }

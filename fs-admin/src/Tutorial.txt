@@ -90,4 +90,12 @@ wordlmap
 https://codepen.io/ysoftaoglu/pen/BzEYAz
 
 
-https://github.com/kumawat-4k/demo.git
+#ngx-datatabe scroll Vertical and Horizontal
+https://stackoverflow.com/questions/47467596/how-to-scroll-the-horizontal-scroll-bar-when-drag-the-column-of-ngx-datatable-an
+
+
+#setParent function not defined
+#Cannot create property 'validator' on string
+
+#Form array
+converting circular structure to json due to formarray

@@ -2,12 +2,14 @@ import User from '../models/user';
 import Company from '../models/company';
 import jwt from 'jsonwebtoken';
 import speakeasy from 'speakeasy';
+import Redis from '../functions/redis';
 import {
     sendResponse,
     SendMail
 } from './functions';
 import Constants from './constant';
 import sendSMS from '../functions/nexmo';
+import config from '../config/config';
 async function addUser(req, res) {
     try {
         let user = await User.findOne({
@@ -44,14 +46,18 @@ async function addUser(req, res) {
                 }
             );
             console.log(newUser);
-            let token = jwt.sign({
-                    data: newUser._id,
-                    exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24
-                },
-                Constants.JWT_SECRET
+            const token = jwt.sign(
+                newUser.email, newUser.password, config.secret, {
+                    expiresIn: config.tokenLife
+                }
             );
+
+            const refreshToken = jwt.sign(newUser.email, newUser.name, config.refreshToken, {
+                expiresIn: config.refreshTokenLife
+            })
+
+            Redis.storeRefreshToken(newUser._id, refreshToken);
             let link = `http://localhost:4200/auth/registration/activate/${token}`;
-            console.log(link);
             let storeToken = await User.findByIdAndUpdate(newUser._id, {
                 $set: {
                     token: token
@@ -145,11 +151,10 @@ async function loginUser(req, res) {
                 if (otpValidate || user.otp !== req.body.otp) {
                     sendResponse(res, 400, 'Invalid OTP or OTP Expired');
                 } else {
-                    let token = jwt.sign({
-                            exp: Math.floor(Date.now() / 1000) + 60 * 60,
-                            data: user._id
-                        },
-                        Constants.JWT_SECRET
+                    const token = jwt.sign(
+                        newUser.email, newUser.password, config.secret, {
+                            expiresIn: config.tokenLife
+                        }
                     );
                     let data = user;
                     data.token = token;
@@ -247,11 +252,10 @@ async function sociaLoginUser(req, res) {
             );
             return;
         }
-        let token = jwt.sign({
-                exp: Math.floor(Date.now() / 1000) + 60 * 60,
-                data: user._id
-            },
-            Constants.JWT_SECRET
+        const token = jwt.sign(
+            newUser.email, newUser.password, config.secret, {
+                expiresIn: config.tokenLife
+            }
         );
         let data = user;
         data.token = token;
@@ -427,43 +431,67 @@ async function inviteUser(req, res) {
 }
 
 async function addFromInvitation(req, res) {
-    console.log('req body', req.body);
-    try {
-        let id = req.body.id;
-        delete req.body.id;
-        req.body.status = 'Active';
+        console.log('req body', req.body);
+        try {
+            let id = req.body.id;
+            delete req.body.id;
+            req.body.status = 'Active';
 
-        let updateUser = await User.findOneAndUpdate({
-            _id: id,
-            status: 'Invited'
-        }, {
-            $set: req.body
-        }, {
-            new: true
-        });
-        let updateCompany = await User.findByIdAndUpdate(updateUser.company, {
-            $push: {
-                members: id
-            }
-        });
-        sendResponse(res, 200, 'sign up successful');
-    } catch (e) {
-        console.log(e);
-        sendResponse(res, 500, 'Unexpected error', e);
+            let updateUser = await User.findOneAndUpdate({
+                _id: id,
+                status: 'Invited'
+            }, {
+                $set: req.body
+            }, {
+                new: true
+            });
+            let updateCompany = await User.findByIdAndUpdate(updateUser.company, {
+                $push: {
+                    members: id
+                }
+            });
+            sendResponse(res, 200, 'sign up successful');
+        } catch (e) {
+            console.log(e);
+            sendResponse(res, 500, 'Unexpected error', e);
+        }
     }
-}
 
-module.exports = {
-    addUser,
-    verifyUser,
-    sendOTPLogin,
-    loginUser,
-    sociaLoginUser,
-    getAllUsers,
-    editUser,
-    getUser,
-    updateUserStates,
-    addUserFromAdmin,
-    inviteUser,
-    addFromInvitation
-};
+        async function refreshTokenStrategy(req, res) {
+            const user = req.body;
+            const userId = user._id;
+            if (!!user.refreshToken) {
+                try {
+                    const refreshTokenAvailable = Redis.getRefreshToken(userId);
+                    if (refreshTokenAvailable) {
+                        const token = jwt.sign(
+                            newUser.email, newUser.password, config.secret, {
+                                expiresIn: config.tokenLife
+                            }
+                        );
+                    }
+                    user.token = token;
+                    user.refreshToken = refreshTokenAvailable;
+                    sendResponse(res, 200, 'Token refreshed Successfully.', user);
+
+                } catch (e) {
+                    sendResponse(res, 500, 'Unexpected error', e);
+                }
+            }
+        }
+
+        module.exports = {
+            addUser,
+            verifyUser,
+            sendOTPLogin,
+            loginUser,
+            sociaLoginUser,
+            getAllUsers,
+            editUser,
+            getUser,
+            updateUserStates,
+            addUserFromAdmin,
+            inviteUser,
+            addFromInvitation,
+            refreshTokenStrategy
+        }

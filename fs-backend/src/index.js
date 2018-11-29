@@ -1,4 +1,5 @@
 import 'idempotent-babel-polyfill';
+import Redis from './functions/redis';
 import env from 'dotenv';
 
 const envfile =
@@ -10,7 +11,6 @@ env.config({
 
 import express from 'express';
 import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
 import logger from 'morgan';
 import cors from 'cors';
 import i18n from 'i18n';
@@ -21,6 +21,8 @@ import flash from 'connect-flash';
 import path from 'path';
 
 mongoose.Promise = global.Promise;
+
+Redis.connectToRedis();
 mongoose
   .connect(
     process.env.MONGO_URL + '/' + process.env.DB_NAME, {

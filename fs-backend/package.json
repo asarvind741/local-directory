@@ -9,7 +9,7 @@
     "build": "babel src/ -d dist/",
     "serve": "npm run pretest && babel -w src/ -d dist/ --source-maps inline --copy-files | NODE_ENV=dev nodemon --watch dist ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=dev babel-node --presets es2015 src/index.js ",
+    "start": "SET NODE_ENV=dev & babel-node --presets es2015 src/index.js ",
     "elastic": "babel-node --presets es2015 src/functions/elastic-info.js",
     "create-index": "babel-node --presets es2015 src/functions/create-index.js",
     "delete-index": "babel-node --presets es2015 src/functions/delete-index.js",
@@ -46,6 +46,7 @@
     "passport-linkedin-oauth2": "^1.5.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "redis": "^2.8.0",
     "sha256": "^0.2.0",
     "speakeasy": "^2.0.0"
   },

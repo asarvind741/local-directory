@@ -1,4 +1,7 @@
 import UserController from '../controllers/user';
+import {
+    jwtAuth
+} from '../controllers/functions';
 import passport from 'passport';
 module.exports = app => {
     let user = '/user/';
@@ -6,7 +9,6 @@ module.exports = app => {
 
     app.post(`${user}verify`, UserController.verifyUser);
     app.post(`${user}send-otp`,
-        passport.authenticate('local'),
         UserController.sendOTPLogin);
     app.post(`${user}sign-in`,
         passport.authenticate('local'),
@@ -21,9 +23,11 @@ module.exports = app => {
             res.redirect('http://localhost:4200/profile?' + req.user);
         });
     app.post(`${user}social-login`, UserController.sociaLoginUser);
-    app.get(`${user}`, UserController.getAllUsers);
-    app.post(`${user}update`, UserController.editUser);
-    app.get(`${user}:id`, UserController.getUser);
-    app.post(`${user}modify-status`, UserController.updateUserStates);
-    app.post(`${user}add`, UserController.addUserFromAdmin);
+    app.get(`${user}`, jwtAuth, UserController.getAllUsers);
+    app.post(`${user}update`, jwtAuth, UserController.editUser);
+    app.get(`${user}:id`, jwtAuth, UserController.getUser);
+    app.post(`${user}modify-status`, jwtAuth, UserController.updateUserStates);
+    app.post(`${user}add`, jwtAuth, UserController.addUserFromAdmin);
+    app.post(`${user}invite`, jwtAuth, UserController.inviteUser);
+    app.post(`${user}sign-up-invite`, jwtAuth, UserController.addFromInvitation);
 };

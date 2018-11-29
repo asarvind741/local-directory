@@ -4,6 +4,7 @@ import swal from 'sweetalert2';
 import { FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpResponse } from '@angular/common/http';
 import { CouponService } from '../../../../services/coupon.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-edit-coupon',
@@ -13,6 +14,7 @@ import { CouponService } from '../../../../services/coupon.service';
 export class EditCouponComponent implements OnInit {
   editCouponForm: FormGroup;
   showMessage: any;
+  statuss: Array<String> = ['Active', 'Inactive'];
   modules: Array<String> = ['First Module', 'Second Module', 'Third Module']
   @Input() currentCoupon;
   constructor(
@@ -43,6 +45,12 @@ export class EditCouponComponent implements OnInit {
       'noOfUsersAllowed': new FormControl(noOfUsersAllowed, [ Validators.min(1)]),
       'description': new FormControl(description)
     })
+
+    this.editCouponForm.get('expiresOn').setValue({
+      year: parseInt(moment(expiresOn).format('YYYY')),
+      month: parseInt(moment(expiresOn).format('M')),
+      day: parseInt(moment(expiresOn).format('D'))
+    });
   }
 
   editCoupon(){

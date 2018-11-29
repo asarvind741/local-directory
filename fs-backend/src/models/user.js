@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import shaEncrypt from 'sha256';
 const Schema = mongoose.Schema;
 
-const statusTypes = ['Active', 'Inactive'];
+const statusTypes = ['Active', 'Inactive', 'Invited'];
 
 const Address = new Schema({
   line1: String,
@@ -30,6 +30,18 @@ const permissionSchema = new Schema({
   isSupplier: {
     type: Boolean,
     default: false,
+  },
+  isReseller: {
+    type: Boolean,
+    default: false,
+  },
+  isAgent: {
+    type: Boolean,
+    default: false,
+  },
+  isAccountAdmin: {
+    type: Boolean,
+    default: false
   }
 });
 
@@ -49,8 +61,8 @@ const WishList = new Schema({
 
 const User = new Schema({
   company: {
-    type: Schema.Types.Mixed,
-    ref: 'company',
+    type: Schema.Types.ObjectId,
+    ref: 'Company',
     // required: true,
   },
   firstName: String,
@@ -58,7 +70,7 @@ const User = new Schema({
   name: String,
   role: {
     type: String,
-    enum: ['Buyer', 'Seller', 'Admin', 'SubAdmin'],
+    enum: ['Buyer', 'Seller', 'Admin', 'SubAdmin', 'Agent', 'Reseller'],
   },
   loginCount: {
     type: Number,

@@ -7,6 +7,7 @@ env.config({
   path: `${__dirname}/environments/${envfile}`
 });
 
+
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
@@ -18,6 +19,7 @@ import User from './models/user';
 import Session from 'express-session';
 import flash from 'connect-flash';
 import path from 'path';
+
 mongoose.Promise = global.Promise;
 mongoose
   .connect(
@@ -49,7 +51,7 @@ i18n.configure({
 });
 app.use(i18n.init);
 app.use(function (req, res, next) {
-  // console.log(JSON.parse(req.body.query));
+  console.log(req.body);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', '*');
   res.setHeader(
@@ -78,7 +80,7 @@ require('./routes/module')(app);
 require('./routes/subscription-plans')(app);
 require('./routes/region-management')(app);
 require('./routes/vat-management')(app);
-
+require('./routes/product')(app);
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'public') + '/index.html');
@@ -92,6 +94,7 @@ require('./passport-configuration');
 
 // Error handler
 app.use(function (err, req, res, next) {
+  console.log(err);
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res

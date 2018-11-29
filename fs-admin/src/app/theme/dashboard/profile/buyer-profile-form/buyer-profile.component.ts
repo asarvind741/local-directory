@@ -4,6 +4,7 @@ import swal from 'sweetalert2';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { UserService } from '../../../../services/user.servivce';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buyer-profile',
@@ -29,10 +30,14 @@ export class BuyerProfileComponent implements OnInit {
   editProfile = true;
   editProfileIcon = 'icofont-edit';
   myProfileForm: FormGroup;
-  address = new FormArray([]);
 
   editAbout = true;
   editAboutIcon = 'icofont-edit';
+  editAddress = true;
+  editAddressIcon = 'icofont-edit';
+  editCompany = true;
+  editCompanyIcon = 'iconfont-edit';
+
 
   public editor;
   public editorContent: string;
@@ -52,7 +57,8 @@ export class BuyerProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private fb: FormBuilder
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
   }
 
@@ -63,11 +69,11 @@ export class BuyerProfileComponent implements OnInit {
   createForm() {
     console.log("current user", this.currentUser.address);
     // let address1 = this.fb.array([]);
-    let address1 = new FormArray([]);
+    let address = new FormArray([]);
     if (this.currentUser['address']) {
       for(let addr of this.currentUser['address'])
        {
-        address1.push(
+        address.push(
           new FormGroup({
             'line1': new FormControl(addr.line1),
             'line2': new FormControl(addr.line2),
@@ -98,7 +104,7 @@ export class BuyerProfileComponent implements OnInit {
       'status': new FormControl(status),
       'mobile': new FormControl(mobile),
       'gender': new FormControl(gender),
-      'address': address1,
+      'address': address,
       'linkedInId': new FormControl(linkedInId),
       'websiteAddress': new FormControl(websiteAddress),
       'meritalStatus': new FormControl(meritalStatus),
@@ -114,9 +120,18 @@ export class BuyerProfileComponent implements OnInit {
     this.editProfile = !this.editProfile;
   }
 
+  toggleEditAddress() {
+    this.editAddressIcon = (this.editAddressIcon === 'icofont-close') ? 'icofont-edit' : 'icofont-close';
+    this.editAddress = !this.editAddress;
+  }
+
   toggleEditAbout() {
     this.editAboutIcon = (this.editAboutIcon === 'icofont-close') ? 'icofont-edit' : 'icofont-close';
     this.editAbout = !this.editAbout;
+  }
+
+  showCompanyForm() {
+   this.router.navigate(['../../company-profile'], { relativeTo: this.activatedRoute})
   }
 
   onSubmit() {

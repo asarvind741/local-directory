@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditVatComponent } from './edit-vat.component';
+import { SelectedCountryWizardComponent } from './selected-country-wizard.component';
 
 describe('WizardNavbarRightComponent', () => {
-  let component: EditVatComponent;
-  let fixture: ComponentFixture<EditVatComponent>;
+  let component: SelectedCountryWizardComponent;
+  let fixture: ComponentFixture<SelectedCountryWizardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditVatComponent ]
+      declarations: [ SelectedCountryWizardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditVatComponent);
+    fixture = TestBed.createComponent(SelectedCountryWizardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

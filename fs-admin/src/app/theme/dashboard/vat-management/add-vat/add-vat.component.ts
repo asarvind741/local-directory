@@ -1,94 +1,74 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PlanService } from '../../../../services/plan.service';
 import { HttpResponse } from '@angular/common/http';
+import { VatManagementService } from '../../../../services/vat-management.service';
 
 @Component({
-  selector: 'app-add-vat',
-  templateUrl: './add-vat.component.html',
-  styleUrls: ['./add-vat.component.scss']
+    selector: 'app-add-vat-management',
+    templateUrl: './add-vat.component.html',
+    styleUrls: [
+        './add-vat.component.scss',
+        '../../../../../assets/icon/icofont/css/icofont.scss'
+    ]
 })
 export class AddVatComponent implements OnInit {
-  newPlanForm: FormGroup;
-  statuss: Array<String> = ['Active', 'Inactive'];
-  duration: Array<String> = ['Yearly', 'Half Yearly', 'Quarterly', 'Monthly']
-  showMessage: any;
-  constructor(
-    public activeModal: NgbActiveModal,
-    private planService: PlanService
-  ) { }
+    countries: Array<Object> = [];
+    addClass: Boolean = false;
+    selectedCountry: Object;
+    vatData: any = [];
+    constructor(
+        private vatManagementService: VatManagementService,
+        private router: Router,
+        private activatedRoute: ActivatedRoute
+    ) {
+        this.getCountries();
+    }
+    ngOnInit() {
+        this.getVat();
+    }
 
-  ngOnInit() {
+    getVat() {
+        this.vatManagementService.getVat().subscribe((response: HttpResponse<any>) => {
+            if (response.status === 200) {
+                this.vatData = response['data'];
+            }
+        })
+    }
 
-    this.createForm();
-  }
+    getCountries() {
+        this.vatManagementService.getCountryList()
+            .subscribe((response: HttpResponse<any>) => {
+                if (response.status === 200) {
+                    this.countries = response['data'];
+                }
+            })
+    }
 
-  createForm() {
-    this.newPlanForm = new FormGroup({
-      'name': new FormControl(null),
-      'duration': new FormControl(null),
-      'price': new FormControl(null),
-      'status': new FormControl(null),
-      'description': new FormControl(null)
-    })
-  }
-
-  addNewPlan() {
-    console.log(this.newPlanForm.value)
-    this.planService.addPlan(this.newPlanForm.value).subscribe((response: HttpResponse<any>) => {
-        console.log("responseaaaaa", response);
-        if (response.status === 200) {
-          this.closeModal();
-          this.openSuccessSwal();
-        }
-        else if (response.status !== 200) {
-          this.closeModal();
-          this.showMessage = response['date'];
-          this.openUnscuccessSwal();
-        }
-      }, (error) => {
-       
-        this.closeModal();
-        this.showMessage = error.error['message']
-        this.openUnscuccessSwal();
-      })
-
-  }
-
-  onSelectValue(event) {
-    
-  }
+    selectCountry(country) {
+        this.addClass = true;
+        this.vatManagementService.selectedCountrySubject.next(country);
+        // this.router.navigate([country.id], { relativeTo: this.activatedRoute});
+    }
 
 
-  openSuccessSwal() {
-    swal({
-      title: 'Successful!',
-      text: 'User created successfully!',
-      type: 'success'
-    }).catch(swal.noop);
-  }
 
-  openUnscuccessSwal() {
-    swal({
-      title: 'Cancelled!',
-      text: this.showMessage,
-      type: 'error'
-    }).catch(swal.noop);
-  }
 
-  closeModal() {
-    this.activeModal.close('Modal Closed');
-  }
 
-  cancelNewUserAddition() {
-    this.newPlanForm.reset();
-    this.closeModal();
-  }
+    openSuccessSwal() {
+        swal({
+            title: 'Successful!',
+            text: 'Plan updated successfully!',
+            type: 'success'
+        }).catch(swal.noop);
+    }
 
-  clearModal() {
-    this.newPlanForm.reset();
-  }
+    openUnscuccessSwal() {
+        swal({
+            title: 'Cancelled!',
+            text: 'Please try again',
+            type: 'error'
+        }).catch(swal.noop);
 
+    }
 }

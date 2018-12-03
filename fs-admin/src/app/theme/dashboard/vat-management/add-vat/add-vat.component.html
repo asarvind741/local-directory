@@ -1,72 +1,20 @@
-<div class="card">
-  <div class="card-header">
-    <h5>Create new Plan:</h5>
+<div class="row">
+  <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+    <div class="country-wrapper">
+      <h4>Select Country</h4>
+      <div class="country">
+        <!-- <li *ngFor="let country of countries" [routerLink]= "[country.id]", routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          {{ country.name }}
+        </li> -->
+
+        <li *ngFor="let country of countries"> <a (click)="selectCountry(country)" [routerLink]="[country.id]"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            {{ country.name }}</a>
+        </li>
+      </div>
+    </div>
   </div>
-  <div class="card-block">
-    <form [formGroup]="newPlanForm" (ngSubmit)="addNewPlan()">
-      <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Name</label>
-        <div class="col-sm-8 col-lg-8">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter plan name" formControlName="name">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Type:</label>
-        <div class="col-sm-8 col-lg-8">
-          <select class="input-group" name="module" formControlName="duration">
-            <option [ngValue]="null" disabled>Select One</option>
-            <option *ngFor="let durtn of duration" [ngValue]="durtn">
-              {{ durtn }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Price</label>
-        <div class="col-sm-8 col-lg-8">
-          <div class="input-group">
-            <input type="number" class="form-control" placeholder="Enter price" formControlName="price" min="0">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Description</label>
-        <div class="col-sm-8 col-lg-8">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter description" formControlName="description">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-sm-4 col-lg-4 col-form-label">Status</label>
-        <div class="col-sm-8 col-lg-8">
-          <div class="input-group">
-            <select class="input-group" name="status" formControlName="status">
-              <option [ngValue]="null" disabled>Select One</option>
-              <option *ngFor="let stat of statuss" [ngValue]="stat">
-                {{ stat }}
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-
-
-
-      <div class="row">
-        <div class="col-sm-3 col-lg-3">
-          <button class="btn btn-primary btn-round" type="submit">Done</button>
-        </div>
-        <div class="col-sm-3 col-lg-3">
-          <button class="btn btn-warning btn-round" type="button" (click)="closeModal()">Cancel</button>
-        </div>
-        <div class="col-sm-3 col-lg-3">
-          <button class="btn btn-info btn-round" type="button" (click)="clearModal()">Clear</button>
-        </div>
-      </div>
-    </form>
+  <div class="col-lg-8 col-sm-8 col-md-8 col-xs-8">
+    <router-outlet></router-outlet>
   </div>
 </div>

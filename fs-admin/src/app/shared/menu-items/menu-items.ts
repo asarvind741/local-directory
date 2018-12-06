@@ -64,6 +64,10 @@ const MENUITEMS = [
             name: 'User Management'
           },
           {
+            state: 'product-management',
+            name: 'Product Management'
+          },
+          {
             state: 'company-profile',
             name: 'Company Profile'
           },
@@ -76,7 +80,7 @@ const MENUITEMS = [
             name: 'Subscription Management'
           },
           {
-            state: 'subscription-management',
+            state: 'subscription-statistcs',
             name: 'Subscription Statistcs'
           },
           {

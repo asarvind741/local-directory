@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditVatComponent } from './edit-vat.component';
 
-describe('EditUserComponent', () => {
+describe('WizardNavbarRightComponent', () => {
   let component: EditVatComponent;
   let fixture: ComponentFixture<EditVatComponent>;
 

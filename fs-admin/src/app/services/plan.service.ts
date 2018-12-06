@@ -18,6 +18,10 @@ export class PlanService {
         return this.httpClient.get(`${environment.API_URL}/plan/`);
     }
 
+    getUserPlans(){
+        return this.httpClient.get(`${environment.API_URL}/plan/get-user-plans`)
+    }
+
     getPlan(id){
         return this.httpClient.get(`${environment.API_URL}/plan/${id}`)
     }
@@ -36,6 +40,10 @@ export class PlanService {
 
     modifyStatus(id){
         return this.httpClient.post(`${environment.API_URL}/plan/status-modify`, {id: id})
+    }
+
+    deleteSubscription(id){
+        return this.httpClient.post(`${environment.API_URL}/plan/delete`, {id: id})
     }
 
 

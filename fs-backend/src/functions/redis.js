@@ -1,42 +1,44 @@
 import redis from 'redis';
+import bluebird from 'bluebird';
 
-const client = redis.createClient();
 
-async function connectToRedis(){
+let client = redis.createClient();
+// let client = null;
+
+async function connectToRedis() {
     try {
         client.on('connect', () => {
-            console.log("connected to Redis store");
-        })
-    }
-    catch(e){
-        console.log('Not connected to redis store', e)
-    }
-} 
-
-async function storeRefreshToken(userId, refreshToken) {
-    try {
-    client.set(userId, refreshToken);
-    }
-    catch(e){
-        console.log("Refresh token not stored to redis db");
+            console.log('connected to Redis store');
+        });
+    } catch (e) {
+        console.log('Not connected to redis store', e);
     }
 }
 
-async function getRefreshToken(userId){
+async function storeRefreshToken(userId, refreshToken) {
     try {
-        const refreshToken = await client.get(userId);
-        if(!!refreshToken)
-         return refreshToken;
-        else if(!refreshToken)
-        return 'No refresh token found';
+        client.set(userId, refreshToken);
+    } catch (e) {
+        console.log('Refresh token not stored to redis db');
     }
-    catch(e){
-        return e;
-    }
+}
+
+function getRefreshToken(userId) {
+    return new Promise(function (resolve, reject) {
+        client.get(userId, function (err, value) {
+            console.log(err, value);
+            if (err)
+                reject(err);
+            else
+                resolve(value);
+        });
+
+    });
+
 }
 
 module.exports = {
     connectToRedis,
     storeRefreshToken,
     getRefreshToken
-}
+};

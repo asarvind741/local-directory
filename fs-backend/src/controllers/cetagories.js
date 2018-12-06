@@ -33,11 +33,6 @@ function callSync() {
     console.log(err);
   });
 }
-//   var stream = Category.syncronize();
-
-//   stream.on('data', () => {
-//       console.log('data added');
-//   });
 
 async function createCategory(req, res) {
   try {
@@ -68,8 +63,6 @@ async function getCategoryFromElastic(req, res) {
               status: 'active'
             }
           }
-
-
         }
       }
     }, {

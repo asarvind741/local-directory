@@ -101,3 +101,9 @@ https://wrapbootstrap.com/theme/smartadmin-responsive-webapp-WB0573SK0
 
 #ngb-rating issues
 it does not take ngModal, it takes on rate
+
+https://stackoverflow.com/questions/38251181/sudo-apt-get-command-not-found-linux-server
+
+https://websiteforstudents.com/install-the-latest-node-js-and-nmp-packages-on-ubuntu-16-04-18-04-lts/
+
+https://www.rootusers.com/how-to-open-a-port-in-centos-7-with-firewalld/

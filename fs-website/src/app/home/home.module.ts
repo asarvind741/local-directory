@@ -6,7 +6,6 @@ import { BuiltPlatformComponent } from './built-platform/built-platform.componen
 import { BuyerComponentComponent } from './buyer-component/buyer-component.component';
 import { BuyerFeatureComponent } from './buyer-feature/buyer-feature.component';
 import { FaqComponentComponent } from './faq-component/faq-component.component';
-import { FooterComponentComponent } from './footer-component/footer-component.component';
 import { HelpYrselfComponentComponent } from './help-yrself-component/help-yrself-component.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
 import { JobPostPlanComponent } from './job-post-plan/job-post-plan.component';
@@ -16,10 +15,9 @@ import { SegmentsComponentComponent } from './segments-component/segments-compon
 import { StockFeatureComponent } from './stock-feature/stock-feature.component';
 import { SupplierComponentComponent } from './supplier-component/supplier-component.component';
 import { SupplierSubscriptionComponentComponent } from './supplier-subscription-component/supplier-subscription-component.component';
-import { CoreRoutingModule } from './core-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 import { CommonModule } from '@angular/common';
-import { CoreComponent } from './core.component';
-import { HeaderComponentComponent } from './header-component/header-component.component';
+import { HomeComponent } from './home.component';
 import { FormComponentComponent } from './form-component/form-component.component';
 
 @NgModule({
@@ -30,7 +28,6 @@ import { FormComponentComponent } from './form-component/form-component.componen
         BuyerComponentComponent,
         BuyerFeatureComponent,
         FaqComponentComponent,
-        FooterComponentComponent,
         HelpYrselfComponentComponent,
         JobPostingComponent,
         JobPostPlanComponent,
@@ -41,20 +38,19 @@ import { FormComponentComponent } from './form-component/form-component.componen
         SupplierComponentComponent,
         SupplierComponentComponent,
         SupplierSubscriptionComponentComponent,
-        HeaderComponentComponent,
         FormComponentComponent,
-        CoreComponent
+        HomeComponent
     ],
     imports:[
         CommonModule,
         NgbModule,
-        CoreRoutingModule
+        HomeRoutingModule
     ],
     exports: [
 
     ],
     providers: []
 })
-export class CoreModule {
+export class HomeModule {
 
 }

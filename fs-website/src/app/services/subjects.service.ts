@@ -7,9 +7,12 @@ import { Subject } from 'rxjs';
 
 
 export class SubjectService {
-    postSubject = new Subject<any>();
+    public digitalSourcing = new Subject();
+    public contact = new Subject();
+    public jobPostPlan = new Subject();
+    public prcingPlan = new Subject();
 
-    updateSubject(data){
-        this.postSubject.next(data);
+    constructor(){
+        
     }
 }

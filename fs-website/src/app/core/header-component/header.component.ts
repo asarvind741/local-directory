@@ -1,14 +1,13 @@
 import { Component, OnInit, HostListener, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
-import { RfqFeaturesComponent } from '../rfq-features/rfq-features.component';
 import { SubjectService } from '../../services/subjects.service';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-header-component',
-  templateUrl: './header-component.component.html',
-  styleUrls: ['./header-component.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponentComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   constructor(private subjectService: SubjectService) { }
 
@@ -22,11 +21,6 @@ export class HeaderComponentComponent implements OnInit {
   ngOnInit() {
     $(document).ready(function(){
        if($(window).width() <768){
-         /* $(document).click(function(e){
-            if(!$(e.target).is('.navbar-toggler, navbar-toggler *, .Menu_br, .Menu_br *, .scrol_img, .scrol_img *')){
-              $('.navbar-toggler').click();      
-            }        
-          }); */
             $('.Menu_br li:not(.language) > a').on('click', function(){
               $('.navbar-toggler').click(); 
           })

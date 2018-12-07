@@ -1,9 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-header-component 
-[aboutDigital] = "aboutDigitalSourcing"
-[contact] = "contact"
-[jobPostPlanning] = "jobPostPlanning"
-></app-header-component>
+
 <app-banner-component  [aboutDigital] = "aboutDigitalSourcing"></app-banner-component>
 <app-about-component #aboutDigital></app-about-component>
 <app-segments-component></app-segments-component>
@@ -13,8 +9,7 @@
 <app-buyer-feature></app-buyer-feature>
 <app-stock-feature></app-stock-feature>
 <app-job-posting></app-job-posting>
-<app-job-post-plan
-#jobPostPlan
+<app-job-post-plan #jobPostPlan
 ></app-job-post-plan>
 <app-buyer-component></app-buyer-component>
 <app-supplier-component></app-supplier-component>
@@ -22,5 +17,3 @@
 <app-faq-component></app-faq-component>
 <app-form-component #contactUs></app-form-component>
 <app-our-location-component></app-our-location-component>
-<app-footer-component></app-footer-component>
-<router-outlet></router-outlet>

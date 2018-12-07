@@ -1,0 +1,244 @@
+.mission-wrapper {
+    padding-top: 132px;
+}
+.our-mission-con {
+    max-width: 1010px;
+    margin: 0 auto;
+}
+.out-mission {
+    position: relative;
+}
+.out-mission img{
+    width: 100%;
+}
+.our-mission-banner-content {
+    position: absolute;
+    top: 50%;
+    z-index: 9;
+    width: 430px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: -280px;
+}
+.our-mission-banner-content h2 {
+    position: relative;
+    font-size: 46px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+.our-mission-banner-content h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: #67437e;
+}
+.black-tect-con {
+    background: #000;
+    color: #fff;
+    padding: 33px 30px;
+    margin-bottom: 30px;
+}
+.black-tect-con p{
+    margin-bottom: 30px;
+}
+.black-tect-con p:last-child {
+    margin-bottom: 0;
+}
+.banner-btn {
+    width: 165px;
+    height: 37px;
+    border-radius: 20px;
+    display: block;
+    text-align: center;
+    line-height: 37px; 
+    border: 1px solid #d62886;
+    color: #000;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in;
+}
+.banner-btn:hover {
+    background: #d62886;
+    color: #fff;
+}
+.vision-team {
+    padding: 90px 0;
+}
+.vision-team-col {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 15px;
+}
+.mission-h3{
+    font-size: 36px;
+    color: #000;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+.mission-h3::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 1px;
+    background: #000;
+}
+.vision-team-col p {
+    font-size: 17px;
+    color: #000;
+    line-height: 22px;
+    margin-bottom: 27px;
+    font-weight: normal;
+}
+.vision-team-col p:last-child {
+    margin-bottom: 0;
+}
+.spacer {
+    height: 119px;
+}
+.our-resource {
+    margin-bottom: 130px;
+}
+.our-resource h3.mission-h3 {
+    text-align: center;
+}
+.our-resource h3.mission-h3::before {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.our-resource p {
+    text-align: center;
+    color: #000;
+    font-size: 18px; 
+}
+.our-partner-inner {
+    background: #f9f9f9;
+    padding: 40px 40px 40px 160px;
+}
+.our-partner-inner h3.mission-h3 {
+    margin-bottom: 50px;
+}
+.partner-row {
+    display: table;
+    width: 100%;
+    position: relative;
+    min-height: 165px;
+    margin-bottom: 20px;
+}
+.partner-img {
+    width: 195px;
+    height: 154px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    line-height: 154px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    position: absolute;
+    left: -260px;
+}
+.partner-detail {
+    display: table-cell;
+    vertical-align: middle;
+}
+span.pink-star, .partner-detail a {
+    color: #cb297b;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .our-resource {
+        padding: 0 15px;
+    }
+    .our-partner-inner {
+        padding: 40px 40px 40px 250px;
+    }
+    .partner-img {
+        left: -225px;
+    }
+    .our-mission-banner-content {
+        margin-left: 0;
+        width: 700px;
+        max-width: 100%;
+    }
+    .black-tect-con p{
+        margin-bottom: 5px;
+    }
+    .our-mission-banner-content h2 {
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+        font-size: 39px;
+    }
+    .black-tect-con {
+        padding: 15px 30px;
+    }
+    .mission-wrapper {
+        padding-top: 82px;
+    }
+}
+
+@media (max-width: 767px) {
+    .mission-wrapper {
+        padding-top: 75px;
+    }
+    .vision-team{
+        padding: 30px 0;
+    }
+    .vision-team-col {
+        width: 100%;
+        display: block;
+    }
+    .our-vision.vision-team-col {
+        margin-bottom: 30px;
+    }
+    .spacer {
+        height: 0;
+    }
+    .our-resource{
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+    .mission-h3 {
+        font-size: 30px;
+    }
+    .our-partner-inner{
+        padding: 30px 15px;
+    }
+    .our-partner-inner h3.mission-h3{
+        margin-bottom: 20px;
+    }
+    .partner-row {
+        display: block;
+    }
+    .partner-img {
+        display: block;
+        position: static;
+        margin-bottom: 20px;
+    }
+    .our-mission-banner-content {
+        transform: none;
+        margin-left: 0;
+        width: 100%;
+        position: static;
+        margin-top: 20px;
+        padding: 0 15px;
+    }
+    .our-mission-banner-content h2 {
+        font-size: 30px;
+    }
+    .black-tect-con {
+        padding: 20px;
+    }
+    .black-tect-con p{
+        margin-bottom: 15px;
+    }
+}

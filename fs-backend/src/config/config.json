@@ -1,0 +1,7 @@
+{
+
+    "secret": "fashion-source-secret-token",
+    "refreshToken": "fashion-source-secret-refresh-token",
+    "tokenLife": 1000,
+    "refreshTokenLife": 100000
+}

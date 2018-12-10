@@ -1,5 +1,6 @@
 /** header css start **/
 header{display: block;left: 0;position: fixed;right: 0;top: 0;width: 100%;padding: 50px 0px; z-index:9}
+header.header2{display: block;left: 0;position: fixed;right: 0;top: 0;width: 100%;padding: 50px 0px; z-index:9;background: #38032d;background: -moz-linear-gradient(left, #38032d 0%, #694683 100%);background: -webkit-linear-gradient(left, #38032d 0%,#694683 100%); /* Chrome10-25,Safari5.1-6 */background: linear-gradient(to right, #38032d 0%,#694683 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#38032d', endColorstr='#694683',GradientType=1 ); /* IE6-9 */}
 .logo{width: 100%;display: block;}
 .logo a{display: inline-block;}
 .menu_sec{width: 100%;display: block;}

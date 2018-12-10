@@ -1,5 +1,6 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { SubjectService } from './services/subjects.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,19 @@ export class AppComponent implements AfterViewInit {
   contact: ElementRef;
   jobPostPlanning: ElementRef;
 
-  constructor(private subjectService: SubjectService){}
+  constructor(
+    private subjectService: SubjectService,
+    private router: Router
+    ){}
+
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
+  }
 
   ngAfterViewInit(){
     this.subjectService.digitalSourcing

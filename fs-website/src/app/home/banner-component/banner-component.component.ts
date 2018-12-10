@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { TimelineMax, Linear } from "gsap/TweenMax";
+
 import * as $ from 'jquery';
 declare let Granim: any;
 
@@ -11,6 +12,7 @@ declare let Granim: any;
 export class BannerComponentComponent implements OnInit {
   @ViewChild('banner') banner: ElementRef;
   @Input('aboutDigital') aboutDigital: ElementRef;
+
   constructor() { }
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import UserController from '../controllers/user';
 import {
     jwtAuth
-} from '../functions/jwt';
+} from '../controllers/functions';
 import passport from 'passport';
 module.exports = app => {
     let user = '/user/';
@@ -10,14 +10,12 @@ module.exports = app => {
     app.post(`${user}verify`, UserController.verifyUser);
     app.post(`${user}send-otp`,
         UserController.sendOTPLogin);
-    app.post(`${user}token`, UserController.refreshTokenStrategy);
     app.post(`${user}sign-in`,
         passport.authenticate('local'),
         UserController.loginUser
     );
     app.get('/auth/linkedin',
         passport.authenticate('linkedin'));
-
 
     app.get('/auth/linkedin/callback',
         passport.authenticate('linkedin'),

@@ -32,10 +32,6 @@ export class AuthenticationService {
         return this.httpClient.post(`${environment.API_URL}/user/send-otp`, user)
     }
 
-    refreshToken(user){
-        return this.httpClient.post(`${environment.API_URL}/user/token`, user)
-    }
-
     authenticateUser(oneTimePassword, user){
         
         const otpVerify = { 'email': user.email, 'password': user.password, 'otp': oneTimePassword}
@@ -68,7 +64,6 @@ export class AuthenticationService {
 
     saveUser(user){
         localStorage.setItem('token', user.token);
-        localStorage.setItem('refreshToken', user.refreshToken);
         localStorage.setItem('currentUser', JSON.stringify(user))
     }
 
@@ -87,6 +82,5 @@ export class AuthenticationService {
         else
         return false
     }
-
 
 }

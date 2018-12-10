@@ -3,6 +3,10 @@ Property 'on' in type 'MockDrake' is not assignable to the same property in base
 --> @types/dragula@2.1.33
 
 
+httpClient-
+https://ryanchenkie.com/angular-authentication-using-the-http-client-and-http-interceptors
+
+
 relativeTo in Angular Router
 https://stackoverflow.com/questions/39124906/navigate-relative-with-angular-2-router-version-3/39125830
 
@@ -102,8 +106,17 @@ https://wrapbootstrap.com/theme/smartadmin-responsive-webapp-WB0573SK0
 #ngb-rating issues
 it does not take ngModal, it takes on rate
 
-https://stackoverflow.com/questions/38251181/sudo-apt-get-command-not-found-linux-server
 
-https://websiteforstudents.com/install-the-latest-node-js-and-nmp-packages-on-ubuntu-16-04-18-04-lts/
+https://stackoverflow.com/questions/41474011/what-causes-the-control-registeronchange-is-not-a-function-error
 
-https://www.rootusers.com/how-to-open-a-port-in-centos-7-with-firewalld/
+https://stackoverflow.com/questions/42786445/angular-2-cant-set-form-array-value
+
+https://stackoverflow.com/questions/51209125/control-setparent-is-not-a-function-when-dymanically-creating-formgroup/51210612
+
+https://stackoverflow.com/questions/34576724/mapper-parsing-exception-in-new-elasticsearch-2-1-1-version/34576862
+
+https://stackoverflow.com/questions/33700266/how-can-i-get-new-selection-in-select-in-angular-2
+
+https://aberezkin.github.io/ng2-image-upload/#/readme
+https://coderanch.com/t/696247/angular-typescript-spa-javascript/languages/angular-image-upload-unable-hold
+https://aberezkin.github.io/ng2-image-upload/#/demo

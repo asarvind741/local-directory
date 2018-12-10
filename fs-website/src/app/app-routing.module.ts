@@ -5,7 +5,7 @@ import { HelpPlanetComponent } from './help-planet/help-planet.component';
 
 const routes: Routes = [
   { path: 'mission', component: MissionComponent},
-  { path: 'heplp-planet', component: HelpPlanetComponent},
+  { path: 'help-planet', component: HelpPlanetComponent},
   { path: '', loadChildren: './home/home.module#HomeModule' }
 ];
 

@@ -1,5 +1,5 @@
 
-<header #header [ngClass]="addClass ? 'add-new-class': ''">
+<header [ngClass] = " path == '/mission' && currentEvent!= 'Home' || path == ''? 'header2': ''" #header [ngClass]="addClass ? 'add-new-class': ''">
   <div class="container">
     <div class="row">
 
@@ -20,8 +20,8 @@
               </button>
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item" routerLinkActive = "active" [routerLinkActiveOptions]="{exact: true}">
-                    <a class="nav-link" (click)="scrollThis($event)" [routerLink] = "['/']">Home</a>
+                  <li class="nav-item" [ngClass]="currentEvent == 'Home'  ? 'active': ''">
+                    <a class="nav-link" (click)="onHomeClicked($event)" >Home</a>
                   </li>
                   <li class="nav-item" [ngClass]="currentEvent == 'Features' ? 'active': ''">
                     <a class="nav-link" (click)="scrollThis($event)">Features</a>
@@ -29,8 +29,8 @@
                   <li class="nav-item" [ngClass]="currentEvent == 'Pricing' ? 'active': ''">
                     <a class="nav-link" (click)="scrollThis($event)">Pricing</a>
                   </li>
-                  <li class="nav-item" routerLinkActive = "active">
-                    <a class="nav-link" [routerLink] = "['/mission']" >Mission</a>
+                  <li class="nav-item" [ngClass]="currentEvent == 'Mission'  ? 'active': ''">
+                    <a class="nav-link" (click) = "onMissionClick($event)" >Mission</a>
                   </li>
                   <li class="nav-item contact" [ngClass]="currentEvent == 'Contact' ? 'active': ''">
                     <a class="nav-link" (click)="scrollThis($event)" (click)="scrollThis($event)">Contact</a>

@@ -2,7 +2,6 @@ import User from '../models/user';
 import Company from '../models/company';
 import jwt from 'jsonwebtoken';
 import speakeasy from 'speakeasy';
-import Redis from '../functions/redis';
 import {
     sendResponse,
     SendMail
@@ -48,18 +47,14 @@ async function addUser(req, res) {
                 }
             );
             console.log(newUser);
-            const token = jwt.sign(
-                newUser.email, newUser.password, config.secret, {
-                    expiresIn: config.tokenLife
-                }
+            let token = jwt.sign({
+                    data: newUser._id,
+                    exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24
+                },
+                Constants.JWT_SECRET
             );
-
-            const refreshToken = jwt.sign(newUser.email, newUser.name, config.refreshToken, {
-                expiresIn: config.refreshTokenLife
-            })
-
-            Redis.storeRefreshToken(newUser._id, refreshToken);
             let link = `http://localhost:4200/auth/registration/activate/${token}`;
+            console.log(link);
             let storeToken = await User.findByIdAndUpdate(newUser._id, {
                 $set: {
                     token: token
@@ -315,10 +310,11 @@ async function sociaLoginUser(req, res) {
             );
             return;
         }
-        const token = jwt.sign(
-            newUser.email, newUser.password, config.secret, {
-                expiresIn: config.tokenLife
-            }
+        let token = jwt.sign({
+                exp: Math.floor(Date.now() / 1000) + 60 * 60,
+                data: user._id
+            },
+            Constants.JWT_SECRET
         );
         let data = user;
         data.token = token;
@@ -510,31 +506,31 @@ async function inviteUser(req, res) {
 }
 
 async function addFromInvitation(req, res) {
-        console.log('req body', req.body);
-        try {
-            let id = req.body.id;
-            delete req.body.id;
-            req.body.status = 'Active';
+    console.log('req body', req.body);
+    try {
+        let id = req.body.id;
+        delete req.body.id;
+        req.body.status = 'Active';
 
-            let updateUser = await User.findOneAndUpdate({
-                _id: id,
-                status: 'Invited'
-            }, {
-                $set: req.body
-            }, {
-                new: true
-            });
-            let updateCompany = await User.findByIdAndUpdate(updateUser.company, {
-                $push: {
-                    members: id
-                }
-            });
-            sendResponse(res, 200, 'sign up successful');
-        } catch (e) {
-            console.log(e);
-            sendResponse(res, 500, 'Unexpected error', e);
-        }
+        let updateUser = await User.findOneAndUpdate({
+            _id: id,
+            status: 'Invited'
+        }, {
+            $set: req.body
+        }, {
+            new: true
+        });
+        let updateCompany = await User.findByIdAndUpdate(updateUser.company, {
+            $push: {
+                members: id
+            }
+        });
+        sendResponse(res, 200, 'sign up successful');
+    } catch (e) {
+        console.log(e);
+        sendResponse(res, 500, 'Unexpected error', e);
     }
+}
 
 module.exports = {
     addUser,

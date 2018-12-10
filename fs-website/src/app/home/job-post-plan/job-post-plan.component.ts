@@ -9,7 +9,6 @@ import * as AOS from 'aos';
 })
 export class JobPostPlanComponent implements OnInit {
   @ViewChild('postPlan') postPlan;
-  postSubject = new Subject<any>();
   constructor() { }
 
   ngOnInit() {

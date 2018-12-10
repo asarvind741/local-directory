@@ -1,5 +1,4 @@
 import 'idempotent-babel-polyfill';
-import Redis from './functions/redis';
 import env from 'dotenv';
 
 const envfile =
@@ -11,6 +10,7 @@ env.config({
 
 import express from 'express';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 import logger from 'morgan';
 import cors from 'cors';
 import i18n from 'i18n';
@@ -19,10 +19,9 @@ import User from './models/user';
 import Session from 'express-session';
 import flash from 'connect-flash';
 import path from 'path';
+import multer from 'multer';
 
 mongoose.Promise = global.Promise;
-
-Redis.connectToRedis();
 mongoose
   .connect(
     process.env.MONGO_URL + '/' + process.env.DB_NAME, {
@@ -43,6 +42,8 @@ app.use(Session({
   secret: 'secret'
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/file', express.static(path.join(__dirname, '../uploads')));
+console.log(path.join(__dirname, '../uploads'));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -75,6 +76,7 @@ passport.deserializeUser(function (id, cb) {
 });
 
 app.options('*', cors());
+
 require('./routes/user')(app);
 require('./routes/category')(app);
 require('./routes/coupon')(app);
@@ -86,7 +88,24 @@ require('./routes/product')(app);
 require('./routes/company')(app);
 require('./routes/restful')(app);
 require('./routes/filter')(app);
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + '.png');
+  }
+});
+
+var upload = multer({
+  storage: storage
+});
 require('./functions/redis').connectToRedis();
+app.post('/image', upload.single('image'), (req, res) => {
+  console.log(req.file);
+  res.status(200).json(`http://40.71.47.14:5000/file/${req.file.filename}`);
+});
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'public') + '/index.html');
 });

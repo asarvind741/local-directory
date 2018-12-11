@@ -117,9 +117,14 @@ p.red{color:#cb297b}
 .table_plan_cntr table thead th:last-child{border-right:0;}
 .buyer_h2 h2 span{display:block; font-size:14px}
 .table_plan_cntr table th.schol_clr::after{background-size:100%!important}
-
+.x_axis{display:none}
+a.animate-border {display:block;color:#fff;  background: #5c356c; transition:color 0.25s ease; height: 48px;  line-height: 48px;position: relative; overflow: hidden;}
+a.animate-border::after { position: absolute;content: '';top:0;left: 0;width: 0;height: 100%;background-color: #073d63;transform-origin:left;transition:width 0.25s ease; z-index:1; color: #fff;}
+a.animate-border:hover::after {width: 100%;}
+a.animate-border:hover::before { content: 'SIGN UP'; z-index: 99; color: #fff; position: absolute; left: 0; width: 100%; height: 100%;}
 
 @media only screen and (min-width:320px) and (max-width:767px){
+    .buyer_new_sec{margin-bottom:50px}
 	.digital-listing ul{position:static}
 	.digital-listing ul::before{width:8px; height:100%; left:44px}
 	.digital-listing li{width:100%; display:block}
@@ -143,4 +148,72 @@ p.red{color:#cb297b}
         .buyer_new_sec .cntr_alTxt{margin:0 auto}
         .buyer_new_sec .row{margin-bottom:30px}
         
+}
+
+@media only screen and (max-width:479px){
+    .x_axis{display:block; position:relative}
+    .hand_icn{width:40px; opacity:0.7}
+    .hnd_bounce{float:right}
+
+   
+
+      @-webkit-keyframes bounceLeft {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+        40% {
+          -webkit-transform: translateX(30px);
+          transform: translateX(30px);
+        }
+        60% {
+          -webkit-transform: translateX(15px);
+          transform: translateX(15px);
+        }
+      }
+      @-moz-keyframes bounceLeft {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(0);
+        }
+        40% {
+          transform: translateX(30px);
+        }
+        60% {
+          transform: translateX(15px);
+        }
+      }
+      @keyframes bounceLeft {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          -ms-transform: translateX(0);
+          transform: translateX(0);
+        }
+        40% {
+          -ms-transform: translateX(30px);
+          transform: translateX(30px);
+        }
+        60% {
+          -ms-transform: translateX(15px);
+          transform: translateX(15px);
+        }
+      }
+
+      .fa-arrow-left {
+        -webkit-animation: bounceLeft 2s infinite;
+        animation: bounceLeft 2s infinite; position:absolute; right:10px
+      }
+      /* /left bounce */
+      
+
 }

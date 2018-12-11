@@ -12,17 +12,19 @@
     border-radius: 50px;
     display: block;
     margin: 0 auto;
-    max-width: 372px;
+    max-width: 395px;
     width: 100%;
     border: 1px solid #d62886;
 }
 .tabTabl_sec .m_login_tabbing ul li {
-    display:inline-block
+    display:inline-block;
+    width:33.33%
 }
 .tab_wrapper .year_tabs ul li.active:first-child a,
  .tabTabl_sec .m_login_tabbing ul li:first-child a {
     border-radius: 50px 0 0 50px;
 }
+
 .tabTabl_sec .m_login_tabbing ul li.active a {
     color: #000;
 }
@@ -32,13 +34,13 @@
     display: block;
     font-size: 18px;
     font-weight: 600;
-    padding: 20px 26px;
+    padding: 20px 23px;
     text-align: center;
     text-transform: capitalize;
     position: relative;
     line-height:20px
 }
-.tabTabl_sec .m_login_tabbing ul li:last-child a{padding:10px 26px}
+.tabTabl_sec .m_login_tabbing ul li:last-child a{padding:10px 23px}
 
 .tabTabl_sec .m_login_tabbing ul li span{display:block}
 
@@ -122,8 +124,7 @@
     margin: 0 auto;
     max-width: 960px;
     width: 100%;
-    overflow:auto;
-    padding:20px 0 0;
+    padding:0;
 }
 .yearTbs .table_plan_cntr table th.schol_clr::before, .yearTbs .table_plan_cntr table th.clr_f1::before {
     display: none;
@@ -154,7 +155,7 @@
 }
 .table_plan_cntr table th h1.titl_t, .table_plan_cntr table th, .table_plan_cntr.notHed_tbl table td.clr_f1, .table_plan_cntr.notHed_tbl table td h1.titl_t, .table_plan_cntr.notHed_tbl table td.schol_clr {
     color: #000000;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     letter-spacing: 1px;
     line-height: 20px;
@@ -327,49 +328,119 @@
     display: block;
     margin: 0 0 0 10px;
 }
-.yearTbs .table_plan_cntr table th.schol_clr.clr_nwit {
-    color: #fff;
-}
+.yearTbs .table_plan_cntr table th.schol_clr.clr_nwit {color: #fff;}
 .tab_wrapper span.hd_txt{background-color:#13537f; color:#fff; font-size:14px; padding:12px 25px; letter-spacing:1px; text-align:center; text-transform: capitalize;}
-
 .table_plan_cntr.notHed_tbl tbody tr td:first-child {text-align: left;}
 .table_plan_cntr.notHed_tbl tbody tr:first-child td {background: #fff; border-bottom: 0; padding: 0;}
 .table_plan_cntr.notHed_tbl table td.clr_f1 {padding: 0 0 50px; border-right: 0; border-bottom: 0;}
 .table_plan_cntr.notHed_tbl table td.clr_f1 {padding: 0 0 50px; border-right: 0; border-bottom: 0;}
 .tab_wrapper span.hd_txt{color: #fff; font-size: 14px; font-weight: 400; letter-spacing: 1px;    line-height: 20px; text-align: center; background: #13537f; text-transform: capitalize;
 padding: 12px 25px; display: block;}
-.table_plan_cntr table th.schol_clr::after{background-size:100%!important}
- 
+.table_plan_cntr table th.schol_clr::after{background-size:100%!important} 
 .table_plan_cntr.notHed_tbl table tbody tr:first-child td{padding:0}
 .table_plan_cntr.agentTabs table th.clr_f1 {width: 50%;}
 .table_plan_cntr.agentTabs table th.schol_clr {width: 17%;}
-
-
-
-.supplier_sec .agentTabs th span{font-size:15px!important}
+.table_plan_cntr table tbody tr td span.pric{font-size:18px; font-weight:600; padding-top:2px}
+.table_plan_cntr.agentTabs th.schol_clr.s_1{background:#e5ca95!important }
 .fade:not(.show) {display:none!important;} 
-
-#stockist .fade:not(.show) {
-    opacity: 1;
-}
+#stockist .fade:not(.show) {opacity: 1;}
 .nav-tabs{border:0}
+.table_plan_cntr tr td span.pric{font-size:18px!important; font-weight:600!important}
+span.strd{margin-top: -7px; font-size: 13px!important; font-weight: 400!important;}
+
+.x_axis{display:none}
+a.animate-border {display:block;color:#fff;  background: #5c356c; transition:color 0.25s ease; height: 48px;  line-height: 48px;position: relative; overflow: hidden;}
+a.animate-border::after { position: absolute;content: '';top:0;left: 0;width: 0;height: 100%;background-color: #073d63;transform-origin:left;transition:width 0.25s ease; z-index:1; color: #fff;}
+a.animate-border:hover::after {width: 100%;}
+a.animate-border:hover::before { content: 'SIGN UP'; z-index: 99; color: #fff; position: absolute; left: 0; width: 100%; height: 100%;}
+
 
 
 @media only screen and (max-width:767px){
-
+ .supplier_sec{margin-bottom:80px}
  .table_plan_cntr table th::after{background-size:100%!important}
  .table_plan_cntr th.schol_clr.clr_nwit cite{display:none!important}
  .table_plan_cntr table th{vertical-align:top; padding-top:7px!important; font-size:12px; line-height:12px}
  .table_plan_cntr table th span{display:inline-block; font-size:12px!important}
  /*.tabTabl_sec .m_login_tabbing ul li > a::after{right:0}
  .tabTabl_sec .m_login_tabbing ul li > a{line-height:16px}*/
-    .tabTabl_sec .m_login_tabbing ul li > a{font-size:16px; padding:16px 30px}
+    .tabTabl_sec .m_login_tabbing ul li > a{font-size:16px; padding:20px 30px}
     .tabTabl_sec .m_login_tabbing ul li:last-child > a{padding:10px 30px}
- 
+  
 }
 
 @media only screen and (max-width:479px){
     .tabTabl_sec .m_login_tabbing{max-width:288px}
-    .tabTabl_sec .m_login_tabbing ul li > a{font-size:16px; padding:16px 16px}
-    .tabTabl_sec .m_login_tabbing ul li:last-child > a{padding:10px 16px}  
+    .tabTabl_sec .m_login_tabbing ul li > a{font-size:15px; padding:20px 16px}
+    .tabTabl_sec .m_login_tabbing ul li:last-child > a{padding:10px 13px}
+    .tabTabl_sec .m_login_tabbing ul li > a::after{top:20px} 
+   
+}
+
+@media only screen and (max-width:479px){
+    .x_axis{display:block; position:relative}
+    .hand_icn{width:40px; opacity:0.7}
+    .hnd_bounce{float:right; margin-top:-40px}
+
+   
+
+      @-webkit-keyframes bounceLeft {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+        40% {
+          -webkit-transform: translateX(30px);
+          transform: translateX(30px);
+        }
+        60% {
+          -webkit-transform: translateX(15px);
+          transform: translateX(15px);
+        }
+      }
+      @-moz-keyframes bounceLeft {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(0);
+        }
+        40% {
+          transform: translateX(30px);
+        }
+        60% {
+          transform: translateX(15px);
+        }
+      }
+      @keyframes bounceLeft {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          -ms-transform: translateX(0);
+          transform: translateX(0);
+        }
+        40% {
+          -ms-transform: translateX(30px);
+          transform: translateX(30px);
+        }
+        60% {
+          -ms-transform: translateX(15px);
+          transform: translateX(15px);
+        }
+      }
+
+      .fa-arrow-left {
+        -webkit-animation: bounceLeft 2s infinite;
+        animation: bounceLeft 2s infinite; position:absolute; right:10px
+      }
+      /* /left bounce */
+      
+
 }

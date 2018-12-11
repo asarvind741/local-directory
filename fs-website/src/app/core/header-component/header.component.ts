@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, Output, EventEmitter, Input, AfterViewInit, OnChanges, DoCheck } from '@angular/core';
 import { SubjectService } from '../../services/subjects.service';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
@@ -9,15 +9,15 @@ import { Location } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
 
   path: any;
   constructor(
     private router: Router,
     private subjectService: SubjectService,
     private location: Location
-    ) { }
-  
+  ) { }
+
   addClass: Boolean = false;
   currentEvent: String = 'Home';
   @Input('aboutDigital') aboutDigital;
@@ -27,14 +27,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.path = this.location.path();
-    if(this.path === "/mission"){
+    if (this.path === "/mission") {
       this.subjectService.currentEvent.next('Mission')
     }
+
+
     this.subjectService.currentEvent
       .subscribe(data => {
         this.currentEvent = data;
-        console.log("current event======>", this.currentEvent);
-        console.log("current pat======>", this.path);
       });
 
     $(document).ready(function () {
@@ -48,10 +48,37 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+
+  }
+  ngDoCheck() {
+    this.path = localStorage.getItem('path');
+  }
+
   @HostListener("window:scroll", [])
   onWindowScroll() {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (number > 100) {
+      if (number < 400) {
+        this.currentEvent = "Home"
+      }
+      else if (number > 400 && number < 700) {
+        this.currentEvent = "Features"
+      }
+      else if (number > 700 && number < 6420) {
+        this.currentEvent = "";
+      }
+      else if (number > 6423 && number < 7200) {
+        this.currentEvent = "Pricing"
+      }
+      else if (number > 12900 && number < 13700) {
+        this.currentEvent = "Contact"
+      }
+      else {
+        this.currentEvent = "";
+      }
       this.addClass = true;
     } else {
       this.addClass = false
@@ -60,14 +87,15 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollThis(event) {
+    console.log("current event=====>", this.currentEvent);
     if (this.currentEvent === "Mission") {
       this.router.navigate(['/']).then(() => {
+        console.log("current event=====>", this.currentEvent);
         if (event.target.text === "Features") {
           this.subjectService.currentEvent.next(event.target.text);
-          console.log("native element 1", this.aboutDigital)
-          this.aboutDigital.nativeElement.scrollIntoView({
-            behavior: "smooth", block: "center", inline: "center", alignToTop: true
-          })
+          // this.aboutDigital.nativeElement.scrollIntoView({
+          //   behavior: "smooth", block: "center", inline: "center", alignToTop: true
+          // })
 
 
         }
@@ -81,14 +109,6 @@ export class HeaderComponent implements OnInit {
 
         }
         else if (event.target.text == "Contact") {
-          // console.log("sssssssssssss pricing");
-          // this.subjectService.currentEvent.next(event.target.text);
-          // var topOfTheElement = this.contact.nativeElement.offsetTop - this.header.nativeElement.offsetHeight;
-          // window.scroll({
-          //   top: topOfTheElement,
-          //   behavior: 'smooth'
-          // })
-
           this.contact.nativeElement.scrollIntoView({
             behavior: "smooth", block: "center", inline: "center", alignToTop: true
           })
@@ -99,9 +119,9 @@ export class HeaderComponent implements OnInit {
     else {
       if (event.target.text === "Features") {
         this.subjectService.currentEvent.next(event.target.text);
-        this.aboutDigital.nativeElement.scrollIntoView({
-          behavior: "smooth", block: "center", inline: "center", alignToTop: true
-        })
+        // this.aboutDigital.nativeElement.scrollIntoView({
+        //   behavior: "smooth", block: "center", inline: "center", alignToTop: true
+        // })
 
       }
       else if (event.target.text === "Pricing") {
@@ -121,63 +141,7 @@ export class HeaderComponent implements OnInit {
           top: topOfTheElement,
           behavior: 'smooth'
         })
-
-        // this.contact.nativeElement.scrollIntoView({
-        //   behavior: "smooth", block: "center", inline: "center", alignToTop: true
-        // })
       }
-      // else if (this.currentEvent == "Mission" && event.target.text == "Features") {
-      //   console.log("aaaaaaaaaaaaaa", this.currentEvent);
-      //   this.router.navigate(['/'])
-      //     .then(() => {
-      //       this.subjectService.currentEvent.next(event.target.text);
-      //       this.aboutDigital.nativeElement.scrollIntoView({
-      //         behavior: "smooth", block: "center", inline: "center", alignToTop: true
-      //       });
-
-      //     })
-
-
-      // }
-      // else if (this.currentEvent === "Mission" && event.target.text == "Pricing") {
-      //   console.log("sssssssssssss pricing");
-      //   this.router.navigate(['/'])
-      //     .then(() => {
-      //       this.subjectService.currentEvent.next(event.target.text);
-      //       var topOfTheElement = this.jobPostPlanning.nativeElement.offsetTop - this.header.nativeElement.offsetHeight;
-      //       window.scroll({
-      //         top: topOfTheElement,
-      //         behavior: 'smooth'
-      //       })
-
-      //     })
-
-
-      // }
-      // else if (this.currentEvent === "Mission" && event.target.text == "Contact") {
-      //   console.log("sssssssssssss pricing");
-      //   this.router.navigate(['/'])
-      //     .then(() => {
-      //       this.subjectService.currentEvent.next(event.target.text);
-      //       var topOfTheElement = this.contact.nativeElement.offsetTop - this.header.nativeElement.offsetHeight;
-      //       window.scroll({
-      //         top: topOfTheElement,
-      //         behavior: 'smooth'
-      //       })
-
-      //     })
-
-      //   // this.contact.nativeElement.scrollIntoView({
-      //   //   behavior: "smooth", block: "center", inline: "center", alignToTop: true
-      //   // })
-      // }
-      // else if (event.target.text == "Home") {
-      //   window.scrollTo({
-      //     top: 0,
-      //     left: 0,
-      //     behavior: 'smooth'
-      //   });
-      // }
     }
 
   }
@@ -189,10 +153,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onHomeClicked(event) {
-    console.log("sdsds", this.path);
-    
+
     this.currentEvent = event.target.text;
-    console.log("current", this.currentEvent)
     this.subjectService.currentEvent.next(event.target.text);
     this.router.navigate(['/']);
     window.scrollTo({
@@ -203,5 +165,32 @@ export class HeaderComponent implements OnInit {
 
   }
 
-
+  doSmth(reachedTarget): void {
+    console.log('Yeah, we reached our destination', reachedTarget);
+    const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if(number < 6500 && reachedTarget === "Pricing"){
+      window.scrollTo({
+        top: 6660,
+        left: 0,
+        behavior: 'smooth'
+      });
+  
+    }
+    else if(number < 500 && reachedTarget === "Features"){
+      window.scrollTo({
+        top: 600,
+        left: 0,
+        behavior: 'smooth'
+      });
+  
+    }
+    else if(number < 12900 && reachedTarget === "Contact"){
+      window.scrollTo({
+        top: 13000,
+        left: 0,
+        behavior: 'smooth'
+      });
+  
+    }
+  }
 }

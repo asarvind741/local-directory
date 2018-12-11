@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input } from '
 import { TimelineMax, Linear } from "gsap/TweenMax";
 
 import * as $ from 'jquery';
+import { SubjectService } from '../../services/subjects.service';
 declare let Granim: any;
 
 @Component({
@@ -12,10 +13,15 @@ declare let Granim: any;
 export class BannerComponentComponent implements OnInit {
   @ViewChild('banner') banner: ElementRef;
   @Input('aboutDigital') aboutDigital: ElementRef;
-
-  constructor() { }
+  aboutDigital1: any;
+  constructor(private subjectService: SubjectService) { }
 
   ngOnInit() {
+
+    this.subjectService.digitalSourcing
+    .subscribe(data => {
+      this.aboutDigital1 = data;
+    })
     // console.log("window height", window.outerHeight);
     // this.banner.nativeElement.style.height = window.outerHeight + 'px';
 
@@ -64,7 +70,8 @@ export class BannerComponentComponent implements OnInit {
   }
 
   scrollToBanner(){
-    this.aboutDigital.nativeElement.scrollIntoView(true);
+    console.log("thisssssssss", this.aboutDigital1)
+    this.aboutDigital1.nativeElement.scrollIntoView(true);
   }
 
   ngAfterViewInit() {

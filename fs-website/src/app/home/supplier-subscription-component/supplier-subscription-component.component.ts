@@ -35,11 +35,12 @@ export class SupplierSubscriptionComponentComponent implements OnInit {
   }
 
   classToApply(event) {
+    console.log('assssss', event.target.text)
     if (event.target.text === "supplier")
       this.applyClass = 1;
     else if (event.target.text === "stockist")
       this.applyClass = 2;
-    else if (event.target.text === "External resources")
+    else
       this.applyClass = 3;
   }
 

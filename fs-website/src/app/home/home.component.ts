@@ -1,12 +1,13 @@
-import { Component, ViewChild, ElementRef, ChangeDetectorRef  } from '@angular/core';
+import { Component, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit  } from '@angular/core';
 import { SubjectService } from '../services/subjects.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements  AfterViewInit {
   @ViewChild('aboutDigital',  { read: ElementRef }) aboutDigital: ElementRef;
   @ViewChild('jobPostPlan',  { read: ElementRef }) jobPostPlan: ElementRef;
   @ViewChild('contactUs',  { read: ElementRef }) contactUs: ElementRef;
@@ -16,12 +17,14 @@ export class HomeComponent {
   jobPostPlanning: ElementRef;
   constructor(
     private cdr: ChangeDetectorRef,
-    private subjectService: SubjectService
+    private subjectService: SubjectService,
+    private location: Location
   ){
     
   }
 
   ngAfterViewInit(): void {
+    localStorage.setItem('path', this.location.path())
     this.cdr.detectChanges();
     if(this.aboutDigital !== undefined){
     // this.aboutDigitalSourcing = this.aboutDigital;

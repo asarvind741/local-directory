@@ -62,3 +62,13 @@
     .address_block{position:static; top:inherit; transform:inherit; margin-bottom:30px} 
     .submit_btn{text-align:center}
 }
+
+a{
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: grey !important;   
+  }

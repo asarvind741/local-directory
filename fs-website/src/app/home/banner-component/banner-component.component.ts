@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { TimelineMax, Linear } from "gsap/TweenMax";
+import { Router } from '@angular/router';
 
 import * as $ from 'jquery';
 import { SubjectService } from '../../services/subjects.service';
@@ -14,7 +15,10 @@ export class BannerComponentComponent implements OnInit {
   @ViewChild('banner') banner: ElementRef;
   @Input('aboutDigital') aboutDigital: ElementRef;
   aboutDigital1: any;
-  constructor(private subjectService: SubjectService) { }
+  constructor(
+    private subjectService: SubjectService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
 
@@ -95,6 +99,11 @@ export class BannerComponentComponent implements OnInit {
         }
       }
     });
+  }
+
+  onGlobeClicked(event){
+    this.subjectService.currentEvent.next(event);
+    this.router.navigate(['/help-planet']);
   }
 
 }

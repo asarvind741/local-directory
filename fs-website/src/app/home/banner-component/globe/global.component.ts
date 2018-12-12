@@ -11,20 +11,16 @@ export class GlobeComponent implements OnInit, AfterViewInit {
     constructor() { }
 
     ngOnInit() {
-        
-    }
 
-
-    ngAfterViewInit(): void {        
         $(document).ready(function () {
             console.log('sdddddddddd')
 
             /* VARIABLES SETUP */
 
             /*  Time to wait before intro animation after Globe is visible (ms)  */
-            var globe_intro_delay = 500;
+            var globe_intro_delay = 1;
             /*  Globe intro animation duration (ms)  */
-            var globe_intro_duration = 800;
+            var globe_intro_duration = 1;
             /*  Globe intro animation easing  */
             var globe_intro_easing = "swing";
 
@@ -109,5 +105,11 @@ export class GlobeComponent implements OnInit, AfterViewInit {
             $(window).scroll(isScrolled);
 
         });
+        
+    }
+
+
+    ngAfterViewInit(): void {        
+      
     }
 }

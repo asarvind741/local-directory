@@ -61,23 +61,22 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
   onWindowScroll() {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (number > 100) {
-      if (number < 400) {
-        this.currentEvent = "Home"
-      }
-      else if (number > 400 && number < 700) {
-        this.currentEvent = "Features"
-      }
-      else if (number > 700 && number < 6420) {
-        this.currentEvent = "";
-      }
-      else if (number > 6423 && number < 7200) {
-        this.currentEvent = "Pricing"
-      }
-      else if (number > 12900 && number < 13700) {
-        this.currentEvent = "Contact"
-      }
-      else {
-        this.currentEvent = "";
+      if (this.path === '') {
+        if (number < 400) {
+          this.currentEvent = "Home"
+        }
+        else if (number > 400 && number < 700) {
+          this.currentEvent = "Features"
+        }
+        else if (number > 6423 && number < 7200) {
+          this.currentEvent = "Pricing"
+        }
+        else if (number > 12900 && number < 13700) {
+          this.currentEvent = "Contact"
+        }
+        else {
+          this.currentEvent = "";
+        }
       }
       this.addClass = true;
     } else {
@@ -168,29 +167,29 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
   doSmth(reachedTarget): void {
     console.log('Yeah, we reached our destination', reachedTarget);
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if(number < 6500 && reachedTarget === "Pricing"){
+    if (number < 6500 && reachedTarget === "Pricing") {
       window.scrollTo({
         top: 6660,
         left: 0,
         behavior: 'smooth'
       });
-  
+
     }
-    else if(number < 500 && reachedTarget === "Features"){
+    else if (number < 500 && reachedTarget === "Features") {
       window.scrollTo({
         top: 600,
         left: 0,
         behavior: 'smooth'
       });
-  
+
     }
-    else if(number < 12900 && reachedTarget === "Contact"){
+    else if (number < 12900 && reachedTarget === "Contact") {
       window.scrollTo({
         top: 13000,
         left: 0,
         behavior: 'smooth'
       });
-  
+
     }
   }
 }

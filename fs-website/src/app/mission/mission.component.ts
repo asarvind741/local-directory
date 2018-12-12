@@ -14,7 +14,7 @@ export class MissionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    localStorage.setItem('path', this.location.path())
+    localStorage.setItem('path', this.location.path());
   }
 
 }

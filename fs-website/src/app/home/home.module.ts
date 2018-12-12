@@ -19,6 +19,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { FormComponentComponent } from './form-component/form-component.component';
+import { GlobeComponent } from './banner-component/globe/global.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { FormComponentComponent } from './form-component/form-component.componen
         SupplierComponentComponent,
         SupplierSubscriptionComponentComponent,
         FormComponentComponent,
+        GlobeComponent,
         HomeComponent
     ],
     imports:[

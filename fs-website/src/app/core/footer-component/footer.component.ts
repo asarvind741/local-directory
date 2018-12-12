@@ -13,17 +13,24 @@ export class FooterComponent implements OnInit {
   constructor(
     private subjectService: SubjectService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
     AOS.init()
   }
 
-  onHelpPlanetClicked(event){
+  onHelpPlanetClicked(event) {
     let currentEvent = event.target.text;
 
     this.subjectService.currentEvent.next(currentEvent);
     this.router.navigate(['/help-planet']);
+  }
+
+  onPartnerIffClicked(event) {
+    let currentEvent = event.target.text;
+
+    this.subjectService.currentEvent.next(currentEvent);
+    this.router.navigate(['/partner-iff']);
   }
 
 }

@@ -102,6 +102,14 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'report',
+    loadChildren: './theme/report/report.module#ReportModule'
+  },
+  {
+    path: 'search',
+    loadChildren: './theme/search-products/search.module#SearchModule'
+  },
+  {
     path: '',
     component: AuthComponent,
     children: [

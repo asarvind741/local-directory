@@ -111,7 +111,7 @@
   }
   /* Style the icons by setting its color and margin-top value to 20px 
   to align it properly */
-  .wrapper ul li .fa {
+  .wrapper ul li .fab {
     color: grey;
     margin-top: 5px;
     transition: all 0.5s ease;
@@ -170,12 +170,12 @@
   @media screen and (max-width: 640px){
     .wrapper {
       width: 350px;
+      left: 0;
+      transform: none;
+      max-width: 100%;
     }
     .wrapper ul li{
       margin-top: 10px;
-    }
-    .wrapper ul li.youtube{
-      margin-left: 60px;
     }
   }
   

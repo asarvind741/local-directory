@@ -154,6 +154,9 @@ a.animate-border:hover::before { content: 'SIGN UP'; z-index: 99; color: #fff; p
     .x_axis{display:block; position:relative}
     .hand_icn{width:40px; opacity:0.7}
     .hnd_bounce{float:right}
+    .hnd_bounce i.fa.fa-arrow-left {
+        font-size: 0;
+    }
 
    
 

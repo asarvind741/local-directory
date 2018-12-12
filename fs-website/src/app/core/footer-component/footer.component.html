@@ -23,7 +23,7 @@
           <li> <a href="#"> Features</a> </li>
           <li> <a href="#"> Pricing</a> </li>
           <li> <a href="#"> Mission</a> </li>
-          <li> <a href="#"> Partners - IFF page</a> </li>
+          <li> <a (click)="onPartnerIffClicked($event)"> Partners</a> </li>
           <li> <a href="#"> Login</a> </li>
         </ul>
       </div>
@@ -39,14 +39,14 @@
         <h6> Social</h6>
         <div class="wrapper">
           <ul>
-            <li class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></li>
-            <li class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></li>
-            <li class="youtube"><i class="fa fa-youtube" aria-hidden="true"></i></li>
-            <li class="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+            <li class="facebook"><i class="fab fa-facebook-f"></i></li>
+            <li class="instagram"><i class="fab fa-instagram"></i></li>
+            <li class="youtube"><i class="fab fa-youtube"></i></li>
+            <li class="linkedin"><i class="fab fa-linkedin-in"></i></li>
           </ul>
         </div>
         <p class="leaf">
-          <a (click) = "onHelpPlanetClicked($event)">We help the planet <i class="fa fa-leaf"></i></a>
+          <a (click)="onHelpPlanetClicked($event)">We help the planet <i class="fa fa-leaf"></i></a>
         </p>
       </div>
     </div>

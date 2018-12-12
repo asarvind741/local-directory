@@ -1,3 +1,4 @@
+.baner_cTxt sub {font-size: 9px; position: relative; top: -12px; left: 1px;}
 .baner_cTxt h1, .baner_cTxt a, .mouse-icon{
   margin-top: 25px;
   font-size: 21px;
@@ -44,7 +45,7 @@
 /** banner_sec start css **/
 .banner_sec{width: 100%;display: block;position: relative; background-position: top center;background-size: cover; overflow:hidden}
 .banner_sec .container{position:relative}
-
+.baner_cTxt sub {font-size: 9px; position: relative; top: -12px; left: 1px;}
 
 
 .baner_cTxt{width: 100%;display: block;max-width: 265px;margin: 50px auto 0;text-align: center}

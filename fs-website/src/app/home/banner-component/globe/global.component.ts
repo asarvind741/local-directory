@@ -12,6 +12,8 @@ export class GlobeComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
 
+        
+
         $(document).ready(function () {
             console.log('sdddddddddd')
 
@@ -40,18 +42,19 @@ export class GlobeComponent implements OnInit, AfterViewInit {
 
 
             /*  Set the Globe  */
-            function set_globe() {
+            // function set_globe() {
+                console.log("is globe");
                 $.Velocity.hook($globe, "visibility", "hidden");
                 $.Velocity.hook($globe_fr, "translateX", globe_el_x[1] + "px");
                 $.Velocity.hook($globe_bk, "translateX", globe_el_x[0] + "px");
-            }
+           // }
 
 
             /*  Run Globe intro animation  */
-            function globe_intro() {
+           // function globe_intro() {
                 $globe.velocity({ scale: [1, 0], opacity: 1 }, { visibility: "visible", duration: globe_intro_duration, easing: globe_intro_easing });
                 continents_loop();
-            }
+            //}
 
 
             /*  Run Globe animation  */
@@ -65,26 +68,34 @@ export class GlobeComponent implements OnInit, AfterViewInit {
                 $globe_bk.velocity({ translateX: [globe_el_x[1], globe_el_x[0]] }, { duration: continents_loop_interval, easing: "linear", complete: continents_loop });
             }
 
+            for (var i = 0; i < 99; i++) {
+                $globe_fr.velocity({ translateX: [globe_el_x[0], globe_el_x[1]] }, { duration: continents_loop_interval, easing: "linear" });
+                $globe_bk.velocity({ translateX: [globe_el_x[1], globe_el_x[0]] }, { duration: continents_loop_interval, easing: "linear" });
+            };
+            $globe_fr.velocity({ translateX: [globe_el_x[0], globe_el_x[1]] }, { duration: continents_loop_interval, easing: "linear" });
+            $globe_bk.velocity({ translateX: [globe_el_x[1], globe_el_x[0]] }, { duration: continents_loop_interval, easing: "linear", complete: continents_loop });
+
 
             /* Toggle animation */
-            $('#toggle_animation').click(function () {
+            // $('#toggle_animation').click(function () {
 
-                if ($globe_fr.hasClass("velocity-animating")) {
-                    $globe.velocity("stop", true);
-                    $globe_fr.velocity("stop", true);
-                    $globe_bk.velocity("stop", true);
-                } else {
-                    set_globe();
-                    globe_intro();
-                }
+            //     if ($globe_fr.hasClass("velocity-animating")) {
+            //         $globe.velocity("stop", true);
+            //         $globe_fr.velocity("stop", true);
+            //         $globe_bk.velocity("stop", true);
+            //     } else {
+            //         set_globe();
+            //         globe_intro();
+            //     }
 
-            });
+            // });
 
 
             /* Activate animation on these events: onScroll, onLoad */
             var elem = $(".globe__placeholder");
 
             function isScrolledIntoView(elem) {
+                console.log("is scroll into");
                 var docViewTop = $(window).scrollTop();
                 var docViewBottom = docViewTop + $(window).height();
                 var elemTop = $(elem).offset().top;
@@ -93,16 +104,18 @@ export class GlobeComponent implements OnInit, AfterViewInit {
             };
 
             function isScrolled() {
+                console.log("is scroll");
                 if (isScrolledIntoView(elem) && globe_played == false) {
-                    setTimeout(globe_intro, globe_intro_delay);
+                //    setTimeout(globe_intro, globe_intro_delay);
                     globe_played = true;
                     $(window).unbind('scroll');
                 }
             }
 
-            $(window).load(set_globe);
-            $(window).load(isScrolled);
-            $(window).scroll(isScrolled);
+            // $(window).load(set_globe);
+            // $(window).load(isScrolled);
+           // $(window).scroll(isScrolled);
+            
 
         });
         

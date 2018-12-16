@@ -15,6 +15,7 @@
     max-width: 395px;
     width: 100%;
     border: 1px solid #d62886;
+    position: relative;
 }
 .tabTabl_sec .m_login_tabbing ul li {
     display:inline-block;
@@ -56,7 +57,7 @@
 }
 .tab_wrapper .year_tabs {
     display: block;
-    padding: 0 0 60px;
+    padding: 0 0 80px;
     width: 100%;
     margin-top:30px
 }
@@ -244,14 +245,49 @@
     text-align: left;
 }
 .table_plan_cntr table tbody tr:first-child td {
-    padding: 28px 15px 9px;
+    padding: 28px 15px 9px !important;
+}
+#supplier2 .table_plan_cntr table tbody tr:first-child td {
+    padding: 46px 15px 9px !important;
+}
+#supplier2 .table_plan_cntr.notHed_tbl tbody tr:first-child td:first-child {
+    background: #f6f6f6;
+}
+#supplier2.yearTbs .table_plan_cntr table th.schol_clr.s_1::after, #stockist2.yearTbs .table_plan_cntr table th.schol_clr.s_1::after, #reseller2.yearTbs .table_plan_cntr table th.schol_clr.s_1::after {
+    background: rgba(0, 0, 0, 0) url("../../../assets/images/tableBg-img3.png") no-repeat scroll 0 0;
+    bottom: 1px;
+}
+#stockist2 {
+    position: relative;
+    margin-top: -64px;
+}
+#reseller2 {
+    margin-top: -72px;
+}
+tr.small-text th span{font-size: 12px !important; line-height: 16px;}
+#reseller2.yearTbs .table_plan_cntr table thead th.schol_clr {
+    width: 3%;
+}
+#reseller1 {
+    margin-top: 0;
 }
 .yearTbs .table_plan_cntr table tr td {
     border-bottom: 1px solid #d4d4d4;
     border-right: 0 none;
 }
+
+#stockist2 .table_plan_cntr table tbody tr:first-child td {
+    padding: 37px 15px 9px !important;
+}
+#reseller2 .table_plan_cntr table tbody tr:first-child td {
+    padding: 39px 15px 9px !important;
+}
+#reseller2 .table_plan_cntr table th.schol_clr.s_1 {
+    background: #e5ca95;
+}
+
 .table_plan_cntr table tbody tr td:nth-child(2) {
-    background: #e7e6e6 none repeat scroll 0 0;
+    background: #e7e6e6;
     border-bottom: 1px solid #d4d4d4;
 }
 .table_plan_cntr table tbody tr td:nth-child(3) {
@@ -355,21 +391,64 @@ a.animate-border:hover::after {width: 100%;}
 a.animate-border:hover::before { content: 'SIGN UP'; z-index: 99; color: #fff; position: absolute; left: 0; width: 100%; height: 100%;}
 span.enterprise-span {margin-top: -9px; font-size: 13px !important; font-weight: 400 !important;}
 
-#supplier2 {}
+#supplier2 {
+    position: relative;
+    margin-top: -44px;
+}
+.external-popup-hover {
+    position: absolute;
+    left: 100%;
+    display: none;
+    width: 170px;
+    top: -53px;    
+}
+.external-popup-hover ul{
+    margin-left: 18px;
+    box-shadow:-1px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 15px;
+    background: #fff;
+}
+.external-popup-hover::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    left: 7px;
+    top: 71px;
+    box-shadow: -3px 3px 6px 0px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    transform: rotate(45deg);
+}
+.tabTabl_sec .m_login_tabbing .external-popup-hover ul li {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.tabTabl_sec .m_login_tabbing .external-popup-hover ul li:last-child {
+    margin-bottom: 0;
+}
 
 
 
 @media only screen and (max-width:767px){
- .supplier_sec{margin-bottom:80px}
- .table_plan_cntr table th::after{background-size:100%!important}
- .table_plan_cntr th.schol_clr.clr_nwit cite{display:none!important}
- .table_plan_cntr table th{vertical-align:top; padding-top:7px!important; font-size:12px; line-height:12px}
- .table_plan_cntr table th span{display:inline-block; font-size:12px!important}
- /*.tabTabl_sec .m_login_tabbing ul li > a::after{right:0}
- .tabTabl_sec .m_login_tabbing ul li > a{line-height:16px}*/
+    .supplier_sec{margin-bottom:80px}
+    .table_plan_cntr table th::after{background-size:100%!important}
+    .table_plan_cntr th.schol_clr.clr_nwit cite{display:none!important}
+    .table_plan_cntr table th{vertical-align:top; padding-top:7px!important; font-size:12px; line-height:12px}
+    .table_plan_cntr table th span{display:inline-block; font-size:12px!important}
+    /*.tabTabl_sec .m_login_tabbing ul li > a::after{right:0}
+    .tabTabl_sec .m_login_tabbing ul li > a{line-height:16px}*/
     .tabTabl_sec .m_login_tabbing ul li > a{font-size:16px; padding:20px 30px}
     .tabTabl_sec .m_login_tabbing ul li:last-child > a{padding:10px 30px}
-  
+    .external-popup-hover {display: none !important;}
+    .supplier_sec .tab_wrapper .yearTbs .table_plan_cntr {overflow: auto;}
+    #supplier2, #stockist2 { margin-top: 0;}
+    #stockist1 table {width: 430px;}
+    #stockist2 table {width: 430px;}  
+    #reseller1 table {width: 430px;}  
+    #reseller2 {margin-top: 0;}
 }
 
 @media only screen and (max-width:479px){

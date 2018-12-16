@@ -34,3 +34,11 @@ img{max-width: 100%;}
 .cntr_alTxt h2{font-size: 36px;color: #000;padding: 0 0 12px 0;position: relative;text-transform: capitalize;line-height: 35px;}
 .cntr_alTxt h2::after{position: absolute;bottom: 0;left: 0;right: 0;background: #000;width: 133px;height: 1px;content: "";margin: 0 auto;}
 .cntr_alTxt p{font-size: 18px;color: #000;padding: 27px 0 0 0;line-height: 19px;}
+.color-change .tooltip-inner {
+	background-color: #fff;
+	color: #000;
+	box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.color-change .arrow::before {
+	border-top-color: #fff;
+}

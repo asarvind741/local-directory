@@ -1,0 +1,10 @@
+.row.background-class {
+    background-color: blue;
+    color: white;
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+.signup-wrapper {
+    padding-top: 132px;
+}

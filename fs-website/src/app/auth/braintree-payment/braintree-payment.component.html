@@ -1,0 +1,21 @@
+<div class="container" style="min-height: 500px; margin-top: 150px;">
+    <h2>Donation amount: 25$</h2>
+    <div class="demo-frame">
+      <form id="cardForm" #braintree="ngForm" (ngSubmit)="onSubmit(checkout)">
+        <label class="hosted-fields--label" for="card-number">Card Number</label>
+        <div id="card-number" class="hosted-field"></div>
+  
+        <label class="hosted-fields--label" for="expiration-date">Expiration Date</label>
+        <div id="expiration-date" class="hosted-field"></div>
+  
+        <label class="hosted-fields--label" for="cvv">CVV</label>
+        <div id="cvv" class="hosted-field"></div>
+  
+        <div class="button-container">
+          <input type="submit" class="button button--small button--green" value="Purchase" id="submit">
+        </div>
+      </form>
+    </div>
+  </div>
+
+ 

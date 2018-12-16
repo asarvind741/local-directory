@@ -1,0 +1,104 @@
+<section class="login p-fixed d-flex text-center common-img-bg">
+  <!-- Container-fluid starts -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- Authentication card start -->
+        <div class="signup-card card-block auth-body mr-auto ml-auto custom-signup-card">
+          <form class="md-float-material form-background" [formGroup] = "signupForm" (ngSubmit) = "onSubmit()" novalidate>
+            <div class="text-center">
+            </div>
+            <div class="auth-box">
+              <div class="row m-b-20">
+                <div class="col-md-12">
+                  <h3 class="text-center txt-primary">A B2B Platform For you</h3>
+                </div>
+              </div>
+              <hr/>
+              <div class="input-group">
+                <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Username"
+                formControlName = "userName">
+                <div *ngIf="signupForm.get('userName').invalid && signupForm.get('userName').touched" class="text-danger">
+                    <span *ngIf = "signupForm.get('userName').errors.required">User name is required!</span>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <input 
+                type="email" 
+                class="form-control" 
+                placeholder="Email Address"
+                formControlName = "email">
+                <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" class="text-danger">
+                    <span *ngIf = "signupForm.get('email').errors.required">Email is required!</span>
+                    <span *ngIf = "signupForm.get('email').errors.email">Email must be a valid email address!</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <input 
+                type="password" 
+                class="form-control" 
+                placeholder="Choose Password"
+                formControlName = "password">
+                <div *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched" class="text-danger">
+                    <span *ngIf = "signupForm.get('password').errors.required">Password is required!</span>
+                    <span *ngIf = "signupForm.get('password').errors.pattern">Password not valid!
+                    </span>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <input 
+                type="password" 
+                class="form-control" 
+                placeholder="Confirm Password"
+                formControlName = "confirmPassword">
+                <div *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched" class="text-danger">
+                    <span *ngIf = "signupForm.get('confirmPassword').errors.required">Confirm password is required!</span>
+                    <span *ngIf = "signupForm.get('confirmPassword').hasError('invalid')">Confirm password does not match!
+                    </span>
+                </div>
+              </div>
+              <div class="row m-t-25 text-left">
+                <div class="col-md-12">
+                 <p class="terms-and-conditions">By clicking Join Now, you agree to LinkedIn's <strong>User Agreement</strong>,
+                  <strong>Privacy Policy</strong> and <strong>Cookie Policy</strong>.
+                </p>
+                </div>
+              </div>
+
+              <div class="row m-t-30">
+                  <div class="col-md-12">
+                   <p class="signin-here">Already have an account? 
+                     <strong><li><a [routerLink]="['/']" class="signin-link">Sign in</a></li></strong> here.</p>
+                  </div>
+                </div>
+              <div class="row m-t-30">
+                <div class="col-md-12">
+                  <button 
+                  type="button" 
+                  class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"
+                 (click) = "openPaymentModal()">Join now</button>
+                </div>
+              </div>
+              <hr/>
+            </div>
+          </form>
+          <!-- end of form -->
+        </div>
+        <!-- Authentication card end -->
+      </div>
+      <!-- end of col-sm-12 -->
+    </div>
+    <!-- end of row -->
+  </div>
+  <!-- end of container-fluid -->
+</section>
+
+
+<app-message *ngIf = "regitered"
+[message] = "message">
+</app-message>

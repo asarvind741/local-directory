@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
   ) { }
 
   addClass: Boolean = false;
-  currentEvent: String = 'Home';
+  currentEvent: String = '';
   @Input('aboutDigital') aboutDigital;
   @Input('contact') contact;
   @Input('jobPostPlanning') jobPostPlanning;
@@ -28,8 +28,12 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
   ngOnInit() {
     this.path = this.location.path();
     if (this.path === "/mission") {
-      this.subjectService.currentEvent.next('Mission')
+      this.subjectService.currentEvent.next('Mission');
     }
+    else if(this.path === "/help-planet"){
+      this.subjectService.currentEvent.next('Parnter-Iff');
+    }
+    
 
 
     this.subjectService.currentEvent
@@ -86,10 +90,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
   }
 
   scrollThis(event) {
-    console.log("current event=====>", this.currentEvent);
     if (this.currentEvent === "Mission") {
       this.router.navigate(['/']).then(() => {
-        console.log("current event=====>", this.currentEvent);
         if (event.target.text === "Features") {
           this.subjectService.currentEvent.next(event.target.text);
           // this.aboutDigital.nativeElement.scrollIntoView({

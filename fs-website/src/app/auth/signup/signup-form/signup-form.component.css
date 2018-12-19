@@ -1,53 +1,72 @@
 .terms-and-conditions {
-    color: black;
+    color: #000;
+    font-size: 13px;
+    text-align: center;
 }
-
 .label-signup {
     display: block;
     color: black;
     width: 100%;
     text-align: left;
 }
-
-.custom-signup-card {
-    width: 400px;
-}
-
 input.ng-invalid.ng-touched {
     border: 1px solid red !important;
     display: block;
     width: 100%;
     text-align: left;
 }
-
 .signin-here{
     display: inline-flex;
-    color: black;
+    color: #000;
     list-style: none;
+    margin-bottom: 10px;
 }
-
 a.signin-link {
     margin-left: 5px;
     color: green;
     margin-right: 5px;
 }
-
 form.form-background {
-    background-color: white;
-    
+    background-color: white;    
 }
-
 form {
-    margin-top: 40px;
+    margin-top: 0;
     border-radius: 4px;
     border-bottom: border-box;
     padding: 20px;
 }
-
 .text-center {
     text-align: center!important;
     color: black;
 }
+.auth-box h3 {
+    color: #000;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 25px;
+}
+.auth-box .input-group {
+    margin-bottom: 20px; 
+}
+.auth-box .input-group label{
+    margin-bottom: 0;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+@media (max-width: 767px){
+    form.form-background {
+        margin-top: 25px;
+    }
+    .signin-here {
+        display: block;
+    }
+    .signin-here strong li {
+        display: inline-block;
+    }
+}
+
 
 /* form input {
     margin-bottom: 10px;

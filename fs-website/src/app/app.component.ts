@@ -1,16 +1,15 @@
-import { Component, ElementRef, AfterViewInit, OnInit } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner'
+import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { SubjectService } from './services/subjects.service';
-import { Router, NavigationEnd, NavigationStart, NavigationCancel } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner'
+import { Router, NavigationEnd, NavigationCancel, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements AfterViewInit {
   title = 'b2b2';
-  loading: Boolean;
   aboutDigitalSourcing: ElementRef;
   contact: ElementRef;
   jobPostPlanning: ElementRef;
@@ -19,9 +18,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private subjectService: SubjectService,
     private router: Router,
     private spinner: NgxSpinnerService
-    ){
-      this.loading = true;
-    }
+    ){}
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -35,18 +32,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){
 
     this.router.events
-    .subscribe((event)=>{
+    .subscribe((event) => {
       if(event instanceof NavigationStart){
-        this.loading = true;
-        console.log("asss")
         this.spinner.show();
       }
-      else if(
-        event instanceof NavigationEnd ||
-        event instanceof NavigationCancel
-      ){
-        this.loading = false;
-        this.spinner.hide();
+      else if(event instanceof NavigationCancel || event instanceof NavigationEnd){
+        this.spinner.hide()
       }
     })
     this.subjectService.digitalSourcing
@@ -60,9 +51,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
 
     this.subjectService.jobPostPlan
-    .subscribe((data:ElementRef)=>{
+    .subscribe((data:ElementRef)=>{ 
       this.jobPostPlanning = data;
-    })
+    });
   }
   
 }

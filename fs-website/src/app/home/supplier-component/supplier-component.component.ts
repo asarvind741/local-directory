@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as AOS from 'aos';
 
 @Component({
@@ -7,6 +7,8 @@ import * as AOS from 'aos';
   styleUrls: ['./supplier-component.component.css']
 })
 export class SupplierComponentComponent implements OnInit {
+
+  @Input('supplierPlans') supplierPlans: any;
 
   constructor() { }
 

@@ -10,28 +10,33 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgForm } from '@angular/forms';
 
+declare var stripe: any;
+declare var elements: any;
+
 
 @Component({
-  selector: 'app-payment',
-  templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css']
+  selector: 'app-stripe-payment',
+  templateUrl: './stripe-payment.component.html',
+  styleUrls: ['./stripe-payment.component.css']
 })
-export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
+export class StripePaymentComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('cardInfo') cardInfo: ElementRef;
-  @Input('selectedPlan') any;
+  @Input('selectedPlan') selectedPlan: any;
 
   card: any;
   cardHandler = this.onChange.bind(this);
   error: string;
+
+
   constructor(
     private cd: ChangeDetectorRef,
     public activeModal: NgbActiveModal) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  ngAfterViewInit():void {
+  ngAfterViewInit() {
     const style = {
       base: {
         lineHeight: '24px',
@@ -53,7 +58,7 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
     this.card.destroy();
   }
 
-  onChange({ error }): void {
+  onChange({ error }) {
     if (error) {
       this.error = error.message;
     } else {
@@ -62,14 +67,26 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
     this.cd.detectChanges();
   }
 
-  closeModal(token: any) {
+  async onSubmit(form: NgForm) {
+    const { token, error } = await stripe.createToken(this.card);
+
+    if (error) {
+      console.log('Something is wrong:', error);
+    } else {
+      console.log('Success!', token);
+      this.closeModal(token)
+      // ...send the token to the your backend to process the charge
+    }
+  }
+
+  closeModal(token) {
     this.activeModal.close(token);
   }
 
-  cancelNewUserAddition(): void {
+  cancelNewUserAddition() {
   }
 
-  clearModal(): void {
+  clearModal() {
   }
 
 }

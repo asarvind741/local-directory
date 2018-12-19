@@ -11,8 +11,8 @@ export class PlanService {
     constructor(private httpClient: HttpClient) {
     }
 
-    getPlans(){
-        return this.httpClient.get(`${environment.API_URL}/plan/`);
+    getPlans(role){
+        return this.httpClient.get(`${environment.API_URL}/plan/by-role/${role}`);
     }
 
     getPlan(id){

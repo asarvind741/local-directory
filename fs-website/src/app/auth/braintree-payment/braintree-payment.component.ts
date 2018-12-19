@@ -1,11 +1,9 @@
-import { Component, OnInit, AfterViewChecked, AfterViewInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { client } from 'braintree-web';
 import { hostedFields } from 'braintree-web';
-import {PaymentService} from '../../services/payment.service';
-import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+
+import { PaymentService } from '../../services/payment.service';
 
 @Component({
   selector: 'app-braintree-payment',
@@ -14,23 +12,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BraintreePaymentComponent implements OnInit {
 
-  donationId: number = 25;;
-  private clientToken: string = "ABC";
+  donationId: Number = 25;;
+  private clientToken: String = 'ABC';
 
   constructor(
     private paymentService: PaymentService,
-    private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router) { }
 
   createPayment() {
-    var self = this;
+    const self = this;
     client.create({
-        authorization: this.clientToken
-      },
-      function (clientErr, clientInstance) {
+      authorization: this.clientToken
+    },
+      function (clientErr: any, clientInstance: any) {
         if (clientErr) {
-          console.error(clientErr);
           return;
         }
         self.createHostedFields(clientInstance);
@@ -40,34 +36,34 @@ export class BraintreePaymentComponent implements OnInit {
   createHostedFields(clientInstance) {
     var self = this;
     hostedFields.create({
-        client: clientInstance,
-        styles: {
-          'input': {
-            'font-size': '14px'
-          },
-          'input.invalid': {
-            'color': 'red'
-          },
-          'input.valid': {
-            'color': 'green'
-          }
+      client: clientInstance,
+      styles: {
+        'input': {
+          'font-size': '14px'
         },
-        fields: {
-          number: {
-            selector: '#card-number',
-            placeholder: '4111 1111 1111 1111'
-          },
-          cvv: {
-            selector: '#cvv',
-            placeholder: '123'
-          },
-          expirationDate: {
-            selector: '#expiration-date',
-            placeholder: '10/2019'
-          }
+        'input.invalid': {
+          'color': 'red'
+        },
+        'input.valid': {
+          'color': 'green'
         }
       },
-      function(hostedFieldsErr, hostedFieldsInstance) {
+      fields: {
+        number: {
+          selector: '#card-number',
+          placeholder: '4111 1111 1111 1111'
+        },
+        cvv: {
+          selector: '#cvv',
+          placeholder: '123'
+        },
+        expirationDate: {
+          selector: '#expiration-date',
+          placeholder: '10/2019'
+        }
+      }
+    },
+      function (hostedFieldsErr, hostedFieldsInstance) {
         if (hostedFieldsErr) {
           console.error(hostedFieldsErr);
           return;
@@ -77,20 +73,19 @@ export class BraintreePaymentComponent implements OnInit {
   }
 
   handleHostedFields(hostedFieldsInstance) {
-    var self = this;
+    const self = this;
     document.querySelector('#cardForm').addEventListener('submit',
-      function (event) {
+      function (event: any) {
         event.preventDefault();
         const checkoutURL = 'api/checkout';
-        hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+        hostedFieldsInstance.tokenize(function (tokenizeErr: any, payload) {
           if (tokenizeErr) {
             alert("Some payment input fields are invalid.");
-            console.error(tokenizeErr);
             return;
           }
           console.log('Got a nonce: ' + payload.nonce);
           console.log('URL: ' + checkoutURL);
-          self.paymentService.checkout(checkoutURL, payload.nonce, self.donationId.toString()).subscribe( {
+          self.paymentService.checkout(checkoutURL, payload.nonce, self.donationId.toString()).subscribe({
             next: res => {
               alert("Thank you very much for your donation");
               console.log(res);
@@ -102,11 +97,10 @@ export class BraintreePaymentComponent implements OnInit {
           });
         });
       });
-  }
+  };
 
-  ngOnInit() {
+  ngOnInit():void {
     this.createPayment();
-   
   }
 
 

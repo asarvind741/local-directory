@@ -6,4 +6,11 @@
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 
-<app-spinner></app-spinner>
+<!-- Screen loading between routes navigation -->
+<ngx-spinner
+  bdColor = "rgba(254, 254, 254, 1)"
+  size="large"
+  color="#000"
+  type= "line-spin-fade">
+ <p style="font-size: 20px; color: blue">Loading...</p>
+</ngx-spinner>

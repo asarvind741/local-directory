@@ -1,13 +1,15 @@
-import { Component, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit  } from '@angular/core';
+import { Component, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit,OnInit  } from '@angular/core';
 import { SubjectService } from '../services/subjects.service';
 import { Location } from '@angular/common';
+import { PlanService } from '../services/plan.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements  AfterViewInit {
+export class HomeComponent implements OnInit,  AfterViewInit {
   @ViewChild('aboutDigital',  { read: ElementRef }) aboutDigital: ElementRef;
   @ViewChild('jobPostPlan',  { read: ElementRef }) jobPostPlan: ElementRef;
   @ViewChild('contactUs',  { read: ElementRef }) contactUs: ElementRef;
@@ -15,12 +17,25 @@ export class HomeComponent implements  AfterViewInit {
   aboutDigitalSourcing: ElementRef;
   contact: ElementRef;
   jobPostPlanning: ElementRef;
+  buyerPlans:any;
   constructor(
     private cdr: ChangeDetectorRef,
     private subjectService: SubjectService,
-    private location: Location
+    private location: Location,
+    private planService: PlanService
   ){
     
+  }
+
+  ngOnInit(){
+    this.planService.getPlans('Buyer')
+    .subscribe((response: HttpResponse<any>) => {
+      console.log(response)
+      if(response.status === 200){
+        this.buyerPlans = response['data'];
+        console.log("buyer plans======>", this.buyerPlans);
+      }
+    })
   }
 
   ngAfterViewInit(): void {
@@ -35,5 +50,7 @@ export class HomeComponent implements  AfterViewInit {
     this.subjectService.jobPostPlan.next(this.jobPostPlan);
 
   }
+
+  
 }
 }

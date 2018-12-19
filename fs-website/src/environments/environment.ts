@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  STRIPE_KEY: 'pk_test_K9HatDLzNWcxnBcPioY0JjvF',
   API_URL: 'http://40.71.47.14:5000'
   // API_URL: 'http://localhost:5000'
 };

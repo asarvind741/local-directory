@@ -4,9 +4,8 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PlanService } from '../../../services/plan.service';
 import { HttpResponse } from '@angular/common/http';
-import { PaymentComponent } from '../../payment/payment.component';
+import { StripePaymentComponent } from '../../stripe-payment/stripe-payment.component';
 import { AuthService } from '../../../services/auth.service';
-import { BraintreePaymentComponent } from '../../braintree-payment/braintree-payment.component';
 
 
 
@@ -75,29 +74,22 @@ export class SignupFormComponent implements OnInit {
   }
 
   openPaymentModal(){
-      const modalRef = this.modalService.open(BraintreePaymentComponent);
+      const modalRef = this.modalService.open(StripePaymentComponent);
       modalRef.componentInstance.selectedPlan = this.selectedPlan;
       modalRef.result.then((result) => {
-        console.log("result===>", result);
         delete this.signupForm.value.confirmPassword;
        
         const user = this.signupForm.value;
-        console.log("user", user)
         const payment = { tokenId: result.id, amount: this.selectedPlan.price, subscriptionId: this.selectedPlan._id};
-        console.log("user", payment)
         this.authService.signupUser(user, payment)
         .subscribe((response: HttpResponse<any>) => {
           if(response.status === 200){
-            console.log("response", response)
           }
         })
 
       }).catch((error) => {
       });
     
-  }
-
-  onSubmit() {
   }
 
 }

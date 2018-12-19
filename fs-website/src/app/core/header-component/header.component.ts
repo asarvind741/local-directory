@@ -58,7 +58,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
 
   }
   ngDoCheck() {
-    this.path = localStorage.getItem('path');
+
+    this.path = this.location.path()
   }
 
   @HostListener("window:scroll", [])
@@ -167,7 +168,6 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
   }
 
   doSmth(reachedTarget): void {
-    console.log('Yeah, we reached our destination', reachedTarget);
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (number < 6500 && reachedTarget === "Pricing") {
       window.scrollTo({

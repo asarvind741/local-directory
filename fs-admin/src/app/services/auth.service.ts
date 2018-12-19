@@ -9,7 +9,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 
-
 export class AuthenticationService {
 
     // private tokenSubject = new Subject<any>();
@@ -29,6 +28,7 @@ export class AuthenticationService {
     }
 
     loginUser(user){
+        console.log("user", user)
         return this.httpClient.post(`${environment.API_URL}/user/send-otp`, user)
     }
 

@@ -40,17 +40,17 @@ export class AppComponent implements AfterViewInit {
         this.spinner.hide()
       }
     })
-    this.subjectService.digitalSourcing
+    this.subjectService.digitalSourcing$
     .subscribe((data:ElementRef)=>{
       this.aboutDigitalSourcing = data;
     });
 
-    this.subjectService.contact
+    this.subjectService.contact$
     .subscribe((data:ElementRef)=>{
       this.contact = data;
     });
 
-    this.subjectService.jobPostPlan
+    this.subjectService.jobPostPlan$
     .subscribe((data:ElementRef)=>{ 
       this.jobPostPlanning = data;
     });

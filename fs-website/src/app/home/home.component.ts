@@ -45,9 +45,9 @@ export class HomeComponent implements OnInit,  AfterViewInit {
     // this.aboutDigitalSourcing = this.aboutDigital;
     // this.contact = this.contactUs;
     // this.jobPostPlanning = this.jobPostPlan;
-    this.subjectService.digitalSourcing.next(this.aboutDigital);
-    this.subjectService.contact.next(this.contactUs);
-    this.subjectService.jobPostPlan.next(this.jobPostPlan);
+    this.subjectService.digitalSourcing$.next(this.aboutDigital);
+    this.subjectService.contact$.next(this.contactUs);
+    this.subjectService.jobPostPlan$.next(this.jobPostPlan);
 
   }
 

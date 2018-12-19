@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener, ViewChild, ElementRef, DoCheck, Renderer2, AfterViewInit } from '@angular/core';
 import * as AOS from 'aos';
 
-
 @Component({
   selector: 'app-about-component',
   templateUrl: './about-component.component.html',
@@ -14,21 +13,18 @@ export class AboutComponentComponent implements OnInit, AfterViewInit {
     AOS.init();
   }
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2) { }
 
-  }
-
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.aboutus.nativeElement.classList.contains('aos-animate')) {
-      console.log("yes");
     }
     AOS.init();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (this.aboutus.nativeElement.classList.contains('aos-animate')) {
       this.renderer.removeClass(this.aboutus.nativeElement, 'aos-animate')
     }
   }
-
 }
+

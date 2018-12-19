@@ -13,5 +13,5 @@ export class HelpYrselfComponentComponent implements OnInit {
   ngOnInit() {
     AOS.init()
   }
-
 }
+

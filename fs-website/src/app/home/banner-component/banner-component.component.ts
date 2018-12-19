@@ -22,7 +22,7 @@ export class BannerComponentComponent implements OnInit {
 
   ngOnInit() {
 
-    this.subjectService.digitalSourcing
+    this.subjectService.digitalSourcing$
     .subscribe(data => {
       this.aboutDigital1 = data;
     })
@@ -102,7 +102,7 @@ export class BannerComponentComponent implements OnInit {
   }
 
   onGlobeClicked(event){
-    this.subjectService.currentEvent.next(event);
+    this.subjectService.currentEvent$.next(event);
     this.router.navigate(['/help-planet']);
   }
 

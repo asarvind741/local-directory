@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-
 import * as AOS from 'aos';
 declare var google: any;
 
@@ -11,10 +10,10 @@ declare var google: any;
 export class OurLocationComponentComponent implements OnInit {
   chart: any;
   data: any;
-  options: any = { 
+  options: any = {
     title: '',
-    colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
-   };
+    colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
+  };
   selected: String = 'Buyer';
   active1 = true;
   active2 = false;
@@ -22,8 +21,8 @@ export class OurLocationComponentComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    google.charts.load('current', { 
+  ngOnInit(): void {
+    google.charts.load('current', {
       'packages': ['corechart'],
       'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
     });
@@ -49,7 +48,7 @@ export class OurLocationComponentComponent implements OnInit {
 
       var options = {
         title: 'Buyer',
-        colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
+        colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
       };
 
       var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
@@ -86,12 +85,12 @@ export class OurLocationComponentComponent implements OnInit {
   drawChart2() {
     var data = google.visualization.arrayToDataTable([
       ['USA'], ['Mexico'], ['Brazil'], ['Argentina'], ['UK'], ['France'], ['Italy'], ['Spain'], ['germany'], ['hungary'], ['romania'], ['Bulgaria'], ['greece'], ['turkey'], ['egypt'], ['tunisia'], ['morocco'],
-['pakistan'], ['India'], ['Nepal'], ['Bangladesh'], ['Myanmar'], ['thailand'], ['vietnam'], ['laos'], ['china'], ['philipines'], ['south korean'], ['Japan'], ['cambodia'], ['malaysia'], ['Indonesia'], ['South Africa'],['Mauritius'], ['Ethiopy'], ['Somalia'], ['Sudan']
+      ['pakistan'], ['India'], ['Nepal'], ['Bangladesh'], ['Myanmar'], ['thailand'], ['vietnam'], ['laos'], ['china'], ['philipines'], ['south korean'], ['Japan'], ['cambodia'], ['malaysia'], ['Indonesia'], ['South Africa'], ['Mauritius'], ['Ethiopy'], ['Somalia'], ['Sudan']
     ]);
 
     var options = {
       title: 'Supplier',
-      colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
+      colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
@@ -101,27 +100,28 @@ export class OurLocationComponentComponent implements OnInit {
   drawChart1() {
     var data = google.visualization.arrayToDataTable([
       ['City', 'Country'],
-        ['Montreal', 'Canada'],
-        ['Los Angeles', 'USA'],
-        ['New York city', 'USA'],
-        ['London', 'UK'],
-        ['Paris', 'France'],
-        ['Milano', 'Italy'],
-        ['Dusseldorf', 'Germany'],
-        ['Amsterdam', 'Netherlands'],
-        ['Istanbul', 'Turkey'],
-        ['Moscow', 'Russia'],
-        ['Dubai', 'UAE'],
-        ['Hong Kong', 'China'],
-        ['Shanghai', 'China']
+      ['Montreal', 'Canada'],
+      ['Los Angeles', 'USA'],
+      ['New York city', 'USA'],
+      ['London', 'UK'],
+      ['Paris', 'France'],
+      ['Milano', 'Italy'],
+      ['Dusseldorf', 'Germany'],
+      ['Amsterdam', 'Netherlands'],
+      ['Istanbul', 'Turkey'],
+      ['Moscow', 'Russia'],
+      ['Dubai', 'UAE'],
+      ['Hong Kong', 'China'],
+      ['Shanghai', 'China']
     ]);
 
     var options = {
       title: 'Buyer',
-      colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
+      colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
     chart.draw(data, options);
   }
 }
+

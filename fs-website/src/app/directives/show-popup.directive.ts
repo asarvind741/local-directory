@@ -10,13 +10,11 @@ export class HoverDirective {
         private el: ElementRef
     ) { }
 
-    @HostListener('mouseenter') onHover() {
-        console.log("test")
+    @HostListener('mouseenter') onHover(): void {
         this.renderer.setStyle(this.el.nativeElement, 'display', 'block');
     }
 
-    @HostListener('mouseleave') onMouseLeave() {
-        console.log("test 1")
+    @HostListener('mouseleave') onMouseLeave(): void {
         this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
     }
 }

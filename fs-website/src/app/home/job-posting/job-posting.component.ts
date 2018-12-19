@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
-
 @Component({
   selector: 'app-job-posting',
   templateUrl: './job-posting.component.html',
@@ -9,9 +8,8 @@ import * as AOS from 'aos';
 export class JobPostingComponent implements OnInit {
 
   constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     AOS.init()
   }
-
 }
+

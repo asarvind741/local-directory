@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SubjectService } from '../../services/subjects.service';
 import * as AOS from 'aos';
-import * as $ from 'jquery';
+import { SubjectService } from '../../services/subjects.service';
 
 @Component({
   selector: 'app-job-post-plan',
@@ -14,12 +13,9 @@ export class JobPostPlanComponent implements OnInit {
   postSubject = new Subject<any>();
   constructor(private subjectService: SubjectService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     AOS.init();
 
   }
-
-  ngAfterViewInit(): void {
-  }
-
 }
+

@@ -7,11 +7,9 @@ import * as AOS from 'aos';
   styleUrls: ['./buyer-feature.component.css']
 })
 export class BuyerFeatureComponent implements OnInit {
-
   constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     AOS.init()
   }
-
 }
+

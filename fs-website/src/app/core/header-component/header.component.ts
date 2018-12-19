@@ -1,15 +1,16 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef, Output, EventEmitter, Input, AfterViewInit, OnChanges, DoCheck } from '@angular/core';
-import { SubjectService } from '../../services/subjects.service';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, Output, EventEmitter, Input, OnChanges, DoCheck } from '@angular/core';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+
+import { SubjectService } from '../../services/subjects.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
+export class HeaderComponent implements OnInit, DoCheck {
 
   path: any;
   constructor(
@@ -25,45 +26,32 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
   @Input('jobPostPlanning') jobPostPlanning;
   @ViewChild('header') header: ElementRef;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.path = this.location.path();
     if (this.path === "/mission") {
-      this.subjectService.currentEvent.next('Mission');
+      this.subjectService.currentEvent$.next('Mission');
     }
-    else if(this.path === "/help-planet"){
-      this.subjectService.currentEvent.next('Parnter-Iff');
+    else if (this.path === "/help-planet") {
+      this.subjectService.currentEvent$.next('Parnter-Iff');
     }
-    
-
-
-    this.subjectService.currentEvent
+    this.subjectService.currentEvent$
       .subscribe(data => {
         this.currentEvent = data;
       });
-
     $(document).ready(function () {
       if ($(window).width() < 768) {
         $('.Menu_br li:not(.language) > a').on('click', function () {
           $('.navbar-toggler').click();
         })
       }
-
-
     })
   }
-
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-
-  }
   ngDoCheck() {
-
     this.path = this.location.path()
   }
 
   @HostListener("window:scroll", [])
-  onWindowScroll() {
+  onWindowScroll(): void {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (number > 100) {
       if (this.path === '') {
@@ -94,7 +82,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
     if (this.currentEvent === "Mission") {
       this.router.navigate(['/']).then(() => {
         if (event.target.text === "Features") {
-          this.subjectService.currentEvent.next(event.target.text);
+          this.subjectService.currentEvent$.next(event.target.text);
           // this.aboutDigital.nativeElement.scrollIntoView({
           //   behavior: "smooth", block: "center", inline: "center", alignToTop: true
           // })
@@ -107,27 +95,27 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
             top: topOfTheElement,
             behavior: 'smooth'
           })
-          this.subjectService.currentEvent.next(event.target.text);
+          this.subjectService.currentEvent$.next(event.target.text);
 
         }
         else if (event.target.text == "Contact") {
           this.contact.nativeElement.scrollIntoView({
             behavior: "smooth", block: "center", inline: "center", alignToTop: true
           })
-          this.subjectService.currentEvent.next(event.target.text);
+          this.subjectService.currentEvent$.next(event.target.text);
         }
       })
     }
     else {
       if (event.target.text === "Features") {
-        this.subjectService.currentEvent.next(event.target.text);
+        this.subjectService.currentEvent$.next(event.target.text);
         // this.aboutDigital.nativeElement.scrollIntoView({
         //   behavior: "smooth", block: "center", inline: "center", alignToTop: true
         // })
 
       }
       else if (event.target.text === "Pricing") {
-        this.subjectService.currentEvent.next(event.target.text);
+        this.subjectService.currentEvent$.next(event.target.text);
         var topOfTheElement = this.jobPostPlanning.nativeElement.offsetTop - this.header.nativeElement.offsetHeight;
         window.scroll({
           top: topOfTheElement,
@@ -137,7 +125,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
 
       }
       else if (event.target.text == "Contact") {
-        this.subjectService.currentEvent.next(event.target.text);
+        this.subjectService.currentEvent$.next(event.target.text);
         var topOfTheElement = this.contact.nativeElement.offsetTop - this.header.nativeElement.offsetHeight;
         window.scroll({
           top: topOfTheElement,
@@ -150,14 +138,14 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
 
   onMissionClick(event) {
     this.currentEvent = event.target.text;
-    this.subjectService.currentEvent.next(this.currentEvent);
+    this.subjectService.currentEvent$.next(this.currentEvent);
     this.router.navigate(['/mission']);
   }
 
   onHomeClicked(event) {
 
     this.currentEvent = event.target.text;
-    this.subjectService.currentEvent.next(event.target.text);
+    this.subjectService.currentEvent$.next(event.target.text);
     this.router.navigate(['/']);
     window.scrollTo({
       top: 0,
@@ -195,3 +183,4 @@ export class HeaderComponent implements OnInit, AfterViewInit, DoCheck {
     }
   }
 }
+

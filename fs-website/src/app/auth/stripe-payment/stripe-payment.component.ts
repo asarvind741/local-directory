@@ -20,23 +20,17 @@ declare var elements: any;
   styleUrls: ['./stripe-payment.component.css']
 })
 export class StripePaymentComponent implements OnInit, AfterViewInit, OnDestroy {
-
   @ViewChild('cardInfo') cardInfo: ElementRef;
   @Input('selectedPlan') selectedPlan: any;
-
   card: any;
   cardHandler = this.onChange.bind(this);
   error: string;
-
-
   constructor(
     private cd: ChangeDetectorRef,
     public activeModal: NgbActiveModal) { }
-
-  ngOnInit() {
+  ngOnInit(): void {
   }
-
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     const style = {
       base: {
         lineHeight: '24px',
@@ -53,7 +47,7 @@ export class StripePaymentComponent implements OnInit, AfterViewInit, OnDestroy 
     this.card.addEventListener('change', this.cardHandler);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.card.removeEventListener('change', this.cardHandler);
     this.card.destroy();
   }
@@ -71,9 +65,7 @@ export class StripePaymentComponent implements OnInit, AfterViewInit, OnDestroy 
     const { token, error } = await stripe.createToken(this.card);
 
     if (error) {
-      console.log('Something is wrong:', error);
     } else {
-      console.log('Success!', token);
       this.closeModal(token)
       // ...send the token to the your backend to process the charge
     }
@@ -88,5 +80,5 @@ export class StripePaymentComponent implements OnInit, AfterViewInit, OnDestroy 
 
   clearModal() {
   }
-
 }
+

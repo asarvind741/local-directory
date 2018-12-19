@@ -1,9 +1,5 @@
 import { Component, OnInit, HostListener, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import * as AOS from 'aos';
-
-
-
-
 @Component({
   selector: 'app-supplier-subscription-component',
   templateUrl: './supplier-subscription-component.component.html',
@@ -22,21 +18,13 @@ export class SupplierSubscriptionComponentComponent implements OnInit {
 
   @HostListener('click', ['$event'])
   onclick(event: MouseEvent) {
-
-    // console.log(event)
-    // this.renderer.removeClass(
-    //   this.supplier1.nativeElement, 'aos-animate'
-    // )
-
   }
   constructor(private renderer: Renderer2) { }
-  ngOnInit() {
+  ngOnInit(): void {
     AOS.init();
 
   }
-
   classToApply(event) {
-    console.log('assssss', event.target.text)
     if (event.target.text === "supplier")
       this.applyClass = 1;
     else if (event.target.text === "stockist")
@@ -44,13 +32,11 @@ export class SupplierSubscriptionComponentComponent implements OnInit {
     else
       this.applyClass = 3;
   }
-
-  onMouseOver() {
-    this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'block')
+  onMouseOver(): void {
+    this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'block');
   }
-
-  onMouseLeave() {
-    this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'none')
+  onMouseLeave(): void {
+    this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'none');
   }
-
 }
+

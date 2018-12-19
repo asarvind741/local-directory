@@ -9,3 +9,4 @@ import { BuyerProfileComponent } from './buyer-profile/buyer-profile.component';
   declarations: [BuyerProfileComponent]
 })
 export class BuyerModule { }
+

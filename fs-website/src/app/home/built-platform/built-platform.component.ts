@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
+
 @Component({
   selector: 'app-built-platform',
   templateUrl: './built-platform.component.html',
@@ -10,10 +11,8 @@ export class BuiltPlatformComponent implements OnInit {
   videoSrc: any = "../../../assets/images/old-poor-guy.mp4";
   constructor() { }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
     AOS.init();
-
   }
-
 }
+

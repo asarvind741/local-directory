@@ -7,11 +7,10 @@ import * as AOS from 'aos';
   styleUrls: ['./faq-component.component.css']
 })
 export class FaqComponentComponent implements OnInit {
-
   constructor() { }
-  active1=true
-  ngOnInit() {
+  active1 = true
+  ngOnInit(): void {
     AOS.init()
   }
-
 }
+

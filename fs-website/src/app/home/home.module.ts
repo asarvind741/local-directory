@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
+
 import { AboutComponentComponent } from './about-component/about-component.component';
 import { BannerComponentComponent } from './banner-component/banner-component.component';
 import { BuiltPlatformComponent } from './built-platform/built-platform.component';
@@ -16,43 +18,40 @@ import { StockFeatureComponent } from './stock-feature/stock-feature.component';
 import { SupplierComponentComponent } from './supplier-component/supplier-component.component';
 import { SupplierSubscriptionComponentComponent } from './supplier-subscription-component/supplier-subscription-component.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { FormComponentComponent } from './form-component/form-component.component';
 import { GlobeComponent } from './banner-component/globe/global.component';
 
 @NgModule({
-    declarations: [
-        AboutComponentComponent,
-        BannerComponentComponent,
-        BuiltPlatformComponent,
-        BuyerComponentComponent,
-        BuyerFeatureComponent,
-        FaqComponentComponent,
-        HelpYrselfComponentComponent,
-        JobPostingComponent,
-        JobPostPlanComponent,
-        OurLocationComponentComponent,
-        RfqFeaturesComponent,
-        SegmentsComponentComponent,
-        StockFeatureComponent,
-        SupplierComponentComponent,
-        SupplierComponentComponent,
-        SupplierSubscriptionComponentComponent,
-        FormComponentComponent,
-        GlobeComponent,
-        HomeComponent
-    ],
-    imports:[
-        CommonModule,
-        NgbModule,
-        HomeRoutingModule
-    ],
-    exports: [
-
-    ],
-    providers: []
+  declarations: [
+    AboutComponentComponent,
+    BannerComponentComponent,
+    BuiltPlatformComponent,
+    BuyerComponentComponent,
+    BuyerFeatureComponent,
+    FaqComponentComponent,
+    HelpYrselfComponentComponent,
+    JobPostingComponent,
+    JobPostPlanComponent,
+    OurLocationComponentComponent,
+    RfqFeaturesComponent,
+    SegmentsComponentComponent,
+    StockFeatureComponent,
+    SupplierComponentComponent,
+    SupplierComponentComponent,
+    SupplierSubscriptionComponentComponent,
+    FormComponentComponent,
+    GlobeComponent,
+    HomeComponent
+  ],
+  imports: [
+    CommonModule,
+    NgbModule,
+    HomeRoutingModule
+  ],
+  exports: [
+  ],
+  providers: []
 })
 export class HomeModule {
-
 }

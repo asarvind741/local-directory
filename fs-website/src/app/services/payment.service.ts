@@ -1,23 +1,18 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 @Injectable({
-    providedIn:'root'
+  providedIn: 'root'
 })
 export class PaymentService {
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
   getClientToken(clientTokenURL: string): Observable<string> {
-    return this.http
-      .get(clientTokenURL, {responseType: 'text'})
+    return this.http.get(clientTokenURL, { responseType: 'text' });
   }
   checkout(checkoutURL: string, nonce: string, donationId: string): Observable<any> {
     let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    let params = {'payment_method_nonce': nonce, 'donation_id': donationId};
-    return this.http
-      .post(checkoutURL,
-        {headers: headers, params: params}
-      )
+    headers = headers.set( 'Content-Type', 'application/json; charset=utf-8' );
+    const params = { 'payment_method_nonce': nonce, 'donation_id': donationId };
+    return this.http.post(checkoutURL, { headers: headers, params: params });
   }
 }
-

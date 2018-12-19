@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import * as AOS from 'aos';
-declare var google: any;
+declare let google: any;
 
 @Component({
   selector: 'app-our-location-component',
@@ -12,7 +12,7 @@ export class OurLocationComponentComponent implements OnInit {
   data: any;
   options: any = {
     title: '',
-    colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
+    colorAxis: { colors: ['#00853f', 'black', '#e31b23'] }
   };
   selected: String = 'Buyer';
   active1 = true;
@@ -28,8 +28,8 @@ export class OurLocationComponentComponent implements OnInit {
     });
     google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
+    function drawChart(): void {
+      const data = google.visualization.arrayToDataTable([
         ['City', 'Country'],
         ['Montreal', 'Canada'],
         ['Los Angeles', 'USA'],
@@ -46,59 +46,83 @@ export class OurLocationComponentComponent implements OnInit {
         ['Shanghai', 'China']
       ]);
 
-      var options = {
+      const options = {
         title: 'Buyer',
-        colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
+        colorAxis: { colors: ['#00853f', 'black', '#e31b23'] }
       };
 
-      var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
+      const chart = new google.visualization.GeoChart(document.getElementById('piechart'));
       chart.draw(data, options);
     }
-    AOS.init()
+    AOS.init();
   }
 
-
-
-  showChart(event) {
-
-    if (event.target.text == "Supplier") {
+  showChart(event: any): void {
+    if (event.target.text === 'Supplier') {
       this.active2 = true;
       this.active1 = false;
       google.charts.load('current', { 'packages': ['corechart'] });
       google.charts.setOnLoadCallback(this.drawChart2());
-
-
-
-    }
-
-    else if (event.target.text == "Buyer") {
+    } else if (event.target.text === 'Buyer') {
       this.active2 = false;
       this.active1 = true;
       google.charts.load('current', { 'packages': ['corechart'] });
       google.charts.setOnLoadCallback(this.drawChart1());
-      var self = this;
-
-
     }
   }
 
-  drawChart2() {
-    var data = google.visualization.arrayToDataTable([
-      ['USA'], ['Mexico'], ['Brazil'], ['Argentina'], ['UK'], ['France'], ['Italy'], ['Spain'], ['germany'], ['hungary'], ['romania'], ['Bulgaria'], ['greece'], ['turkey'], ['egypt'], ['tunisia'], ['morocco'],
-      ['pakistan'], ['India'], ['Nepal'], ['Bangladesh'], ['Myanmar'], ['thailand'], ['vietnam'], ['laos'], ['china'], ['philipines'], ['south korean'], ['Japan'], ['cambodia'], ['malaysia'], ['Indonesia'], ['South Africa'], ['Mauritius'], ['Ethiopy'], ['Somalia'], ['Sudan']
+  drawChart2(): void {
+    const data = google.visualization.arrayToDataTable([
+      ['USA'], 
+      ['Mexico'], 
+      ['Brazil'], 
+      ['Argentina'], 
+      ['UK'], 
+      ['France'], 
+      ['Italy'], 
+      ['Spain'], 
+      ['germany'], 
+      ['hungary'], 
+      ['romania'], 
+      ['Bulgaria'], 
+      ['greece'], 
+      ['turkey'], 
+      ['egypt'], 
+      ['tunisia'], 
+      ['morocco'],
+      ['pakistan'], 
+      ['India'], 
+      ['Nepal'], 
+      ['Bangladesh'], 
+      ['Myanmar'], 
+      ['thailand'], 
+      ['vietnam'], 
+      ['laos'], 
+      ['china'], 
+      ['philipines'], 
+      ['south korean'], 
+      ['Japan'], 
+      ['cambodia'], 
+      ['malaysia'], 
+      ['Indonesia'], 
+      ['South Africa'], 
+      ['Mauritius'], 
+      ['Ethiopy'],
+      ['Somalia'], 
+      ['Sudan']
     ]);
 
-    var options = {
+    const options = {
       title: 'Supplier',
-      colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
+      colorAxis: { colors: ['#00853f', 'black', '#e31b23'] }
     };
 
-    var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
+    const chart = new google.visualization.GeoChart(document.getElementById('piechart'));
     chart.draw(data, options);
   }
 
-  drawChart1() {
-    var data = google.visualization.arrayToDataTable([
+  drawChart1(): void {
+    const data = google.visualization.arrayToDataTable([
       ['City', 'Country'],
       ['Montreal', 'Canada'],
       ['Los Angeles', 'USA'],
@@ -115,13 +139,12 @@ export class OurLocationComponentComponent implements OnInit {
       ['Shanghai', 'China']
     ]);
 
-    var options = {
+    const options = {
       title: 'Buyer',
-      colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
+      colorAxis: { colors: ['#00853f', 'black', '#e31b23'] }
     };
 
-    var chart = new google.visualization.GeoChart(document.getElementById('piechart'));
+    const chart = new google.visualization.GeoChart(document.getElementById('piechart'));
     chart.draw(data, options);
   }
 }
-

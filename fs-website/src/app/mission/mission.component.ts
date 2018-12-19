@@ -9,8 +9,7 @@ export class MissionComponent implements AfterViewInit {
 
   constructor(private location: Location) { }
 
-  ngAfterViewInit(){
+  ngAfterViewInit(): void {
     localStorage.setItem('path', this.location.path());
   }
-
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import * as AOS from 'aos';
+
 import { SubjectService } from '../../services/subjects.service';
 
 @Component({
@@ -10,12 +11,10 @@ import { SubjectService } from '../../services/subjects.service';
 })
 export class JobPostPlanComponent implements OnInit {
   @ViewChild('postPlan') postPlan;
-  postSubject = new Subject<any>();
+  postSubject$ = new Subject<any>();
   constructor(private subjectService: SubjectService) { }
 
   ngOnInit(): void {
     AOS.init();
-
   }
 }
-

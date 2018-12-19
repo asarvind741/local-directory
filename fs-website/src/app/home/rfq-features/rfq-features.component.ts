@@ -8,7 +8,6 @@ import * as AOS from 'aos';
 export class RfqFeaturesComponent implements OnInit {
   constructor() { }
   ngOnInit(): void {
-    AOS.init()
+    AOS.init();
   }
 }
-

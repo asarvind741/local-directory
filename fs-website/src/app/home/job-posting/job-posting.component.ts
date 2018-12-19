@@ -9,7 +9,6 @@ export class JobPostingComponent implements OnInit {
 
   constructor() { }
   ngOnInit(): void {
-    AOS.init()
+    AOS.init();
   }
 }
-

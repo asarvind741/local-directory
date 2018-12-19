@@ -7,8 +7,7 @@ import * as AOS from 'aos';
 })
 export class StockFeatureComponent implements OnInit {
   constructor() { }
-  ngOnInit() {
-    AOS.init()
+  ngOnInit(): void {
+    AOS.init();
   }
 }
-

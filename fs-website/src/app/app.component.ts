@@ -1,14 +1,15 @@
-import { Component, ElementRef, AfterViewInit } from '@angular/core';
-import { SubjectService } from './services/subjects.service';
-import { NgxSpinnerService } from 'ngx-spinner'
+import { Component, ElementRef, AfterViewInit, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, NavigationEnd, NavigationCancel, NavigationStart } from '@angular/router';
+
+import { SubjectService } from './services/subjects.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'b2b2';
   aboutDigitalSourcing: ElementRef;
   contact: ElementRef;
@@ -18,9 +19,9 @@ export class AppComponent implements AfterViewInit {
     private subjectService: SubjectService,
     private router: Router,
     private spinner: NgxSpinnerService
-    ){}
+    ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
@@ -29,31 +30,27 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  ngAfterViewInit(){
-
+  ngAfterViewInit(): void {
     this.router.events
     .subscribe((event) => {
-      if(event instanceof NavigationStart){
+      if( event instanceof NavigationStart ) {
         this.spinner.show();
-      }
-      else if(event instanceof NavigationCancel || event instanceof NavigationEnd){
+      } else if( event instanceof NavigationCancel || event instanceof NavigationEnd ) {
         this.spinner.hide()
       }
     })
     this.subjectService.digitalSourcing$
-    .subscribe((data:ElementRef)=>{
+    .subscribe((data: ElementRef) => {
       this.aboutDigitalSourcing = data;
     });
-
     this.subjectService.contact$
-    .subscribe((data:ElementRef)=>{
+    .subscribe((data: ElementRef) => {
       this.contact = data;
     });
-
     this.subjectService.jobPostPlan$
-    .subscribe((data:ElementRef)=>{ 
+    .subscribe((data: ElementRef) => { 
       this.jobPostPlanning = data;
     });
   }
-  
 }
+

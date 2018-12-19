@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class SubjectService {
-    digitalSourcing$ = new Subject();
-    contact$ = new Subject();
-    jobPostPlan$ = new Subject();
-    prcingPlan$ = new Subject();
-    currentEvent$ = new BehaviorSubject<any>('Home');
-    constructor() { }
+  public digitalSourcing$ = new Subject();
+  public contact$ = new Subject();
+  public jobPostPlan$ = new Subject();
+  public prcingPlan$ = new Subject();
+  public currentEvent$ = new BehaviorSubject<any>('Home');
+  constructor() { }
 }
-

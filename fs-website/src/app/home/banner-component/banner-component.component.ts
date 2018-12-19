@@ -30,7 +30,7 @@ export class BannerComponentComponent implements OnInit {
     // this.banner.nativeElement.style.height = window.outerHeight + 'px';
 
     $(document).ready(function () {
-      var winHei = $(window).height();
+      let winHei = $(window).height();
       $('.banner_sec, .banner_sec .container, #canvas-basic').height(winHei);
 
     })
@@ -38,29 +38,29 @@ export class BannerComponentComponent implements OnInit {
     $(window).resize(function () {
       //if($(window).width() > 767){
       $('.banner_sec, .banner_sec .container, #canvas-basic').removeAttr('style');
-      var winHei = $(window).height();
+      let winHei = $(window).height();
       $('.banner_sec, .banner_sec .container, #canvas-basic').height(winHei);
       // }
     })
 
     function spinGlobe() {
-      var tmax_tl = new TimelineMax({
+      let tmax_tl = new TimelineMax({
             delay: 0.1675,
             repeat: -1 
           });
     
-      var globe_continents = [
+      let globe_continents = [
             $('#globe #middle g path'),
             $('#globe #left g path')
           ];
     
-      var globe_speed = 10;
+      let globe_speed = 10;
     
-      var map_from = {
+      let map_from = {
         x: 0
       };
     
-      var map_to = {
+      let map_to = {
         x: 150,
         ease: Linear.easeOut
       };
@@ -79,7 +79,7 @@ export class BannerComponentComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    var granimInstance = new Granim({
+    let granimInstance = new Granim({
       element: '#canvas-basic',
       name: 'basic-gradient',
       direction: 'left-right', // 'diagonal', 'top-bottom', 'radial'

@@ -15,22 +15,23 @@ export class SupplierSubscriptionComponentComponent implements OnInit {
   @ViewChild('reseller1') reseller1: ElementRef;
   @ViewChild('reseller2') reseller2: ElementRef;
   @ViewChild('popupDiv') popupDiv: ElementRef;
+  constructor(private renderer: Renderer2) { }
 
   @HostListener('click', ['$event'])
-  onclick(event: MouseEvent) {
+  onclick(): void {
   }
-  constructor(private renderer: Renderer2) { }
   ngOnInit(): void {
     AOS.init();
 
   }
-  classToApply(event) {
-    if (event.target.text === "supplier")
+  classToApply(event: any): void {
+    if (event.target.text === 'supplier') {
       this.applyClass = 1;
-    else if (event.target.text === "stockist")
+    } else if (event.target.text === 'stockist') {
       this.applyClass = 2;
-    else
+    } else {
       this.applyClass = 3;
+    }
   }
   onMouseOver(): void {
     this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'block');
@@ -39,4 +40,3 @@ export class SupplierSubscriptionComponentComponent implements OnInit {
     this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'none');
   }
 }
-

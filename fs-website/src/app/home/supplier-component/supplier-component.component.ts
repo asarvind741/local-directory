@@ -9,11 +9,8 @@ import * as AOS from 'aos';
 export class SupplierComponentComponent implements OnInit {
 
   @Input('supplierPlans') supplierPlans: any;
-
   constructor() { }
-
-  ngOnInit() {
-    AOS.init()
+  ngOnInit(): void {
+    AOS.init();
   }
-
 }

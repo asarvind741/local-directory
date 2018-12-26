@@ -1,0 +1,234 @@
+Steps to install Elastic search on CentOS 7
+
+ 
+
+#yum install java
+
+#rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
+
+#cd /etc/yum.repos.d/
+
+#vi elasticsearch.repo
+
+ 
+
+add below content in above file
+
+ 
+
+[elasticsearch-2.x]
+
+name=Elasticsearch repository for 2.x packages
+
+baseurl=https://packages.elastic.co/elasticsearch/2.x/centos
+
+gpgcheck=1
+
+gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch
+
+enabled=1
+
+ 
+
+ 
+
+#yum install elasticsearch
+
+#chkconfig --add elasticsearch
+
+#vi /etc/elasticsearch/elasticsearch.yml
+
+#ln -s /etc/elasticsearch/ /usr/share/elasticsearch/config
+
+#service elasticsearch start
+
+ 
+
+ 
+
+Attached is yml file
+
+ 
+
+ 
+
+Check if elastic search is working or not.,
+
+netstat -nap | grep -i  listen
+
+ 
+
+and check for default port 9200
+
+ 
+
+From: Kartikeya Dwivedi <kartikeya.dwivedi@synapseindia.email> 
+Sent: Thursday, November 15, 2018 2:12 PM
+To: 'Arvind Singh' <sarvind@synapseindia.email>; 'Hemant Mathur' <hemant@synapseindia.email>
+Cc: 'Shubham Shukla' <shuklas@synapseindia.email>
+Subject: RE: Server Access for Deployment- Project ID(10509)
+
+ 
+
+cluster.name: cluster10509
+
+node.name: node-10509
+
+ 
+
+ 
+
+From: Arvind Singh <sarvind@synapseindia.email> 
+Sent: Thursday, November 15, 2018 12:09 PM
+To: Hemant Mathur <hemant@synapseindia.email>; 'Kartikeya Dwivedi' <kartikeya.dwivedi@synapseindia.email>
+Cc: Shubham Shukla <shuklas@synapseindia.email>
+Subject: Re: Server Access for Deployment- Project ID(10509)
+
+ 
+
+Hi Sir,
+
+ 
+
+Can you please elastic search on server. Please use below steps to do the needful:-
+
+ 
+
+Step 1 — Downloading and Installing Elasticsearch
+ 
+
+First, update your package index.
+
+·         sudo apt-get update
+·          
+Download the latest Elasticsearch version, which is 2.3.1 at the time of writing.
+
+wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.1/elasticsearch-2.3.1.deb
+
+ 
+
+Then install it in the usual Ubuntu way with dpkg.
+
+sudo dpkg -i 
+
+elasticsearch-2.3.1.deb 
+
+ 
+
+To make sure Elasticsearch starts and stops automatically with the server, add its init script to the default runlevels.
+
+sudo systemctl 
+
+enable elasticsearch.service
+
+Step 2 — Configuring Elasticsearch
+ 
+Now that Elasticsearch and its Java dependencies have been installed, it is time to configure Elasticsearch. The Elasticsearch configuration files are in the /etc/elasticsearch directory. There are two files:
+
+·         elasticsearch.yml configures the Elasticsearch server settings. This is where all options, except those for logging, are stored, which is why we are mostly interested in this file.
+
+·         logging.yml provides configuration for logging. In the beginning, you don't have to edit this file. You can leave all default logging options. You can find the resulting logs in /var/log/elasticsearch by default.
+
+ 
+
+The first variables to customize on any Elasticsearch server are node.name and cluster.name in elasticsearch.yml. As their names suggest, node.name specifies the name of the server (node) and the cluster to which the latter is associated.
+
+If you don't customize these variable, a node.name will be assigned automatically in respect to the Droplet hostname. The cluster.name will be automatically set to the name of the default cluster.
+
+The cluster.name value is used by the auto-discovery feature of Elasticsearch to automatically discover and associate Elasticsearch nodes to a cluster. Thus, if you don't change the default value, you might have unwanted nodes, found on the same network, in your cluster.
+
+To start editing the main elasticsearch.yml configuration file with nano or your favorite text editor.
+
+·         sudo nano /etc/elasticsearch/elasticsearch.yml
+·          
+Remove the # character at the beginning of the lines for cluster.name and node.name to uncomment them, and then update their values. Your first configuration changes in the /etc/elasticsearch/elasticsearch.yml file should look like this:
+
+/etc/elasticsearch/elasticsearch.yml
+
+. . .
+cluster.name: mycluster1
+node.name: "My First Node"
+. . .
+Regards
+
+Arvind
+
+From: Hemant Mathur 
+
+Sent: Thursday, November 15, 2018 11:22 AM
+
+To: 'Kartikeya Dwivedi' ; sarvind@synapseindia.email 
+
+Subject: RE: Server Access for Deployment- Project ID(10509)
+
+ 
+
+ 
+
+(11:17) Arvind Singh: 40.71.47.14- Can you please open port 9200 on this server as i need this port for elastic search
+
+(11:19) hemant: allowed 9200 also for proj 10509
+
+ 
+
+Port 5000 is already open 
+
+ 
+
+From: Kartikeya Dwivedi <kartikeya.dwivedi@synapseindia.email> 
+Sent: Thursday, November 8, 2018 6:07 PM
+To: 'Hemant Mathur' <hemant@synapseindia.email>; sarvind@synapseindia.email
+Subject: RE: Server Access for Deployment- Project ID(10509)
+
+ 
+
+User: uprj10509
+
+ 
+
+Password : *
+
+ 
+
+IP: 40.71.47.14
+
+ 
+
+From: Hemant Mathur <hemant@synapseindia.email> 
+Sent: Thursday, November 8, 2018 4:46 PM
+To: Kartikeya Kumar Dwivedi <kartikeya.dwivedi@synapseindia.email>
+Subject: FW: Server Access for Deployment- Project ID(10509)
+
+ 
+
+ 
+
+ 
+
+From: Arvind Singh <sarvind@synapseindia.email> 
+Sent: Thursday, November 8, 2018 4:09 PM
+To: Hemant Mathur <hemant@synapseindia.email>
+Cc: Mahesh Chandra Bhatt <mbhatt@synapseindia.email>; Shubham Shukla <shuklas@synapseindia.email>
+Subject: Server Access for Deployment- Project ID(10509)
+
+ 
+
+Hi Sir,
+
+ 
+
+Please provide us server location access for the below mentioned project for the deployment purpose-
+
+ 
+
+Project ID: 10509
+
+Project Name: Design and Development of a B2B Solution]
+
+Client Name: Thierry Bitan
+
+ 
+
+Regards
+
+Arvind Singh

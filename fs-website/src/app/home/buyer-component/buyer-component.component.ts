@@ -15,14 +15,13 @@ export class BuyerComponentComponent implements OnInit {
     AOS.init();
   }
 
-  signupBuyer(data) {
+  signupBuyer(data): void {
     let selectedPlan;
     this.buyerPlans.forEach(plan => {
       if (plan.name === data) {
         selectedPlan = plan;
         this.router.navigate(['/auth/signup', selectedPlan._id]);
       }
-    })
+    });
   }
 }
-

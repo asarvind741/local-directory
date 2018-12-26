@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    AOS.init()
+    AOS.init();
   }
 
   onHelpPlanetClicked(event) {
@@ -33,4 +33,3 @@ export class FooterComponent implements OnInit {
     this.router.navigate(['/partner-iff']);
   }
 }
-

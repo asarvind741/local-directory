@@ -8,11 +8,10 @@ import * as AOS from 'aos';
 })
 export class BuiltPlatformComponent implements OnInit {
 
-  videoSrc: any = "../../../assets/images/old-poor-guy.mp4";
+  videoSrc: any = '../../../assets/images/old-poor-guy.mp4';
   constructor() { }
 
   ngOnInit(): void {
     AOS.init();
   }
 }
-

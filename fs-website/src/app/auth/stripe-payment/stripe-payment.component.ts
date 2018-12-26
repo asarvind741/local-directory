@@ -7,12 +7,8 @@ import {
   Input
 } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-
-import { NgForm } from '@angular/forms';
-
 declare var stripe: any;
 declare var elements: any;
-
 
 @Component({
   selector: 'app-stripe-payment',
@@ -61,12 +57,12 @@ export class StripePaymentComponent implements OnInit, AfterViewInit, OnDestroy 
     this.cd.detectChanges();
   }
 
-  async onSubmit(form: NgForm) {
+  async onSubmit() {
     const { token, error } = await stripe.createToken(this.card);
 
     if (error) {
     } else {
-      this.closeModal(token)
+      this.closeModal(token);
       // ...send the token to the your backend to process the charge
     }
   }
@@ -81,4 +77,3 @@ export class StripePaymentComponent implements OnInit, AfterViewInit, OnDestroy 
   clearModal() {
   }
 }
-

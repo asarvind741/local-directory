@@ -2,21 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PlanService } from '../../../services/plan.service';
 import { HttpResponse } from '@angular/common/http';
+
+import { PlanService } from '../../../services/plan.service';
 import { StripePaymentComponent } from '../../stripe-payment/stripe-payment.component';
 import { AuthService } from '../../../services/auth.service';
 
-
-
 function passwordConfirming(c: AbstractControl): any {
-  if(!c.parent || !c) return;
+  if (!c.parent || !c) { return; }
   const pwd = c.parent.get('password');
   const cpwd = c.parent.get('confirm_password');
 
-  if(!pwd || !cpwd) return ;
+  if (!pwd || !cpwd) { return; }
   if (pwd.value !== cpwd.value) {
-      return { invalid: true };
+    return { invalid: true };
   }
 }
 
@@ -33,7 +32,8 @@ export class SignupFormComponent implements OnInit {
   planId: any;
   tokenId: any;
   selectedPlan: any;
-  passwordPattern: any = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}$"
+  notFreePlan: Boolean;
+  passwordPattern: any = '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}$';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,25 +41,26 @@ export class SignupFormComponent implements OnInit {
     private modalService: NgbModal,
     private planService: PlanService,
     private authService: AuthService
-    ) {
+  ) {
 
   }
 
   ngOnInit() {
-
     this.activatedRoute.params
-    .subscribe((param: Params) => {
-      this.planId = param['id'];
-      this.planService.getPlan(this.planId)
-      .subscribe((response: HttpResponse<any>) => {
-        if(response.status === 200){
-          this.selectedPlan = response['data'];
-        }
-      })
-    });
-
-    
-
+      .subscribe((param: Params) => {
+        this.planId = param['id'];
+        this.planService.getPlan(this.planId)
+          .subscribe((response: HttpResponse<any>) => {
+            if (response.status === 200) {
+              this.selectedPlan = response['data'];
+              if (this.selectedPlan.price > 0) {
+                this.notFreePlan = true;
+              } else {
+                this.notFreePlan = false;
+              }
+            }
+          });
+      });
     this.createSignupForm();
 
   }
@@ -70,26 +71,37 @@ export class SignupFormComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required, Validators.pattern(this.passwordPattern)]),
       confirmPassword: new FormControl(null, [Validators.required, passwordConfirming])
-    })
+    });
   }
 
-  openPaymentModal(){
-      const modalRef = this.modalService.open(StripePaymentComponent);
-      modalRef.componentInstance.selectedPlan = this.selectedPlan;
-      modalRef.result.then((result) => {
-        delete this.signupForm.value.confirmPassword;
-       
-        const user = this.signupForm.value;
-        const payment = { tokenId: result.id, amount: this.selectedPlan.price, subscriptionId: this.selectedPlan._id};
-        this.authService.signupUser(user, payment)
-        .subscribe((response: HttpResponse<any>) => {
-          if(response.status === 200){
-          }
-        })
+  openPaymentModal(): void {
+    const modalRef = this.modalService.open(StripePaymentComponent);
+    modalRef.componentInstance.selectedPlan = this.selectedPlan;
+    modalRef.result.then((result) => {
+      delete this.signupForm.value.confirmPassword;
 
-      }).catch((error) => {
-      });
-    
+      const user = this.signupForm.value;
+      const payment = { tokenId: result.id, amount: this.selectedPlan.price, subscriptionId: this.selectedPlan._id };
+      this.authService.signupUser(user, payment)
+        .subscribe((response: HttpResponse<any>) => {
+          if (response.status === 200) {
+          }
+        });
+
+    });
+    // .catch((error) => {
+    //   console.log(error);
+    // });
+
+  }
+
+  signupUser(): void {
+    let payment = { subscriptionId: this.selectedPlan._id };
+    this.authService.signupUser(this.signupForm.value, payment).subscribe((response: HttpResponse<any>) => {
+      if (response.status === 200) {
+      }
+    });
+
   }
 
 }

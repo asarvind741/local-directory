@@ -19,7 +19,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private subjectService: SubjectService,
     private router: Router,
     private spinner: NgxSpinnerService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.router.events.subscribe((evt) => {
@@ -32,25 +32,24 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.router.events
-    .subscribe((event) => {
-      if( event instanceof NavigationStart ) {
-        this.spinner.show();
-      } else if( event instanceof NavigationCancel || event instanceof NavigationEnd ) {
-        this.spinner.hide()
-      }
-    })
+      .subscribe((event) => {
+        if (event instanceof NavigationStart) {
+          this.spinner.show();
+        } else if (event instanceof NavigationCancel || event instanceof NavigationEnd) {
+          this.spinner.hide();
+        }
+      });
     this.subjectService.digitalSourcing$
-    .subscribe((data: ElementRef) => {
-      this.aboutDigitalSourcing = data;
-    });
+      .subscribe((data: ElementRef) => {
+        this.aboutDigitalSourcing = data;
+      });
     this.subjectService.contact$
-    .subscribe((data: ElementRef) => {
-      this.contact = data;
-    });
+      .subscribe((data: ElementRef) => {
+        this.contact = data;
+      });
     this.subjectService.jobPostPlan$
-    .subscribe((data: ElementRef) => { 
-      this.jobPostPlanning = data;
-    });
+      .subscribe((data: ElementRef) => {
+        this.jobPostPlanning = data;
+      });
   }
 }
-

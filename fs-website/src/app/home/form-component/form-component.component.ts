@@ -9,7 +9,6 @@ import * as AOS from 'aos';
 export class FormComponentComponent implements OnInit {
   constructor() { }
   ngOnInit(): void {
-    AOS.init()
+    AOS.init();
   }
 }
-

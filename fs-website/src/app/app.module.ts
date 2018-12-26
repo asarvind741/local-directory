@@ -12,7 +12,6 @@ import { FooterComponent } from './core/footer-component/footer.component';
 import { MissionComponent } from './mission/mission.component';
 import { HelpPlanetComponent } from './help-planet/help-planet.component';
 import { PartnerIffComponent } from './partner-iff/partner-iff.component';
-import { HoverDirective } from './directives/show-popup.directive';
 import { ProductListingComponent } from './product-listing/product-listing.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { ProductListingComponent } from './product-listing/product-listing.compo
     HelpPlanetComponent,
     PartnerIffComponent,
     FooterComponent,
-    HoverDirective,
     ProductListingComponent
   ],
   imports: [

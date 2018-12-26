@@ -1,5 +1,5 @@
 import {
-  Component, OnInit, AfterViewInit,
+  Component, AfterViewInit,
   OnDestroy,
   ViewChild,
   ElementRef,
@@ -8,15 +8,12 @@ import {
 } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { NgForm } from '@angular/forms';
-
-
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
+export class PaymentComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('cardInfo') cardInfo: ElementRef;
   @Input('selectedPlan') any;
@@ -28,10 +25,7 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
     private cd: ChangeDetectorRef,
     public activeModal: NgbActiveModal) { }
 
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit():void {
+  ngAfterViewInit(): void {
     const style = {
       base: {
         lineHeight: '24px',
@@ -48,12 +42,12 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
     this.card.addEventListener('change', this.cardHandler);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.card.removeEventListener('change', this.cardHandler);
     this.card.destroy();
   }
 
-  onChange({ error }): void {
+  onChange(error: any): void {
     if (error) {
       this.error = error.message;
     } else {
@@ -62,7 +56,7 @@ export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
     this.cd.detectChanges();
   }
 
-  closeModal(token: any) {
+  closeModal(token: any): void {
     this.activeModal.close(token);
   }
 

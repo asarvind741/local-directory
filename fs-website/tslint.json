@@ -22,7 +22,7 @@
     "no-unused": true,
     "no-return-undefined": true,
     "no-unnecessary-else": true,
-    "no-collapsible-if": true,
+    "no-collapsible-if": false,
     "no-as-type-assertion": true,
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -30,7 +30,7 @@
     "no-multi-spaces": true,
     "prefer-for-of": true,
     "typedef": [
-      true,
+      false,
       "call-signature",
       "parameter",
       "property-declaration"
@@ -48,13 +48,9 @@
     ],
     "import-spacing": true,
     "import-destructuring-spacing": true,
-    "indent": [
-      true,
-      "spaces",
-      4
-    ],
+    "indent": [false, "spaces"],
     "ter-indent": [
-      true,
+      false,
       2,
       {
         "SwitchCase": true
@@ -69,7 +65,7 @@
     ],
     "max-line-length": [
       true,
-      140
+      180
     ],
     "member-access": [
       false
@@ -118,8 +114,8 @@
     "switch-default": true,
     "no-trailing-whitespace": false,
     "no-unnecessary-initializer": true,
-    "no-unused-expression": true,
-    "no-unused-variable": true,
+    "no-unused-expression": false,
+    "no-unused-variable": false,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
@@ -130,7 +126,7 @@
       "check-else",
       "check-whitespace"
     ],
-    "prefer-const": true,
+    "prefer-const": false,
     "quotemark": [
       true,
       "single"

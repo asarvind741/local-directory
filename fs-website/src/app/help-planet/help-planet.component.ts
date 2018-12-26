@@ -11,7 +11,6 @@ export class HelpPlanetComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {
-    localStorage.setItem('path', this.location.path())
+    localStorage.setItem('path', this.location.path());
   }
 }
-

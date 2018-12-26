@@ -53,3 +53,17 @@ https://docs.oracle.com/en/cloud/saas/procurement/r13-update17d/oaprc/manage-sup
 https://github.com/NodeArt/angular-commerce/tree/master/modules
 
 https://tutorialedge.net/typescript/angular/angular-query-params-tutorial/
+
+Can't have multiple template bindings on one element.
+
+Failed to set the 'value' property on 'HTMLInputElement': This input element accepts a filename
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollLeftMax
+
+unsafe for imagr from server in angular
+localhost added in image url
+
+https://angular.io/api/router/NavigationExtras
+https://angular.io/guide/router
+https://www.tektutorialshub.com/navigating-between-angular-routes/
+

@@ -1,8 +1,9 @@
 import { Component, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit, OnInit } from '@angular/core';
-import { SubjectService } from '../services/subjects.service';
 import { Location } from '@angular/common';
-import { PlanService } from '../services/plan.service';
 import { HttpResponse } from '@angular/common/http';
+
+import { PlanService } from '../services/plan.service';
+import { SubjectService } from '../services/subjects.service';
 
 @Component({
   selector: 'app-home',
@@ -31,11 +32,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
         if (response.status === 200) {
           this.buyerPlans = response['data'];
         }
-      })
+      });
   }
 
   ngAfterViewInit(): void {
-    localStorage.setItem('path', this.location.path())
+    localStorage.setItem('path', this.location.path());
     this.cdr.detectChanges();
     if (this.aboutDigital !== undefined) {
       // this.aboutDigitalSourcing = this.aboutDigital;

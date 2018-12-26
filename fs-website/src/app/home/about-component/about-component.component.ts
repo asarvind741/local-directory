@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef, DoCheck, Renderer2, AfterViewInit } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import * as AOS from 'aos';
 
 @Component({
@@ -8,13 +8,11 @@ import * as AOS from 'aos';
 })
 export class AboutComponentComponent implements OnInit, AfterViewInit {
   @ViewChild('aboutus') aboutus: ElementRef;
-  @HostListener("window:scroll", [])
+  constructor(private renderer: Renderer2) { }
+  @HostListener('window:scroll', [])
   onWindowScroll() {
     AOS.init();
   }
-
-  constructor(private renderer: Renderer2) { }
-
   ngOnInit(): void {
     if (this.aboutus.nativeElement.classList.contains('aos-animate')) {
     }
@@ -23,8 +21,7 @@ export class AboutComponentComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.aboutus.nativeElement.classList.contains('aos-animate')) {
-      this.renderer.removeClass(this.aboutus.nativeElement, 'aos-animate')
+      this.renderer.removeClass(this.aboutus.nativeElement, 'aos-animate');
     }
   }
 }
-

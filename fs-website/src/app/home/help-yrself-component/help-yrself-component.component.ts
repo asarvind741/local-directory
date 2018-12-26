@@ -10,8 +10,7 @@ export class HelpYrselfComponentComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    AOS.init()
+  ngOnInit(): void {
+    AOS.init();
   }
 }
-

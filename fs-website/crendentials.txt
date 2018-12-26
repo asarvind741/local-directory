@@ -1,0 +1,19 @@
+Google maps API-AIzaSyBmrzP98ZfePMQV6daKD-utBxcRlpzE1IQ
+
+Website Server Credentials:
+
+IP: 199.247.11.218
+username: root
+password: search
+
+
+Github Credentials for FS-
+URL: https://github.com/FashionSourcing
+Username: synapseindia.emp2013@synapseindia.com
+Password: Arvind2013
+
+
+Staging server details webapp:
+IP Address: 40.71.47.14
+Username: uprj10509
+Password: CtLFbk8v2

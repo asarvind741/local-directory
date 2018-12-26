@@ -1,0 +1,54 @@
+sudo kill `sudo lsof -t -i:443`
+netstat -tulpn
+ netstat -tulpn | grep :80
+
+https://my.101domain.com
+dale@tampamoves.com
+%SvHz8c7G9Rq
+
+amazon:
+dale@tampamoves.com
+4aOEhB4A5Oed
+
+GitHub:
+dale@tampamoves.com
+zCi4q5U7EDtpW1
+
+Slack:
+dalebohannon.slack.com
+teamm@synapseindia.com
+p@ssw0rd1111
+
+Facebook:
+dale@tampamoves.com
+VeloFB2001
+
+
+Bitbucket.org URL:
+https://bitbucket.org/dwellybot/chatbot-express.git
+
+ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
+
+
+FileZilla-
+
+Key Files- E:\Projects\9014\docs\Chatbot - 9014\LightsailDefaultPrivateKey-us-east-1.pem
+User:ubuntu
+Logon Type: Key file
+Protocol: SFTP
+Host: 34.199.255.112
+Port: 22 not sure
+
+Default Local Directory: E:\Projects\9014\source code\chatboxexpress
+Default Remote Directory: /var/chatbot
+
+Transfer Mode: Default
+Charset: Autodetect
+
+Chatbot APIs:
+
+Housecanary: https://api-docs.housecanary.com/#property-sales_history
+Estated: https://estated.com/developers/docs/schema#owners
+
+
+Messengar Platform- https://developers.facebook.com/docs/messenger-platform

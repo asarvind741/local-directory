@@ -67,3 +67,5 @@ https://angular.io/api/router/NavigationExtras
 https://angular.io/guide/router
 https://www.tektutorialshub.com/navigating-between-angular-routes/
 
+
+https://stackoverflow.com/questions/45428886/why-does-angular-cli-ng-build-shows-killed

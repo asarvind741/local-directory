@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { BuyerProfileComponent } from './buyer-profile/buyer-profile.component';
 
 @NgModule({

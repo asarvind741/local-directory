@@ -1,15 +1,20 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-mission',
   templateUrl: './mission.component.html',
   styleUrls: ['./mission.component.css']
 })
-export class MissionComponent implements AfterViewInit {
+export class MissionComponent implements OnInit, AfterViewInit {
 
   constructor(private location: Location) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     localStorage.setItem('path', this.location.path());
   }
+
 }

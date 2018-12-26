@@ -45,6 +45,9 @@
                   <li class="nav-item" [ngClass]="currentEvent == 'Mission'  ? 'active': ''">
                     <a class="nav-link" (click) = "onMissionClick($event)" >Mission</a>
                   </li>
+                  <li class="nav-item" [ngClass]="currentEvent == 'partner-iff'  ? 'active': ''">
+                      <a class="nav-link" (click) = "onPartnersClick($event)" >Partners</a>
+                  </li>                  
                   <li class="nav-item contact" [ngClass]="currentEvent == 'Contact' ? 'active': ''">
                     <a class="nav-link" 
                     [routerLink] = "['/']" 

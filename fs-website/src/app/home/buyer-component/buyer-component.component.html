@@ -231,11 +231,11 @@
 
               <tr>
                 <td class="num_t_lft"></td>
-                <td><a class="animate-border" (click) = "signupBuyer('FASHION SCHOOL ON REQUEST')">SIGN UP</a></td>
-                <td><a class="animate-border" (click) = "signupBuyer('STARTER')">SIGN UP</a></td>
-                <td><a class="animate-border" (click) = "signupBuyer('SELECT')">SIGN UP</a></td>
-                <td><a class="animate-border" (click) = "signupBuyer('DELUXE')">SIGN UP</a></td>
-                <td><a class="animate-border" (click) = "signupBuyer('ELITE')">SIGN UP</a></td>
+                <td><a class="animate-border" [routerLink]="['/auth/signup', buyerPlans[0]._id]">SIGN UP</a></td>
+                <td><a class="animate-border" [routerLink]="['/auth/signup', buyerPlans[1]._id]">SIGN UP</a></td>
+                <td><a class="animate-border" [routerLink]="['/auth/signup', buyerPlans[2]._id]">SIGN UP</a></td>
+                <td><a class="animate-border" [routerLink]="['/auth/signup', buyerPlans[3]._id]">SIGN UP</a></td>
+                <td><a class="animate-border" [routerLink]="['/auth/signup', buyerPlans[4]._id]">SIGN UP</a></td>
               </tr>
 
             </tbody>
@@ -245,7 +245,7 @@
 
         <div class="text_tbl">
           <p>* VAT may be applied in certain countries</p>
-          <p>** For more job postings please contact us</p>
+          <!--p>** For more job postings please contact us</p-->
         </div>
 
       </div>

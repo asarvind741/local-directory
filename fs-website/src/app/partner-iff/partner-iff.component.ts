@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
@@ -6,12 +6,15 @@ import { Location } from '@angular/common';
   templateUrl: './partner-iff.component.html',
   styleUrls: ['./partner-iff.component.css']
 })
-export class PartnerIffComponent implements AfterViewInit {
+export class PartnerIffComponent implements OnInit, AfterViewInit {
 
   constructor(private location: Location) { }
 
-  ngAfterViewInit(): void {
-    localStorage.setItem('path', this.location.path());
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    localStorage.setItem('path', 'partner-iff');
   }
 
 }

@@ -7,8 +7,11 @@ import * as AOS from 'aos';
   styleUrls: ['./form-component.component.css']
 })
 export class FormComponentComponent implements OnInit {
+
   constructor() { }
-  ngOnInit(): void {
+
+  ngOnInit() {
     AOS.init();
   }
+
 }

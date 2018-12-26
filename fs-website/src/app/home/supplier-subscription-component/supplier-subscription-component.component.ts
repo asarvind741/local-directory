@@ -1,5 +1,9 @@
 import { Component, OnInit, HostListener, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import * as AOS from 'aos';
+
+
+
+
 @Component({
   selector: 'app-supplier-subscription-component',
   templateUrl: './supplier-subscription-component.component.html',
@@ -15,28 +19,38 @@ export class SupplierSubscriptionComponentComponent implements OnInit {
   @ViewChild('reseller1') reseller1: ElementRef;
   @ViewChild('reseller2') reseller2: ElementRef;
   @ViewChild('popupDiv') popupDiv: ElementRef;
-  constructor(private renderer: Renderer2) { }
 
   @HostListener('click', ['$event'])
-  onclick(): void {
+  onclick(event: MouseEvent) {
+
+    // console.log(event)
+    // this.renderer.removeClass(
+    //   this.supplier1.nativeElement, 'aos-animate'
+    // )
+
   }
-  ngOnInit(): void {
+  constructor(private renderer: Renderer2) { }
+  ngOnInit() {
     AOS.init();
 
   }
-  classToApply(event: any): void {
-    if (event.target.text === 'supplier') {
+
+  classToApply(event) {
+    console.log('assssss', event.target.text)
+    if (event.target.text === "supplier")
       this.applyClass = 1;
-    } else if (event.target.text === 'stockist') {
+    else if (event.target.text === "stockist")
       this.applyClass = 2;
-    } else {
+    else
       this.applyClass = 3;
-    }
   }
-  onMouseOver(): void {
-    this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'block');
+
+  onMouseOver() {
+    this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'block')
   }
-  onMouseLeave(): void {
-    this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'none');
+
+  onMouseLeave() {
+    this.renderer.setStyle(this.popupDiv.nativeElement, 'display', 'none')
   }
+
 }

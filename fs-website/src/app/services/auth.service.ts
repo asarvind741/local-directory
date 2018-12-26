@@ -1,14 +1,25 @@
 import { Injectable } from '@angular/core';
+import {environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
-import { environment } from '../../environments/environment';
-
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
+
+
 export class AuthService {
-  constructor(private httpClient: HttpClient) { }
-  signupUser(user: any, payment: any): any {
-    return this.httpClient.post(`${environment.API_URL}/user/create`, { user, payment }, { observe: 'response' });
-  }
+
+    constructor(private httpClient: HttpClient) {
+
+    }
+
+
+    OnInit(): void {
+        // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        // Add 'implements OnInit' to the class.
+    }
+
+    signupUser(user, payment) {
+        return this.httpClient.post(`${environment.API_URL}/user/create`, {user, payment}, { observe: 'response'});
+    }
 }

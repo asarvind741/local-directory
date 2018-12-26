@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 
 @Component({
@@ -8,9 +8,10 @@ import * as AOS from 'aos';
 })
 export class SupplierComponentComponent implements OnInit {
 
-  @Input('supplierPlans') supplierPlans: any;
   constructor() { }
-  ngOnInit(): void {
+
+  ngOnInit() {
     AOS.init();
   }
+
 }

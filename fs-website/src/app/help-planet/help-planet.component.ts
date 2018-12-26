@@ -7,10 +7,14 @@ import { Location } from '@angular/common';
   styleUrls: ['./help-planet.component.css']
 })
 export class HelpPlanetComponent implements OnInit, AfterViewInit {
+
   constructor(private location: Location) { }
-  ngOnInit(): void {
+
+  ngOnInit() {
   }
-  ngAfterViewInit(): void {
+
+  ngAfterViewInit() {
     localStorage.setItem('path', this.location.path());
   }
+
 }

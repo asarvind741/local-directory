@@ -83,6 +83,9 @@
     position: relative;
     left: -40px; 
   }
+  .explore {
+    padding-left: 70px;
+  }
   .wrapper {
     position: relative;
     left: 100px;

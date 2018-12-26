@@ -1,5 +1,5 @@
 import {
-  Component, AfterViewInit,
+  Component, OnInit, AfterViewInit,
   OnDestroy,
   ViewChild,
   ElementRef,
@@ -8,24 +8,35 @@ import {
 } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { NgForm } from '@angular/forms';
+
+declare var stripe: any;
+declare var elements: any;
+
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent implements AfterViewInit, OnDestroy {
+export class PaymentComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('cardInfo') cardInfo: ElementRef;
-  @Input('selectedPlan') any;
+  @Input('selectedPlan') selectedPlan: any;
 
   card: any;
   cardHandler = this.onChange.bind(this);
   error: string;
+
+
   constructor(
     private cd: ChangeDetectorRef,
     public activeModal: NgbActiveModal) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     const style = {
       base: {
         lineHeight: '24px',
@@ -42,12 +53,12 @@ export class PaymentComponent implements AfterViewInit, OnDestroy {
     this.card.addEventListener('change', this.cardHandler);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.card.removeEventListener('change', this.cardHandler);
     this.card.destroy();
   }
 
-  onChange(error: any): void {
+  onChange({ error }) {
     if (error) {
       this.error = error.message;
     } else {
@@ -56,14 +67,26 @@ export class PaymentComponent implements AfterViewInit, OnDestroy {
     this.cd.detectChanges();
   }
 
-  closeModal(token: any): void {
+  async onSubmit(form: NgForm) {
+    const { token, error } = await stripe.createToken(this.card);
+
+    if (error) {
+      console.log('Something is wrong:', error);
+    } else {
+      console.log('Success!', token);
+      this.closeModal(token)
+      // ...send the token to the your backend to process the charge
+    }
+  }
+
+  closeModal(token) {
     this.activeModal.close(token);
   }
 
-  cancelNewUserAddition(): void {
+  cancelNewUserAddition() {
   }
 
-  clearModal(): void {
+  clearModal() {
   }
 
 }

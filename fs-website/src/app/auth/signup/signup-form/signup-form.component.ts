@@ -2,20 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { HttpResponse } from '@angular/common/http';
-
 import { PlanService } from '../../../services/plan.service';
-import { StripePaymentComponent } from '../../stripe-payment/stripe-payment.component';
+import { HttpResponse } from '@angular/common/http';
+import { PaymentComponent } from '../../payment/payment.component';
 import { AuthService } from '../../../services/auth.service';
 
+
+
 function passwordConfirming(c: AbstractControl): any {
-  if (!c.parent || !c) { return; }
+  if(!c.parent || !c) return;
   const pwd = c.parent.get('password');
   const cpwd = c.parent.get('confirm_password');
 
-  if (!pwd || !cpwd) { return; }
+  if(!pwd || !cpwd) return ;
   if (pwd.value !== cpwd.value) {
-    return { invalid: true };
+      return { invalid: true };
   }
 }
 
@@ -32,8 +33,7 @@ export class SignupFormComponent implements OnInit {
   planId: any;
   tokenId: any;
   selectedPlan: any;
-  notFreePlan: Boolean;
-  passwordPattern: any = '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}$';
+  passwordPattern: any = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}$"
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,26 +41,25 @@ export class SignupFormComponent implements OnInit {
     private modalService: NgbModal,
     private planService: PlanService,
     private authService: AuthService
-  ) {
+    ) {
 
   }
 
   ngOnInit() {
+
     this.activatedRoute.params
-      .subscribe((param: Params) => {
-        this.planId = param['id'];
-        this.planService.getPlan(this.planId)
-          .subscribe((response: HttpResponse<any>) => {
-            if (response.status === 200) {
-              this.selectedPlan = response['data'];
-              if (this.selectedPlan.price > 0) {
-                this.notFreePlan = true;
-              } else {
-                this.notFreePlan = false;
-              }
-            }
-          });
-      });
+    .subscribe((param: Params) => {
+      this.planId = param['id'];
+      this.planService.getPlan(this.planId)
+      .subscribe((response: HttpResponse<any>) => {
+        if(response.status === 200){
+          this.selectedPlan = response['data'];
+        }
+      })
+    });
+
+    
+
     this.createSignupForm();
 
   }
@@ -71,37 +70,52 @@ export class SignupFormComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required, Validators.pattern(this.passwordPattern)]),
       confirmPassword: new FormControl(null, [Validators.required, passwordConfirming])
-    });
+    })
   }
 
-  openPaymentModal(): void {
-    const modalRef = this.modalService.open(StripePaymentComponent);
-    modalRef.componentInstance.selectedPlan = this.selectedPlan;
-    modalRef.result.then((result) => {
-      delete this.signupForm.value.confirmPassword;
-
-      const user = this.signupForm.value;
-      const payment = { tokenId: result.id, amount: this.selectedPlan.price, subscriptionId: this.selectedPlan._id };
-      this.authService.signupUser(user, payment)
+  openPaymentModal(){
+      const modalRef = this.modalService.open(PaymentComponent);
+      modalRef.componentInstance.selectedPlan = this.selectedPlan;
+      modalRef.result.then((result) => {
+        console.log("result===>", result);
+        delete this.signupForm.value.confirmPassword;
+       
+        const user = this.signupForm.value;
+        console.log("user", user)
+        const payment = { tokenId: result.id, amount: this.selectedPlan.price, subscriptionId: this.selectedPlan._id};
+        console.log("user", payment)
+        this.authService.signupUser(user, payment)
         .subscribe((response: HttpResponse<any>) => {
-          if (response.status === 200) {
+          if(response.status === 200){
+            console.log("response", response)
           }
-        });
+        })
 
-    });
-    // .catch((error) => {
-    //   console.log(error);
-    // });
-
+      }).catch((error) => {
+      });
+    
   }
 
-  signupUser(): void {
-    let payment = { subscriptionId: this.selectedPlan._id };
-    this.authService.signupUser(this.signupForm.value, payment).subscribe((response: HttpResponse<any>) => {
-      if (response.status === 200) {
-      }
-    });
+  onSubmit() {
 
+    console.log("form values", this.signupForm.value);
+    if(this.selectedPlan.price > 0 ){
+      var handler = (<any>window).StripeCheckout.configure({
+        key: 'pk_test_K9HatDLzNWcxnBcPioY0JjvF',
+        locale: 'auto',
+        token: function (token: any) {
+         this.tokenId = token.id;
+        }
+      });
+      handler.open({
+        name: 'B2B Portal',
+        description: 'A fashionsourcing website',
+        amount: this.selectedPlan.price
+      });
+  
+      // this.router.navigate(['./payment'], { relativeTo: this.activatedRoute});
+    }
+    // console.log("selected plan", this.selectedPlan)
   }
 
 }

@@ -5,9 +5,9 @@
     position:relative;
     background:url(../../assets/images/welcome-banner.png)no-repeat;
     background-position: center;
-    height:600px;
+    height:400px;
     margin-top: 132px;
-    background-size: cover;
+    background-size: auto;
 }
 .welcome-hero:before{
     position:absolute;

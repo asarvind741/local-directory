@@ -1,9 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  Input } from '@angular/core';
 import { TimelineMax, Linear } from 'gsap/TweenMax';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
 
+import * as $ from 'jquery';
 import { SubjectService } from '../../services/subjects.service';
+import { variable } from '@angular/compiler/src/output/output_ast';
 declare let Granim: any;
 
 @Component({
@@ -11,26 +18,26 @@ declare let Granim: any;
   templateUrl: './banner-component.component.html',
   styleUrls: ['./banner-component.component.css']
 })
-export class BannerComponentComponent implements OnInit, AfterViewInit {
+export class BannerComponentComponent implements OnInit {
   @ViewChild('banner') banner: ElementRef;
-  @Input('aboutDigital') aboutDigital: ElementRef;
+  @Input() aboutDigital: ElementRef;
   aboutDigital1: any;
   constructor(
     private subjectService: SubjectService,
     private router: Router
-  ) { }
+    ) { }
 
   ngOnInit() {
 
-    this.subjectService.digitalSourcing$
-      .subscribe(data => {
-        this.aboutDigital1 = data;
-      });
-    // console.log('window height', window.outerHeight);
+    this.subjectService.digitalSourcing
+    .subscribe(data => {
+      this.aboutDigital1 = data;
+    });
+    // console.log("window height", window.outerHeight);
     // this.banner.nativeElement.style.height = window.outerHeight + 'px';
 
     $(document).ready(function () {
-      let winHei = $(window).height();
+      const winHei = $(window).height();
       $('.banner_sec, .banner_sec .container, #canvas-basic').height(winHei);
 
     });
@@ -38,48 +45,45 @@ export class BannerComponentComponent implements OnInit, AfterViewInit {
     $(window).resize(function () {
       // if($(window).width() > 767){
       $('.banner_sec, .banner_sec .container, #canvas-basic').removeAttr('style');
-      let winHei = $(window).height();
+      const winHei = $(window).height();
       $('.banner_sec, .banner_sec .container, #canvas-basic').height(winHei);
       // }
     });
 
     function spinGlobe() {
-      let tmaxTl = new TimelineMax({
-        delay: 0.1675,
-        repeat: -1
-      });
+      const tmax_tl = new TimelineMax({
+            delay: 0.1675,
+            repeat: -1,
+          });
+      const globe_continents = [
+            $('#globe #middle g path'),
+            $('#globe #left g path')
+          ];
 
-      let globeContinents = [
-        $('#globe #middle g path'),
-        $('#globe #left g path')
-      ];
-
-      let globeSpeed = 10;
-
-      let mapFrom = {
+      const globe_speed = 10;
+      const map_from = {
         x: 0
       };
-
-      let mapTo = {
+      const map_to = {
         x: 150,
         ease: Linear.easeOut
       };
 
-      tmaxTl.fromTo(globeContinents, globeSpeed, mapFrom, mapTo, 0);
+      tmax_tl.fromTo(globe_continents, globe_speed, map_from, map_to, 0);
 
-      return tmaxTl;
+      return tmax_tl;
     }
 
     spinGlobe();
   }
 
   scrollToBanner() {
-    // console.log(this.aboutDigital1);
+    console.log('thisssssssss', this.aboutDigital1);
     this.aboutDigital1.nativeElement.scrollIntoView(true);
   }
 
-  ngAfterViewInit() {
-    new Granim({
+  AfterViewInit() {
+    const granimInstance = new Granim({
       element: '#canvas-basic',
       name: 'basic-gradient',
       direction: 'left-right', // 'diagonal', 'top-bottom', 'radial'
@@ -90,6 +94,7 @@ export class BannerComponentComponent implements OnInit, AfterViewInit {
           gradients: [
             ['#360033', '#0b8793'],
             ['#33001b', '#ff0084'],
+
             ['#1a2a6c', '#b21f1f'],
             ['#cc2b5e', '#753a88'],
             ['#ee0979', '#ff6a00']
@@ -99,9 +104,8 @@ export class BannerComponentComponent implements OnInit, AfterViewInit {
     });
   }
 
-  onGlobeClicked(event): void {
-    this.subjectService.currentEvent$.next(event);
+  onGlobeClicked(event) {
+    this.subjectService.currentEvent.next(event);
     this.router.navigate(['/help-planet']);
   }
-
 }
